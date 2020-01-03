@@ -58,6 +58,25 @@ var
 proc `$`*(mc: MolecularConsequence): string =
   return mc.so_term & "|" & mc.description
 
+proc nbStars*(rs: RevStat): int =
+  case rs:
+    of rsNoAssertion:
+      result = 0
+    of rsNoAssertionCriteria:
+      result = 0
+    of rsNoAssertionVariant:
+      result = 0
+    of rsSingleSubmitter:
+      result = 1
+    of rsMultipleSubmitterConflicting:
+      result = 1
+    of rsMutlipleSubmitterNoConflict:
+      result = 2
+    of rsExpertPanel:
+      result = 3
+    of rsPracticeGuideline:
+      result = 4
+
 proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], total: int, has_conflict = false): RevStat =
   if total > 1 and revstat_count.hasKey(rsSingleSubmitter):
     if has_conflict:
@@ -79,6 +98,14 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
     revstat_count = newTable[RevStat, int]()
     total = 0
     no_aggregation_needed = false
+    at_least_one_star_subs: seq[Submission]
+
+  # Count submissions with one star or more
+  var has_one_star_sub : bool = false
+  for sub in submissions:
+    if sub.review_status.nbStars() >= 1:
+      has_one_star_sub = true
+      break
 
   for sub in submissions:
     # When there is a submission from an Expert panel or from a group providing practice guidelines, only the interpretation from that group is reported in the aggregate record, even if other submissions provide different interpretations. 
@@ -87,21 +114,22 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
       result.revstat = $sub.review_status
       no_aggregation_needed = true
       break
-
-    if clinsig_count.hasKey(sub.clinical_significance):
-      inc(clinsig_count[sub.clinical_significance])
-    else:
-      clinsig_count[sub.clinical_significance] = 1
-    
-    if revstat_count.hasKey(sub.review_status):
-      inc(revstat_count[sub.review_status])
-    else:
-      revstat_count[sub.review_status] = 1
-    inc(total)
+    # If we have submissions(s) with one star or more, we only uses this submissions in the aggregation
+    # Otherwise we use all submissions
+    elif not has_one_star_sub or sub.review_status.nbStars >= 1:
+      if clinsig_count.hasKey(sub.clinical_significance):
+        inc(clinsig_count[sub.clinical_significance])
+      else:
+        clinsig_count[sub.clinical_significance] = 1
+      
+      if revstat_count.hasKey(sub.review_status):
+        inc(revstat_count[sub.review_status])
+      else:
+        revstat_count[sub.review_status] = 1
+      inc(total)
   
   # If we have found and rsExpertPanel or rsPracticeGuideline we do not perform aggreagtion of submissions
   if not no_aggregation_needed:
-    
     # Filter acmg_only values:
     var 
       nb_acmg_tags = 0
