@@ -285,7 +285,15 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): TableRef[
                       for xref_node in attribute_set_node.select("xref"):
                         if xref_node.attr("DB") == "Sequence Ontology":
                           so_term = xref_node.attr("ID")
-                      variant.molecular_consequences.add(MolecularConsequence(description: description, so_term: so_term))
+                      var 
+                        mc_new = MolecularConsequence(description: description, so_term: so_term)
+                        found_mc = false
+                      # Do not add if the MC is already there TODO: Need refactor (simplified code)
+                      for mc in variant.molecular_consequences:
+                        if mc.so_term == mc_new.so_term:
+                          found_mc = true
+                      if not found_mc:
+                        variant.molecular_consequences.add(mc_new)
 
                 break # We found our "sequenceLocation"
 
