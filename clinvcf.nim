@@ -35,6 +35,10 @@ type
     clinical_significance: ClinSig
     review_status: RevStat
 
+  MolecularConsequence = ref object
+    description: string
+    so_term : string
+
   ClinVariant = ref object
     variant_id: int
     allele_id: int
@@ -44,11 +48,15 @@ type
     alt_allele: string
     gene_id: int
     gene_symbol: string
+    molecular_consequences: seq[MolecularConsequence]
     submissions: seq[Submission]
 
 var
   acmg_clinsig = @[csBenign, csLikelyBenign, csUncertainSignificance, csLikelyPathogenic, csPathogenic]
   non_acmg_clinsig = @[csDrugResponse, csRiskFactor, csAffects, csAssociation, csProtective, csConflictingDataFromSubmitters, csOther]
+
+proc `$`*(mc: MolecularConsequence): string =
+  return mc.so_term & "|" & mc.description
 
 proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], total: int, has_conflict = false): RevStat =
   if total > 1 and revstat_count.hasKey(rsSingleSubmitter):
@@ -200,18 +208,12 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): TableRef[
                   alt_allele = sequence_loc.attr("alternateAlleleVCF")
                 
                 var
-                  # clinical_significance : string
-                  # review_status : string
                   gene_symbol: string
                   gene_id : int = -1
                   pos : int = -1
                 
                 if pos_string != "":
                   pos = pos_string.parseInt()
-                
-                # if clinsig_nodes.len() > 0:
-                #   clinical_significance = clinsig_nodes[0].select("description")[0].innerText
-                #   review_status = clinsig_nodes[0].select("reviewstatus")[0].innerText
                 
                 if measure_relationship_nodes.len() > 0:
                   let gene_symbol_nodes = measure_relationship_nodes[0].select("symbol elementvalue")
@@ -235,6 +237,28 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): TableRef[
                     gene_symbol: gene_symbol
                   )
                 result[variant_id] = variant
+
+                # Parse Molecular Consequence
+                # <AttributeSet>
+                #   <Attribute Type="MolecularConsequence">missense variant</Attribute>
+                #   <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+                #   <XRef ID="NM_000059.3:c.241T&gt;A" DB="RefSeq"/>
+                # </AttributeSet>
+                for attribute_set_node in measure_node.select("attributeset"):
+                  let 
+                    attribute_nodes = attribute_set_node.select("attribute")
+                  if attribute_nodes.len > 0:
+                    let attribute_node = attribute_nodes[0]
+                    var
+                      description : string
+                      so_term: string
+                    if attribute_node.attr("Type") == "MolecularConsequence":
+                      description = attribute_node.innerText
+                      for xref_node in attribute_set_node.select("xref"):
+                        if xref_node.attr("DB") == "Sequence Ontology":
+                          so_term = xref_node.attr("ID")
+                      variant.molecular_consequences.add(MolecularConsequence(description: description, so_term: so_term))
+
                 break # We found our "sequenceLocation"
 
           # Not lets add the submissions
@@ -293,7 +317,7 @@ proc printVCF*(variants: TableRef[int, ClinVariant], genome_assembly: string) =
   # ##INFO=<ID=CLNVI,Number=.,Type=String,Description="the variant's clinical sources reported as tag-value pairs of database and variant identifier">
   # ##INFO=<ID=DBVARID,Number=.,Type=String,Description="nsv accessions from dbVar for the variant">
   echo "##INFO=<ID=GENEINFO,Number=1,Type=String,Description=\"Gene(s) for the variant reported as gene symbol:gene id. The gene symbol and id are delimited by a colon (:) and each pair is delimited by a vertical bar (|)\">"
-  # ##INFO=<ID=MC,Number=.,Type=String,Description="comma separated list of molecular consequence in the form of Sequence Ontology ID|molecular_consequence">
+  echo "##INFO=<ID=MC,Number=.,Type=String,Description=\"comma separated list of molecular consequence in the form of Sequence Ontology ID|molecular_consequence\">"
   # ##INFO=<ID=ORIGIN,Number=.,Type=String,Description="Allele origin. One or more of the following values may be added: 0 - unknown; 1 - germline; 2 - somatic; 4 - inherited; 8 - paternal; 16 - maternal; 3
   # 2 - de-novo; 64 - biparental; 128 - uniparental; 256 - not-tested; 512 - tested-inconclusive; 1073741824 - other">
   # ##INFO=<ID=RS,Number=.,Type=String,Description="dbSNP ID (i.e. rs number)">
@@ -310,6 +334,10 @@ proc printVCF*(variants: TableRef[int, ClinVariant], genome_assembly: string) =
 
     info_fields.add("CLNSIG=" & clinsig.formatVCFString())
     info_fields.add("CLNREVSTAT=" & revstat.formatVCFString())
+
+    if v.molecular_consequences.len > 0:
+      var formated_consequences = map(v.molecular_consequences, proc (x: MolecularConsequence): string = $x)
+      info_fields.add("MC=" & join(formated_consequences, ","))
   
     if v.chrom != "" and v.ref_allele != "" and v.alt_allele != "":
       echo [
