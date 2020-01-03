@@ -1,9 +1,147 @@
-import httpclient, json, tables
+import httpclient, json, tables, sequtils
 import os, times
 import q, xmltree # Parse XML
 import docopt # Formating the command-line
 import strutils # Split string
 import hts
+
+type
+  ClinSig = enum
+    csBenign = "Benign",
+    csLikelyBenign = "Likely benign",
+    csUncertainSignificance = "Uncertain significance",
+    csLikelyPathogenic = "Likely pathogenic",
+    csPathogenic = "Pathogenic",
+    csUnknown = "not provided",
+    csDrugResponse = "drug response",
+    csRiskFactor = "risk factor",
+    csAffects = "Affects",
+    csAssociation = "association",
+    csProtective = "protective",
+    csConflictingDataFromSubmitters = "conflicting data from submitters",
+    csOther = "other"
+
+  RevStat = enum
+    rsNoAssertion = "no assertion provided",
+    rsNoAssertionCriteria = "no assertion criteria provided",
+    rsNoAssertionVariant = "no assertion for the individual variant",
+    rsSingleSubmitter = "criteria provided, single submitter",
+    rsMultipleSubmitterConflicting = "criteria provided, conflicting interpretations",
+    rsMutlipleSubmitterNoConflict = "criteria provided, multiple submitters, no conflicts",
+    rsExpertPanel = "reviewed by expert panel",
+    rsPracticeGuideline = "practice guideline"
+
+  Submission = ref object
+    clinical_significance: ClinSig
+    review_status: RevStat
+
+  ClinVariant = ref object
+    variant_id: int
+    allele_id: int
+    chrom: string
+    pos: int
+    ref_allele: string
+    alt_allele: string
+    gene_id: int
+    gene_symbol: string
+    submissions: seq[Submission]
+
+var
+  acmg_clinsig = @[csBenign, csLikelyBenign, csUncertainSignificance, csLikelyPathogenic, csPathogenic]
+  non_acmg_clinsig = @[csDrugResponse, csRiskFactor, csAffects, csAssociation, csProtective, csConflictingDataFromSubmitters, csOther]
+
+proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], total: int, has_conflict = false): RevStat =
+  if total > 1 and revstat_count.hasKey(rsSingleSubmitter):
+    if has_conflict:
+      result = rsMultipleSubmitterConflicting
+    else:
+      result = rsMutlipleSubmitterNoConflict
+  elif revstat_count.hasKey(rsSingleSubmitter):
+    result = rsSingleSubmitter
+  elif revstat_count.hasKey(rsNoAssertionCriteria):
+    result = rsNoAssertionCriteria
+  elif revstat_count.hasKey(rsNoAssertionVariant):
+    result = rsNoAssertionVariant
+  else:
+    result = rsNoAssertion
+
+proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string, revstat: string] =
+  var 
+    clinsig_count = newTable[ClinSig, int]()
+    revstat_count = newTable[RevStat, int]()
+    total = 0
+    no_aggregation_needed = false
+
+  for sub in submissions:
+    # When there is a submission from an Expert panel or from a group providing practice guidelines, only the interpretation from that group is reported in the aggregate record, even if other submissions provide different interpretations. 
+    if sub.review_status == rsExpertPanel or sub.review_status == rsPracticeGuideline:
+      result.clinsig = $sub.clinical_significance
+      result.revstat = $sub.review_status
+      no_aggregation_needed = true
+      break
+
+    if clinsig_count.hasKey(sub.clinical_significance):
+      inc(clinsig_count[sub.clinical_significance])
+    else:
+      clinsig_count[sub.clinical_significance] = 1
+    
+    if revstat_count.hasKey(sub.review_status):
+      inc(revstat_count[sub.review_status])
+    else:
+      revstat_count[sub.review_status] = 1
+    inc(total)
+  
+  # If we have found and rsExpertPanel or rsPracticeGuideline we do not perform aggreagtion of submissions
+  if not no_aggregation_needed:
+    
+    # Filter acmg_only values:
+    var 
+      nb_acmg_tags = 0
+      acmg_tag : ClinSig
+
+    for tag in clinsig_count.keys:
+      if tag in acmg_clinsig:
+        inc(nb_acmg_tags)
+        acmg_tag = tag
+
+    # Case #1, agreement between all submissions
+    if nb_acmg_tags == 1:
+      result.clinsig = $acmg_tag
+      result.revstat = $revstat_count.aggregateReviewStatus(total, false)
+    # Case #2 Patho and Likely Patho (only)
+    elif nb_acmg_tags == 2 and clinsig_count.hasKey(csPathogenic) and clinsig_count.hasKey(csLikelyPathogenic):
+      result.clinsig = "Pathogenic/Likely pathogenic"
+      result.revstat = $revstat_count.aggregateReviewStatus(total, false)
+    # Case #3, Only patho entries
+    elif nb_acmg_tags == 2 and clinsig_count.hasKey(csBenign) and clinsig_count.hasKey(csLikelyBenign):
+      result.clinsig = "Benign/Likely benign"
+      result.revstat = $revstat_count.aggregateReviewStatus(total, false)
+    # Case #4, Conflict !!!
+    # TODO: Do some desambiguiations !!!
+    elif (clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic) or clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)) and clinsig_count.hasKey(csUncertainSignificance):
+      result.clinsig = "Conflicting interpretations of pathogenicity"
+      result.revstat = $revstat_count.aggregateReviewStatus(total, true)
+    elif (clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic)) and (clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)):
+      result.clinsig = "Conflicting interpretations of pathogenicity"
+      result.revstat = $revstat_count.aggregateReviewStatus(total, true)
+    
+    # Add non-ACMG values to the end of clinsig
+    # If ClinVar aggregates submissions from groups that provided a standard term not recommend by ACMG/AMP ( e.g. drug response), then those values are reported after the ACMG/AMP-based interpretation (see the table below).
+    var additional_cstags : seq[string]
+    for cstag in non_acmg_clinsig:
+      if clinsig_count.hasKey(cstag):
+        additional_cstags.add($cstag)
+    if additional_cstags.len() > 0:
+      if result.clinsig == "":
+        result.clinsig = additional_cstags.join(", ")
+      else:
+        result.clinsig.add(", " & additional_cstags.join(", "))
+    
+    # Handle default values
+    if result.clinsig == "": 
+      result.clinsig = $csUnknown
+    if result.revstat == "":
+      result.revstat = $revstat_count.aggregateReviewStatus(total, false)
 
 proc nextClinvarSet*(file: BGZ): string =
   for line in file:
@@ -12,29 +150,126 @@ proc nextClinvarSet*(file: BGZ): string =
     else:
       result.add(line & "\n")
 
+proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): TableRef[int, ClinVariant] =
+  result = newTable[int, ClinVariant]()
+
+  stderr.writeLine("[Log] Parsing variants from " & clinvar_xml_file)
+
+  var 
+    file : BGZ
+    i = 0
+
+  file.open(clinvar_xml_file, "r")
+  
+  var found_clinvarset = true
+  while found_clinvarset:
+    # TODO: Add some kind of loader ever 10K parsed variants
+    let clinvarset_string = file.nextClinvarSet()
+    if clinvarset_string != "" and clinvarset_string.startsWith("<ClinVarSet"):
+      #echo clinvarset_string
+      let 
+        doc = q(clinvarset_string)
+        reference_clinvar_assertion_nodes = doc.select("referenceclinvarassertion")
+      
+      if reference_clinvar_assertion_nodes.len() > 0:
+        let 
+          #clinsig_nodes = reference_clinvar_assertion_nodes[0].select("clinicalsignificance")
+          measureset_nodes = reference_clinvar_assertion_nodes[0].select("measureset")
+        
+        if measureset_nodes.len() > 0:
+          let 
+            measureset_node = measureset_nodes[0]
+            variant_id = measureset_node.attr("ID").parseInt()
+            measure_nodes = measureset_nodes[0].select("measure")
+
+          # Only parse measure node to extract variant position if we do not have seen this variant
+          # Already
+          if not result.hasKey(variant_id) and measure_nodes.len() > 0:
+            let
+              measure_node = measure_nodes[0] 
+              measure_relationship_nodes = measure_node.select("measurerelationship")
+      
+            for sequence_loc in measure_node.select("sequencelocation"):
+              if sequence_loc.attr("Assembly") == genome_assembly:
+                # <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="2" Accession="NC_000002.12" start="219469373" stop="219469408" display_start="219469373" display_stop="219469408" variantLength="36" positionVCF="219469370" referenceAlleleVCF="ATGACACAGTGTACGTGTCTGGGAAGTTCCCCGGGAG" alternateAlleleVCF="A"/>
+                let
+                  allele_id = measure_node.attr("ID").parseInt
+                  chrom = sequence_loc.attr("Chr")
+                  pos_string = sequence_loc.attr("positionVCF")
+                  ref_allele = sequence_loc.attr("referenceAlleleVCF")
+                  alt_allele = sequence_loc.attr("alternateAlleleVCF")
+                
+                var
+                  # clinical_significance : string
+                  # review_status : string
+                  gene_symbol: string
+                  gene_id : int = -1
+                  pos : int = -1
+                
+                if pos_string != "":
+                  pos = pos_string.parseInt()
+                
+                # if clinsig_nodes.len() > 0:
+                #   clinical_significance = clinsig_nodes[0].select("description")[0].innerText
+                #   review_status = clinsig_nodes[0].select("reviewstatus")[0].innerText
+                
+                if measure_relationship_nodes.len() > 0:
+                  let gene_symbol_nodes = measure_relationship_nodes[0].select("symbol elementvalue")
+                  if gene_symbol_nodes.len() > 0:
+                    gene_symbol = gene_symbol_nodes[0].innerText
+                  for xref_node in measure_relationship_nodes[0].select("xref"):
+                    if xref_node.attr("DB") == "Gene":
+                      gene_id = xref_node.attr("ID").parseInt()
+                      # <XRef ID="672" DB="Gene" />
+                      # <XRef Type="MIM" ID="113705" DB="OMIM" />
+                
+                var 
+                  variant = ClinVariant(
+                    chrom: chrom,
+                    pos: pos,
+                    variant_id: variant_id,
+                    allele_id: allele_id,
+                    ref_allele: ref_allele,
+                    alt_allele: alt_allele,
+                    gene_id: gene_id,
+                    gene_symbol: gene_symbol
+                  )
+                result[variant_id] = variant
+                break # We found our "sequenceLocation"
+
+          # Not lets add the submissions
+          if result.hasKey(variant_id):
+            for clinvar_assertion_node in doc.select("clinvarassertion"):
+              let clinsig_nodes = clinvar_assertion_node.select("clinicalsignificance")
+              if clinsig_nodes.len() > 0: # FIXME: Should not be > to 1 ...
+                var
+                  clinical_significance : ClinSig = csUnknown
+                  review_status : RevStat = rsNoAssertion
+                
+                if clinsig_nodes.len() > 0:
+                  var
+                    desc_nodes = clinsig_nodes[0].select("description")
+                    revstat_nodes = clinsig_nodes[0].select("reviewstatus")
+                  if desc_nodes.len() > 0:
+                    clinical_significance = parseEnum[ClinSig](desc_nodes[0].innerText, csUnknown)
+                  if revstat_nodes.len() > 0:
+                   review_status = parseEnum[RevStat](revstat_nodes[0].innerText, rsNoAssertion)
+                   
+                  # Add the submission to the variant record
+                  result[variant_id].submissions.add(Submission(clinical_significance: clinical_significance, review_status: review_status))
+    else:
+      # We did not found a clinvarset entry, it can either mean that we are at the end of the file
+      # Or that we are parsing headers of the xml file
+      if clinvarset_string == "":
+        found_clinvarset = false
+      # TODO: THese are the headers to be parsed to retrieve the date
+      #else:
+      
+
 proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')
 
-proc main*(argv: seq[string]) =
-
-  # TODO: Create a usage and expose api_keys as options
-  let doc = format("""
-Usage: clinvcf [options] <clinvar.xml.gz>
-
-Options:
-  --genome <version>              Genome assembly to use [default: GRCh37]
-  """)
-
-  let 
-    args = docopt(doc)
-    genome_assembly = $args["--genome"]
-    clinvar_xml_file = $args["<clinvar.xml.gz>"]
-    #variation_allele_file = $args["<variation_allele.txt.gz>"]
-    #allele_variant_table = loadAlleleVariantTable(variation_allele_file)
-
-  # TODO: Print VCF headers
-  stderr.writeLine("[Log] Parsing variants from " & clinvar_xml_file)
-
+proc printVCF*(variants: TableRef[int, ClinVariant], genome_assembly: string) =
   echo "##fileformat=VCFv4.1"
   ##fileDate=2019-12-23 # TODO: Get date from XML headers
   echo "##source=ClinVar"
@@ -66,97 +301,49 @@ Options:
   # - 1kg_failed, 1024 - other">
   echo "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO"
 
-  var 
-    file : BGZ
-    parsed_variants = initTable[string, int]()
-    i = 0
+  for v in variants.values():
+    let (clinsig, revstat) = v.submissions.aggregateSubmissions()
+    var info_fields : seq[string] = @["ALLELEID=" & $v.allele_id]
+    
+    if v.gene_id > 0:
+      info_fields.add("GENEINFO=" & v.gene_symbol & ":" & $v.gene_id)
 
-  file.open(clinvar_xml_file, "r")
+    info_fields.add("CLNSIG=" & clinsig.formatVCFString())
+    info_fields.add("CLNREVSTAT=" & revstat.formatVCFString())
   
-  var found_clinvarset = true
-  while found_clinvarset:
-    # TODO: Add some kind of loader ever 10K parsed variants
-    let clinvarset_string = file.nextClinvarSet()
-    if clinvarset_string != "" and clinvarset_string.startsWith("<ClinVarSet"):
-      #echo clinvarset_string
-      let 
-        doc = q(clinvarset_string)
-        reference_clinvar_assertion_nodes = doc.select("referenceclinvarassertion")
-      
-      if reference_clinvar_assertion_nodes.len() > 0:
-        let 
-          clinsig_nodes = reference_clinvar_assertion_nodes[0].select("clinicalsignificance")
-          measureset_nodes = reference_clinvar_assertion_nodes[0].select("measureset")
-        
-        if measureset_nodes.len() > 0:
-          let 
-            measureset_node = measureset_nodes[0]      
-            measure_nodes = measureset_nodes[0].select("measure")
+    if v.chrom != "" and v.ref_allele != "" and v.alt_allele != "":
+      echo [
+        v.chrom,
+        $v.pos,
+        $v.variant_id,
+        v.ref_allele,
+        v.alt_allele,
+        ".",
+        ".",
+        info_fields.join(";")
+      ].join("\t")
 
-          if measure_nodes.len() > 0:
-            let
-              measure_node = measure_nodes[0] 
-              measure_relationship_nodes = measure_node.select("measurerelationship")
-      
-            for sequence_loc in measure_node.select("sequencelocation"):
-              if sequence_loc.attr("Assembly") == genome_assembly:
-                # <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="2" Accession="NC_000002.12" start="219469373" stop="219469408" display_start="219469373" display_stop="219469408" variantLength="36" positionVCF="219469370" referenceAlleleVCF="ATGACACAGTGTACGTGTCTGGGAAGTTCCCCGGGAG" alternateAlleleVCF="A"/>
-                let
-                  variant_id = measureset_node.attr("ID")#.parseInt()
-                  allele_id = measure_node.attr("ID")
-                  chrom = sequence_loc.attr("Chr")
-                  pos = sequence_loc.attr("positionVCF")#.parseInt()
-                  ref_allele = sequence_loc.attr("referenceAlleleVCF")
-                  alt_allele = sequence_loc.attr("alternateAlleleVCF")
+proc main*(argv: seq[string]) =
 
-                if parsed_variants.hasKey(variant_id):
-                  break
-                
-                var
-                  clinical_significance : string
-                  review_status : string
-                  info_fields : seq[string] = @["ALLELEID=" & $allele_id]
-                  gene_symbol: string
-                  gene_id : int = -1
-                
-                if clinsig_nodes.len() > 0:
-                  clinical_significance = clinsig_nodes[0].select("description")[0].innerText
-                  review_status = clinsig_nodes[0].select("reviewstatus")[0].innerText
-                  info_fields.add("CLNSIG=" & clinical_significance.formatVCFString())
-                  info_fields.add("CLNREVSTAT=" & review_status.formatVCFString())
-                
-                if measure_relationship_nodes.len() > 0:
-                  let gene_symbol_nodes = measure_relationship_nodes[0].select("symbol elementvalue")
-                  if gene_symbol_nodes.len() > 0:
-                    gene_symbol = gene_symbol_nodes[0].innerText
-                  for xref_node in measure_relationship_nodes[0].select("xref"):
-                    if xref_node.attr("DB") == "Gene":
-                      gene_id = xref_node.attr("ID").parseInt()
-                      # <XRef ID="672" DB="Gene" />
-                      # <XRef Type="MIM" ID="113705" DB="OMIM" />
+  # TODO: Create a usage and expose api_keys as options
+  let doc = format("""
+Usage: clinvcf [options] <clinvar.xml.gz>
 
-                #var info_fields = @["ALLELEID=" & $allele_id, "CLNSIG=" & clinical_significance.replace(' ', '_'), "CLNREVSTAT=" & review_status.replace(' ', '_')]
-              
-                if gene_id > 0:
-                  # TODO: handle multi-gene variants
-                  let gene_info : string = "GENEINFO=" & gene_symbol & ":" & $gene_id
-                  info_fields.add(gene_info)
-                
-                if chrom != "" and pos != "" and ref_allele != "" and alt_allele != "":
-                  parsed_variants[variant_id] = 1
-                  echo [
-                    chrom,
-                    $pos,
-                    $variant_id,
-                    ref_allele,
-                    alt_allele,
-                    ".",
-                    ".",
-                    info_fields.join(";")
-                  ].join("\t")
-                break
-      else:
-        found_clinvarset = false
+Options:
+  --genome <version>              Genome assembly to use [default: GRCh37]
+  """)
+
+  let 
+    args = docopt(doc)
+    genome_assembly = $args["--genome"]
+    clinvar_xml_file = $args["<clinvar.xml.gz>"]
+  
+  var variants: TableRef[int, ClinVariant]
+    #variation_allele_file = $args["<variation_allele.txt.gz>"]
+    #allele_variant_table = loadAlleleVariantTable(variation_allele_file)
+
+  variants = loadVariants(clinvar_xml_file, genome_assembly)
+  printVCF(variants, genome_assembly)
 
 when isMainModule:
   main(commandLineParams())
