@@ -8,6 +8,7 @@ exe=./src/clinvcf
 
 run simple_parsing $exe tests/files/37785.xml
 assert_exit_code 0
+assert_in_stdout "##fileDate=2019-12-31"
 assert_in_stdout "13	32893387	37785	T	A"
 assert_in_stdout "CLNSIG=Conflicting_interpretations_of_pathogenicity"
 assert_in_stdout "ALLELEID=46341"

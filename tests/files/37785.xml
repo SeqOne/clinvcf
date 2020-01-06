@@ -1,3 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ReleaseSet Dated="2019-12-31" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Type="full" xsi:noNamespaceSchemaLocation="http://ftp.ncbi.nlm.nih.gov/pub/clinvar/xsd_public/clinvar_public_1.59.xsd">
+
 <ClinVarSet ID="48731293">
   <RecordStatus>current</RecordStatus>
   <Title>NM_000059.3(BRCA2):c.241T&gt;A (p.Phe81Ile) AND Breast-ovarian cancer, familial 2</Title>

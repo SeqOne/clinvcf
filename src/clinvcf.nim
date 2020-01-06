@@ -223,10 +223,8 @@ proc nextClinvarSet*(file: BGZ): string =
     else:
       result.add(line & "\n")
 
-proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): TableRef[int, ClinVariant] =
-  result = newTable[int, ClinVariant]()
-
-  stderr.writeLine("[Log] Parsing variants from " & clinvar_xml_file)
+proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[variants: TableRef[int, ClinVariant], filedate: string] =
+  result.variants = newTable[int, ClinVariant]()
 
   var 
     file : BGZ
@@ -257,7 +255,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): TableRef[
 
           # Only parse measure node to extract variant position if we do not have seen this variant
           # Already
-          if not result.hasKey(variant_id) and measure_nodes.len() > 0:
+          if not result.variants.hasKey(variant_id) and measure_nodes.len() > 0:
             let
               measure_node = measure_nodes[0] 
               measure_relationship_nodes = measure_node.select("measurerelationship")
@@ -301,7 +299,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): TableRef[
                     gene_id: gene_id,
                     gene_symbol: gene_symbol
                   )
-                result[variant_id] = variant
+                result.variants[variant_id] = variant
 
                 # Parse Molecular Consequence
                 # <AttributeSet>
@@ -335,7 +333,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): TableRef[
                 break # We found our "sequenceLocation"
 
           # Not lets add the submissions
-          if result.hasKey(variant_id):
+          if result.variants.hasKey(variant_id):
             for clinvar_assertion_node in doc.select("clinvarassertion"):
               let clinsig_nodes = clinvar_assertion_node.select("clinicalsignificance")
               if clinsig_nodes.len() > 0: # FIXME: Should not be > to 1 ...
@@ -353,22 +351,29 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): TableRef[
                    review_status = parseEnum[RevStat](revstat_nodes[0].innerText, rsNoAssertion)
                    
                   # Add the submission to the variant record
-                  result[variant_id].submissions.add(Submission(clinical_significance: clinical_significance, review_status: review_status))
+                  result.variants[variant_id].submissions.add(Submission(clinical_significance: clinical_significance, review_status: review_status))
+    elif clinvarset_string.startsWith("<ReleaseSet"):
+      echo "RELEASE LINE: " & clinvarset_string
     else:
       # We did not found a clinvarset entry, it can either mean that we are at the end of the file
       # Or that we are parsing headers of the xml file
       if clinvarset_string == "":
         found_clinvarset = false
       # TODO: THese are the headers to be parsed to retrieve the date
-      #else:
-      
+      else:
+        let 
+          doc = q(clinvarset_string)
+          releaseset_nodes = doc.select("releaseset")
+        if releaseset_nodes.len() > 0:
+          result.filedate = releaseset_nodes[0].attr("Dated")
 
 proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')
 
-proc printVCF*(variants: seq[ClinVariant], genome_assembly: string) =
+proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string) =
   echo "##fileformat=VCFv4.1"
-  ##fileDate=2019-12-23 # TODO: Get date from XML headers
+  if filedate != "":
+    echo "##fileDate=" & filedate # TODO: Get date from XML headers
   echo "##source=ClinVar"
   echo "##reference=" & genome_assembly
   echo "##ID=<Description=\"ClinVar Variation ID\">"
@@ -442,11 +447,13 @@ Options:
   var 
     variants_hash: TableRef[int, ClinVariant]
     variants_seq: seq[ClinVariant]
+    filedate: string
     #variation_allele_file = $args["<variation_allele.txt.gz>"]
     #allele_variant_table = loadAlleleVariantTable(variation_allele_file)
 
   # Load variants from XML
-  variants_hash = loadVariants(clinvar_xml_file, genome_assembly)
+  stderr.writeLine("[Log] Parsing variants from " & clinvar_xml_file)
+  (variants_hash, filedate) = loadVariants(clinvar_xml_file, genome_assembly)
   
   # Sort variants by genomic order
   stderr.writeLine("[Log] Sorting variants")
@@ -454,7 +461,8 @@ Options:
   variants_seq.sort(cmpVariant)
   
   # Print VCF of STDOUT
-  printVCF(variants_seq, genome_assembly)
+  stderr.writeLine("[Log] Printing variants")
+  printVCF(variants_seq, genome_assembly, filedate)
 
 when isMainModule:
   main(commandLineParams())
