@@ -406,7 +406,8 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
       if clinvarset_string == "":
         found_clinvarset = false
       # TODO: THese are the headers to be parsed to retrieve the date
-      else:
+      # and we want to avoid the closing </ReleaseSet> at the end of the file
+      elif not clinvarset_string.startsWith("</"):
         let 
           doc = q(clinvarset_string)
           releaseset_nodes = doc.select("releaseset")
