@@ -6,7 +6,7 @@ import strutils # Split string
 import hts
 
 type
-  ClinSig = enum
+  ClinSig* = enum
     csBenign = "Benign",
     csLikelyBenign = "Likely benign",
     csUncertainSignificance = "Uncertain significance",
@@ -21,7 +21,7 @@ type
     csConflictingDataFromSubmitters = "conflicting data from submitters",
     csOther = "other"
 
-  RevStat = enum
+  RevStat* = enum
     rsNoAssertion = "no assertion provided",
     rsNoAssertionCriteria = "no assertion criteria provided",
     rsNoAssertionVariant = "no assertion for the individual variant",
@@ -31,15 +31,15 @@ type
     rsExpertPanel = "reviewed by expert panel",
     rsPracticeGuideline = "practice guideline"
 
-  Submission = ref object
+  Submission* = ref object
     clinical_significance: ClinSig
     review_status: RevStat
 
-  MolecularConsequence = ref object
+  MolecularConsequence* = ref object
     description: string
     so_term : string
 
-  ClinVariant = ref object
+  ClinVariant* = ref object
     variant_id: int
     allele_id: int
     chrom: string

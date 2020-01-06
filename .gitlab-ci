@@ -1,0 +1,24 @@
+stages:
+  - test
+  - delivery
+
+test:
+  image: registry.seq.one/nim-builder:1.0.2
+  stage: test
+  script:
+    - nimble test
+  tags:
+    - docker-executor
+
+delivery:
+  image: registry.seq.one/nim-builder:1.0.2
+  stage: delivery
+  script:
+    - nimble install -y
+  artifacts:
+    paths:
+    - clinvcf
+  tags:
+    - docker-executor
+  only:
+    - tags

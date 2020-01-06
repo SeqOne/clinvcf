@@ -1,0 +1,1 @@
+import ./clinvcf_tests.nim
