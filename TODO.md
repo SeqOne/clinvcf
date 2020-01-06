@@ -13,8 +13,8 @@
 [ ] Create README file
 [ ] Add NB_STARS tag 
 [ ] Handle GenotypeSet (These variants should not be included in the VCF (see case 424779))
-[ ] Handle automatic clinsig conversions from NCBI
-[ ] Multiple submitter is not multiple submissions !!! (see case 307134)
+[x] Handle automatic clinsig conversions from NCBI
+[x] Multiple submitter is not multiple submissions !!! (see case 307134)
 
 <ClinicalSignificance>
       <ReviewStatus>no assertion criteria provided</ReviewStatus>

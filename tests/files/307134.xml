@@ -1,0 +1,1280 @@
+<ClinVarSet ID="47306691">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=) AND Metatrophic dysplasia</Title>
+  <ReferenceClinVarAssertion DateCreated="2016-12-05" DateLastUpdated="2019-11-02" ID="830759">
+    <ClinVarAccession Acc="RCV000292008" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48190123">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="307134" Acc="VCV000307134" Version="1">
+      <Measure Type="single nucleotide variant" ID="329279">
+        <Name>
+          <ElementValue Type="Preferred">NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_372t1" Change="c.963C&gt;A" Type="HGVS, coding, LRG">LRG_372t1:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177428" Version="1" Change="c.822C&gt;A" Type="HGVS, coding, RefSeq">NM_001177428.1:c.822C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177433" Version="1" Change="c.822C&gt;A" Type="HGVS, coding, RefSeq">NM_001177433.1:c.822C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177431" Version="1" Change="c.861C&gt;A" Type="HGVS, coding, RefSeq">NM_001177431.1:c.861C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_021625" Version="4" Change="c.963C&gt;A" Type="HGVS, coding, RefSeq">NM_021625.4:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_147204" Version="2" Change="c.963C&gt;A" Type="HGVS, coding, RefSeq">NM_147204.2:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_372" Change="g.39605C&gt;A" Type="HGVS, genomic, LRG">LRG_372:g.39605C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_017090" Version="1" Change="g.39605C&gt;A" Type="HGVS, genomic, RefSeqGene">NG_017090.1:g.39605C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="12" Change="g.109798803G&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000012.12:g.109798803G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="11" Change="g.110236608G&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000012.11:g.110236608G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_372p1" Change="p.Gly321=" Type="HGVS, protein">LRG_372p1:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170899" Version="1" Change="p.Gly274=" Type="HGVS, protein, RefSeq">NP_001170899.1:p.Gly274=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170904" Version="1" Change="p.Gly274=" Type="HGVS, protein, RefSeq">NP_001170904.1:p.Gly274=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170902" Version="1" Change="p.Gly287=" Type="HGVS, protein, RefSeq">NP_001170902.1:p.Gly287=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_067638" Version="3" Change="p.Gly321=" Type="HGVS, protein, RefSeq">NP_067638.3:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_671737" Version="1" Change="p.Gly321=" Type="HGVS, protein, RefSeq">NP_671737.1:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177428.1:c.822C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177431.1:c.861C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177433.1:c.822C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_021625.4:c.963C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_147204.2:c.963C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00015" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.00007" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00003" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00006" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.00008" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>12q24.11</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="109798803" stop="109798803" display_start="109798803" display_stop="109798803" variantLength="1" positionVCF="109798803" referenceAlleleVCF="G" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="110236608" stop="110236608" display_start="110236608" display_stop="110236608" variantLength="1" positionVCF="110236608" referenceAlleleVCF="G" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">transient receptor potential cation channel subfamily V member 4</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">TRPV4</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="109783087" stop="109833398" display_start="109783087" display_stop="109833398" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="110220891" stop="110271211" display_start="110220891" display_stop="110271211" variantLength="50321" Strand="-"/>
+          <XRef ID="59341" DB="Gene"/>
+          <XRef Type="MIM" ID="605427" DB="OMIM"/>
+          <XRef ID="HGNC:18083" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="451205" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="rs" ID="148534854" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=)</ElementValue>
+      </Name>
+      <XRef ID="CA6780378" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="1374">
+      <Trait ID="2773" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Metatrophic dysplasia</ElementValue>
+          <XRef ID="Metatrophic+dysplasia/8861" DB="Genetic Alliance"/>
+          <XRef ID="22764001" DB="SNOMED CT"/>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">The TRPV4-associated disorders (previously considered to be clinically distinct phenotypes before their molecular basis was discovered) are now grouped into neuromuscular disorders and skeletal dysplasias; however, the overlap within and between both groups is considerable. Bilateral progressive sensorineural hearing loss (SNHL) can occur in both. The three neuromuscular disorders (mildest to most severe): Charcot-Marie-Tooth disease type 2C (CMT2C). Scapuloperoneal spinal muscular atrophy (SPSMA). Congenital distal spinal muscular atrophy (CDSMA). The neuromuscular disorders are characterized by a progressive peripheral neuropathy with variable combinations of laryngeal dysfunction (i.e., vocal fold paresis), respiratory dysfunction, and joint contractures. The six skeletal dysplasias: Mildest: Familial digital arthropathy-brachydactyly. Intermediate: Autosomal dominant brachyolmia. Spondylometaphyseal dysplasia, Kozlowski type. Spondyloepiphyseal dysplasia, Maroteaux type. Most severe: Parastremmatic dysplasia. Metatropic dysplasia. The skeletal dysplasia is characterized by brachydactyly (in all 6); the five that are more severe have short stature that varies from mild to severe with progressive spinal deformity and involvement of the long bones and pelvis. In the mildest of the TRPV4-associated disorders life span is normal; in the most severe it is shortened.</Attribute>
+          <XRef ID="NBK201366" DB="GeneReviews"/>
+        </AttributeSet>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">24830047</ID>
+          <ID Source="BookShelf">NBK201366</ID>
+        </Citation>
+        <XRef ID="C0265281" DB="MedGen"/>
+        <XRef ID="2635" DB="Orphanet"/>
+        <XRef Type="MIM" ID="156530" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="689583" SubmissionName="ICSL_2016Q4">
+    <ClinVarSubmissionID localKey="451205|Metatropic Dysplasia" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
+    <ClinVarAccession Acc="SCV000376061" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Illumina Clinical Services Laboratory" ID="451205"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ICSL Variant Classification 20161018</Attribute>
+      <Citation Type="general">
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/4jQgNGYk/ICSL_Variant_Classification_20161018.pdf</URL>
+        <CitationText>ICSL_Variant_Classification_20161018.pdf</CitationText>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_021625.4:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">TRPV4</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Metatropic Dysplasia</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+
+<ClinVarSet ID="47310212">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=) AND Brachyolmia</Title>
+  <ReferenceClinVarAssertion DateCreated="2016-12-05" DateLastUpdated="2019-11-02" ID="834330">
+    <ClinVarAccession Acc="RCV000295579" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48193617">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="307134" Acc="VCV000307134" Version="1">
+      <Measure Type="single nucleotide variant" ID="329279">
+        <Name>
+          <ElementValue Type="Preferred">NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_372t1" Change="c.963C&gt;A" Type="HGVS, coding, LRG">LRG_372t1:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177428" Version="1" Change="c.822C&gt;A" Type="HGVS, coding, RefSeq">NM_001177428.1:c.822C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177433" Version="1" Change="c.822C&gt;A" Type="HGVS, coding, RefSeq">NM_001177433.1:c.822C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177431" Version="1" Change="c.861C&gt;A" Type="HGVS, coding, RefSeq">NM_001177431.1:c.861C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_021625" Version="4" Change="c.963C&gt;A" Type="HGVS, coding, RefSeq">NM_021625.4:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_147204" Version="2" Change="c.963C&gt;A" Type="HGVS, coding, RefSeq">NM_147204.2:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_372" Change="g.39605C&gt;A" Type="HGVS, genomic, LRG">LRG_372:g.39605C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_017090" Version="1" Change="g.39605C&gt;A" Type="HGVS, genomic, RefSeqGene">NG_017090.1:g.39605C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="12" Change="g.109798803G&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000012.12:g.109798803G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="11" Change="g.110236608G&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000012.11:g.110236608G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_372p1" Change="p.Gly321=" Type="HGVS, protein">LRG_372p1:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170899" Version="1" Change="p.Gly274=" Type="HGVS, protein, RefSeq">NP_001170899.1:p.Gly274=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170904" Version="1" Change="p.Gly274=" Type="HGVS, protein, RefSeq">NP_001170904.1:p.Gly274=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170902" Version="1" Change="p.Gly287=" Type="HGVS, protein, RefSeq">NP_001170902.1:p.Gly287=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_067638" Version="3" Change="p.Gly321=" Type="HGVS, protein, RefSeq">NP_067638.3:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_671737" Version="1" Change="p.Gly321=" Type="HGVS, protein, RefSeq">NP_671737.1:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177428.1:c.822C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177431.1:c.861C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177433.1:c.822C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_021625.4:c.963C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_147204.2:c.963C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00015" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.00007" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00003" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00006" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.00008" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>12q24.11</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="109798803" stop="109798803" display_start="109798803" display_stop="109798803" variantLength="1" positionVCF="109798803" referenceAlleleVCF="G" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="110236608" stop="110236608" display_start="110236608" display_stop="110236608" variantLength="1" positionVCF="110236608" referenceAlleleVCF="G" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">transient receptor potential cation channel subfamily V member 4</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">TRPV4</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="109783087" stop="109833398" display_start="109783087" display_stop="109833398" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="110220891" stop="110271211" display_start="110220891" display_stop="110271211" variantLength="50321" Strand="-"/>
+          <XRef ID="59341" DB="Gene"/>
+          <XRef Type="MIM" ID="605427" DB="OMIM"/>
+          <XRef ID="HGNC:18083" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="451205" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="rs" ID="148534854" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=)</ElementValue>
+      </Name>
+      <XRef ID="CA6780378" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="33501">
+      <Trait ID="36402" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Brachyolmia</ElementValue>
+          <XRef ID="284552" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        </Name>
+        <XRef ID="C0432228" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="689580" SubmissionName="ICSL_2016Q4">
+    <ClinVarSubmissionID localKey="451205|Brachyolmia" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
+    <ClinVarAccession Acc="SCV000376058" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Illumina Clinical Services Laboratory" ID="451205"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ICSL Variant Classification 20161018</Attribute>
+      <Citation Type="general">
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/4jQgNGYk/ICSL_Variant_Classification_20161018.pdf</URL>
+        <CitationText>ICSL_Variant_Classification_20161018.pdf</CitationText>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_021625.4:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">TRPV4</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Brachyolmia</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+
+<ClinVarSet ID="47349472">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=) AND Charcot-Marie-Tooth disease, type 2</Title>
+  <ReferenceClinVarAssertion DateCreated="2016-12-05" DateLastUpdated="2019-11-02" ID="874114">
+    <ClinVarAccession Acc="RCV000335363" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48245746">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="307134" Acc="VCV000307134" Version="1">
+      <Measure Type="single nucleotide variant" ID="329279">
+        <Name>
+          <ElementValue Type="Preferred">NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_372t1" Change="c.963C&gt;A" Type="HGVS, coding, LRG">LRG_372t1:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177428" Version="1" Change="c.822C&gt;A" Type="HGVS, coding, RefSeq">NM_001177428.1:c.822C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177433" Version="1" Change="c.822C&gt;A" Type="HGVS, coding, RefSeq">NM_001177433.1:c.822C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177431" Version="1" Change="c.861C&gt;A" Type="HGVS, coding, RefSeq">NM_001177431.1:c.861C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_021625" Version="4" Change="c.963C&gt;A" Type="HGVS, coding, RefSeq">NM_021625.4:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_147204" Version="2" Change="c.963C&gt;A" Type="HGVS, coding, RefSeq">NM_147204.2:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_372" Change="g.39605C&gt;A" Type="HGVS, genomic, LRG">LRG_372:g.39605C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_017090" Version="1" Change="g.39605C&gt;A" Type="HGVS, genomic, RefSeqGene">NG_017090.1:g.39605C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="12" Change="g.109798803G&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000012.12:g.109798803G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="11" Change="g.110236608G&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000012.11:g.110236608G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_372p1" Change="p.Gly321=" Type="HGVS, protein">LRG_372p1:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170899" Version="1" Change="p.Gly274=" Type="HGVS, protein, RefSeq">NP_001170899.1:p.Gly274=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170904" Version="1" Change="p.Gly274=" Type="HGVS, protein, RefSeq">NP_001170904.1:p.Gly274=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170902" Version="1" Change="p.Gly287=" Type="HGVS, protein, RefSeq">NP_001170902.1:p.Gly287=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_067638" Version="3" Change="p.Gly321=" Type="HGVS, protein, RefSeq">NP_067638.3:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_671737" Version="1" Change="p.Gly321=" Type="HGVS, protein, RefSeq">NP_671737.1:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177428.1:c.822C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177431.1:c.861C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177433.1:c.822C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_021625.4:c.963C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_147204.2:c.963C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00015" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.00007" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00003" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00006" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.00008" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>12q24.11</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="109798803" stop="109798803" display_start="109798803" display_stop="109798803" variantLength="1" positionVCF="109798803" referenceAlleleVCF="G" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="110236608" stop="110236608" display_start="110236608" display_stop="110236608" variantLength="1" positionVCF="110236608" referenceAlleleVCF="G" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">transient receptor potential cation channel subfamily V member 4</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">TRPV4</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="109783087" stop="109833398" display_start="109783087" display_stop="109833398" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="110220891" stop="110271211" display_start="110220891" display_stop="110271211" variantLength="50321" Strand="-"/>
+          <XRef ID="59341" DB="Gene"/>
+          <XRef Type="MIM" ID="605427" DB="OMIM"/>
+          <XRef ID="HGNC:18083" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="451205" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="rs" ID="148534854" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=)</ElementValue>
+      </Name>
+      <XRef ID="CA6780378" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="12238">
+      <Trait ID="9467" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Charcot-Marie-Tooth disease, type 2</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Charcot-Marie-Tooth, Type 2</ElementValue>
+        </Name>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301462</ID>
+          <ID Source="BookShelf">NBK1285</ID>
+        </Citation>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301532</ID>
+          <ID Source="BookShelf">NBK1358</ID>
+        </Citation>
+        <XRef ID="C0270914" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="689578" SubmissionName="ICSL_2016Q4">
+    <ClinVarSubmissionID localKey="451205|Charcot-Marie-Tooth, Type 2" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
+    <ClinVarAccession Acc="SCV000376056" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Illumina Clinical Services Laboratory" ID="451205"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ICSL Variant Classification 20161018</Attribute>
+      <Citation Type="general">
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/4jQgNGYk/ICSL_Variant_Classification_20161018.pdf</URL>
+        <CitationText>ICSL_Variant_Classification_20161018.pdf</CitationText>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_021625.4:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">TRPV4</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Charcot-Marie-Tooth, Type 2</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+
+<ClinVarSet ID="47364316">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=) AND Scapuloperoneal spinal muscular atrophy</Title>
+  <ReferenceClinVarAssertion DateCreated="2016-12-05" DateLastUpdated="2019-11-02" ID="889155">
+    <ClinVarAccession Acc="RCV000350404" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48260724">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="307134" Acc="VCV000307134" Version="1">
+      <Measure Type="single nucleotide variant" ID="329279">
+        <Name>
+          <ElementValue Type="Preferred">NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_372t1" Change="c.963C&gt;A" Type="HGVS, coding, LRG">LRG_372t1:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177428" Version="1" Change="c.822C&gt;A" Type="HGVS, coding, RefSeq">NM_001177428.1:c.822C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177433" Version="1" Change="c.822C&gt;A" Type="HGVS, coding, RefSeq">NM_001177433.1:c.822C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177431" Version="1" Change="c.861C&gt;A" Type="HGVS, coding, RefSeq">NM_001177431.1:c.861C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_021625" Version="4" Change="c.963C&gt;A" Type="HGVS, coding, RefSeq">NM_021625.4:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_147204" Version="2" Change="c.963C&gt;A" Type="HGVS, coding, RefSeq">NM_147204.2:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_372" Change="g.39605C&gt;A" Type="HGVS, genomic, LRG">LRG_372:g.39605C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_017090" Version="1" Change="g.39605C&gt;A" Type="HGVS, genomic, RefSeqGene">NG_017090.1:g.39605C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="12" Change="g.109798803G&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000012.12:g.109798803G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="11" Change="g.110236608G&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000012.11:g.110236608G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_372p1" Change="p.Gly321=" Type="HGVS, protein">LRG_372p1:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170899" Version="1" Change="p.Gly274=" Type="HGVS, protein, RefSeq">NP_001170899.1:p.Gly274=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170904" Version="1" Change="p.Gly274=" Type="HGVS, protein, RefSeq">NP_001170904.1:p.Gly274=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170902" Version="1" Change="p.Gly287=" Type="HGVS, protein, RefSeq">NP_001170902.1:p.Gly287=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_067638" Version="3" Change="p.Gly321=" Type="HGVS, protein, RefSeq">NP_067638.3:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_671737" Version="1" Change="p.Gly321=" Type="HGVS, protein, RefSeq">NP_671737.1:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177428.1:c.822C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177431.1:c.861C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177433.1:c.822C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_021625.4:c.963C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_147204.2:c.963C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00015" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.00007" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00003" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00006" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.00008" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>12q24.11</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="109798803" stop="109798803" display_start="109798803" display_stop="109798803" variantLength="1" positionVCF="109798803" referenceAlleleVCF="G" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="110236608" stop="110236608" display_start="110236608" display_stop="110236608" variantLength="1" positionVCF="110236608" referenceAlleleVCF="G" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">transient receptor potential cation channel subfamily V member 4</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">TRPV4</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="109783087" stop="109833398" display_start="109783087" display_stop="109833398" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="110220891" stop="110271211" display_start="110220891" display_stop="110271211" variantLength="50321" Strand="-"/>
+          <XRef ID="59341" DB="Gene"/>
+          <XRef Type="MIM" ID="605427" DB="OMIM"/>
+          <XRef ID="HGNC:18083" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="451205" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="rs" ID="148534854" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=)</ElementValue>
+      </Name>
+      <XRef ID="CA6780378" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="8774">
+      <Trait ID="6336" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Scapuloperoneal spinal muscular atrophy</ElementValue>
+          <XRef ID="Amyotrophy%2C+Neurogenic+Scapuloperoneal%2C+New+England+Type/413" DB="Genetic Alliance"/>
+          <XRef ID="10314" DB="Office of Rare Diseases"/>
+          <XRef ID="230248006" DB="SNOMED CT"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Scapuloperoneal Form of Spinal Muscular Atrophy</ElementValue>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Preferred">SPSMA</ElementValue>
+          <XRef ID="GTR000500050" DB="Genetic Testing Registry (GTR)"/>
+          <XRef Type="MIM" ID="181405" DB="OMIM"/>
+          <XRef ID="10314" DB="Office of Rare Diseases"/>
+        </Symbol>
+        <AttributeSet>
+          <Attribute Type="public definition">The TRPV4-associated disorders (previously considered to be clinically distinct phenotypes before their molecular basis was discovered) are now grouped into neuromuscular disorders and skeletal dysplasias; however, the overlap within and between both groups is considerable. Bilateral progressive sensorineural hearing loss (SNHL) can occur in both. The three neuromuscular disorders (mildest to most severe): Charcot-Marie-Tooth disease type 2C (CMT2C). Scapuloperoneal spinal muscular atrophy (SPSMA). Congenital distal spinal muscular atrophy (CDSMA). The neuromuscular disorders are characterized by a progressive peripheral neuropathy with variable combinations of laryngeal dysfunction (i.e., vocal fold paresis), respiratory dysfunction, and joint contractures. The six skeletal dysplasias: Mildest: Familial digital arthropathy-brachydactyly. Intermediate: Autosomal dominant brachyolmia. Spondylometaphyseal dysplasia, Kozlowski type. Spondyloepiphyseal dysplasia, Maroteaux type. Most severe: Parastremmatic dysplasia. Metatropic dysplasia. The skeletal dysplasia is characterized by brachydactyly (in all 6); the five that are more severe have short stature that varies from mild to severe with progressive spinal deformity and involvement of the long bones and pelvis. In the mildest of the TRPV4-associated disorders life span is normal; in the most severe it is shortened.</Attribute>
+          <XRef ID="NBK201366" DB="GeneReviews"/>
+        </AttributeSet>
+        <Citation Type="Position Statement" Abbrev="Int'l SCC for SMA, 2007">
+          <ID Source="PubMed">17761659</ID>
+        </Citation>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">24830047</ID>
+          <ID Source="BookShelf">NBK201366</ID>
+        </Citation>
+        <XRef ID="C0751335" DB="MedGen"/>
+        <XRef ID="431255" DB="Orphanet"/>
+        <XRef Type="MIM" ID="181405" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="689581" SubmissionName="ICSL_2016Q4">
+    <ClinVarSubmissionID localKey="451205|Scapuloperoneal Spinal Muscular Atrophy" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
+    <ClinVarAccession Acc="SCV000376059" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Illumina Clinical Services Laboratory" ID="451205"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ICSL Variant Classification 20161018</Attribute>
+      <Citation Type="general">
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/4jQgNGYk/ICSL_Variant_Classification_20161018.pdf</URL>
+        <CitationText>ICSL_Variant_Classification_20161018.pdf</CitationText>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_021625.4:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">TRPV4</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Scapuloperoneal Spinal Muscular Atrophy</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+
+<ClinVarSet ID="47403281">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=) AND Distal spinal muscular atrophy, congenital nonprogressive</Title>
+  <ReferenceClinVarAssertion DateCreated="2016-12-05" DateLastUpdated="2019-11-02" ID="928599">
+    <ClinVarAccession Acc="RCV000389848" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48287426">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="307134" Acc="VCV000307134" Version="1">
+      <Measure Type="single nucleotide variant" ID="329279">
+        <Name>
+          <ElementValue Type="Preferred">NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_372t1" Change="c.963C&gt;A" Type="HGVS, coding, LRG">LRG_372t1:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177428" Version="1" Change="c.822C&gt;A" Type="HGVS, coding, RefSeq">NM_001177428.1:c.822C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177433" Version="1" Change="c.822C&gt;A" Type="HGVS, coding, RefSeq">NM_001177433.1:c.822C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177431" Version="1" Change="c.861C&gt;A" Type="HGVS, coding, RefSeq">NM_001177431.1:c.861C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_021625" Version="4" Change="c.963C&gt;A" Type="HGVS, coding, RefSeq">NM_021625.4:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_147204" Version="2" Change="c.963C&gt;A" Type="HGVS, coding, RefSeq">NM_147204.2:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_372" Change="g.39605C&gt;A" Type="HGVS, genomic, LRG">LRG_372:g.39605C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_017090" Version="1" Change="g.39605C&gt;A" Type="HGVS, genomic, RefSeqGene">NG_017090.1:g.39605C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="12" Change="g.109798803G&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000012.12:g.109798803G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="11" Change="g.110236608G&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000012.11:g.110236608G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_372p1" Change="p.Gly321=" Type="HGVS, protein">LRG_372p1:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170899" Version="1" Change="p.Gly274=" Type="HGVS, protein, RefSeq">NP_001170899.1:p.Gly274=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170904" Version="1" Change="p.Gly274=" Type="HGVS, protein, RefSeq">NP_001170904.1:p.Gly274=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170902" Version="1" Change="p.Gly287=" Type="HGVS, protein, RefSeq">NP_001170902.1:p.Gly287=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_067638" Version="3" Change="p.Gly321=" Type="HGVS, protein, RefSeq">NP_067638.3:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_671737" Version="1" Change="p.Gly321=" Type="HGVS, protein, RefSeq">NP_671737.1:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177428.1:c.822C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177431.1:c.861C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177433.1:c.822C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_021625.4:c.963C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_147204.2:c.963C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00015" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.00007" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00003" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00006" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.00008" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>12q24.11</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="109798803" stop="109798803" display_start="109798803" display_stop="109798803" variantLength="1" positionVCF="109798803" referenceAlleleVCF="G" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="110236608" stop="110236608" display_start="110236608" display_stop="110236608" variantLength="1" positionVCF="110236608" referenceAlleleVCF="G" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">transient receptor potential cation channel subfamily V member 4</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">TRPV4</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="109783087" stop="109833398" display_start="109783087" display_stop="109833398" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="110220891" stop="110271211" display_start="110220891" display_stop="110271211" variantLength="50321" Strand="-"/>
+          <XRef ID="59341" DB="Gene"/>
+          <XRef Type="MIM" ID="605427" DB="OMIM"/>
+          <XRef ID="HGNC:18083" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="451205" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="rs" ID="148534854" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=)</ElementValue>
+      </Name>
+      <XRef ID="CA6780378" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="1375">
+      <Trait ID="5950" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Distal spinal muscular atrophy, congenital nonprogressive</ElementValue>
+          <XRef ID="Distal+spinal+muscular+atrophy%2C+congenital+nonprogressive/8275" DB="Genetic Alliance"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">SPINAL MUSCULAR ATROPHY, CONGENITAL BENIGN, WITH CONTRACTURES</ElementValue>
+          <XRef Type="MIM" ID="600175" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">NEURONOPATHY, DISTAL HEREDITARY MOTOR, TYPE VIII</ElementValue>
+          <XRef Type="MIM" ID="600175" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="605427.0008" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="605427.0009" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="605427.0011" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="605427.0025" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="605427.0033" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">NEUROPATHY, DISTAL HEREDITARY MOTOR, TYPE VIII</ElementValue>
+          <XRef Type="MIM" ID="600175" DB="OMIM"/>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Preferred">HMN8</ElementValue>
+          <XRef Type="MIM" ID="600175" DB="OMIM"/>
+        </Symbol>
+        <Symbol>
+          <ElementValue Type="Alternate">DHMN8</ElementValue>
+          <XRef Type="MIM" ID="600175" DB="OMIM"/>
+        </Symbol>
+        <AttributeSet>
+          <Attribute Type="public definition">The TRPV4-associated disorders (previously considered to be clinically distinct phenotypes before their molecular basis was discovered) are now grouped into neuromuscular disorders and skeletal dysplasias; however, the overlap within and between both groups is considerable. Bilateral progressive sensorineural hearing loss (SNHL) can occur in both. The three neuromuscular disorders (mildest to most severe): Charcot-Marie-Tooth disease type 2C (CMT2C). Scapuloperoneal spinal muscular atrophy (SPSMA). Congenital distal spinal muscular atrophy (CDSMA). The neuromuscular disorders are characterized by a progressive peripheral neuropathy with variable combinations of laryngeal dysfunction (i.e., vocal fold paresis), respiratory dysfunction, and joint contractures. The six skeletal dysplasias: Mildest: Familial digital arthropathy-brachydactyly. Intermediate: Autosomal dominant brachyolmia. Spondylometaphyseal dysplasia, Kozlowski type. Spondyloepiphyseal dysplasia, Maroteaux type. Most severe: Parastremmatic dysplasia. Metatropic dysplasia. The skeletal dysplasia is characterized by brachydactyly (in all 6); the five that are more severe have short stature that varies from mild to severe with progressive spinal deformity and involvement of the long bones and pelvis. In the mildest of the TRPV4-associated disorders life span is normal; in the most severe it is shortened.</Attribute>
+          <XRef ID="NBK201366" DB="GeneReviews"/>
+        </AttributeSet>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">24830047</ID>
+          <ID Source="BookShelf">NBK201366</ID>
+        </Citation>
+        <XRef ID="C1838492" DB="MedGen"/>
+        <XRef ID="1216" DB="Orphanet"/>
+        <XRef Type="MIM" ID="600175" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="689579" SubmissionName="ICSL_2016Q4">
+    <ClinVarSubmissionID localKey="451205|Distal Congenital Nonprogressive Spinal Muscular Atrophy" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
+    <ClinVarAccession Acc="SCV000376057" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Illumina Clinical Services Laboratory" ID="451205"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ICSL Variant Classification 20161018</Attribute>
+      <Citation Type="general">
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/4jQgNGYk/ICSL_Variant_Classification_20161018.pdf</URL>
+        <CitationText>ICSL_Variant_Classification_20161018.pdf</CitationText>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_021625.4:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">TRPV4</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Distal Congenital Nonprogressive Spinal Muscular Atrophy</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+
+<ClinVarSet ID="47415727">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=) AND Spondylometaphyseal dysplasia</Title>
+  <ReferenceClinVarAssertion DateCreated="2016-12-05" DateLastUpdated="2019-11-02" ID="941215">
+    <ClinVarAccession Acc="RCV000402464" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48312759">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="307134" Acc="VCV000307134" Version="1">
+      <Measure Type="single nucleotide variant" ID="329279">
+        <Name>
+          <ElementValue Type="Preferred">NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_372t1" Change="c.963C&gt;A" Type="HGVS, coding, LRG">LRG_372t1:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177428" Version="1" Change="c.822C&gt;A" Type="HGVS, coding, RefSeq">NM_001177428.1:c.822C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177433" Version="1" Change="c.822C&gt;A" Type="HGVS, coding, RefSeq">NM_001177433.1:c.822C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001177431" Version="1" Change="c.861C&gt;A" Type="HGVS, coding, RefSeq">NM_001177431.1:c.861C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_021625" Version="4" Change="c.963C&gt;A" Type="HGVS, coding, RefSeq">NM_021625.4:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_147204" Version="2" Change="c.963C&gt;A" Type="HGVS, coding, RefSeq">NM_147204.2:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_372" Change="g.39605C&gt;A" Type="HGVS, genomic, LRG">LRG_372:g.39605C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_017090" Version="1" Change="g.39605C&gt;A" Type="HGVS, genomic, RefSeqGene">NG_017090.1:g.39605C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="12" Change="g.109798803G&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000012.12:g.109798803G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="11" Change="g.110236608G&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000012.11:g.110236608G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_372p1" Change="p.Gly321=" Type="HGVS, protein">LRG_372p1:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170899" Version="1" Change="p.Gly274=" Type="HGVS, protein, RefSeq">NP_001170899.1:p.Gly274=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170904" Version="1" Change="p.Gly274=" Type="HGVS, protein, RefSeq">NP_001170904.1:p.Gly274=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001170902" Version="1" Change="p.Gly287=" Type="HGVS, protein, RefSeq">NP_001170902.1:p.Gly287=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_067638" Version="3" Change="p.Gly321=" Type="HGVS, protein, RefSeq">NP_067638.3:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_671737" Version="1" Change="p.Gly321=" Type="HGVS, protein, RefSeq">NP_671737.1:p.Gly321=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177428.1:c.822C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177431.1:c.861C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001177433.1:c.822C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_021625.4:c.963C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_147204.2:c.963C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00015" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.00007" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00003" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00006" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.00008" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>12q24.11</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="109798803" stop="109798803" display_start="109798803" display_stop="109798803" variantLength="1" positionVCF="109798803" referenceAlleleVCF="G" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="110236608" stop="110236608" display_start="110236608" display_stop="110236608" variantLength="1" positionVCF="110236608" referenceAlleleVCF="G" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">transient receptor potential cation channel subfamily V member 4</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">TRPV4</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="109783087" stop="109833398" display_start="109783087" display_stop="109833398" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="110220891" stop="110271211" display_start="110220891" display_stop="110271211" variantLength="50321" Strand="-"/>
+          <XRef ID="59341" DB="Gene"/>
+          <XRef Type="MIM" ID="605427" DB="OMIM"/>
+          <XRef ID="HGNC:18083" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="451205" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="rs" ID="148534854" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=)</ElementValue>
+      </Name>
+      <XRef ID="CA6780378" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="5712">
+      <Trait ID="4453" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Spondylometaphyseal dysplasia</ElementValue>
+          <XRef ID="HP:0002657" DB="Human Phenotype Ontology"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Spondyloepimetaphyseal dysplasia Strudwick type</ElementValue>
+          <XRef ID="Spondyloepimetaphyseal+dysplasia+Strudwick+type/6814" DB="Genetic Alliance"/>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Preferred">SEMDSTWK</ElementValue>
+          <XRef Type="MIM" ID="184250" DB="OMIM"/>
+        </Symbol>
+        <Symbol>
+          <ElementValue Type="Alternate">SEMDC</ElementValue>
+          <XRef Type="MIM" ID="184250" DB="OMIM"/>
+        </Symbol>
+        <Symbol>
+          <ElementValue Type="Alternate">SMD</ElementValue>
+          <XRef Type="MIM" ID="184250" DB="OMIM"/>
+          <XRef ID="134" DB="Office of Rare Diseases"/>
+        </Symbol>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">31021589</ID>
+          <ID Source="BookShelf">NBK540447</ID>
+        </Citation>
+        <XRef ID="C0700635" DB="MedGen"/>
+        <XRef ID="93346" DB="Orphanet"/>
+        <XRef Type="MIM" ID="184250" DB="OMIM"/>
+        <XRef Type="primary" ID="HP:0002657" DB="Human Phenotype Ontology"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="689582" SubmissionName="ICSL_2016Q4">
+    <ClinVarSubmissionID localKey="451205|Spondylometaphyseal Dysplasia" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
+    <ClinVarAccession Acc="SCV000376060" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Illumina Clinical Services Laboratory" ID="451205"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ICSL Variant Classification 20161018</Attribute>
+      <Citation Type="general">
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/4jQgNGYk/ICSL_Variant_Classification_20161018.pdf</URL>
+        <CitationText>ICSL_Variant_Classification_20161018.pdf</CitationText>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_021625.4:c.963C&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">TRPV4</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Finding">
+      <Trait Type="Finding">
+        <Name>
+          <ElementValue Type="Preferred">Spondylometaphyseal Dysplasia</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+

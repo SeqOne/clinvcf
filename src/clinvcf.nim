@@ -34,6 +34,7 @@ type
   Submission* = ref object
     clinical_significance: ClinSig
     review_status: RevStat
+    submitter_id: int
 
   MolecularConsequence* = ref object
     description: string
@@ -123,8 +124,8 @@ proc parseNCBIConversionComment*(comment: string): ClinSig =
   else:
     result = csUnknown
 
-proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], total: int, has_conflict = false): RevStat =
-  if total > 1 and revstat_count.hasKey(rsSingleSubmitter):
+proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int],  nb_submitters: int, has_conflict = false): RevStat =
+  if nb_submitters > 1 and revstat_count.hasKey(rsSingleSubmitter):
     if has_conflict:
       result = rsMultipleSubmitterConflicting
     else:
@@ -142,7 +143,7 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
   var 
     clinsig_count = newTable[ClinSig, int]()
     revstat_count = newTable[RevStat, int]()
-    total = 0
+    submitter_ids : seq[int]
     no_aggregation_needed = false
     at_least_one_star_subs: seq[Submission]
 
@@ -172,7 +173,9 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
         inc(revstat_count[sub.review_status])
       else:
         revstat_count[sub.review_status] = 1
-      inc(total)
+      
+      if not sub.submitter_id in submitter_ids:
+        submitter_ids.add(sub.submitter_id)
   
   # If we have found and rsExpertPanel or rsPracticeGuideline we do not perform aggreagtion of submissions
   if not no_aggregation_needed:
@@ -189,23 +192,23 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
     # Case #1, agreement between all submissions
     if nb_acmg_tags == 1:
       result.clinsig = $acmg_tag
-      result.revstat = $revstat_count.aggregateReviewStatus(total, false)
+      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
     # Case #2 Patho and Likely Patho (only)
     elif nb_acmg_tags == 2 and clinsig_count.hasKey(csPathogenic) and clinsig_count.hasKey(csLikelyPathogenic):
       result.clinsig = "Pathogenic/Likely pathogenic"
-      result.revstat = $revstat_count.aggregateReviewStatus(total, false)
+      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
     # Case #3, Only patho entries
     elif nb_acmg_tags == 2 and clinsig_count.hasKey(csBenign) and clinsig_count.hasKey(csLikelyBenign):
       result.clinsig = "Benign/Likely benign"
-      result.revstat = $revstat_count.aggregateReviewStatus(total, false)
+      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
     # Case #4, Conflict !!!
     # TODO: Do some desambiguiations !!!
     elif (clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic) or clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)) and clinsig_count.hasKey(csUncertainSignificance):
       result.clinsig = "Conflicting interpretations of pathogenicity"
-      result.revstat = $revstat_count.aggregateReviewStatus(total, true)
+      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
     elif (clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic)) and (clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)):
       result.clinsig = "Conflicting interpretations of pathogenicity"
-      result.revstat = $revstat_count.aggregateReviewStatus(total, true)
+      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
     
     # Add non-ACMG values to the end of clinsig
     # If ClinVar aggregates submissions from groups that provided a standard term not recommend by ACMG/AMP ( e.g. drug response), then those values are reported after the ACMG/AMP-based interpretation (see the table below).
@@ -223,7 +226,7 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
     if result.clinsig == "": 
       result.clinsig = $csUnknown
     if result.revstat == "":
-      result.revstat = $revstat_count.aggregateReviewStatus(total, false)
+      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
 
 proc nextClinvarSet*(file: BGZ): string =
   for line in file:
@@ -237,6 +240,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
 
   var 
     file : BGZ
+    submitters_hash = initTable[string, int]()
     i = 0
 
   file.open(clinvar_xml_file, "r")
@@ -344,7 +348,20 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
           # Not lets add the submissions
           if result.variants.hasKey(variant_id):
             for clinvar_assertion_node in doc.select("clinvarassertion"):
-              let clinsig_nodes = clinvar_assertion_node.select("clinicalsignificance")
+              let 
+                clinsig_nodes = clinvar_assertion_node.select("clinicalsignificance")
+                clinvar_submission_id_nodes = clinvar_assertion_node.select("clinvarsubmissionid")
+
+              var 
+                submitter_id = -1
+
+              if clinvar_submission_id_nodes.len() > 0:
+                let submitter_name = clinvar_submission_id_nodes[0].attr("submitter")
+                if submitters_hash.hasKey(submitter_name):
+                  submitter_id = submitters_hash[submitter_name]
+                else:
+                  # Add the new submitter to the submutter hash
+                  submitters_hash[submitter_name] =  submitters_hash.len()
               if clinsig_nodes.len() > 0: # FIXME: Should not be > to 1 ...
                 var
                   clinical_significance : ClinSig = csUnknown
@@ -371,7 +388,11 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                    review_status = parseEnum[RevStat](revstat_nodes[0].innerText, rsNoAssertion)
                    
                   # Add the submission to the variant record
-                  result.variants[variant_id].submissions.add(Submission(clinical_significance: clinical_significance, review_status: review_status))
+                  result.variants[variant_id].submissions.add(Submission(
+                    clinical_significance: clinical_significance,
+                    review_status: review_status,
+                    submitter_id: submitter_id,
+                  ))
     else:
       # We did not found a clinvarset entry, it can either mean that we are at the end of the file
       # Or that we are parsing headers of the xml file

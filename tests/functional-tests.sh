@@ -19,3 +19,7 @@ assert_in_stdout "MC=SO:0001583|missense variant"
 # Check integration of NCBI clinsig conversion
 run ncbi_clnsig_conversion $exe tests/files/109.xml
 assert_in_stdout "CLNSIG=Likely_pathogenic,_risk_factor"
+
+# Multiple submission from same submitter
+run mutli_subs_from_same_submitter $exe tests/files/307134.xml
+assert_in_stdout "CLNREVSTAT=criteria_provided,_single_submitter"
