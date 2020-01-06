@@ -12,3 +12,6 @@ suite "test utils functions":
     check rsMutlipleSubmitterNoConflict.nbStars() == 2
     check rsExpertPanel.nbStars() == 3
     check rsPracticeGuideline.nbStars() == 4
+  
+  test "test parseNCBIConversionComment":
+    check parseNCBIConversionComment("Converted during submission to Likely pathogenic.") == csLikelyPathogenic

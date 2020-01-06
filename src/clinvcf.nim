@@ -1,4 +1,4 @@
-import httpclient, json, algorithm, tables, sequtils
+import httpclient, json, algorithm, tables, sequtils, re
 import os, times
 import q, xmltree # Parse XML
 import docopt # Formating the command-line
@@ -113,6 +113,15 @@ proc cmpVariant*(x, y: ClinVariant): int =
     # Neither are integer, we return the lexicographic order
     else:
       return cmp_chrom
+
+let ncbi_conversion_regex = re(r"^Converted during submission to (.*)\.$")
+proc parseNCBIConversionComment*(comment: string): ClinSig =
+  ## Parse 'Converted during submission to Likely pathogenic.' to ClinSig csLikelyPathogenic, return csUnknown if parsing failed
+  var arr: array[1, string]
+  if match(comment, ncbi_conversion_regex, arr, 0):
+    result = parseEnum[ClinSig](arr[0], csUnknown)
+  else:
+    result = csUnknown
 
 proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], total: int, has_conflict = false): RevStat =
   if total > 1 and revstat_count.hasKey(rsSingleSubmitter):
@@ -345,15 +354,24 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                   var
                     desc_nodes = clinsig_nodes[0].select("description")
                     revstat_nodes = clinsig_nodes[0].select("reviewstatus")
-                  if desc_nodes.len() > 0:
+                    comment_nodes = clinsig_nodes[0].select("comment")
+                  # <ClinicalSignificance>
+                  #   <ReviewStatus>no assertion criteria provided</ReviewStatus>
+                  #   <Description>likely pathogenic - adrenal pheochromocytoma</Description>
+                  #   <Comment Type="ConvertedByNCBI">Converted during submission to Likely pathogenic.</Comment>
+                  # </ClinicalSignificance>
+                  # Here we handle the clinsig that were automatically converted by NCBI and has to be
+                  # extracted with a regex from the comment node
+                  for comment in comment_nodes:
+                    if comment.attr("Type") == "ConvertedByNCBI":
+                      clinical_significance = parseNCBIConversionComment(comment.innerText)
+                  if clinical_significance == csUnknown and desc_nodes.len() > 0:
                     clinical_significance = parseEnum[ClinSig](desc_nodes[0].innerText, csUnknown)
                   if revstat_nodes.len() > 0:
                    review_status = parseEnum[RevStat](revstat_nodes[0].innerText, rsNoAssertion)
                    
                   # Add the submission to the variant record
                   result.variants[variant_id].submissions.add(Submission(clinical_significance: clinical_significance, review_status: review_status))
-    elif clinvarset_string.startsWith("<ReleaseSet"):
-      echo "RELEASE LINE: " & clinvarset_string
     else:
       # We did not found a clinvarset entry, it can either mean that we are at the end of the file
       # Or that we are parsing headers of the xml file
@@ -448,8 +466,6 @@ Options:
     variants_hash: TableRef[int, ClinVariant]
     variants_seq: seq[ClinVariant]
     filedate: string
-    #variation_allele_file = $args["<variation_allele.txt.gz>"]
-    #allele_variant_table = loadAlleleVariantTable(variation_allele_file)
 
   # Load variants from XML
   stderr.writeLine("[Log] Parsing variants from " & clinvar_xml_file)

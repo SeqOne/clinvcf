@@ -19,5 +19,5 @@ skipDirs = @["tests"]
 import ospaths,strutils
 
 task test, "run the tests":
-  exec "bash tests/functional-tests.sh"
   exec "nim c  -d:useSysAssert -d:useGcAssert --lineDir:on --debuginfo --lineDir:on --debuginfo -r --threads:on tests/all"
+  exec "bash tests/functional-tests.sh"

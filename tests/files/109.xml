@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ReleaseSet Dated="2019-12-31" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Type="full" xsi:noNamespaceSchemaLocation="http://ftp.ncbi.nlm.nih.gov/pub/clinvar/xsd_public/clinvar_public_1.59.xsd">
+
+<ClinVarSet ID="48728680">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_017849.3(TMEM127):c.245-1G&gt;T AND Pheochromocytoma, susceptibility to</Title>
+  <ReferenceClinVarAssertion DateCreated="2012-08-13" DateLastUpdated="2019-12-17" ID="57632">
+    <ClinVarAccession Acc="RCV000000129" Version="3" Type="RCV" DateUpdated="2019-12-17"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2010-03-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>risk factor</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="49701161">
+        <Attribute Type="Description">In 2 members of a family with pheochromocytoma (171300), Qin et al. (2010) identified a heterozygous germline G-to-T transversion in intron 2 of the TMEM127 gene, resulting in a frameshift and premature termination. Analysis of tumor tissue showed loss of heterozygosity at the TMEM127 locus, consistent with a 2-hit model of tumor suppressor inactivation. Age at onset was 54 and 66 years, respectively, and both patients had bilateral tumors. TMEM127 expression was decreased, consistent with a loss of function.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">20154675</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="109" Acc="VCV000000109" Version="1">
+      <Measure Type="single nucleotide variant" ID="15148">
+        <Name>
+          <ElementValue Type="Preferred">NM_017849.3(TMEM127):c.245-1G&gt;T</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">IVS2-1G&gt;T(p.F83fs)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_528t1" Change="c.245-1G&gt;T" Type="HGVS, coding, LRG">LRG_528t1:c.245-1G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001193304" Version="3" Change="c.245-1G&gt;T" Type="HGVS, coding, RefSeq">NM_001193304.3:c.245-1G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_017849" Version="3" Change="c.245-1G&gt;T" Type="HGVS, coding, RefSeq">NM_017849.3:c.245-1G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_528" Change="g.16016G&gt;T" Type="HGVS, genomic, LRG">LRG_528:g.16016G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_027695" Version="1" Change="g.16016G&gt;T" Type="HGVS, genomic, RefSeqGene">NG_027695.1:g.16016G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000002" Version="12" Change="g.96254998C&gt;A" Type="HGVS, genomic, top level" integerValue="38">NC_000002.12:g.96254998C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000002" Version="11" Change="g.96920736C&gt;A" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000002.11:g.96920736C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+          <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+          <XRef ID="NM_001193304.3:c.245-1G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+          <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+          <XRef ID="NM_017849.3:c.245-1G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="nucleotide change">IVS2AS, G-T, -1</Attribute>
+        </AttributeSet>
+        <CytogeneticLocation>2q11.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="2" Accession="NC_000002.12" start="96254998" stop="96254998" display_start="96254998" display_stop="96254998" variantLength="1" positionVCF="96254998" referenceAlleleVCF="C" alternateAlleleVCF="A"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="2" Accession="NC_000002.11" start="96920736" stop="96920736" display_start="96920736" display_stop="96920736" variantLength="1" positionVCF="96920736" referenceAlleleVCF="C" alternateAlleleVCF="A"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">transmembrane protein 127</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">TMEM127</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="2" Accession="NC_000002.12" start="96248514" stop="96265997" display_start="96248514" display_stop="96265997" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="2" Accession="NC_000002.11" start="96915945" stop="96931750" display_start="96915945" display_stop="96931750" variantLength="15806" Strand="-"/>
+          <XRef ID="55654" DB="Gene"/>
+          <XRef Type="MIM" ID="613403" DB="OMIM"/>
+          <XRef ID="HGNC:26038" DB="HGNC"/>
+        </MeasureRelationship>
+        <Citation Type="general">
+          <ID Source="PubMed">20154675</ID>
+        </Citation>
+        <XRef Type="Allelic variant" ID="613403.0003" DB="OMIM"/>
+        <XRef Type="rs" ID="121908821" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_017849.3(TMEM127):c.245-1G&gt;T</ElementValue>
+      </Name>
+      <XRef ID="CA113858" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="49">
+      <Trait ID="9611" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Pheochromocytoma, susceptibility to</ElementValue>
+        </Name>
+        <XRef ID="C3149711" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="20272">
+    <ClinVarSubmissionID localKey="613403.0003_PHEOCHROMOCYTOMA, SUSCEPTIBILITY TO" submitter="OMIM" submitterDate="2013-09-06" title="TMEM127, IVS2AS, G-T, -1 _PHEOCHROMOCYTOMA, SUSCEPTIBILITY TO"/>
+    <ClinVarAccession Acc="SCV000020272" Version="2" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2010-03-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>risk factor</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="OMIM" ID="613403.0003" Type="Allelic variant"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">In 2 members of a family with pheochromocytoma (171300), Qin et al. (2010) identified a heterozygous germline G-to-T transversion in intron 2 of the TMEM127 gene, resulting in a frameshift and premature termination. Analysis of tumor tissue showed loss of heterozygosity at the TMEM127 locus, consistent with a 2-hit model of tumor suppressor inactivation. Age at onset was 54 and 66 years, respectively, and both patients had bilateral tumors. TMEM127 expression was decreased, consistent with a loss of function.</Attribute>
+        <Citation>
+          <ID Source="PubMed">20154675</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="171300" Type="MIM"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Preferred">TMEM127, IVS2AS, G-T, -1</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="NonHGVS">IVS2AS, G-T, -1</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">TMEM127</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="OMIM" ID="613403.0003" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">PHEOCHROMOCYTOMA, SUSCEPTIBILITY TO</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="48739896">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_017849.3(TMEM127):c.245-1G&gt;T AND Pheochromocytoma</Title>
+  <ReferenceClinVarAssertion DateCreated="2014-04-23" DateLastUpdated="2019-12-17" ID="269101">
+    <ClinVarAccession Acc="RCV000114824" Version="1" Type="RCV" DateUpdated="2019-12-17"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance>
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Likely pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+        <NumberTested>1</NumberTested>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="49712714">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="109" Acc="VCV000000109" Version="1">
+      <Measure Type="single nucleotide variant" ID="15148">
+        <Name>
+          <ElementValue Type="Preferred">NM_017849.3(TMEM127):c.245-1G&gt;T</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">IVS2-1G&gt;T(p.F83fs)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_528t1" Change="c.245-1G&gt;T" Type="HGVS, coding, LRG">LRG_528t1:c.245-1G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001193304" Version="3" Change="c.245-1G&gt;T" Type="HGVS, coding, RefSeq">NM_001193304.3:c.245-1G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_017849" Version="3" Change="c.245-1G&gt;T" Type="HGVS, coding, RefSeq">NM_017849.3:c.245-1G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_528" Change="g.16016G&gt;T" Type="HGVS, genomic, LRG">LRG_528:g.16016G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_027695" Version="1" Change="g.16016G&gt;T" Type="HGVS, genomic, RefSeqGene">NG_027695.1:g.16016G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000002" Version="12" Change="g.96254998C&gt;A" Type="HGVS, genomic, top level" integerValue="38">NC_000002.12:g.96254998C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000002" Version="11" Change="g.96920736C&gt;A" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000002.11:g.96920736C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+          <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+          <XRef ID="NM_001193304.3:c.245-1G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+          <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+          <XRef ID="NM_017849.3:c.245-1G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="nucleotide change">IVS2AS, G-T, -1</Attribute>
+        </AttributeSet>
+        <CytogeneticLocation>2q11.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="2" Accession="NC_000002.12" start="96254998" stop="96254998" display_start="96254998" display_stop="96254998" variantLength="1" positionVCF="96254998" referenceAlleleVCF="C" alternateAlleleVCF="A"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="2" Accession="NC_000002.11" start="96920736" stop="96920736" display_start="96920736" display_stop="96920736" variantLength="1" positionVCF="96920736" referenceAlleleVCF="C" alternateAlleleVCF="A"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">transmembrane protein 127</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">TMEM127</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="2" Accession="NC_000002.12" start="96248514" stop="96265997" display_start="96248514" display_stop="96265997" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="2" Accession="NC_000002.11" start="96915945" stop="96931750" display_start="96915945" display_stop="96931750" variantLength="15806" Strand="-"/>
+          <XRef ID="55654" DB="Gene"/>
+          <XRef Type="MIM" ID="613403" DB="OMIM"/>
+          <XRef ID="HGNC:26038" DB="HGNC"/>
+        </MeasureRelationship>
+        <Citation Type="general">
+          <ID Source="PubMed">20154675</ID>
+        </Citation>
+        <XRef Type="Allelic variant" ID="613403.0003" DB="OMIM"/>
+        <XRef Type="rs" ID="121908821" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_017849.3(TMEM127):c.245-1G&gt;T</ElementValue>
+      </Name>
+      <XRef ID="CA113858" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="572">
+      <Trait ID="3796" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Pheochromocytoma</ElementValue>
+          <XRef ID="Pheochromocytoma/5718" DB="Genetic Alliance"/>
+          <XRef ID="HP:0002666" DB="Human Phenotype Ontology"/>
+          <XRef ID="7385" DB="Office of Rare Diseases"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Pheochromocytoma, somatic</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">MAX-Related Hereditary Paraganglioma-Pheochromocytoma Syndrome</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">PHEOCHROMOCYTOMA, SUSCEPTIBILITY TO</ElementValue>
+          <XRef Type="MIM" ID="171300" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Chromaffin tumors</ElementValue>
+          <XRef ID="HP:0002666" DB="Human Phenotype Ontology"/>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">Hereditary paraganglioma-pheochromocytoma (PGL/PCC) syndromes are characterized by paragangliomas (tumors that arise from neuroendocrine tissues distributed along the paravertebral axis from the base of the skull to the pelvis) and pheochromocytomas (paragangliomas that are confined to the adrenal medulla). Sympathetic paragangliomas cause catecholamine excess; parasympathetic paragangliomas are most often nonsecretory. Extra-adrenal parasympathetic paragangliomas are located predominantly in the skull base and neck (referred to as head and neck PGL [HNPGL]) and sometimes in the upper mediastinum; approximately 95% of such tumors are nonsecretory. In contrast, sympathetic extra-adrenal paragangliomas are generally confined to the lower mediastinum, abdomen, and pelvis, and are typically secretory. Pheochromocytomas, which arise from the adrenal medulla, typically lead to catecholamine excess. Symptoms of PGL/PCC result from either mass effects or catecholamine hypersecretion (e.g., sustained or paroxysmal elevations in blood pressure, headache, episodic profuse sweating, forceful palpitations, pallor, and apprehension or anxiety). The risk for developing metastatic disease is greater for extra-adrenal sympathetic paragangliomas than for pheochromocytomas.</Attribute>
+          <XRef ID="NBK1548" DB="GeneReviews"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="keyword">Neoplasm</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="keyword">Hereditary cancer syndrome</Attribute>
+        </AttributeSet>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301715</ID>
+          <ID Source="BookShelf">NBK1548</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="ES, 2014">
+          <ID Source="PubMed">24893135</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="ASCO, 2014">
+          <ID Source="PubMed">24493721</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="NANETS, 2010">
+          <ID Source="pmc">3419007</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="KCRNC, 2013">
+          <ID Source="PubMed">24319509</ID>
+        </Citation>
+        <XRef ID="C0031511" DB="MedGen"/>
+        <XRef ID="29072" DB="Orphanet"/>
+        <XRef Type="MIM" ID="171300" DB="OMIM"/>
+        <XRef Type="primary" ID="HP:0002666" DB="Human Phenotype Ontology"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="268918" SubmissionName="ute_01">
+    <ClinVarSubmissionID localKey="NM_017849.3:c.245-1G&gt;T|FCC-IOV" submitter="Familial Cancer Clinic,Veneto Institute of Oncology" submitterDate="2010-12-21"/>
+    <ClinVarAccession Acc="SCV000148719" Version="1" Type="SCV" OrgID="500224" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance>
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>likely pathogenic - adrenal pheochromocytoma</Description>
+      <Comment Type="ConvertedByNCBI">Converted during submission to Likely pathogenic.</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+        <NumberTested>1</NumberTested>
+      </Sample>
+      <Method>
+        <MethodType>not provided</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Alternate">IVS2-1G&gt;T (p.F83fs)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_017849.3:c.245-1G&gt;T</Attribute>
+        </AttributeSet>
+        <Citation Type="general">
+          <ID Source="PubMed">20154675</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="613403.0003" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Pheochromocytoma</ElementValue>
+        </Name>
+        <XRef DB="OMIM" ID="171300" Type="MIM"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+
