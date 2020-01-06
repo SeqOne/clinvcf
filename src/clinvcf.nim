@@ -143,7 +143,7 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
   var 
     clinsig_count = newTable[ClinSig, int]()
     revstat_count = newTable[RevStat, int]()
-    submitter_ids : seq[int]
+    submitter_ids = newSeq[int]()
     no_aggregation_needed = false
     at_least_one_star_subs: seq[Submission]
 
@@ -173,10 +173,9 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
         inc(revstat_count[sub.review_status])
       else:
         revstat_count[sub.review_status] = 1
-      
-      if not sub.submitter_id in submitter_ids:
+      if sub.submitter_id notin submitter_ids:
         submitter_ids.add(sub.submitter_id)
-  
+   
   # If we have found and rsExpertPanel or rsPracticeGuideline we do not perform aggreagtion of submissions
   if not no_aggregation_needed:
     # Filter acmg_only values:
@@ -367,7 +366,9 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                   submitter_id = submitters_hash[submitter_name]
                 else:
                   # Add the new submitter to the submutter hash
-                  submitters_hash[submitter_name] =  submitters_hash.len()
+                  submitter_id = submitters_hash.len()
+                  submitters_hash[submitter_name] = submitter_id
+                  
               if clinsig_nodes.len() > 0: # FIXME: Should not be > to 1 ...
                 var
                   clinical_significance : ClinSig = csUnknown
