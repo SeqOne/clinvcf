@@ -1,4 +1,4 @@
-import httpclient, json, tables, sequtils
+import httpclient, json, algorithm, tables, sequtils
 import os, times
 import q, xmltree # Parse XML
 import docopt # Formating the command-line
@@ -76,6 +76,43 @@ proc nbStars*(rs: RevStat): int =
       result = 3
     of rsPracticeGuideline:
       result = 4
+
+proc chromToInt*(chrom: string): int =
+  ## Return -1 if chrom is not an integer (eg: X, Y)
+  try:
+    result = chrom.parseInt()
+  except:
+    result = -1
+
+proc cmpVariant*(x, y: ClinVariant): int =
+  ## Cmp based on genomic order
+  let cmp_chrom = cmp(x.chrom, y.chrom)
+  if cmp_chrom == 0:
+    let cmp_pos = cmp(x.pos,y.pos)
+    if cmp_pos == 0:
+      let cmp_ref = cmp(x.ref_allele,y.ref_allele)
+      if cmp_ref == 0:
+        return cmp(x.alt_allele,y.alt_allele)
+      else:
+        return cmp_ref
+    else:
+      return cmp_pos
+  else:
+    let 
+      x_chrom_int = x.chrom.chromToInt()
+      y_chrom_int = y.chrom.chromToInt()
+    # Both chromosomes are integer, we return the smallest one
+    if x_chrom_int != -1 and y_chrom_int != -1:
+      return cmp(x_chrom_int,y_chrom_int)
+    # Only X ins an integer, it is the smallest one
+    elif x_chrom_int != -1:
+      return -1
+    # Only Y is an integer, it is the smalles one
+    elif y_chrom_int != -1:
+      return 1
+    # Neither are integer, we return the lexicographic order
+    else:
+      return cmp_chrom
 
 proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], total: int, has_conflict = false): RevStat =
   if total > 1 and revstat_count.hasKey(rsSingleSubmitter):
@@ -329,7 +366,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): TableRef[
 proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')
 
-proc printVCF*(variants: TableRef[int, ClinVariant], genome_assembly: string) =
+proc printVCF*(variants: seq[ClinVariant], genome_assembly: string) =
   echo "##fileformat=VCFv4.1"
   ##fileDate=2019-12-23 # TODO: Get date from XML headers
   echo "##source=ClinVar"
@@ -361,7 +398,7 @@ proc printVCF*(variants: TableRef[int, ClinVariant], genome_assembly: string) =
   # - 1kg_failed, 1024 - other">
   echo "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO"
 
-  for v in variants.values():
+  for v in variants:
     let (clinsig, revstat) = v.submissions.aggregateSubmissions()
     var info_fields : seq[string] = @["ALLELEID=" & $v.allele_id]
     
@@ -402,12 +439,22 @@ Options:
     genome_assembly = $args["--genome"]
     clinvar_xml_file = $args["<clinvar.xml.gz>"]
   
-  var variants: TableRef[int, ClinVariant]
+  var 
+    variants_hash: TableRef[int, ClinVariant]
+    variants_seq: seq[ClinVariant]
     #variation_allele_file = $args["<variation_allele.txt.gz>"]
     #allele_variant_table = loadAlleleVariantTable(variation_allele_file)
 
-  variants = loadVariants(clinvar_xml_file, genome_assembly)
-  printVCF(variants, genome_assembly)
+  # Load variants from XML
+  variants_hash = loadVariants(clinvar_xml_file, genome_assembly)
+  
+  # Sort variants by genomic order
+  stderr.writeLine("[Log] Sorting variants")
+  variants_seq = toSeq(variants_hash.values())
+  variants_seq.sort(cmpVariant)
+  
+  # Print VCF of STDOUT
+  printVCF(variants_seq, genome_assembly)
 
 when isMainModule:
   main(commandLineParams())
