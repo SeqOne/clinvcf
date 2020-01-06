@@ -3,7 +3,7 @@ stages:
   - delivery
 
 test:
-  image: registry.seq.one/nim-builder:1.0.2
+  image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.0.2
   stage: test
   script:
     - nimble test
@@ -11,7 +11,7 @@ test:
     - docker-executor
 
 delivery:
-  image: registry.seq.one/nim-builder:1.0.2
+  image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.0.2
   stage: delivery
   script:
     - nimble install -y

@@ -10,3 +10,4 @@
 [ ] Add date header
 [ ] Add gnomad annot (using API calls and cache)
 [ ] Add progressiong bar when loading variants
+[ ] Create README file
