@@ -204,7 +204,6 @@
   </ClinVarAssertion>
 </ClinVarSet>
 
-
 <ClinVarSet ID="47310212">
   <RecordStatus>current</RecordStatus>
   <Title>NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=) AND Brachyolmia</Title>
@@ -399,7 +398,6 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
-
 
 <ClinVarSet ID="47349472">
   <RecordStatus>current</RecordStatus>
@@ -605,7 +603,6 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
-
 
 <ClinVarSet ID="47364316">
   <RecordStatus>current</RecordStatus>
@@ -825,7 +822,6 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
-
 
 <ClinVarSet ID="47403281">
   <RecordStatus>current</RecordStatus>
@@ -1057,7 +1053,6 @@
   </ClinVarAssertion>
 </ClinVarSet>
 
-
 <ClinVarSet ID="47415727">
   <RecordStatus>current</RecordStatus>
   <Title>NM_021625.4(TRPV4):c.963C&gt;A (p.Gly321=) AND Spondylometaphyseal dysplasia</Title>
@@ -1276,5 +1271,3 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
-
-

@@ -12,9 +12,10 @@
 [ ] Add progressiong bar when loading variants
 [ ] Create README file
 [ ] Add NB_STARS tag 
-[ ] Handle GenotypeSet (These variants should not be included in the VCF (see case 424779))
+[x] Handle GenotypeSet (These variants should not be included in the VCF (see case 424779))
 [x] Handle automatic clinsig conversions from NCBI
 [x] Multiple submitter is not multiple submissions !!! (see case 307134)
+[ ] Add a tag with number of submitters / submissions
 
 <ClinicalSignificance>
       <ReviewStatus>no assertion criteria provided</ReviewStatus>

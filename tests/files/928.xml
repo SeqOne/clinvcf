@@ -1,0 +1,800 @@
+<ClinVarSet ID="47065072">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000404.2(GLB1):c.367G&gt;A AND Infantile GM1 gangliosidosis</Title>
+  <ReferenceClinVarAssertion DateCreated="2012-08-13" DateLastUpdated="2019-11-02" ID="58479">
+    <ClinVarAccession Acc="RCV000000976" Version="2" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="1991-08-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="47898801">
+        <Attribute Type="Description">In a Japanese patient with the infantile form of GM1-gangliosidosis (230500), Yoshida et al. (1991) found a 401G-A transition in the GLB1 gene, resulting in a gly123-to-arg (G123R) substitution. The patient had 0.65% residual enzyme activity. A second mutant allele was not identified.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">1907800</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="928" Acc="VCV000000928" Version="2">
+      <Measure Type="single nucleotide variant" ID="15967">
+        <Name>
+          <ElementValue Type="Preferred">NM_000404.4(GLB1):c.367G&gt;A (p.Gly123Arg)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NM_001135602" Version="2" Change="c.246-3292G&gt;A" Type="HGVS, coding, RefSeq">NM_001135602.2:c.246-3292G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001079811" Version="2" Change="c.277G&gt;A" Type="HGVS, coding, RefSeq">NM_001079811.2:c.277G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000404" Version="4" Change="c.367G&gt;A" Type="HGVS, coding, RefSeq">NM_000404.4:c.367G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001317040" Version="1" Change="c.511G&gt;A" Type="HGVS, coding, RefSeq">NM_001317040.1:c.511G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_009005" Version="1" Change="g.33354G&gt;A" Type="HGVS, genomic, RefSeqGene">NG_009005.1:g.33354G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000003" Version="12" Change="g.33068849C&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000003.12:g.33068849C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000003" Version="11" Change="g.33110341C&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000003.11:g.33110341C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000395" Version="3" Change="p.Gly123Arg" Type="HGVS, protein, RefSeq">NP_000395.3:p.Gly123Arg</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001303969" Version="1" Change="p.Gly171Arg" Type="HGVS, protein, RefSeq">NP_001303969.1:p.Gly171Arg</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001073279" Version="1" Change="p.Gly93Arg" Type="HGVS, protein, RefSeq">NP_001073279.1:p.Gly93Arg</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">intron variant</Attribute>
+          <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+          <XRef ID="NM_001135602.2:c.246-3292G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_000404.4:c.367G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001079811.2:c.277G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001317040.1:c.511G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">G123R</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">G171R</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">G93R</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">GLY123ARG</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00001" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.00001" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>3p22.3</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="33068849" stop="33068849" display_start="33068849" display_stop="33068849" variantLength="1" positionVCF="33068849" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="33110341" stop="33110341" display_start="33110341" display_stop="33110341" variantLength="1" positionVCF="33110341" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">galactosidase beta 1</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">GLB1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="32996608" stop="33097230" display_start="32996608" display_stop="33097230" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="33038099" stop="33138693" display_start="33038099" display_stop="33138693" variantLength="100595" Strand="-"/>
+          <XRef ID="2720" DB="Gene"/>
+          <XRef Type="MIM" ID="611458" DB="OMIM"/>
+          <XRef ID="HGNC:4298" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef Type="Allelic variant" ID="611458.0006" DB="OMIM"/>
+        <XRef Type="rs" ID="28934274" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000404.2(GLB1):c.367G&gt;A</ElementValue>
+      </Name>
+      <AttributeSet>
+        <Attribute Type="HGVS, coding, RefSeq" Change="c.367G&gt;A">NM_000404.2:c.367G&gt;A</Attribute>
+      </AttributeSet>
+      <XRef ID="CA114636" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="244">
+      <Trait ID="5204" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Infantile GM1 gangliosidosis</ElementValue>
+          <XRef ID="Infantile+GM1+gangliosidosis/8659" DB="Genetic Alliance"/>
+          <XRef ID="238026007" DB="SNOMED CT"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">GM1-GANGLIOSIDOSIS, TYPE I</ElementValue>
+          <XRef Type="MIM" ID="230500" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0001" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0002" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0005" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0006" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0007" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0010" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0012" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0014" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0017" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0023" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">GANGLIOSIDOSIS, GENERALIZED GM1, INFANTILE FORM</ElementValue>
+          <XRef Type="MIM" ID="230500" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">GANGLIOSIDOSIS, GENERALIZED GM1, TYPE I</ElementValue>
+          <XRef Type="MIM" ID="230500" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">GLB1 DEFICIENCY</ElementValue>
+          <XRef Type="MIM" ID="230500" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Gangliosidosis, Generalized GM1, Type 1</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">GLB1-related disorders comprise two phenotypically distinct lysosomal storage disorders: GM1 gangliosidosis and mucopolysaccharidosis type IVB (MPS IVB). GM1 gangliosidosis includes phenotypes that range from severe to mild. Type I (infantile) begins before age one year; progressive central nervous system dysfunction leads to spasticity, deafness, blindness, and decerebrate rigidity. Life expectancy is two to three years. Type II can be subdivided into the late-infantile form and juvenile form. Type II, late-infantile form begins between ages one and three years; life expectancy is five to ten years. Type II, juvenile form begins between ages three and ten years with insidious plateauing of motor and cognitive development followed by slow regression. Type II may or may not include skeletal dysplasia. Type III begins in the second to third decade with extrapyramidal signs, gait disturbance, and cardiomyopathy; and can be misidentified as Parkinson disease. Intellectual impairment is common late in the disease; skeletal involvement includes short stature, kyphosis, and scoliosis of varying severity. MPS IVB is characterized by skeletal changes, including short stature and skeletal dysplasia. Affected children have no distinctive clinical findings at birth. The severe form is usually apparent between ages one and three years, and the attenuated form in late childhood or adolescence. In addition to skeletal involvement, significant morbidity can result from respiratory compromise, obstructive sleep apnea, valvular heart disease, hearing impairment, corneal clouding, and spinal cord compression. Intellect is normal unless spinal cord compression leads to central nervous system compromise.</Attribute>
+          <XRef ID="NBK164500" DB="GeneReviews"/>
+        </AttributeSet>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">24156116</ID>
+          <ID Source="BookShelf">NBK164500</ID>
+        </Citation>
+        <XRef ID="C0268271" DB="MedGen"/>
+        <XRef ID="354" DB="Orphanet"/>
+        <XRef Type="MIM" ID="230500" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="21126">
+    <ClinVarSubmissionID localKey="611458.0006_GM1-GANGLIOSIDOSIS, TYPE I" submitter="OMIM" submitterDate="2011-05-17" title="GLB1, GLY123ARG_GM1-GANGLIOSIDOSIS, TYPE I"/>
+    <ClinVarAccession Acc="SCV000021126" Version="1" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-08-03"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="1991-08-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="OMIM" ID="611458.0006" Type="Allelic variant"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">In a Japanese patient with the infantile form of GM1-gangliosidosis (230500), Yoshida et al. (1991) found a 401G-A transition in the GLB1 gene, resulting in a gly123-to-arg (G123R) substitution. The patient had 0.65% residual enzyme activity. A second mutant allele was not identified.</Attribute>
+        <Citation>
+          <ID Source="PubMed">1907800</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="230500" Type="MIM"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Preferred">GLB1, GLY123ARG</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="NonHGVS">GLY123ARG</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">GLB1</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="OMIM" ID="611458.0006" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">GM1-GANGLIOSIDOSIS, TYPE I</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="47204974">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000404.3(GLB1):c.[245C&gt;T];[367G&gt;A] AND Infantile GM1 gangliosidosis</Title>
+  <ReferenceClinVarAssertion DateCreated="2015-10-11" DateLastUpdated="2019-11-02" ID="471839">
+    <ClinVarAccession Acc="RCV000196532" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2013-03-12">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="ModeOfInheritance" integerValue="263">Autosomal recessive inheritance</Attribute>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <NamePlatform>HiSeq</NamePlatform>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48087865">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+      <ObservedData ID="48087865">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+      <ObservedData ID="48087865">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <GenotypeSet Type="CompoundHeterozygote" ID="424779" Acc="VCV000424779" Version="1">
+      <MeasureSet Type="Variant" ID="928" Acc="VCV000000928" Version="2" NumberOfChromosomes="1">
+        <Measure Type="single nucleotide variant" ID="15967">
+          <Name>
+            <ElementValue Type="Preferred">NM_000404.4(GLB1):c.367G&gt;A (p.Gly123Arg)</ElementValue>
+          </Name>
+          <AttributeSet>
+            <Attribute Accession="NM_001135602" Version="2" Change="c.246-3292G&gt;A" Type="HGVS, coding, RefSeq">NM_001135602.2:c.246-3292G&gt;A</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NM_001079811" Version="2" Change="c.277G&gt;A" Type="HGVS, coding, RefSeq">NM_001079811.2:c.277G&gt;A</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NM_000404" Version="4" Change="c.367G&gt;A" Type="HGVS, coding, RefSeq">NM_000404.4:c.367G&gt;A</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NM_001317040" Version="1" Change="c.511G&gt;A" Type="HGVS, coding, RefSeq">NM_001317040.1:c.511G&gt;A</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NG_009005" Version="1" Change="g.33354G&gt;A" Type="HGVS, genomic, RefSeqGene">NG_009005.1:g.33354G&gt;A</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NC_000003" Version="12" Change="g.33068849C&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000003.12:g.33068849C&gt;T</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NC_000003" Version="11" Change="g.33110341C&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000003.11:g.33110341C&gt;T</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NP_000395" Version="3" Change="p.Gly123Arg" Type="HGVS, protein, RefSeq">NP_000395.3:p.Gly123Arg</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NP_001303969" Version="1" Change="p.Gly171Arg" Type="HGVS, protein, RefSeq">NP_001303969.1:p.Gly171Arg</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NP_001073279" Version="1" Change="p.Gly93Arg" Type="HGVS, protein, RefSeq">NP_001073279.1:p.Gly93Arg</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="MolecularConsequence">intron variant</Attribute>
+            <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+            <XRef ID="NM_001135602.2:c.246-3292G&gt;A" DB="RefSeq"/>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="MolecularConsequence">missense variant</Attribute>
+            <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+            <XRef ID="NM_000404.4:c.367G&gt;A" DB="RefSeq"/>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="MolecularConsequence">missense variant</Attribute>
+            <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+            <XRef ID="NM_001079811.2:c.277G&gt;A" DB="RefSeq"/>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="MolecularConsequence">missense variant</Attribute>
+            <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+            <XRef ID="NM_001317040.1:c.511G&gt;A" DB="RefSeq"/>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="ProteinChange1LetterCode">G123R</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="ProteinChange1LetterCode">G171R</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="ProteinChange1LetterCode">G93R</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="ProteinChange3LetterCode">GLY123ARG</Attribute>
+          </AttributeSet>
+          <AlleleFrequencyList>
+            <AlleleFrequency Value="0.00001" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+            <AlleleFrequency Value="0.00001" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+          </AlleleFrequencyList>
+          <CytogeneticLocation>3p22.3</CytogeneticLocation>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="33068849" stop="33068849" display_start="33068849" display_stop="33068849" variantLength="1" positionVCF="33068849" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="33110341" stop="33110341" display_start="33110341" display_stop="33110341" variantLength="1" positionVCF="33110341" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+          <MeasureRelationship Type="within single gene">
+            <Name>
+              <ElementValue Type="Preferred">galactosidase beta 1</ElementValue>
+            </Name>
+            <Symbol>
+              <ElementValue Type="Preferred">GLB1</ElementValue>
+            </Symbol>
+            <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="32996608" stop="33097230" display_start="32996608" display_stop="33097230" Strand="-"/>
+            <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="33038099" stop="33138693" display_start="33038099" display_stop="33138693" variantLength="100595" Strand="-"/>
+            <XRef ID="2720" DB="Gene"/>
+            <XRef Type="MIM" ID="611458" DB="OMIM"/>
+            <XRef ID="HGNC:4298" DB="HGNC"/>
+          </MeasureRelationship>
+          <XRef Type="Allelic variant" ID="611458.0006" DB="OMIM"/>
+          <XRef Type="rs" ID="28934274" DB="dbSNP"/>
+        </Measure>
+        <Name>
+          <ElementValue Type="Preferred">NM_000404.2(GLB1):c.367G&gt;A</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="HGVS, coding, RefSeq" Change="c.367G&gt;A">NM_000404.2:c.367G&gt;A</Attribute>
+        </AttributeSet>
+        <XRef ID="CA114636" DB="ClinGen"/>
+      </MeasureSet>
+      <MeasureSet Type="Variant" ID="935" Acc="VCV000000935" Version="1" NumberOfChromosomes="1">
+        <Measure Type="single nucleotide variant" ID="15974">
+          <Name>
+            <ElementValue Type="Preferred">NM_000404.4(GLB1):c.245C&gt;T (p.Thr82Met)</ElementValue>
+          </Name>
+          <AttributeSet>
+            <Attribute Accession="NM_001079811" Version="2" Change="c.155C&gt;T" Type="HGVS, coding, RefSeq">NM_001079811.2:c.155C&gt;T</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NM_000404" Version="4" Change="c.245C&gt;T" Type="HGVS, coding, RefSeq">NM_000404.4:c.245C&gt;T</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NM_001135602" Version="2" Change="c.245C&gt;T" Type="HGVS, coding, RefSeq">NM_001135602.2:c.245C&gt;T</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NM_001317040" Version="1" Change="c.389C&gt;T" Type="HGVS, coding, RefSeq">NM_001317040.1:c.389C&gt;T</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NG_009005" Version="1" Change="g.29659C&gt;T" Type="HGVS, genomic, RefSeqGene">NG_009005.1:g.29659C&gt;T</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NC_000003" Version="12" Change="g.33072544G&gt;A" Type="HGVS, genomic, top level" integerValue="38">NC_000003.12:g.33072544G&gt;A</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NC_000003" Version="11" Change="g.33114036G&gt;A" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000003.11:g.33114036G&gt;A</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NM_000404" Version="2" Change="c.245C&gt;T" Type="HGVS, previous">NM_000404.2:c.245C&gt;T</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NP_001303969" Version="1" Change="p.Thr130Met" Type="HGVS, protein, RefSeq">NP_001303969.1:p.Thr130Met</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NP_001073279" Version="1" Change="p.Thr52Met" Type="HGVS, protein, RefSeq">NP_001073279.1:p.Thr52Met</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NP_001129074" Version="1" Change="p.Thr82Ile" Type="HGVS, protein, RefSeq">NP_001129074.1:p.Thr82Ile</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Accession="NP_000395" Version="3" Change="p.Thr82Met" Type="HGVS, protein, RefSeq">NP_000395.3:p.Thr82Met</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="MolecularConsequence">missense variant</Attribute>
+            <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+            <XRef ID="NM_000404.4:c.245C&gt;T" DB="RefSeq"/>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="MolecularConsequence">missense variant</Attribute>
+            <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+            <XRef ID="NM_001079811.2:c.155C&gt;T" DB="RefSeq"/>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="MolecularConsequence">missense variant</Attribute>
+            <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+            <XRef ID="NM_001135602.2:c.245C&gt;T" DB="RefSeq"/>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="MolecularConsequence">missense variant</Attribute>
+            <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+            <XRef ID="NM_001317040.1:c.389C&gt;T" DB="RefSeq"/>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="ProteinChange1LetterCode">T130M</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="ProteinChange1LetterCode">T52M</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="ProteinChange1LetterCode">T82I</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="ProteinChange1LetterCode">T82M</Attribute>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute Type="ProteinChange3LetterCode">THR82MET</Attribute>
+          </AttributeSet>
+          <AlleleFrequencyList>
+            <AlleleFrequency Value="0.00008" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+            <AlleleFrequency Value="0.00007" Source="Exome Aggregation Consortium (ExAC)"/>
+            <AlleleFrequency Value="0.00005" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+            <AlleleFrequency Value="0.00002" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+          </AlleleFrequencyList>
+          <CytogeneticLocation>3p22.3</CytogeneticLocation>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="33072544" stop="33072544" display_start="33072544" display_stop="33072544" variantLength="1" positionVCF="33072544" referenceAlleleVCF="G" alternateAlleleVCF="A"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="33114036" stop="33114036" display_start="33114036" display_stop="33114036" variantLength="1" positionVCF="33114036" referenceAlleleVCF="G" alternateAlleleVCF="A"/>
+          <MeasureRelationship Type="within single gene">
+            <Name>
+              <ElementValue Type="Preferred">galactosidase beta 1</ElementValue>
+            </Name>
+            <Symbol>
+              <ElementValue Type="Preferred">GLB1</ElementValue>
+            </Symbol>
+            <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="32996608" stop="33097230" display_start="32996608" display_stop="33097230" Strand="-"/>
+            <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="33038099" stop="33138693" display_start="33038099" display_stop="33138693" variantLength="100595" Strand="-"/>
+            <XRef ID="2720" DB="Gene"/>
+            <XRef Type="MIM" ID="611458" DB="OMIM"/>
+            <XRef ID="HGNC:4298" DB="HGNC"/>
+          </MeasureRelationship>
+          <XRef Type="Allelic variant" ID="611458.0013" DB="OMIM"/>
+          <XRef Type="rs" ID="72555393" DB="dbSNP"/>
+        </Measure>
+        <Name>
+          <ElementValue Type="Preferred">NM_000404.2(GLB1):c.245C&gt;T</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="HGVS, coding, RefSeq" Change="c.245C&gt;T">NM_000404.2:c.245C&gt;T</Attribute>
+        </AttributeSet>
+        <XRef ID="CA114649" DB="ClinGen"/>
+      </MeasureSet>
+      <Name>
+        <ElementValue Type="Preferred">NM_000404.3(GLB1):c.[245C&gt;T];[367G&gt;A]</ElementValue>
+      </Name>
+      <AttributeSet>
+        <Attribute Type="HGVS, coding, RefSeq" Change="c.[245C&gt;T];[367G&gt;A]">NM_000404.3:c.[245C&gt;T];[367G&gt;A]</Attribute>
+      </AttributeSet>
+    </GenotypeSet>
+    <TraitSet Type="Disease" ID="244">
+      <Trait ID="5204" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Infantile GM1 gangliosidosis</ElementValue>
+          <XRef ID="Infantile+GM1+gangliosidosis/8659" DB="Genetic Alliance"/>
+          <XRef ID="238026007" DB="SNOMED CT"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">GM1-GANGLIOSIDOSIS, TYPE I</ElementValue>
+          <XRef Type="MIM" ID="230500" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0001" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0002" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0005" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0006" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0007" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0010" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0012" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0014" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0017" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="611458.0023" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">GANGLIOSIDOSIS, GENERALIZED GM1, INFANTILE FORM</ElementValue>
+          <XRef Type="MIM" ID="230500" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">GANGLIOSIDOSIS, GENERALIZED GM1, TYPE I</ElementValue>
+          <XRef Type="MIM" ID="230500" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">GLB1 DEFICIENCY</ElementValue>
+          <XRef Type="MIM" ID="230500" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Gangliosidosis, Generalized GM1, Type 1</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">GLB1-related disorders comprise two phenotypically distinct lysosomal storage disorders: GM1 gangliosidosis and mucopolysaccharidosis type IVB (MPS IVB). GM1 gangliosidosis includes phenotypes that range from severe to mild. Type I (infantile) begins before age one year; progressive central nervous system dysfunction leads to spasticity, deafness, blindness, and decerebrate rigidity. Life expectancy is two to three years. Type II can be subdivided into the late-infantile form and juvenile form. Type II, late-infantile form begins between ages one and three years; life expectancy is five to ten years. Type II, juvenile form begins between ages three and ten years with insidious plateauing of motor and cognitive development followed by slow regression. Type II may or may not include skeletal dysplasia. Type III begins in the second to third decade with extrapyramidal signs, gait disturbance, and cardiomyopathy; and can be misidentified as Parkinson disease. Intellectual impairment is common late in the disease; skeletal involvement includes short stature, kyphosis, and scoliosis of varying severity. MPS IVB is characterized by skeletal changes, including short stature and skeletal dysplasia. Affected children have no distinctive clinical findings at birth. The severe form is usually apparent between ages one and three years, and the attenuated form in late childhood or adolescence. In addition to skeletal involvement, significant morbidity can result from respiratory compromise, obstructive sleep apnea, valvular heart disease, hearing impairment, corneal clouding, and spinal cord compression. Intellect is normal unless spinal cord compression leads to central nervous system compromise.</Attribute>
+          <XRef ID="NBK164500" DB="GeneReviews"/>
+        </AttributeSet>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">24156116</ID>
+          <ID Source="BookShelf">NBK164500</ID>
+        </Citation>
+        <XRef ID="C0268271" DB="MedGen"/>
+        <XRef ID="354" DB="Orphanet"/>
+        <XRef Type="MIM" ID="230500" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="470582" SubmissionName="CES">
+    <ClinVarSubmissionID localKey="70" localKeyIsSubmitted="1" submitter="UCLA Clinical Genomics Center, UCLA" submitterDate="2015-05-14"/>
+    <ClinVarAccession Acc="SCV000255379" Version="3" Type="SCV" OrgID="505231" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-03"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2013-03-12">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="ModeOfInheritance">Autosomal recessive inheritance</Attribute>
+    </AttributeSet>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">Submitter's publication</Attribute>
+      <Citation>
+        <ID Source="PubMed">25326637</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <Age Type="minimum" age_unit="years">0</Age>
+        <Age Type="maximum" age_unit="years">9</Age>
+        <AffectedStatus>yes</AffectedStatus>
+        <Gender>female</Gender>
+      </Sample>
+      <Method>
+        <NamePlatform>HiSeq</NamePlatform>
+        <TypePlatform>exome sequencing</TypePlatform>
+        <Citation>
+          <ID Source="PubMed">25326637</ID>
+        </Citation>
+        <MethodType>clinical testing</MethodType>
+        <ObsMethodAttribute>
+          <Attribute Type="TestingLaboratory">UCLA Clinical Genomics Center</Attribute>
+        </ObsMethodAttribute>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <GenotypeSet Type="CompoundHeterozygote">
+      <MeasureSet Type="Variant">
+        <Measure Type="Variation">
+          <AttributeSet>
+            <Attribute Type="HGVS">NM_000404.2:c.367G&gt;A</Attribute>
+          </AttributeSet>
+          <MeasureRelationship Type="variant in gene">
+            <Symbol>
+              <ElementValue Type="Preferred">GLB1</ElementValue>
+            </Symbol>
+          </MeasureRelationship>
+        </Measure>
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000404.2:c.367G&gt;A</Attribute>
+        </AttributeSet>
+      </MeasureSet>
+      <MeasureSet Type="Variant">
+        <Measure Type="Variation">
+          <AttributeSet>
+            <Attribute Type="HGVS">NM_000404.2:c.245C&gt;T</Attribute>
+          </AttributeSet>
+          <MeasureRelationship Type="variant in gene">
+            <Symbol>
+              <ElementValue Type="Preferred">GLB1</ElementValue>
+            </Symbol>
+          </MeasureRelationship>
+        </Measure>
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000404.2:c.245C&gt;T</Attribute>
+        </AttributeSet>
+      </MeasureSet>
+    </GenotypeSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Infantile GM1 gangliosidosis</ElementValue>
+        </Name>
+        <XRef DB="OMIM" ID="230500" Type="MIM"/>
+      </Trait>
+    </TraitSet>
+    <StudyName>CES</StudyName>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="47441514">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000404.2(GLB1):c.367G&gt;A AND not provided</Title>
+  <ReferenceClinVarAssertion DateCreated="2017-03-07" DateLastUpdated="2019-11-02" ID="1013543">
+    <ClinVarAccession Acc="RCV000428850" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-04-20">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48327765">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="928" Acc="VCV000000928" Version="2">
+      <Measure Type="single nucleotide variant" ID="15967">
+        <Name>
+          <ElementValue Type="Preferred">NM_000404.4(GLB1):c.367G&gt;A (p.Gly123Arg)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NM_001135602" Version="2" Change="c.246-3292G&gt;A" Type="HGVS, coding, RefSeq">NM_001135602.2:c.246-3292G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001079811" Version="2" Change="c.277G&gt;A" Type="HGVS, coding, RefSeq">NM_001079811.2:c.277G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000404" Version="4" Change="c.367G&gt;A" Type="HGVS, coding, RefSeq">NM_000404.4:c.367G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001317040" Version="1" Change="c.511G&gt;A" Type="HGVS, coding, RefSeq">NM_001317040.1:c.511G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_009005" Version="1" Change="g.33354G&gt;A" Type="HGVS, genomic, RefSeqGene">NG_009005.1:g.33354G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000003" Version="12" Change="g.33068849C&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000003.12:g.33068849C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000003" Version="11" Change="g.33110341C&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000003.11:g.33110341C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000395" Version="3" Change="p.Gly123Arg" Type="HGVS, protein, RefSeq">NP_000395.3:p.Gly123Arg</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001303969" Version="1" Change="p.Gly171Arg" Type="HGVS, protein, RefSeq">NP_001303969.1:p.Gly171Arg</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001073279" Version="1" Change="p.Gly93Arg" Type="HGVS, protein, RefSeq">NP_001073279.1:p.Gly93Arg</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">intron variant</Attribute>
+          <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+          <XRef ID="NM_001135602.2:c.246-3292G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_000404.4:c.367G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001079811.2:c.277G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001317040.1:c.511G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">G123R</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">G171R</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">G93R</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">GLY123ARG</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00001" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.00001" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>3p22.3</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="33068849" stop="33068849" display_start="33068849" display_stop="33068849" variantLength="1" positionVCF="33068849" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="33110341" stop="33110341" display_start="33110341" display_stop="33110341" variantLength="1" positionVCF="33110341" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">galactosidase beta 1</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">GLB1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="32996608" stop="33097230" display_start="32996608" display_stop="33097230" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="33038099" stop="33138693" display_start="33038099" display_stop="33138693" variantLength="100595" Strand="-"/>
+          <XRef ID="2720" DB="Gene"/>
+          <XRef Type="MIM" ID="611458" DB="OMIM"/>
+          <XRef ID="HGNC:4298" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef Type="Allelic variant" ID="611458.0006" DB="OMIM"/>
+        <XRef Type="rs" ID="28934274" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000404.2(GLB1):c.367G&gt;A</ElementValue>
+      </Name>
+      <AttributeSet>
+        <Attribute Type="HGVS, coding, RefSeq" Change="c.367G&gt;A">NM_000404.2:c.367G&gt;A</Attribute>
+      </AttributeSet>
+      <XRef ID="CA114636" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="9460">
+      <Trait ID="17556" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+          <XRef ID="13DG0619" DB="Developmental Genetics Unit,King Faisal Specialist Hospital &amp; Research Centre"/>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">The term 'not provided' is registered in MedGen to support identification of submissions to ClinVar for which no condition was named when assessing the variant. 'not provided' differs from 'not specified', which is used when a variant is asserted to be benign, likely benign, or of uncertain significance for conditions that have not been specified.</Attribute>
+        </AttributeSet>
+        <XRef ID="CN517202" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="986371" SubmissionName="SUB5098196">
+    <ClinVarSubmissionID localKey="GDX:680942|Not Provided" submittedAssembly="GRCh37" submitter="GeneDx" submitterDate="2019-01-29"/>
+    <ClinVarAccession Acc="SCV000520958" Version="4" Type="SCV" OrgID="26957" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-03"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-04-20">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely pathogenic</Description>
+      <Comment>The G123R variant in the GLB1 gene has been previously reported in one individual with mucopolysaccharidosis type IVB disease who also harbored a pathogenic frameshift variant on the other GLB1 allele (Sohn et al., 2012). This variant was also reported in an apparently homozygous state in one individual with GM1-gangliosidosis (Caciotti et al., 2007). The G123R variant was not observed in approximately 6200 individuals of European and African American ancestry in the NHLBI Exome Sequencing Project, indicating it is not a common benign variant in these populations. This variant is a non-conservative amino acid substitution, which is likely to impact secondary protein structure as these residues differ in polarity, charge, size and/or other properties. This substitution occurs at a position that is conserved across species, and in silico analysis predicts this variant is probably damaging to the protein structure/function. Missense variants in nearby residues (R121S, C127Y) have been reported in the Human Gene Mutation Database in association with GM1-gangliosidosis (Stenson et al., 2014), supporting the functional importance of this region of the protein. The G123R variant is a strong candidate for a pathogenic variant, however the possibility it may be a rare benign variant cannot be excluded.</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="GeneDx" ID="GDX:680942"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">GeneDx Variant Classification (06012015)</Attribute>
+      <Citation>
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/7oynscmk/mdi-5616_26957_genedx_interprules_final_061215.pdf</URL>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000404.2:c.367G&gt;A</Attribute>
+        </AttributeSet>
+        <SequenceLocation Assembly="GRCh37" Chr="3" alternateAllele="T" referenceAllele="C" start="33110341" stop="33110341" variantLength="1"/>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">GLB1</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Not Provided</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>

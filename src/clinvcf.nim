@@ -256,8 +256,14 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
         reference_clinvar_assertion_nodes = doc.select("referenceclinvarassertion")
       
       if reference_clinvar_assertion_nodes.len() > 0:
-        let 
-          #clinsig_nodes = reference_clinvar_assertion_nodes[0].select("clinicalsignificance")
+        # Skipping Het-compond variants
+        # TODO: We should have a more pretty way to do it as the MeasureSet in this case is bellow the GenotypeSet:
+        # <GenotypeSet Type="CompoundHeterozygote" ID="424779" Acc="VCV000424779" Version="1">
+        #   <MeasureSet Type="Variant" ID="928" Acc="VCV000000928" Version="2" NumberOfChromosomes="1">
+        if reference_clinvar_assertion_nodes[0].select("genotypeset").len() > 0:
+          continue
+          
+        let
           measureset_nodes = reference_clinvar_assertion_nodes[0].select("measureset")
         
         if measureset_nodes.len() > 0:

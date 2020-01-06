@@ -23,3 +23,7 @@ assert_in_stdout "CLNSIG=Likely_pathogenic,_risk_factor"
 # Multiple submission from same submitter
 run mutli_subs_from_same_submitter $exe tests/files/307134.xml
 assert_in_stdout "CLNREVSTAT=criteria_provided,_single_submitter"
+
+# Multiple submission from same submitter
+run skip_het_compound $exe tests/files/928.xml
+assert_in_stdout "CLNSIG=Likely_pathogenic"
