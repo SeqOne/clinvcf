@@ -215,6 +215,8 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
     if clinsig_count.hasKey(cstag):
       additional_cstags.add($cstag)
   if additional_cstags.len() > 0:
+    # Sort the additional cstags:
+    additional_cstags.sort(system.cmp[string])
     if result.clinsig == "":
       result.clinsig = additional_cstags.join(", ")
     else:

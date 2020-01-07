@@ -1,0 +1,459 @@
+<ClinVarSet ID="48729137">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_016945.3(TAS2R16):c.516T&gt;G (p.Asn172Lys) AND BETA-GLUCOPYRANOSIDE TASTING</Title>
+  <ReferenceClinVarAssertion DateCreated="2012-08-13" DateLastUpdated="2019-12-17" ID="63162">
+    <ClinVarAccession Acc="RCV000005659" Version="5" Type="RCV" DateUpdated="2019-12-17"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2007-02-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Affects</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="49701606">
+        <Attribute Type="Description">Beta-Glucopyranoside Tasting</Attribute>
+      </ObservedData>
+      <ObservedData ID="49701606">
+        <Attribute Type="Description">Soranzo et al. (2005) identified a 516G-T transversion in the TAS2R16 gene, resulting in a lys172-to-asn (K172N) substitution (rs846664), as a polymorphism in humans. The substitution lies in the second extracellular loop domain of the receptor, which may affect ligand interactions. In K172N-transfected HEK293 cells, they showed that the asn172 residue resulted in approximately 2-fold greater activation of the receptor in response to bitter compounds, particularly beta-glucopyranosides (BGLPT; 617956) (salicin, arbutin, amygdalin) compared to the lys172 residue. Analysis of 997 individuals from 60 human populations indicated that the K172N SNP was subject to positive selection and that it arose between 77,700 and 791,000 years ago. Soranzo et al. (2005) speculated that the asn172 residue offered increased protection against cyanogenic plant foods and natural toxins in general, as man became active as a hunter-gatherer. The observation of the moderate frequency of the ancestral lys172 allele in Africa was hypothesized to play a role in protection against malaria.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">16051168</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="49701606">
+        <Attribute Type="Description">Campbell et al. (2014) examined the frequency of the c.516G-T variant in the TAS2R16 gene in a large global population study including 595 individuals from 74 African populations and 94 non-Africans from 11 populations. Among African populations, the frequency of the derivative T allele (N172) was higher in individuals from East Africa compared to West and Central Africa, suggesting strong positive adaptation among East Africans. Haplotype analysis indicated that the N172-bearing H2 haplotype, specific to East Africa, was the oldest haplotype. The T allele was found at 100% frequency in non-Africans, suggesting that the ancestral G allele is rare or absent in populations outside of Africa. Among 296 individuals tested, those with at least one T allele had a higher sensitivity to salicin bitterness compared to individuals homozygous for the ancestral G allele. In vitro functional expression studies showed that the N172 protein had increased trafficking of the receptor to the cell membrane, with 1.5- to 2-fold higher surface expression than the ancestral K172 protein, thus possibly explaining increased bitter taste sensation. However, Campbell et al. (2014) did not find a significant association between decreased bitter taste sensitivity and malaria endemicity among Africans. The authors suggested that the evolutionary forces driving positive selection of the variant may not be diet-related or gustatory in nature. Campbell et al. (2014) suggested that the fixation of the derived T allele outside of Africa may indicated that this variant arose from a population bottleneck during the geographic expansion of modern humans from Africa 40,000 to 80,000 years ago.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">24177185</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="49701606">
+        <Attribute Type="Description">Susceptibility to Alcohol Dependence</Attribute>
+      </ObservedData>
+      <ObservedData ID="49701606">
+        <Attribute Type="Description">In 262 families with alcoholism from the Collaborative Study of the Genetics of Alcoholism (COGA) and in 85 trios consisting of an alcohol-dependent individual and 2 parents, Hinrichs et al. (2006) found a significant association (p = 0.00018) between alcohol dependence (103780) and the K172N SNP. The TAS2R16 gene is located on chromosome 7q31 in a region reported to exhibit linkage with alcohol dependence (Reich et al., 1998; Foroud et al., 2000). The risk allele was uncommon in European Americans (minor allele frequency (MAF), 0.6%), whereas it was present in 45% of African Americans in the study (MAF, 26%), suggesting that K172N is a more significant risk factor for alcohol dependence in the African American population.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">10923994</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">16385453</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">9603606</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="49701606">
+        <Attribute Type="Description">In a study using the same cohort previously studied by Hinrichs et al. (2006), Wang et al. (2007) found an association between the K172N SNP and maximum alcohol consumption among African Americans (p = 0.04). Evidence also suggested an association between haplotype variation in the TAS2R38 gene (607751) and maximum alcohol consumption only among African American females. The taster haplotype was associated with lower maximum alcohol consumption (p = 0.035).</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">16385453</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">17250611</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="5333" Acc="VCV000005333" Version="3">
+      <Measure Type="single nucleotide variant" ID="20372">
+        <Name>
+          <ElementValue Type="Preferred">NM_016945.3(TAS2R16):c.516T&gt;G (p.Asn172Lys)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NM_016945" Version="3" Change="c.516T&gt;G" Type="HGVS, coding, RefSeq">NM_016945.3:c.516T&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_011980" Version="1" Change="g.5582T&gt;G" Type="HGVS, genomic, RefSeqGene">NG_011980.1:g.5582T&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000007" Version="14" Change="g.122995119A&gt;C" Type="HGVS, genomic, top level" integerValue="38">NC_000007.14:g.122995119A&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000007" Version="13" Change="g.122635173A&gt;C" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000007.13:g.122635173A&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="Q9NYV7" Change="p.Asn172Lys" Type="HGVS, protein">Q9NYV7:p.Asn172Lys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_058641" Version="1" Change="p.Asn172Lys" Type="HGVS, protein, RefSeq">NP_058641.1:p.Asn172Lys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_016945.3:c.516T&gt;G" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">K172N</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">N172K</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">LYS172ASN</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.08826" Source="1000 Genomes Project"/>
+          <AlleleFrequency Value="0.02599" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.08158" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.02138" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.09060" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <GlobalMinorAlleleFrequency Value="0.08826" Source="1000 Genomes Project" MinorAllele="C"/>
+        <CytogeneticLocation>7q31.32</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="7" Accession="NC_000007.14" start="122995119" stop="122995119" display_start="122995119" display_stop="122995119" variantLength="1" positionVCF="122995119" referenceAlleleVCF="A" alternateAlleleVCF="C"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="7" Accession="NC_000007.13" start="122635173" stop="122635173" display_start="122635173" display_stop="122635173" variantLength="1" positionVCF="122635173" referenceAlleleVCF="A" alternateAlleleVCF="C"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">taste 2 receptor member 16</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">TAS2R16</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="7" Accession="NC_000007.14" start="122994704" stop="122995700" display_start="122994704" display_stop="122995700" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="7" Accession="NC_000007.13" start="122634758" stop="122635753" display_start="122634758" display_stop="122635753" variantLength="996" Strand="-"/>
+          <XRef ID="50833" DB="Gene"/>
+          <XRef Type="MIM" ID="604867" DB="OMIM"/>
+          <XRef ID="HGNC:14921" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="Q9NYV7#VAR_034539" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="604867.0001" DB="OMIM"/>
+        <XRef Type="rs" ID="846664" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_016945.3(TAS2R16):c.516T&gt;G (p.Asn172Lys)</ElementValue>
+      </Name>
+      <XRef ID="CA117409" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="43455">
+      <Trait ID="39941" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">BETA-GLUCOPYRANOSIDE TASTING</ElementValue>
+          <XRef Type="MIM" ID="617956" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="604867.0001" DB="OMIM"/>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Preferred">BGLPT</ElementValue>
+          <XRef Type="MIM" ID="617956" DB="OMIM"/>
+        </Symbol>
+        <XRef ID="C4693750" DB="MedGen"/>
+        <XRef Type="MIM" ID="617956" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="25841">
+    <ClinVarSubmissionID localKey="604867.0001_BETA-GLUCOPYRANOSIDE TASTING" submitter="OMIM" submitterDate="2019-12-11" title="TAS2R16, LYS172ASN (rs846664)_BETA-GLUCOPYRANOSIDE TASTING"/>
+    <ClinVarAccession Acc="SCV000025841" Version="4" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-12-17"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2007-02-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Affects</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="OMIM" ID="604867.0001" Type="Allelic variant"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">Beta-Glucopyranoside Tasting</Attribute>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">Soranzo et al. (2005) identified a 516G-T transversion in the TAS2R16 gene, resulting in a lys172-to-asn (K172N) substitution (rs846664), as a polymorphism in humans. The substitution lies in the second extracellular loop domain of the receptor, which may affect ligand interactions. In K172N-transfected HEK293 cells, they showed that the asn172 residue resulted in approximately 2-fold greater activation of the receptor in response to bitter compounds, particularly beta-glucopyranosides (BGLPT; 617956) (salicin, arbutin, amygdalin) compared to the lys172 residue. Analysis of 997 individuals from 60 human populations indicated that the K172N SNP was subject to positive selection and that it arose between 77,700 and 791,000 years ago. Soranzo et al. (2005) speculated that the asn172 residue offered increased protection against cyanogenic plant foods and natural toxins in general, as man became active as a hunter-gatherer. The observation of the moderate frequency of the ancestral lys172 allele in Africa was hypothesized to play a role in protection against malaria.</Attribute>
+        <Citation>
+          <ID Source="PubMed">16051168</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="617956" Type="MIM"/>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">Campbell et al. (2014) examined the frequency of the c.516G-T variant in the TAS2R16 gene in a large global population study including 595 individuals from 74 African populations and 94 non-Africans from 11 populations. Among African populations, the frequency of the derivative T allele (N172) was higher in individuals from East Africa compared to West and Central Africa, suggesting strong positive adaptation among East Africans. Haplotype analysis indicated that the N172-bearing H2 haplotype, specific to East Africa, was the oldest haplotype. The T allele was found at 100% frequency in non-Africans, suggesting that the ancestral G allele is rare or absent in populations outside of Africa. Among 296 individuals tested, those with at least one T allele had a higher sensitivity to salicin bitterness compared to individuals homozygous for the ancestral G allele. In vitro functional expression studies showed that the N172 protein had increased trafficking of the receptor to the cell membrane, with 1.5- to 2-fold higher surface expression than the ancestral K172 protein, thus possibly explaining increased bitter taste sensation. However, Campbell et al. (2014) did not find a significant association between decreased bitter taste sensitivity and malaria endemicity among Africans. The authors suggested that the evolutionary forces driving positive selection of the variant may not be diet-related or gustatory in nature. Campbell et al. (2014) suggested that the fixation of the derived T allele outside of Africa may indicated that this variant arose from a population bottleneck during the geographic expansion of modern humans from Africa 40,000 to 80,000 years ago.</Attribute>
+        <Citation>
+          <ID Source="PubMed">24177185</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">Susceptibility to Alcohol Dependence</Attribute>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">In 262 families with alcoholism from the Collaborative Study of the Genetics of Alcoholism (COGA) and in 85 trios consisting of an alcohol-dependent individual and 2 parents, Hinrichs et al. (2006) found a significant association (p = 0.00018) between alcohol dependence (103780) and the K172N SNP. The TAS2R16 gene is located on chromosome 7q31 in a region reported to exhibit linkage with alcohol dependence (Reich et al., 1998; Foroud et al., 2000). The risk allele was uncommon in European Americans (minor allele frequency (MAF), 0.6%), whereas it was present in 45% of African Americans in the study (MAF, 26%), suggesting that K172N is a more significant risk factor for alcohol dependence in the African American population.</Attribute>
+        <Citation>
+          <ID Source="PubMed">16385453</ID>
+        </Citation>
+        <Citation>
+          <ID Source="PubMed">9603606</ID>
+        </Citation>
+        <Citation>
+          <ID Source="PubMed">10923994</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="103780" Type="MIM"/>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">In a study using the same cohort previously studied by Hinrichs et al. (2006), Wang et al. (2007) found an association between the K172N SNP and maximum alcohol consumption among African Americans (p = 0.04). Evidence also suggested an association between haplotype variation in the TAS2R38 gene (607751) and maximum alcohol consumption only among African American females. The taster haplotype was associated with lower maximum alcohol consumption (p = 0.035).</Attribute>
+        <Citation>
+          <ID Source="PubMed">16385453</ID>
+        </Citation>
+        <Citation>
+          <ID Source="PubMed">17250611</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="607751" Type="MIM"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Preferred">TAS2R16, LYS172ASN (rs846664)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="NonHGVS">LYS172ASN (rs846664)</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">TAS2R16</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="OMIM" ID="604867.0001" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">BETA-GLUCOPYRANOSIDE TASTING</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="48729138">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_016945.3(TAS2R16):c.516T&gt;G (p.Asn172Lys) AND Alcohol dependence, susceptibility to</Title>
+  <ReferenceClinVarAssertion DateCreated="2012-08-13" DateLastUpdated="2019-12-17" ID="63163">
+    <ClinVarAccession Acc="RCV000005660" Version="5" Type="RCV" DateUpdated="2019-12-17"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2007-02-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>risk factor</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="49291837">
+        <Attribute Type="Description">Beta-Glucopyranoside Tasting</Attribute>
+      </ObservedData>
+      <ObservedData ID="49291837">
+        <Attribute Type="Description">Soranzo et al. (2005) identified a 516G-T transversion in the TAS2R16 gene, resulting in a lys172-to-asn (K172N) substitution (rs846664), as a polymorphism in humans. The substitution lies in the second extracellular loop domain of the receptor, which may affect ligand interactions. In K172N-transfected HEK293 cells, they showed that the asn172 residue resulted in approximately 2-fold greater activation of the receptor in response to bitter compounds, particularly beta-glucopyranosides (BGLPT; 617956) (salicin, arbutin, amygdalin) compared to the lys172 residue. Analysis of 997 individuals from 60 human populations indicated that the K172N SNP was subject to positive selection and that it arose between 77,700 and 791,000 years ago. Soranzo et al. (2005) speculated that the asn172 residue offered increased protection against cyanogenic plant foods and natural toxins in general, as man became active as a hunter-gatherer. The observation of the moderate frequency of the ancestral lys172 allele in Africa was hypothesized to play a role in protection against malaria.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">16051168</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="49291837">
+        <Attribute Type="Description">Campbell et al. (2014) examined the frequency of the c.516G-T variant in the TAS2R16 gene in a large global population study including 595 individuals from 74 African populations and 94 non-Africans from 11 populations. Among African populations, the frequency of the derivative T allele (N172) was higher in individuals from East Africa compared to West and Central Africa, suggesting strong positive adaptation among East Africans. Haplotype analysis indicated that the N172-bearing H2 haplotype, specific to East Africa, was the oldest haplotype. The T allele was found at 100% frequency in non-Africans, suggesting that the ancestral G allele is rare or absent in populations outside of Africa. Among 296 individuals tested, those with at least one T allele had a higher sensitivity to salicin bitterness compared to individuals homozygous for the ancestral G allele. In vitro functional expression studies showed that the N172 protein had increased trafficking of the receptor to the cell membrane, with 1.5- to 2-fold higher surface expression than the ancestral K172 protein, thus possibly explaining increased bitter taste sensation. However, Campbell et al. (2014) did not find a significant association between decreased bitter taste sensitivity and malaria endemicity among Africans. The authors suggested that the evolutionary forces driving positive selection of the variant may not be diet-related or gustatory in nature. Campbell et al. (2014) suggested that the fixation of the derived T allele outside of Africa may indicated that this variant arose from a population bottleneck during the geographic expansion of modern humans from Africa 40,000 to 80,000 years ago.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">24177185</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="49291837">
+        <Attribute Type="Description">Susceptibility to Alcohol Dependence</Attribute>
+      </ObservedData>
+      <ObservedData ID="49291837">
+        <Attribute Type="Description">In 262 families with alcoholism from the Collaborative Study of the Genetics of Alcoholism (COGA) and in 85 trios consisting of an alcohol-dependent individual and 2 parents, Hinrichs et al. (2006) found a significant association (p = 0.00018) between alcohol dependence (103780) and the K172N SNP. The TAS2R16 gene is located on chromosome 7q31 in a region reported to exhibit linkage with alcohol dependence (Reich et al., 1998; Foroud et al., 2000). The risk allele was uncommon in European Americans (minor allele frequency (MAF), 0.6%), whereas it was present in 45% of African Americans in the study (MAF, 26%), suggesting that K172N is a more significant risk factor for alcohol dependence in the African American population.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">10923994</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">16385453</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">9603606</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="49291837">
+        <Attribute Type="Description">In a study using the same cohort previously studied by Hinrichs et al. (2006), Wang et al. (2007) found an association between the K172N SNP and maximum alcohol consumption among African Americans (p = 0.04). Evidence also suggested an association between haplotype variation in the TAS2R38 gene (607751) and maximum alcohol consumption only among African American females. The taster haplotype was associated with lower maximum alcohol consumption (p = 0.035).</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">16385453</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">17250611</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="5333" Acc="VCV000005333" Version="3">
+      <Measure Type="single nucleotide variant" ID="20372">
+        <Name>
+          <ElementValue Type="Preferred">NM_016945.3(TAS2R16):c.516T&gt;G (p.Asn172Lys)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NM_016945" Version="3" Change="c.516T&gt;G" Type="HGVS, coding, RefSeq">NM_016945.3:c.516T&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_011980" Version="1" Change="g.5582T&gt;G" Type="HGVS, genomic, RefSeqGene">NG_011980.1:g.5582T&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000007" Version="14" Change="g.122995119A&gt;C" Type="HGVS, genomic, top level" integerValue="38">NC_000007.14:g.122995119A&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000007" Version="13" Change="g.122635173A&gt;C" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000007.13:g.122635173A&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="Q9NYV7" Change="p.Asn172Lys" Type="HGVS, protein">Q9NYV7:p.Asn172Lys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_058641" Version="1" Change="p.Asn172Lys" Type="HGVS, protein, RefSeq">NP_058641.1:p.Asn172Lys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_016945.3:c.516T&gt;G" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">K172N</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">N172K</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">LYS172ASN</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.08826" Source="1000 Genomes Project"/>
+          <AlleleFrequency Value="0.02599" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.08158" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.02138" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.09060" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <GlobalMinorAlleleFrequency Value="0.08826" Source="1000 Genomes Project" MinorAllele="C"/>
+        <CytogeneticLocation>7q31.32</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="7" Accession="NC_000007.14" start="122995119" stop="122995119" display_start="122995119" display_stop="122995119" variantLength="1" positionVCF="122995119" referenceAlleleVCF="A" alternateAlleleVCF="C"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="7" Accession="NC_000007.13" start="122635173" stop="122635173" display_start="122635173" display_stop="122635173" variantLength="1" positionVCF="122635173" referenceAlleleVCF="A" alternateAlleleVCF="C"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">taste 2 receptor member 16</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">TAS2R16</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="7" Accession="NC_000007.14" start="122994704" stop="122995700" display_start="122994704" display_stop="122995700" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="7" Accession="NC_000007.13" start="122634758" stop="122635753" display_start="122634758" display_stop="122635753" variantLength="996" Strand="-"/>
+          <XRef ID="50833" DB="Gene"/>
+          <XRef Type="MIM" ID="604867" DB="OMIM"/>
+          <XRef ID="HGNC:14921" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="Q9NYV7#VAR_034539" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="604867.0001" DB="OMIM"/>
+        <XRef Type="rs" ID="846664" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_016945.3(TAS2R16):c.516T&gt;G (p.Asn172Lys)</ElementValue>
+      </Name>
+      <XRef ID="CA117409" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="1486">
+      <Trait ID="10159" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Alcohol dependence, susceptibility to</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="25842">
+    <ClinVarSubmissionID localKey="604867.0001_ALCOHOL DEPENDENCE, SUSCEPTIBILITY TO" submitter="OMIM" submitterDate="2019-12-11" title="TAS2R16, LYS172ASN (rs846664)_ALCOHOL DEPENDENCE, SUSCEPTIBILITY TO"/>
+    <ClinVarAccession Acc="SCV000025842" Version="4" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-12-16"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2007-02-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>risk factor</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to included disease"/>
+    <ExternalID DB="OMIM" ID="604867.0001" Type="Allelic variant"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">Beta-Glucopyranoside Tasting</Attribute>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">Soranzo et al. (2005) identified a 516G-T transversion in the TAS2R16 gene, resulting in a lys172-to-asn (K172N) substitution (rs846664), as a polymorphism in humans. The substitution lies in the second extracellular loop domain of the receptor, which may affect ligand interactions. In K172N-transfected HEK293 cells, they showed that the asn172 residue resulted in approximately 2-fold greater activation of the receptor in response to bitter compounds, particularly beta-glucopyranosides (BGLPT; 617956) (salicin, arbutin, amygdalin) compared to the lys172 residue. Analysis of 997 individuals from 60 human populations indicated that the K172N SNP was subject to positive selection and that it arose between 77,700 and 791,000 years ago. Soranzo et al. (2005) speculated that the asn172 residue offered increased protection against cyanogenic plant foods and natural toxins in general, as man became active as a hunter-gatherer. The observation of the moderate frequency of the ancestral lys172 allele in Africa was hypothesized to play a role in protection against malaria.</Attribute>
+        <Citation>
+          <ID Source="PubMed">16051168</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="617956" Type="MIM"/>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">Campbell et al. (2014) examined the frequency of the c.516G-T variant in the TAS2R16 gene in a large global population study including 595 individuals from 74 African populations and 94 non-Africans from 11 populations. Among African populations, the frequency of the derivative T allele (N172) was higher in individuals from East Africa compared to West and Central Africa, suggesting strong positive adaptation among East Africans. Haplotype analysis indicated that the N172-bearing H2 haplotype, specific to East Africa, was the oldest haplotype. The T allele was found at 100% frequency in non-Africans, suggesting that the ancestral G allele is rare or absent in populations outside of Africa. Among 296 individuals tested, those with at least one T allele had a higher sensitivity to salicin bitterness compared to individuals homozygous for the ancestral G allele. In vitro functional expression studies showed that the N172 protein had increased trafficking of the receptor to the cell membrane, with 1.5- to 2-fold higher surface expression than the ancestral K172 protein, thus possibly explaining increased bitter taste sensation. However, Campbell et al. (2014) did not find a significant association between decreased bitter taste sensitivity and malaria endemicity among Africans. The authors suggested that the evolutionary forces driving positive selection of the variant may not be diet-related or gustatory in nature. Campbell et al. (2014) suggested that the fixation of the derived T allele outside of Africa may indicated that this variant arose from a population bottleneck during the geographic expansion of modern humans from Africa 40,000 to 80,000 years ago.</Attribute>
+        <Citation>
+          <ID Source="PubMed">24177185</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">Susceptibility to Alcohol Dependence</Attribute>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">In 262 families with alcoholism from the Collaborative Study of the Genetics of Alcoholism (COGA) and in 85 trios consisting of an alcohol-dependent individual and 2 parents, Hinrichs et al. (2006) found a significant association (p = 0.00018) between alcohol dependence (103780) and the K172N SNP. The TAS2R16 gene is located on chromosome 7q31 in a region reported to exhibit linkage with alcohol dependence (Reich et al., 1998; Foroud et al., 2000). The risk allele was uncommon in European Americans (minor allele frequency (MAF), 0.6%), whereas it was present in 45% of African Americans in the study (MAF, 26%), suggesting that K172N is a more significant risk factor for alcohol dependence in the African American population.</Attribute>
+        <Citation>
+          <ID Source="PubMed">16385453</ID>
+        </Citation>
+        <Citation>
+          <ID Source="PubMed">9603606</ID>
+        </Citation>
+        <Citation>
+          <ID Source="PubMed">10923994</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="103780" Type="MIM"/>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">In a study using the same cohort previously studied by Hinrichs et al. (2006), Wang et al. (2007) found an association between the K172N SNP and maximum alcohol consumption among African Americans (p = 0.04). Evidence also suggested an association between haplotype variation in the TAS2R38 gene (607751) and maximum alcohol consumption only among African American females. The taster haplotype was associated with lower maximum alcohol consumption (p = 0.035).</Attribute>
+        <Citation>
+          <ID Source="PubMed">16385453</ID>
+        </Citation>
+        <Citation>
+          <ID Source="PubMed">17250611</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="607751" Type="MIM"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Preferred">TAS2R16, LYS172ASN (rs846664)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="NonHGVS">LYS172ASN (rs846664)</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">TAS2R16</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="OMIM" ID="604867.0001" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="included">ALCOHOL DEPENDENCE, SUSCEPTIBILITY TO</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>

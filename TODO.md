@@ -16,9 +16,9 @@
 [x] Handle automatic clinsig conversions from NCBI
 [x] Multiple submitter is not multiple submissions !!! (see case 307134)
 [ ] Add a tag with number of submitters / submissions
-[ ] Optimize memory usage
+[ ] Optimize memory usage (variant infos could be stored in cache files and re-loaded at "print" time !)
 [x] Multiple 3-4 stars subs, take all !!! (see case 7108)
-[ ] Sort non-ACMG clnsig lexicographically  (drug_response,_risk_factor,_protective =>  drug_response,_protective,_risk_factor) 
+[x] Sort non-ACMG clnsig lexicographically (see case 5333 : drug_response,_risk_factor,_protective =>  drug_response,_protective,_risk_factor) 
 [x] Bug "criteria_provided,_single_submitter" that should be "criteria_provided,_conflicting_interpretations" when only one submitter with conflict (see case 1166)
 
 <ClinicalSignificance>

@@ -34,5 +34,9 @@ run same_submitter_conflict $exe tests/files/1166.xml
 assert_in_stdout "CLNREVSTAT=criteria_provided,_conflicting_interpretations"
 
 # Multiple 3-4 stars subs, take them all !!! (see case 7108)
-run same_submitter_conflict $exe tests/files/7108.xml
+run run_multiple_3_4_star_subs $exe tests/files/7108.xml
 assert_in_stdout "CLNSIG=Pathogenic/Likely_pathogenic,_drug_response"
+
+# Sort non-ACMG clnsig lexicographically
+run sort_non_acmg_cnlsig_tags $exe tests/files/5333.xml
+assert_in_stdout "CLNSIG=Affects,_risk_factor"
