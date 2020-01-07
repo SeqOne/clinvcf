@@ -27,3 +27,8 @@ assert_in_stdout "CLNREVSTAT=criteria_provided,_single_submitter"
 # Multiple submission from same submitter
 run skip_het_compound $exe tests/files/928.xml
 assert_in_stdout "CLNSIG=Likely_pathogenic"
+
+# Conflicting variants should always has a ReviewStatus conflicting
+# Even if all submission are from the same submitter
+run same_submitter_conflict $exe tests/files/1166.xml
+assert_in_stdout "CLNREVSTAT=criteria_provided,_conflicting_interpretations"

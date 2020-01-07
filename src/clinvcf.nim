@@ -26,7 +26,7 @@ type
     rsNoAssertionCriteria = "no assertion criteria provided",
     rsNoAssertionVariant = "no assertion for the individual variant",
     rsSingleSubmitter = "criteria provided, single submitter",
-    rsMultipleSubmitterConflicting = "criteria provided, conflicting interpretations",
+    rsConflicting = "criteria provided, conflicting interpretations",
     rsMutlipleSubmitterNoConflict = "criteria provided, multiple submitters, no conflicts",
     rsExpertPanel = "reviewed by expert panel",
     rsPracticeGuideline = "practice guideline"
@@ -69,7 +69,7 @@ proc nbStars*(rs: RevStat): int =
       result = 0
     of rsSingleSubmitter:
       result = 1
-    of rsMultipleSubmitterConflicting:
+    of rsConflicting:
       result = 1
     of rsMutlipleSubmitterNoConflict:
       result = 2
@@ -124,12 +124,11 @@ proc parseNCBIConversionComment*(comment: string): ClinSig =
   else:
     result = csUnknown
 
-proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int],  nb_submitters: int, has_conflict = false): RevStat =
-  if nb_submitters > 1 and revstat_count.hasKey(rsSingleSubmitter):
-    if has_conflict:
-      result = rsMultipleSubmitterConflicting
-    else:
-      result = rsMutlipleSubmitterNoConflict
+proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], nb_submitters: int, has_conflict = false): RevStat =
+  if has_conflict:
+    result = rsConflicting
+  elif nb_submitters > 1 and revstat_count.hasKey(rsSingleSubmitter):
+    result = rsMutlipleSubmitterNoConflict
   elif revstat_count.hasKey(rsSingleSubmitter):
     result = rsSingleSubmitter
   elif revstat_count.hasKey(rsNoAssertionCriteria):

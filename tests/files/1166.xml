@@ -1,0 +1,531 @@
+<ClinVarSet ID="47065297">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000505.3(F12):c.1681-1G&gt;A AND Factor XII deficiency disease</Title>
+  <ReferenceClinVarAssertion DateCreated="2012-08-13" DateLastUpdated="2019-11-02" ID="58728">
+    <ClinVarAccession Acc="RCV000001225" Version="3" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="1995-07-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="47898957">
+        <Attribute Type="Description">In 5 of 12 unrelated patients with low factor XII activity (234000) detected by chance during presurgery screening, Schloesser et al. (1995) found heterozygosity for a G-to-A transition at nucleotide 11396, resulting in a truncated transcript (11396-1G-A). The mutation was located in the 3-prime splice acceptor site of intron 13 (i.e., at the junction of intron 13 and exon 14) where the consensus ag was converted to aa. The mutation was not found in 74 healthy control subjects. Both compound heterozygous patients and a homozygous patient lacked immunologic reactive protein.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">8528215</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="1166" Acc="VCV000001166" Version="1">
+      <Measure Type="single nucleotide variant" ID="16205">
+        <Name>
+          <ElementValue Type="Preferred">NM_000505.3(F12):c.1681-1G&gt;A</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">F12, IVS13AS, G-A, -1</ElementValue>
+          <XRef Type="Allelic variant" ID="610619.0003" DB="OMIM"/>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_145t1" Change="c.1681-1G&gt;A" Type="HGVS, coding, LRG">LRG_145t1:c.1681-1G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000505" Version="3" Change="c.1681-1G&gt;A" Type="HGVS, coding, RefSeq">NM_000505.3:c.1681-1G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_145" Change="g.12117G&gt;A" Type="HGVS, genomic, LRG">LRG_145:g.12117G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_007568" Version="1" Change="g.12117G&gt;A" Type="HGVS, genomic, RefSeqGene">NG_007568.1:g.12117G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000005" Version="10" Change="g.177402460C&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000005.10:g.177402460C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000005" Version="9" Change="g.176829461C&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000005.9:g.176829461C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+          <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+          <XRef ID="NM_000505.3:c.1681-1G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="nucleotide change">IVS13AS, G-A, -1</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00038" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.00029" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00026" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>5q35.3</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="5" Accession="NC_000005.10" start="177402460" stop="177402460" display_start="177402460" display_stop="177402460" variantLength="1" positionVCF="177402460" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="5" Accession="NC_000005.9" start="176829461" stop="176829461" display_start="176829461" display_stop="176829461" variantLength="1" positionVCF="176829461" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">coagulation factor XII</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">F12</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="5" Accession="NC_000005.10" start="177402138" stop="177409576" display_start="177402138" display_stop="177409576" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="5" Accession="NC_000005.9" start="176829138" stop="176836576" display_start="176829138" display_stop="176836576" variantLength="7439" Strand="-"/>
+          <XRef ID="2161" DB="Gene"/>
+          <XRef Type="MIM" ID="610619" DB="OMIM"/>
+          <XRef ID="HGNC:3530" DB="HGNC"/>
+        </MeasureRelationship>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">solute carrier family 34 member 1</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">SLC34A1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="5" Accession="NC_000005.10" start="177384434" stop="177412021" display_start="177384434" display_stop="177412021" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="5" Accession="NC_000005.9" start="176811431" stop="176825848" display_start="176811431" display_stop="176825848" variantLength="14418" Strand="+"/>
+          <XRef ID="6569" DB="Gene"/>
+          <XRef Type="MIM" ID="182309" DB="OMIM"/>
+          <XRef ID="HGNC:11019" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="226114" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="Allelic variant" ID="610619.0003" DB="OMIM"/>
+        <XRef Type="rs" ID="199988476" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000505.3(F12):c.1681-1G&gt;A</ElementValue>
+      </Name>
+      <XRef ID="CA114813" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="308">
+      <Trait ID="2127" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Factor XII deficiency disease</ElementValue>
+          <XRef ID="Factor+XII+Deficiency/2716" DB="Genetic Alliance"/>
+          <XRef ID="46981006" DB="SNOMED CT"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Factor XII deficiency</ElementValue>
+          <XRef ID="HP:0004841" DB="Human Phenotype Ontology"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Hageman factor deficiency</ElementValue>
+          <XRef ID="HP:0004841" DB="Human Phenotype Ontology"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Reduced factor XII activity</ElementValue>
+          <XRef ID="HP:0004841" DB="Human Phenotype Ontology"/>
+        </Name>
+        <XRef ID="C0015526" DB="MedGen"/>
+        <XRef ID="330" DB="Orphanet"/>
+        <XRef Type="MIM" ID="234000" DB="OMIM"/>
+        <XRef Type="primary" ID="HP:0004841" DB="Human Phenotype Ontology"/>
+        <XRef Type="secondary" ID="HP:0005514" DB="Human Phenotype Ontology"/>
+        <XRef Type="secondary" ID="HP:0005551" DB="Human Phenotype Ontology"/>
+        <XRef Type="secondary" ID="HP:0008286" DB="Human Phenotype Ontology"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="21375">
+    <ClinVarSubmissionID localKey="610619.0003_FACTOR XII DEFICIENCY" submitter="OMIM" submitterDate="2013-11-21" title="F12, IVS13AS, G-A, -1_FACTOR XII DEFICIENCY"/>
+    <ClinVarAccession Acc="SCV000021375" Version="2" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="1995-07-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="OMIM" ID="610619.0003" Type="Allelic variant"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">In 5 of 12 unrelated patients with low factor XII activity (234000) detected by chance during presurgery screening, Schloesser et al. (1995) found heterozygosity for a G-to-A transition at nucleotide 11396, resulting in a truncated transcript (11396-1G-A). The mutation was located in the 3-prime splice acceptor site of intron 13 (i.e., at the junction of intron 13 and exon 14) where the consensus ag was converted to aa. The mutation was not found in 74 healthy control subjects. Both compound heterozygous patients and a homozygous patient lacked immunologic reactive protein.</Attribute>
+        <Citation>
+          <ID Source="PubMed">8528215</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="234000" Type="MIM"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Preferred">F12, IVS13AS, G-A, -1</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="NonHGVS">IVS13AS, G-A, -1</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">F12</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="OMIM" ID="610619.0003" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">FACTOR XII DEFICIENCY</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="47320922">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000505.3(F12):c.1681-1G&gt;A AND Hypophosphatemic Nephrolithiasis/Osteoporosis</Title>
+  <ReferenceClinVarAssertion DateCreated="2016-12-05" DateLastUpdated="2019-11-02" ID="845188">
+    <ClinVarAccession Acc="RCV000306437" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely benign</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48215470">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="1166" Acc="VCV000001166" Version="1">
+      <Measure Type="single nucleotide variant" ID="16205">
+        <Name>
+          <ElementValue Type="Preferred">NM_000505.3(F12):c.1681-1G&gt;A</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">F12, IVS13AS, G-A, -1</ElementValue>
+          <XRef Type="Allelic variant" ID="610619.0003" DB="OMIM"/>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_145t1" Change="c.1681-1G&gt;A" Type="HGVS, coding, LRG">LRG_145t1:c.1681-1G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000505" Version="3" Change="c.1681-1G&gt;A" Type="HGVS, coding, RefSeq">NM_000505.3:c.1681-1G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_145" Change="g.12117G&gt;A" Type="HGVS, genomic, LRG">LRG_145:g.12117G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_007568" Version="1" Change="g.12117G&gt;A" Type="HGVS, genomic, RefSeqGene">NG_007568.1:g.12117G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000005" Version="10" Change="g.177402460C&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000005.10:g.177402460C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000005" Version="9" Change="g.176829461C&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000005.9:g.176829461C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+          <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+          <XRef ID="NM_000505.3:c.1681-1G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="nucleotide change">IVS13AS, G-A, -1</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00038" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.00029" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00026" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>5q35.3</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="5" Accession="NC_000005.10" start="177402460" stop="177402460" display_start="177402460" display_stop="177402460" variantLength="1" positionVCF="177402460" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="5" Accession="NC_000005.9" start="176829461" stop="176829461" display_start="176829461" display_stop="176829461" variantLength="1" positionVCF="176829461" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">coagulation factor XII</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">F12</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="5" Accession="NC_000005.10" start="177402138" stop="177409576" display_start="177402138" display_stop="177409576" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="5" Accession="NC_000005.9" start="176829138" stop="176836576" display_start="176829138" display_stop="176836576" variantLength="7439" Strand="-"/>
+          <XRef ID="2161" DB="Gene"/>
+          <XRef Type="MIM" ID="610619" DB="OMIM"/>
+          <XRef ID="HGNC:3530" DB="HGNC"/>
+        </MeasureRelationship>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">solute carrier family 34 member 1</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">SLC34A1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="5" Accession="NC_000005.10" start="177384434" stop="177412021" display_start="177384434" display_stop="177412021" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="5" Accession="NC_000005.9" start="176811431" stop="176825848" display_start="176811431" display_stop="176825848" variantLength="14418" Strand="+"/>
+          <XRef ID="6569" DB="Gene"/>
+          <XRef Type="MIM" ID="182309" DB="OMIM"/>
+          <XRef ID="HGNC:11019" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="226114" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="Allelic variant" ID="610619.0003" DB="OMIM"/>
+        <XRef Type="rs" ID="199988476" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000505.3(F12):c.1681-1G&gt;A</ElementValue>
+      </Name>
+      <XRef ID="CA114813" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="33726">
+      <Trait ID="36647" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Hypophosphatemic Nephrolithiasis/Osteoporosis</ElementValue>
+          <XRef ID="678752" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        </Name>
+        <XRef ID="CN239450" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="797638" SubmissionName="ICSL_2016Q4">
+    <ClinVarSubmissionID localKey="889909|Hypophosphatemic Nephrolithiasis/Osteoporosis" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
+    <ClinVarAccession Acc="SCV000484117" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely benign</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Illumina Clinical Services Laboratory" ID="889909"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ICSL Variant Classification 20161018</Attribute>
+      <Citation Type="general">
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/4jQgNGYk/ICSL_Variant_Classification_20161018.pdf</URL>
+        <CitationText>ICSL_Variant_Classification_20161018.pdf</CitationText>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <SequenceLocation Assembly="GRCh37" Chr="5" alternateAllele="T" referenceAllele="C" start="176829461" stop="176829461" variantLength="1"/>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">SLC34A1</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Hypophosphatemic Nephrolithiasis/Osteoporosis</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="47395525">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000505.3(F12):c.1681-1G&gt;A AND F12-Related Disorders</Title>
+  <ReferenceClinVarAssertion DateCreated="2016-12-05" DateLastUpdated="2019-11-02" ID="920763">
+    <ClinVarAccession Acc="RCV000382012" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48292443">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="1166" Acc="VCV000001166" Version="1">
+      <Measure Type="single nucleotide variant" ID="16205">
+        <Name>
+          <ElementValue Type="Preferred">NM_000505.3(F12):c.1681-1G&gt;A</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">F12, IVS13AS, G-A, -1</ElementValue>
+          <XRef Type="Allelic variant" ID="610619.0003" DB="OMIM"/>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_145t1" Change="c.1681-1G&gt;A" Type="HGVS, coding, LRG">LRG_145t1:c.1681-1G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000505" Version="3" Change="c.1681-1G&gt;A" Type="HGVS, coding, RefSeq">NM_000505.3:c.1681-1G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_145" Change="g.12117G&gt;A" Type="HGVS, genomic, LRG">LRG_145:g.12117G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_007568" Version="1" Change="g.12117G&gt;A" Type="HGVS, genomic, RefSeqGene">NG_007568.1:g.12117G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000005" Version="10" Change="g.177402460C&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000005.10:g.177402460C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000005" Version="9" Change="g.176829461C&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000005.9:g.176829461C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">splice acceptor variant</Attribute>
+          <XRef ID="SO:0001574" DB="Sequence Ontology"/>
+          <XRef ID="NM_000505.3:c.1681-1G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="nucleotide change">IVS13AS, G-A, -1</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00038" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.00029" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00026" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>5q35.3</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="5" Accession="NC_000005.10" start="177402460" stop="177402460" display_start="177402460" display_stop="177402460" variantLength="1" positionVCF="177402460" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="5" Accession="NC_000005.9" start="176829461" stop="176829461" display_start="176829461" display_stop="176829461" variantLength="1" positionVCF="176829461" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">coagulation factor XII</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">F12</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="5" Accession="NC_000005.10" start="177402138" stop="177409576" display_start="177402138" display_stop="177409576" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="5" Accession="NC_000005.9" start="176829138" stop="176836576" display_start="176829138" display_stop="176836576" variantLength="7439" Strand="-"/>
+          <XRef ID="2161" DB="Gene"/>
+          <XRef Type="MIM" ID="610619" DB="OMIM"/>
+          <XRef ID="HGNC:3530" DB="HGNC"/>
+        </MeasureRelationship>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">solute carrier family 34 member 1</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">SLC34A1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="5" Accession="NC_000005.10" start="177384434" stop="177412021" display_start="177384434" display_stop="177412021" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="5" Accession="NC_000005.9" start="176811431" stop="176825848" display_start="176811431" display_stop="176825848" variantLength="14418" Strand="+"/>
+          <XRef ID="6569" DB="Gene"/>
+          <XRef Type="MIM" ID="182309" DB="OMIM"/>
+          <XRef ID="HGNC:11019" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="226114" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="Allelic variant" ID="610619.0003" DB="OMIM"/>
+        <XRef Type="rs" ID="199988476" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000505.3(F12):c.1681-1G&gt;A</ElementValue>
+      </Name>
+      <XRef ID="CA114813" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="33727">
+      <Trait ID="36586" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">F12-Related Disorders</ElementValue>
+          <XRef ID="226114" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        </Name>
+        <XRef ID="CN239389" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="770217" SubmissionName="ICSL_2016Q4">
+    <ClinVarSubmissionID localKey="226114|F12-Related Disorders" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
+    <ClinVarAccession Acc="SCV000456696" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely pathogenic</Description>
+      <Citation>
+        <ID Source="PubMed">8528215</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">9354665</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">21920016</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">23348723</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">24029428</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">25524745</ID>
+      </Citation>
+      <Comment Type="public">The c.1681-1G&gt;A variant has been reported in at least three studies and is found in a total of one patient in a homozygous state, four patients in a compound heterozygous state and four patients in a heterozygous state (Schloesser et al. 1995; Schloesser et al. 1997; Xu-Cai et al. 2011). The c.1681-1G&gt;A variant was also observed in a heterozygous state in four offspring of one of the compound heterozygote patients. These individuals also exhibited reduced factor XII activity and antigen levels. Gelincik et al. (2015) identified the c.1681-1G&gt;A variant in a heterozygous state in one patient with HAE with normal C1-INH (type 3 HAE). Factor XII levels were within normal limits in this patient. The c.1681-1G&gt;A variant was absent from 74 control individuals and is reported at a frequency of 0.00077 in the European (non-Finnish) population of the Exome Aggregation Consortium. Transcript analysis in two compound heterozygous patients and one homozygous patient with factor XII deficiency demonstrated aberrant splicing, suggesting that the c.1681-1G&gt;A splice acceptor variant results in detectable transcript but unstable protein (Schloesser et al. 1995). Based on the collective evidence, the c.1681-1G&gt;A variant is classified as likely pathogenic for F12-related disorders.</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Illumina Clinical Services Laboratory" ID="226114"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ICSL Variant Classification 20161018</Attribute>
+      <Citation Type="general">
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/4jQgNGYk/ICSL_Variant_Classification_20161018.pdf</URL>
+        <CitationText>ICSL_Variant_Classification_20161018.pdf</CitationText>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000505.3:c.1681-1G&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">F12</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">F12-Related Disorders</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>

@@ -8,7 +8,7 @@ suite "test utils functions":
     check rsNoAssertionCriteria.nbStars() == 0
     check rsNoAssertionVariant.nbStars() == 0
     check rsSingleSubmitter.nbStars() == 1
-    check rsMultipleSubmitterConflicting.nbStars() == 1
+    check rsConflicting.nbStars() == 1
     check rsMutlipleSubmitterNoConflict.nbStars() == 2
     check rsExpertPanel.nbStars() == 3
     check rsPracticeGuideline.nbStars() == 4
