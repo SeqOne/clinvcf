@@ -126,7 +126,11 @@ proc parseNCBIConversionComment*(comment: string): ClinSig =
     result = csUnknown
 
 proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], nb_submitters: int, has_conflict = false): RevStat =
-  if has_conflict:
+  if revstat_count.hasKey(rsPracticeGuideline):
+    result = rsPracticeGuideline
+  elif revstat_count.hasKey(rsExpertPanel):
+    result = rsExpertPanel
+  elif has_conflict:
     result = rsConflicting
   elif nb_submitters > 1 and revstat_count.hasKey(rsSingleSubmitter):
     result = rsMutlipleSubmitterNoConflict
