@@ -476,7 +476,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     info_fields.add("CLNREVSTAT=" & revstat.formatVCFString())
 
     if v.molecular_consequences.len > 0:
-      var formated_consequences = map(v.molecular_consequences, proc (x: MolecularConsequence): string = $x)
+      var formated_consequences = map(v.molecular_consequences, proc (x: MolecularConsequence): string = formatVCFString($x))
       info_fields.add("MC=" & join(formated_consequences, ","))
     
     if v.rsid != -1:
