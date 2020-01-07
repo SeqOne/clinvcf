@@ -387,8 +387,9 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                   # Here we handle the clinsig that were automatically converted by NCBI and has to be
                   # extracted with a regex from the comment node
                   for comment in comment_nodes:
-                    if comment.attr("Type") == "ConvertedByNCBI":
-                      clinical_significance = parseNCBIConversionComment(comment.innerText)
+                    let parse_clnsig = parseNCBIConversionComment(comment.innerText)
+                    if parse_clnsig != csUnknown:
+                      clinical_significance = parse_clnsig
                   if clinical_significance == csUnknown and desc_nodes.len() > 0:
                     clinical_significance = parseEnum[ClinSig](desc_nodes[0].innerText, csUnknown)
                   if revstat_nodes.len() > 0:

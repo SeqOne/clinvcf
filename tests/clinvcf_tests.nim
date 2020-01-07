@@ -15,3 +15,4 @@ suite "test utils functions":
   
   test "test parseNCBIConversionComment":
     check parseNCBIConversionComment("Converted during submission to Likely pathogenic.") == csLikelyPathogenic
+    check parseNCBIConversionComment("Converted during submission to Benign.") == csBenign

@@ -16,6 +16,7 @@
 [x] Handle automatic clinsig conversions from NCBI
 [x] Multiple submitter is not multiple submissions !!! (see case 307134)
 [ ] Add a tag with number of submitters / submissions
+[ ] Optimize memory usage
 
 <ClinicalSignificance>
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
