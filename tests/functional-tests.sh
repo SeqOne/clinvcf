@@ -46,3 +46,8 @@ assert_in_stdout "CLNSIG=Affects,_risk_factor"
 # Sort non-ACMG clnsig lexicographically
 run expert_panel $exe tests/files/582.xml
 assert_in_stdout "CLNSIG=Pathogenic;"
+
+# Correction of conflicting interpretation
+run conflict_deciphering $exe tests/files/9.xml
+assert_in_stdout "CLNSIG=Pathogenic"
+assert_in_stdout "OLD_CLNSIG=Conflicting_interpretations_of_pathogenicity"

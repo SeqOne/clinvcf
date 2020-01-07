@@ -1,4 +1,4 @@
-import httpclient, json, algorithm, tables, sequtils, re
+import httpclient, json, algorithm, tables, sequtils, re, math
 import os, times
 import q, xmltree # Parse XML
 import docopt # Formating the command-line
@@ -8,9 +8,11 @@ import hts
 type
   ClinSig* = enum
     csBenign = "Benign",
+    csBenignLikelyBenign = "Benign/Likely benign",
     csLikelyBenign = "Likely benign",
     csUncertainSignificance = "Uncertain significance",
     csLikelyPathogenic = "Likely pathogenic",
+    csPathogenicLikelyPathogenic = "BPathogenic/Likely pathogenic",
     csPathogenic = "Pathogenic",
     csUnknown = "not provided",
     csDrugResponse = "drug response",
@@ -57,6 +59,15 @@ var
   acmg_clinsig = @[csBenign, csLikelyBenign, csUncertainSignificance, csLikelyPathogenic, csPathogenic]
   non_acmg_clinsig = @[csDrugResponse, csRiskFactor, csAffects, csAssociation, csProtective, csConflictingDataFromSubmitters, csOther]
 
+proc median*(xs: seq[float]): float =
+  ## Compute median
+  assert xs.len() > 0
+  var ys : seq[float]
+  for v in xs:
+    ys.add(v)
+  sort(ys, system.cmp[float])
+  result = 0.5 * (ys[ys.high div 2] + ys[ys.len div 2])
+
 proc `$`*(mc: MolecularConsequence): string =
   return mc.so_term & "|" & mc.description
 
@@ -78,6 +89,30 @@ proc nbStars*(rs: RevStat): int =
       result = 3
     of rsPracticeGuideline:
       result = 4
+
+proc clnsigToFloat*(cs: ClinSig): float =
+  case cs:
+    of csBenign:
+      result = 1
+    of csBenignLikelyBenign:
+      result = 1.5
+    of csLikelyBenign:
+      result = 2
+    of csUncertainSignificance:
+      result = 3
+    of csLikelyPathogenic:
+      result = 4
+    of csPathogenicLikelyPathogenic:
+      result = 4.5
+    of csPathogenic:
+      result = 5
+    else:
+      result = -1
+
+proc selectACMGsubmissions(subs: seq[Submission]): seq[Submission] =
+  for sub in subs:
+    if sub.clinical_significance in acmg_clinsig:
+      result.add(sub)
 
 proc chromToInt*(chrom: string): int =
   ## Return -1 if chrom is not an integer (eg: X, Y)
@@ -144,12 +179,12 @@ proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], nb_submitters
   else:
     result = rsNoAssertion
 
-proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string, revstat: string] =
+proc aggregateSubmissions*(submissions: seq[Submission], autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string] =
   var 
     clinsig_count = newTable[ClinSig, int]()
     revstat_count = newTable[RevStat, int]()
     submitter_ids = newSeq[int]()
-    at_least_one_star_subs: seq[Submission]
+    retained_submissions = newSeq[Submission]()
 
   # Count submissions with one star or more
   var 
@@ -162,7 +197,6 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
       break
     elif nb_stars >= 1:
       has_one_star_sub = true
-      
   
   # Select eligible submissions depending on the submission with the highest number of stars
   for sub in submissions:
@@ -172,6 +206,8 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
     # If we have submissions(s) with one star or more, we only uses this submissions in the aggregation
     # Otherwise we use all submissions
     if (has_three_star_sub and (sub.review_status == rsExpertPanel or sub.review_status == rsPracticeGuideline)) or (not has_three_star_sub and sub.review_status.nbStars >= 1) or (not has_one_star_sub and not has_three_star_sub):
+      retained_submissions.add(sub)
+
       if clinsig_count.hasKey(sub.clinical_significance):
         inc(clinsig_count[sub.clinical_significance])
       else:
@@ -181,6 +217,7 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
         inc(revstat_count[sub.review_status])
       else:
         revstat_count[sub.review_status] = 1
+
       if sub.submitter_id notin submitter_ids:
         submitter_ids.add(sub.submitter_id)
   
@@ -208,12 +245,31 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
     result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
   # Case #4, Conflict !!!
   # TODO: Do some desambiguiations !!!
-  elif (clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic) or clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)) and clinsig_count.hasKey(csUncertainSignificance):
-    result.clinsig = "Conflicting interpretations of pathogenicity"
-    result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
-  elif (clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic)) and (clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)):
-    result.clinsig = "Conflicting interpretations of pathogenicity"
-    result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
+  elif ((clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic) or clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)) and clinsig_count.hasKey(csUncertainSignificance)) or 
+    ((clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic)) and (clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign))):
+    
+    let
+      acmg_submissions = retained_submissions.selectACMGsubmissions()
+      cs_values = map(acmg_submissions, proc (x: Submission): float = x.clinical_significance.clnsigToFloat())
+      median_value = cs_values.median()
+    if cs_values.len() >= 5 and median_value >= 4:
+      var new_clinsig: ClinSig
+      case median_value:
+        of 4:
+          new_clinsig = csLikelyPathogenic
+        of 4.5:
+          new_clinsig = csPathogenicLikelyPathogenic
+        of 5:
+          new_clinsig = csPathogenic
+        else:
+          stderr.writeLine("[Error] Unexpected value of clinsigToFloat")
+          quit(2)
+      result.clinsig = $new_clinsig
+      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
+      result.old_clinsig = "Conflicting interpretations of pathogenicity"
+    else:
+      result.clinsig = "Conflicting interpretations of pathogenicity"
+      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
   
   # Add non-ACMG values to the end of clinsig
   # If ClinVar aggregates submissions from groups that provided a standard term not recommend by ACMG/AMP ( e.g. drug response), then those values are reported after the ACMG/AMP-based interpretation (see the table below).
@@ -464,9 +520,13 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
   # ##INFO=<ID=SSR,Number=1,Type=Integer,Description="Variant Suspect Reason Codes. One or more of the following values may be added: 0 - unspecified, 1 - Paralog, 2 - byEST, 4 - oldAlign, 8 - Para_EST, 16 
   # - 1kg_failed, 1024 - other">
   echo "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO"
-
+  
+  var 
+    nb_corrections = 0
+    nb_variants = 0
   for v in variants:
-    let (clinsig, revstat) = v.submissions.aggregateSubmissions()
+    inc(nb_variants)
+    let (clinsig, revstat, old_clinsig) = v.submissions.aggregateSubmissions(true) # Autocorrect conflicts
     var info_fields : seq[string] = @["ALLELEID=" & $v.allele_id]
     
     if v.gene_id > 0:
@@ -474,6 +534,10 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
 
     info_fields.add("CLNSIG=" & clinsig.formatVCFString())
     info_fields.add("CLNREVSTAT=" & revstat.formatVCFString())
+
+    if old_clinsig != "":
+      info_fields.add("OLD_CLNSIG=" & old_clinsig.formatVCFString())
+      inc(nb_corrections)
 
     if v.molecular_consequences.len > 0:
       var formated_consequences = map(v.molecular_consequences, proc (x: MolecularConsequence): string = formatVCFString($x))
@@ -493,6 +557,9 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
         ".",
         info_fields.join(";")
       ].join("\t")
+
+  stderr.writeLine("[Log] " & $nb_variants & " variants have been extracted from the XML")
+  stderr.writeLine("[Log] " & $nb_corrections & " variants had a conflicting interpretation deciphering")
 
 proc main*(argv: seq[string]) =
 

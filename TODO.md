@@ -1,28 +1,29 @@
 [x] Packaging with Nimble
 [x] Sort VCF before
-[ ] Gene stats module
-[ ] Comp Clinvar VCF and ours
-[ ] Unit testing
+[x] Comp Clinvar VCF and ours
 [x] Functional testing
 [x] Gitlab CI
-[ ] Implement new aggregation function + output stats of reclassification
+[x] Implement new aggregation function
 [x] Add RS tag (dbSNP rsid)
 [x] Add date header
-[ ] Add gnomad annot (using API calls and cache)
-[ ] Add progressiong bar when loading variants
-[ ] Create README file
-[ ] Add NB_STARS tag 
 [x] Handle GenotypeSet (These variants should not be included in the VCF (see case 424779))
 [x] Handle automatic clinsig conversions from NCBI
 [x] Multiple submitter is not multiple submissions !!! (see case 307134)
-[ ] Add a tag with number of submitters / submissions
-[ ] Optimize memory usage (variant infos could be stored in cache files and re-loaded at "print" time !)
 [x] Multiple 3-4 stars subs, take all !!! (see case 7108)
 [x] Sort non-ACMG clnsig lexicographically (see case 5333 : drug_response,_risk_factor,_protective =>  drug_response,_protective,_risk_factor) 
 [x] Bug "criteria_provided,_single_submitter" that should be "criteria_provided,_conflicting_interpretations" when only one submitter with conflict (see case 1166)
 [x] Bug Conflicting only when 1 star or more !
 [x] Memory leak somewhere in xml parsing (see huge memory footprint for extractClinvarSet !!!!)
+[x] Output stats of reclassification
 [ ] Get rid of q() xml lib and do it directly with xmltree package (see extractClinvarSet code)
+[ ] Gene stats module
+[ ] Unit testing
+[ ] Add gnomad annot (using API calls and cache)
+[ ] Add progressiong bar when loading variants
+[ ] Create README file
+[ ] Add NB_STARS tag 
+[ ] Add a tag with number of submitters / submissions
+[ ] Optimize memory usage (variant infos could be stored in cache files and re-loaded at "print" time !)
 
 <ClinicalSignificance>
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
