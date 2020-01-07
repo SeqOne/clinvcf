@@ -1,0 +1,1039 @@
+<ClinVarSet ID="49272588">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000492.3(CFTR):c.328G&gt;C (p.Asp110His) AND Cystic fibrosis</Title>
+  <ReferenceClinVarAssertion DateCreated="2012-08-13" DateLastUpdated="2019-12-31" ID="65030">
+    <ClinVarAccession Acc="RCV000007527" Version="8" Type="RCV" DateUpdated="2019-12-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2017-03-17">
+      <ReviewStatus>reviewed by expert panel</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="ModeOfInheritance" integerValue="263">Autosomal recessive inheritance</Attribute>
+      <XRef ID="7080" DB="Counsyl"/>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="50015097">
+        <Attribute Type="Description">Using the method for identifying single-strand conformation polymorphisms (SSCPs) developed by Orita et al. (1989), Dean et al. (1990) identified 3 different mutations associated with mild cystic fibrosis (CF; 219700). All 3 mutations replaced charged amino acids with less polar residues and resulted in changes in the putative transmembrane sections of the molecule. The mutated amino acids were found to be ones conserved in both rodents and amphibians and to lie in a region of CFTR that is believed to form a channel in the membrane. In a family identified as BOS-7, a C-to-G transversion in exon 4 replaced an aspartic acid residue with histidine (D110H). (The Orita method for identifying SSCPs involves amplification of 100-400 bp segments of radiolabeled DNA, which are subsequently denatured and electrophoresed on high resolution, nondenaturing acrylamide gels. Under these conditions each strand of the DNA fragment can fold back on itself in a unique conformation. Mutations within a DNA segment will often alter the secondary structure of the molecule and affect its electrophoretic mobility.)</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">1937486</ID>
+        </Citation>
+        <Citation Type="general">
+          <ID Source="PubMed">2565038</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>research</MethodType>
+      </Method>
+      <ObservedData ID="50015187">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <ObservedIn>
+      <Sample>
+        <Origin>unknown</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="50015188">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="7108" Acc="VCV000007108" Version="2">
+      <Measure Type="single nucleotide variant" ID="22147">
+        <Name>
+          <ElementValue Type="Preferred">NM_000492.3(CFTR):c.328G&gt;C (p.Asp110His)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_663t1" Change="c.328G&gt;C" Type="HGVS, coding, LRG">LRG_663t1:c.328G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000492" Version="3" Change="c.328G&gt;C" Type="HGVS, coding, RefSeq">NM_000492.3:c.328G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_663" Change="g.70170G&gt;C" Type="HGVS, genomic, LRG">LRG_663:g.70170G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_016465" Version="4" Change="g.70170G&gt;C" Type="HGVS, genomic, RefSeqGene">NG_016465.4:g.70170G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000007" Version="14" Change="g.117530953G&gt;C" Type="HGVS, genomic, top level" integerValue="38">NC_000007.14:g.117530953G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000007" Version="13" Change="g.117171007G&gt;C" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000007.13:g.117171007G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_016465" Version="1" Change="g.55991G&gt;C" Type="HGVS, previous">NG_016465.1:g.55991G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_663p1" Change="p.Asp110His" Type="HGVS, protein">LRG_663p1:p.Asp110His</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="P13569" Change="p.Asp110His" Type="HGVS, protein">P13569:p.Asp110His</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000483" Version="3" Change="p.Asp110His" Type="HGVS, protein, RefSeq">NP_000483.3:p.Asp110His</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_000492.3:c.328G&gt;C" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">D110H</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">ASP110HIS</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00002" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00001" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>7q31.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="7" Accession="NC_000007.14" start="117530953" stop="117530953" display_start="117530953" display_stop="117530953" variantLength="1" positionVCF="117530953" referenceAlleleVCF="G" alternateAlleleVCF="C"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="7" Accession="NC_000007.13" start="117171007" stop="117171007" display_start="117171007" display_stop="117171007" variantLength="1" positionVCF="117171007" referenceAlleleVCF="G" alternateAlleleVCF="C"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">CF transmembrane conductance regulator</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">CFTR</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="7" Accession="NC_000007.14" start="117480025" stop="117668665" display_start="117480025" display_stop="117668665" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="7" Accession="NC_000007.13" start="117120016" stop="117308718" display_start="117120016" display_stop="117308718" variantLength="188703" Strand="+"/>
+          <XRef ID="1080" DB="Gene"/>
+          <XRef Type="MIM" ID="602421" DB="OMIM"/>
+          <XRef ID="HGNC:1884" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="D110H" DB="CFTR2"/>
+        <XRef ID="1449191407PA165950341" DB="PharmGKB"/>
+        <XRef ID="P13569#VAR_000119" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="602421.0004" DB="OMIM"/>
+        <XRef Type="rs" ID="113993958" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000492.3(CFTR):c.328G&gt;C (p.Asp110His)</ElementValue>
+      </Name>
+      <XRef ID="CA284835" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="1961">
+      <Trait ID="1695" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Cystic fibrosis</ElementValue>
+          <XRef ID="Cystic+Fibrosis/2071" DB="Genetic Alliance"/>
+          <XRef Type="MIM" ID="219700" DB="OMIM"/>
+          <XRef ID="6233" DB="Office of Rare Diseases"/>
+          <XRef ID="190905008" DB="SNOMED CT"/>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Preferred">CF</ElementValue>
+          <XRef Type="MIM" ID="219700" DB="OMIM"/>
+          <XRef ID="6233" DB="Office of Rare Diseases"/>
+        </Symbol>
+        <AttributeSet>
+          <Attribute Type="public definition">Cystic fibrosis (CF) is a multisystem disease affecting epithelia of the respiratory tract, exocrine pancreas, intestine, hepatobiliary system, and exocrine sweat glands. Morbidities include progressive obstructive lung disease with bronchiectasis, frequent hospitalizations for pulmonary disease, pancreatic insufficiency and malnutrition, recurrent sinusitis and bronchitis, and male infertility. Pulmonary disease is the major cause of morbidity and mortality in CF. Meconium ileus occurs at birth in 15%-20% of newborns with CF. More than 95% of males with CF are infertile. Congenital absence of the vas deferens (CAVD) is generally identified during evaluation of infertility or as an incidental finding at the time of a surgical procedure. Hypoplasia or aplasia of the vas deferens and seminal vesicles may occur either bilaterally or unilaterally. Testicular development and function and spermatogenesis are usually normal.</Attribute>
+          <XRef ID="NBK1250" DB="GeneReviews"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="disease mechanism" integerValue="273">loss of function</Attribute>
+          <XRef ID="GTR000004176" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000005248" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000025280" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000028916" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000074114" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000209428" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000226639" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000277984" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000320929" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000328569" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000330969" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000332363" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000501120" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000501918" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000501920" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000501921" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000507003" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000507006" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000507010" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000507864" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000507950" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000508782" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000508810" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000508811" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000508812" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000508889" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000508890" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000508893" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000508894" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000514611" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000520059" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000521905" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000522527" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000528606" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000529460" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000530118" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000556535" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000556536" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000558875" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000558928" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000568279" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000569406" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000569426" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000569602" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000569639" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000569790" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000569791" DB="Genetic Testing Registry (GTR)"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="disease mechanism">More than 1,000 CFTR variants have been reported.  Most common pathogenic variant is p.Phe508del.</Attribute>
+        </AttributeSet>
+        <Citation Type="practice guideline" Abbrev="ACMG/ACOG, 2001">
+          <ID Source="PubMed">11280952</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="ACMG, 2004">
+          <ID Source="pmc">3110945</ID>
+        </Citation>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301428</ID>
+          <ID Source="BookShelf">NBK1250</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="ACOG, 2009">
+          <ID Source="PubMed">19888064</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="NSGC, 2005">
+          <ID Source="PubMed">15789152</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="ACMG, 2008">
+          <ID Source="pmc">3110977</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="CPGPT/CF FPT Committees, 2010">
+          <ID Source="PubMed">20675678</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="ECFS, 2010">
+          <ID Source="PubMed">20605539</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="CFF, 2009">
+          <ID Source="PubMed">19914445</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="CFF, 2009">
+          <ID Source="PubMed">19914443</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="ACMG ACT Sheets, 2010">
+          <ID Source="PubMed">21938795</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="DailyMed Drug Label, 2012">
+          <URL>https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=0ab0c9f8-3eee-4e0f-9f3f-c1e16aaffe25</URL>
+          <CitationText>DailyMed Drug Label, KALYDECO, 2012</CitationText>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="ACMG Lab QA, 2002">
+          <ID Source="PubMed">12394352</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="CDC, 2012">
+          <ID Source="PubMed">22475884</ID>
+        </Citation>
+        <Citation Type="Suggested Reading" Abbrev="Accurso et al., 2010">
+          <ID Source="pmc">3148255</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="ACOG, 2011">
+          <ID Source="PubMed">21422883</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="CPIC, 2014">
+          <ID Source="pmc">4026598</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="NSGC, 2014">
+          <ID Source="PubMed">24014130</ID>
+        </Citation>
+        <Citation Type="Position Statement" Abbrev="HGS Australasia, 2014">
+          <ID Source="PubMed">25431289</ID>
+        </Citation>
+        <Citation Type="Suggested Reading" Abbrev="Wainwright et al., 2015">
+          <ID Source="PubMed">25981758</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="CFF, 2007">
+          <ID Source="PubMed">17761616</ID>
+        </Citation>
+        <XRef ID="C0010674" DB="MedGen"/>
+        <XRef ID="586" DB="Orphanet"/>
+        <XRef Type="MIM" ID="219700" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="27728">
+    <ClinVarSubmissionID localKey="602421.0004_CYSTIC FIBROSIS" submitter="OMIM" submitterDate="2018-04-09" title="CFTR, ASP110HIS_CYSTIC FIBROSIS"/>
+    <ClinVarAccession Acc="SCV000027728" Version="3" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="1991-01-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="OMIM" ID="602421.0004" Type="Allelic variant"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">Using the method for identifying single-strand conformation polymorphisms (SSCPs) developed by Orita et al. (1989), Dean et al. (1990) identified 3 different mutations associated with mild cystic fibrosis (CF; 219700). All 3 mutations replaced charged amino acids with less polar residues and resulted in changes in the putative transmembrane sections of the molecule. The mutated amino acids were found to be ones conserved in both rodents and amphibians and to lie in a region of CFTR that is believed to form a channel in the membrane. In a family identified as BOS-7, a C-to-G transversion in exon 4 replaced an aspartic acid residue with histidine (D110H). (The Orita method for identifying SSCPs involves amplification of 100-400 bp segments of radiolabeled DNA, which are subsequently denatured and electrophoresed on high resolution, nondenaturing acrylamide gels. Under these conditions each strand of the DNA fragment can fold back on itself in a unique conformation. Mutations within a DNA segment will often alter the secondary structure of the molecule and affect its electrophoretic mobility.)</Attribute>
+        <Citation>
+          <ID Source="PubMed">2565038</ID>
+        </Citation>
+        <Citation>
+          <ID Source="PubMed">1937486</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="219700" Type="MIM"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Preferred">CFTR, ASP110HIS</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="NonHGVS">ASP110HIS</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">CFTR</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="OMIM" ID="602421.0004" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">CYSTIC FIBROSIS</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+  <ClinVarAssertion ID="146911" SubmissionName="SUB2827387">
+    <ClinVarSubmissionID localKey="D110H|Cystic fibrosis" submittedAssembly="GRCh37" submitter="CFTR2" submitterDate="2017-06-29"/>
+    <ClinVarAccession Acc="SCV000071497" Version="4" Type="SCV" OrgID="500092" OrganizationCategory="locus-specific database (LSDB)" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2017-03-17">
+      <ReviewStatus>reviewed by expert panel</ReviewStatus>
+      <Description>Pathogenic</Description>
+      <Citation>
+        <URL>https://cftr2.org</URL>
+      </Citation>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="CFTR2" ID="D110H"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">Sosnay PR et al. (Nat Genet 2013)</Attribute>
+      <Citation>
+        <ID Source="PubMed">23974870</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>research</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Alternate">p.Asp110His</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000492.3:c.328G&gt;C</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">CFTR</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Cystic fibrosis</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+    <Citation>
+      <URL>https://cftr2.org</URL>
+    </Citation>
+    <StudyName>CFTR2</StudyName>
+    <StudyDescription>Clinical and Functional TRanslation of CFTR</StudyDescription>
+  </ClinVarAssertion>
+  <ClinVarAssertion ID="397690" SubmissionName="Counsyl_2015_03_01">
+    <ClinVarSubmissionID localKey="NM_000492.3(CFTR):c.328G&gt;C" localKeyIsSubmitted="1" submitter="Counsyl" submitterDate="2015-03-11"/>
+    <ClinVarAccession Acc="SCV000220934" Version="1" Type="SCV" OrgID="320494" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2014-12-05">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely pathogenic</Description>
+      <Citation>
+        <ID Source="PubMed">23974870</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">15084222</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">12752573</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">10719683</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">16436643</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">23420618</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">22043142</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">12439892</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">23276700</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">23891399</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">18456578</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">11278813</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">22504961</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">23857699</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">15371907</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">15638824</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">11446424</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">18373402</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">25024266</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">9521595</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">2344617</ID>
+      </Citation>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Counsyl" ID="7080"/>
+    <AttributeSet>
+      <Attribute Type="ModeOfInheritance">Autosomal recessive inheritance</Attribute>
+    </AttributeSet>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">Counsyl Autosomal and X-linked Recessive Disease Classification criteria (2015)</Attribute>
+      <Citation Type="general">
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/4yisoce9/mdi-5618_320494_counsyl_autosomal_and_x-linked_recessive_disease_classification_criteria_(2015).pdf</URL>
+        <CitationText>Counsyl Autosomal and X-linked Recessive Disease Classification criteria (2015)</CitationText>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>unknown</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000492.3:c.328G&gt;C</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">CFTR</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Cystic fibrosis</ElementValue>
+        </Name>
+        <XRef DB="OMIM" ID="219700" Type="MIM"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="49275777">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000492.3(CFTR):c.328G&gt;C (p.Asp110His) AND not provided</Title>
+  <ReferenceClinVarAssertion DateCreated="2013-10-21" DateLastUpdated="2019-12-31" ID="152583">
+    <ClinVarAccession Acc="RCV000058930" Version="1" Type="RCV" DateUpdated="2019-12-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance>
+      <ReviewStatus>no assertion provided</ReviewStatus>
+      <Description>not provided</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="50019229">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="7108" Acc="VCV000007108" Version="2">
+      <Measure Type="single nucleotide variant" ID="22147">
+        <Name>
+          <ElementValue Type="Preferred">NM_000492.3(CFTR):c.328G&gt;C (p.Asp110His)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_663t1" Change="c.328G&gt;C" Type="HGVS, coding, LRG">LRG_663t1:c.328G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000492" Version="3" Change="c.328G&gt;C" Type="HGVS, coding, RefSeq">NM_000492.3:c.328G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_663" Change="g.70170G&gt;C" Type="HGVS, genomic, LRG">LRG_663:g.70170G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_016465" Version="4" Change="g.70170G&gt;C" Type="HGVS, genomic, RefSeqGene">NG_016465.4:g.70170G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000007" Version="14" Change="g.117530953G&gt;C" Type="HGVS, genomic, top level" integerValue="38">NC_000007.14:g.117530953G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000007" Version="13" Change="g.117171007G&gt;C" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000007.13:g.117171007G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_016465" Version="1" Change="g.55991G&gt;C" Type="HGVS, previous">NG_016465.1:g.55991G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_663p1" Change="p.Asp110His" Type="HGVS, protein">LRG_663p1:p.Asp110His</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="P13569" Change="p.Asp110His" Type="HGVS, protein">P13569:p.Asp110His</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000483" Version="3" Change="p.Asp110His" Type="HGVS, protein, RefSeq">NP_000483.3:p.Asp110His</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_000492.3:c.328G&gt;C" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">D110H</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">ASP110HIS</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00002" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00001" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>7q31.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="7" Accession="NC_000007.14" start="117530953" stop="117530953" display_start="117530953" display_stop="117530953" variantLength="1" positionVCF="117530953" referenceAlleleVCF="G" alternateAlleleVCF="C"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="7" Accession="NC_000007.13" start="117171007" stop="117171007" display_start="117171007" display_stop="117171007" variantLength="1" positionVCF="117171007" referenceAlleleVCF="G" alternateAlleleVCF="C"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">CF transmembrane conductance regulator</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">CFTR</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="7" Accession="NC_000007.14" start="117480025" stop="117668665" display_start="117480025" display_stop="117668665" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="7" Accession="NC_000007.13" start="117120016" stop="117308718" display_start="117120016" display_stop="117308718" variantLength="188703" Strand="+"/>
+          <XRef ID="1080" DB="Gene"/>
+          <XRef Type="MIM" ID="602421" DB="OMIM"/>
+          <XRef ID="HGNC:1884" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="D110H" DB="CFTR2"/>
+        <XRef ID="1449191407PA165950341" DB="PharmGKB"/>
+        <XRef ID="P13569#VAR_000119" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="602421.0004" DB="OMIM"/>
+        <XRef Type="rs" ID="113993958" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000492.3(CFTR):c.328G&gt;C (p.Asp110His)</ElementValue>
+      </Name>
+      <XRef ID="CA284835" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="9460">
+      <Trait ID="17556" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+          <XRef ID="13DG0619" DB="Developmental Genetics Unit,King Faisal Specialist Hospital &amp; Research Centre"/>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">The term 'not provided' is registered in MedGen to support identification of submissions to ClinVar for which no condition was named when assessing the variant. 'not provided' differs from 'not specified', which is used when a variant is asserted to be benign, likely benign, or of uncertain significance for conditions that have not been specified.</Attribute>
+        </AttributeSet>
+        <XRef ID="CN517202" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="150747" SubmissionName="TRANSNP_session_1274449228">
+    <ClinVarSubmissionID localKey="NG_016465.1:g.55991G&gt;C|SNPEDIA" submitter="SNPedia" submitterDate="2011-04-26"/>
+    <ClinVarAccession Acc="SCV000090451" Version="1" Type="SCV" OrgID="500165" OrganizationCategory="other" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance>
+      <ReviewStatus>no assertion provided</ReviewStatus>
+      <Description>not provided</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>not provided</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NG_016465.1:g.55991G&gt;C</Attribute>
+        </AttributeSet>
+        <XRef DB="OMIM" ID="602421.0004" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="49298695">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000492.3(CFTR):c.328G&gt;C (p.Asp110His) AND ivacaftor response - Efficacy</Title>
+  <ReferenceClinVarAssertion DateCreated="2018-07-07" DateLastUpdated="2019-12-31" ID="1527204">
+    <ClinVarAccession Acc="RCV000660769" Version="1" Type="RCV" DateUpdated="2019-12-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2018-03-22">
+      <ReviewStatus>reviewed by expert panel</ReviewStatus>
+      <Description>drug response</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>curation</MethodType>
+      </Method>
+      <ObservedData ID="50034561">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="7108" Acc="VCV000007108" Version="2">
+      <Measure Type="single nucleotide variant" ID="22147">
+        <Name>
+          <ElementValue Type="Preferred">NM_000492.3(CFTR):c.328G&gt;C (p.Asp110His)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_663t1" Change="c.328G&gt;C" Type="HGVS, coding, LRG">LRG_663t1:c.328G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000492" Version="3" Change="c.328G&gt;C" Type="HGVS, coding, RefSeq">NM_000492.3:c.328G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_663" Change="g.70170G&gt;C" Type="HGVS, genomic, LRG">LRG_663:g.70170G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_016465" Version="4" Change="g.70170G&gt;C" Type="HGVS, genomic, RefSeqGene">NG_016465.4:g.70170G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000007" Version="14" Change="g.117530953G&gt;C" Type="HGVS, genomic, top level" integerValue="38">NC_000007.14:g.117530953G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000007" Version="13" Change="g.117171007G&gt;C" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000007.13:g.117171007G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_016465" Version="1" Change="g.55991G&gt;C" Type="HGVS, previous">NG_016465.1:g.55991G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_663p1" Change="p.Asp110His" Type="HGVS, protein">LRG_663p1:p.Asp110His</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="P13569" Change="p.Asp110His" Type="HGVS, protein">P13569:p.Asp110His</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000483" Version="3" Change="p.Asp110His" Type="HGVS, protein, RefSeq">NP_000483.3:p.Asp110His</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_000492.3:c.328G&gt;C" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">D110H</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">ASP110HIS</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00002" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00001" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>7q31.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="7" Accession="NC_000007.14" start="117530953" stop="117530953" display_start="117530953" display_stop="117530953" variantLength="1" positionVCF="117530953" referenceAlleleVCF="G" alternateAlleleVCF="C"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="7" Accession="NC_000007.13" start="117171007" stop="117171007" display_start="117171007" display_stop="117171007" variantLength="1" positionVCF="117171007" referenceAlleleVCF="G" alternateAlleleVCF="C"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">CF transmembrane conductance regulator</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">CFTR</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="7" Accession="NC_000007.14" start="117480025" stop="117668665" display_start="117480025" display_stop="117668665" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="7" Accession="NC_000007.13" start="117120016" stop="117308718" display_start="117120016" display_stop="117308718" variantLength="188703" Strand="+"/>
+          <XRef ID="1080" DB="Gene"/>
+          <XRef Type="MIM" ID="602421" DB="OMIM"/>
+          <XRef ID="HGNC:1884" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="D110H" DB="CFTR2"/>
+        <XRef ID="1449191407PA165950341" DB="PharmGKB"/>
+        <XRef ID="P13569#VAR_000119" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="602421.0004" DB="OMIM"/>
+        <XRef Type="rs" ID="113993958" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000492.3(CFTR):c.328G&gt;C (p.Asp110His)</ElementValue>
+      </Name>
+      <XRef ID="CA284835" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="DrugResponse" ID="26813">
+      <Trait ID="35478" Type="DrugResponse">
+        <Name>
+          <ElementValue Type="Preferred">ivacaftor response - Efficacy</ElementValue>
+        </Name>
+        <XRef ID="CN236562" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="1525591" SubmissionName="PharmGKB-ClinVar 2018-05">
+    <ClinVarSubmissionID localKey="1449191407PA165950341|ivacaftor response - Efficacy" submittedAssembly="GRCh38" submitter="PharmGKB" submitterDate="2018-06-18"/>
+    <ClinVarAccession Acc="SCV000783008" Version="1" Type="SCV" OrgID="500295" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2018-03-22">
+      <ReviewStatus>reviewed by expert panel</ReviewStatus>
+      <Description>drug response</Description>
+      <ExplanationOfInterpretation>Drug-variant association: Efficacy</ExplanationOfInterpretation>
+      <Citation>
+        <ID Source="PubMed">23891399</ID>
+      </Citation>
+      <Comment Type="public">PharmGKB Level of Evidence 1A: Annotation for a variant-drug combination in a CPIC or medical society-endorsed PGx guideline, or implemented at a PGRN site or in another major health system.</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Pharmacogenomics Knowledge Base" ID="1449191407PA165950341"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">Pharmacogenomics knowledge for personalized medicine</Attribute>
+      <Citation>
+        <ID Source="PubMed">22992668</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>curation</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NC_000007.13:g.117171007G&gt;C</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">CFTR</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="dbSNP" ID="113993958" Type="rsNumber"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="DrugResponse">
+      <Trait Type="DrugResponse">
+        <Name>
+          <ElementValue Type="Preferred">ivacaftor response - Efficacy</ElementValue>
+        </Name>
+        <TraitRelationship Type="DrugResponseAndDisease">
+          <Name>
+            <ElementValue Type="Preferred">Cystic Fibrosis</ElementValue>
+          </Name>
+        </TraitRelationship>
+      </Trait>
+    </TraitSet>
+    <Citation>
+      <URL>https://www.pharmgkb.org/clinicalAnnotation/1449191407</URL>
+    </Citation>
+    <Comment Type="public">Drug is not necessarily used to treat response condition</Comment>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="49302845">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000492.3(CFTR):c.328G&gt;C (p.Asp110His) AND not specified</Title>
+  <ReferenceClinVarAssertion DateCreated="2019-05-31" DateLastUpdated="2019-12-31" ID="1797533">
+    <ClinVarAccession Acc="RCV000780153" Version="1" Type="RCV" DateUpdated="2019-12-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2017-11-20">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="50037443">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="7108" Acc="VCV000007108" Version="2">
+      <Measure Type="single nucleotide variant" ID="22147">
+        <Name>
+          <ElementValue Type="Preferred">NM_000492.3(CFTR):c.328G&gt;C (p.Asp110His)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_663t1" Change="c.328G&gt;C" Type="HGVS, coding, LRG">LRG_663t1:c.328G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000492" Version="3" Change="c.328G&gt;C" Type="HGVS, coding, RefSeq">NM_000492.3:c.328G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_663" Change="g.70170G&gt;C" Type="HGVS, genomic, LRG">LRG_663:g.70170G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_016465" Version="4" Change="g.70170G&gt;C" Type="HGVS, genomic, RefSeqGene">NG_016465.4:g.70170G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000007" Version="14" Change="g.117530953G&gt;C" Type="HGVS, genomic, top level" integerValue="38">NC_000007.14:g.117530953G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000007" Version="13" Change="g.117171007G&gt;C" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000007.13:g.117171007G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_016465" Version="1" Change="g.55991G&gt;C" Type="HGVS, previous">NG_016465.1:g.55991G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_663p1" Change="p.Asp110His" Type="HGVS, protein">LRG_663p1:p.Asp110His</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="P13569" Change="p.Asp110His" Type="HGVS, protein">P13569:p.Asp110His</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000483" Version="3" Change="p.Asp110His" Type="HGVS, protein, RefSeq">NP_000483.3:p.Asp110His</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_000492.3:c.328G&gt;C" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">D110H</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">ASP110HIS</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00002" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00001" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>7q31.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="7" Accession="NC_000007.14" start="117530953" stop="117530953" display_start="117530953" display_stop="117530953" variantLength="1" positionVCF="117530953" referenceAlleleVCF="G" alternateAlleleVCF="C"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="7" Accession="NC_000007.13" start="117171007" stop="117171007" display_start="117171007" display_stop="117171007" variantLength="1" positionVCF="117171007" referenceAlleleVCF="G" alternateAlleleVCF="C"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">CF transmembrane conductance regulator</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">CFTR</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="7" Accession="NC_000007.14" start="117480025" stop="117668665" display_start="117480025" display_stop="117668665" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="7" Accession="NC_000007.13" start="117120016" stop="117308718" display_start="117120016" display_stop="117308718" variantLength="188703" Strand="+"/>
+          <XRef ID="1080" DB="Gene"/>
+          <XRef Type="MIM" ID="602421" DB="OMIM"/>
+          <XRef ID="HGNC:1884" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="D110H" DB="CFTR2"/>
+        <XRef ID="1449191407PA165950341" DB="PharmGKB"/>
+        <XRef ID="P13569#VAR_000119" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="602421.0004" DB="OMIM"/>
+        <XRef Type="rs" ID="113993958" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000492.3(CFTR):c.328G&gt;C (p.Asp110His)</ElementValue>
+      </Name>
+      <XRef ID="CA284835" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="9590">
+      <Trait ID="16789" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not specified</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">AllHighlyPenetrant</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">The term 'not specified' was created for use in ClinVar so that submitters can convey the concept that a variant is benign, likely benign, or of uncertain significance for an unspecified set of disorders.  This usage was introduced in 2014 to replace AllHighlyPenetrant.</Attribute>
+        </AttributeSet>
+        <XRef ID="CN169374" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="1793817" SubmissionName="SUB5494893">
+    <ClinVarSubmissionID localKey="NM_000492.3:c.328G&gt;C|MedGen:CN169374" submittedAssembly="GRCh37" submitter="Integrated Genetics/Laboratory Corporation of America" submitterDate="2019-04-24"/>
+    <ClinVarAccession Acc="SCV000917200" Version="1" Type="SCV" OrgID="500026" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2017-11-20">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+      <Citation>
+        <ID Source="PubMed">16436643</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">2344617</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">22724884</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">23974870</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">15371907</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">1376016</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">9272157</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">23420618</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">23276700</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">23891399</ID>
+      </Citation>
+      <Comment Type="public">Variant summary: The CFTR c.328G&gt;C (p.Asp110His) variant involves the alteration of a conserved nucleotide that is located in the ABC transporter type 1, transmembrane domain (InterPro). 5/5 in silico tools predict a damaging outcome for this variant. This variant was found in 5/245956 control chromosomes at a frequency of 0.0000203, which does not exceed the estimated maximal expected allele frequency of a pathogenic CFTR variant (0.0129603). Compound heterozygotes and homozygotes for this variant have been found in numerous patients with CBAVD, CF, and in pt with clinical findings suggestive of CF. A functional study showed that baseline chloride transport in CFTR-D110H transfected FRT cells was 9.1% of that in WT-CFTR transfected FRT cells (Van Goor_2013), indicating that D110H significantly affects normal function of CFTR. In addition, multiple clinical diagnostic laboratories/reputable databases classified this variant as pathogenic. Taken together, this variant is classified as pathogenic.</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">LabCorp Variant Classification Summary - May 2015</Attribute>
+      <Citation>
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/pttb9itm/labcorp_variant_classification_method_-_may_2015.pdf</URL>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000492.3:c.328G&gt;C</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">CFTR</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not specified</ElementValue>
+        </Name>
+        <XRef DB="MedGen" ID="CN169374" Type="CUI"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>

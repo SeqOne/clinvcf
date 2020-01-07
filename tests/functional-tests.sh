@@ -32,3 +32,7 @@ assert_in_stdout "CLNSIG=Likely_pathogenic"
 # Even if all submission are from the same submitter
 run same_submitter_conflict $exe tests/files/1166.xml
 assert_in_stdout "CLNREVSTAT=criteria_provided,_conflicting_interpretations"
+
+# Multiple 3-4 stars subs, take them all !!! (see case 7108)
+run same_submitter_conflict $exe tests/files/7108.xml
+assert_in_stdout "CLNSIG=Pathogenic/Likely_pathogenic,_drug_response"

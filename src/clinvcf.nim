@@ -143,26 +143,28 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
     clinsig_count = newTable[ClinSig, int]()
     revstat_count = newTable[RevStat, int]()
     submitter_ids = newSeq[int]()
-    no_aggregation_needed = false
     at_least_one_star_subs: seq[Submission]
 
   # Count submissions with one star or more
-  var has_one_star_sub : bool = false
+  var 
+    has_one_star_sub : bool = false
+    has_three_star_sub : bool = false
   for sub in submissions:
-    if sub.review_status.nbStars() >= 1:
+    let nb_stars = sub.review_status.nbStars()
+    if nb_stars >= 1:
       has_one_star_sub = true
+    elif nb_stars >= 3:
+      has_three_star_sub = true
       break
-
+  
+  # Select eligible submissions depending on the submission with the highest number of stars
   for sub in submissions:
-    # When there is a submission from an Expert panel or from a group providing practice guidelines, only the interpretation from that group is reported in the aggregate record, even if other submissions provide different interpretations. 
-    if sub.review_status == rsExpertPanel or sub.review_status == rsPracticeGuideline:
-      result.clinsig = $sub.clinical_significance
-      result.revstat = $sub.review_status
-      no_aggregation_needed = true
-      break
+    # When there is a submission from an Expert panel or from a group providing practice guidelines, 
+    # only the interpretation from that group is reported in the aggregate record, 
+    # even if other submissions provide different interpretations. 
     # If we have submissions(s) with one star or more, we only uses this submissions in the aggregation
     # Otherwise we use all submissions
-    elif not has_one_star_sub or sub.review_status.nbStars >= 1:
+    if (has_three_star_sub and (sub.review_status == rsExpertPanel or sub.review_status == rsPracticeGuideline)) or (not has_three_star_sub and sub.review_status.nbStars >= 1) or (not has_one_star_sub and not has_three_star_sub):
       if clinsig_count.hasKey(sub.clinical_significance):
         inc(clinsig_count[sub.clinical_significance])
       else:
@@ -174,57 +176,55 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
         revstat_count[sub.review_status] = 1
       if sub.submitter_id notin submitter_ids:
         submitter_ids.add(sub.submitter_id)
-   
-  # If we have found and rsExpertPanel or rsPracticeGuideline we do not perform aggreagtion of submissions
-  if not no_aggregation_needed:
-    # Filter acmg_only values:
-    var 
-      nb_acmg_tags = 0
-      acmg_tag : ClinSig
+  
+  # Filter acmg_only values:
+  var
+    nb_acmg_tags = 0
+    acmg_tag : ClinSig
 
-    for tag in clinsig_count.keys:
-      if tag in acmg_clinsig:
-        inc(nb_acmg_tags)
-        acmg_tag = tag
+  for tag in clinsig_count.keys:
+    if tag in acmg_clinsig:
+      inc(nb_acmg_tags)
+      acmg_tag = tag
 
-    # Case #1, agreement between all submissions
-    if nb_acmg_tags == 1:
-      result.clinsig = $acmg_tag
-      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
-    # Case #2 Patho and Likely Patho (only)
-    elif nb_acmg_tags == 2 and clinsig_count.hasKey(csPathogenic) and clinsig_count.hasKey(csLikelyPathogenic):
-      result.clinsig = "Pathogenic/Likely pathogenic"
-      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
-    # Case #3, Only patho entries
-    elif nb_acmg_tags == 2 and clinsig_count.hasKey(csBenign) and clinsig_count.hasKey(csLikelyBenign):
-      result.clinsig = "Benign/Likely benign"
-      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
-    # Case #4, Conflict !!!
-    # TODO: Do some desambiguiations !!!
-    elif (clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic) or clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)) and clinsig_count.hasKey(csUncertainSignificance):
-      result.clinsig = "Conflicting interpretations of pathogenicity"
-      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
-    elif (clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic)) and (clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)):
-      result.clinsig = "Conflicting interpretations of pathogenicity"
-      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
-    
-    # Add non-ACMG values to the end of clinsig
-    # If ClinVar aggregates submissions from groups that provided a standard term not recommend by ACMG/AMP ( e.g. drug response), then those values are reported after the ACMG/AMP-based interpretation (see the table below).
-    var additional_cstags : seq[string]
-    for cstag in non_acmg_clinsig:
-      if clinsig_count.hasKey(cstag):
-        additional_cstags.add($cstag)
-    if additional_cstags.len() > 0:
-      if result.clinsig == "":
-        result.clinsig = additional_cstags.join(", ")
-      else:
-        result.clinsig.add(", " & additional_cstags.join(", "))
-    
-    # Handle default values
-    if result.clinsig == "": 
-      result.clinsig = $csUnknown
-    if result.revstat == "":
-      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
+  # Case #1, agreement between all submissions
+  if nb_acmg_tags == 1:
+    result.clinsig = $acmg_tag
+    result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
+  # Case #2 Patho and Likely Patho (only)
+  elif nb_acmg_tags == 2 and clinsig_count.hasKey(csPathogenic) and clinsig_count.hasKey(csLikelyPathogenic):
+    result.clinsig = "Pathogenic/Likely pathogenic"
+    result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
+  # Case #3, Only patho entries
+  elif nb_acmg_tags == 2 and clinsig_count.hasKey(csBenign) and clinsig_count.hasKey(csLikelyBenign):
+    result.clinsig = "Benign/Likely benign"
+    result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
+  # Case #4, Conflict !!!
+  # TODO: Do some desambiguiations !!!
+  elif (clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic) or clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)) and clinsig_count.hasKey(csUncertainSignificance):
+    result.clinsig = "Conflicting interpretations of pathogenicity"
+    result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
+  elif (clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic)) and (clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)):
+    result.clinsig = "Conflicting interpretations of pathogenicity"
+    result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
+  
+  # Add non-ACMG values to the end of clinsig
+  # If ClinVar aggregates submissions from groups that provided a standard term not recommend by ACMG/AMP ( e.g. drug response), then those values are reported after the ACMG/AMP-based interpretation (see the table below).
+  var additional_cstags : seq[string]
+  for cstag in non_acmg_clinsig:
+    if clinsig_count.hasKey(cstag):
+      additional_cstags.add($cstag)
+  if additional_cstags.len() > 0:
+    if result.clinsig == "":
+      result.clinsig = additional_cstags.join(", ")
+    else:
+      result.clinsig.add(", " & additional_cstags.join(", "))
+  
+  # Handle default values
+  if result.clinsig == "": 
+    result.clinsig = $csUnknown
+  if result.revstat == "":
+    result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
 
 proc nextClinvarSet*(file: BGZ): string =
   for line in file:

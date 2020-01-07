@@ -17,9 +17,9 @@
 [x] Multiple submitter is not multiple submissions !!! (see case 307134)
 [ ] Add a tag with number of submitters / submissions
 [ ] Optimize memory usage
-[ ] Multiple 3-4 stars subs, take all !!!
-[ ] Sort non-ACMG clnsig lexicographically  (drug_response,_risk_factor,_protective =>  drug_response,_protective,_risk_factor)
-[x] Bug "criteria_provided,_single_submitter" that should be "criteria_provided,_conflicting_interpretations" when only one submitter with conflict
+[x] Multiple 3-4 stars subs, take all !!! (see case 7108)
+[ ] Sort non-ACMG clnsig lexicographically  (drug_response,_risk_factor,_protective =>  drug_response,_protective,_risk_factor) 
+[x] Bug "criteria_provided,_single_submitter" that should be "criteria_provided,_conflicting_interpretations" when only one submitter with conflict (see case 1166)
 
 <ClinicalSignificance>
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
