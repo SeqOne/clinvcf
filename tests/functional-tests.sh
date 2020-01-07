@@ -15,6 +15,7 @@ assert_in_stdout "ALLELEID=46341"
 assert_in_stdout "GENEINFO=BRCA2:675"
 assert_in_stdout "CLNREVSTAT=criteria_provided,_conflicting_interpretations"
 assert_in_stdout "MC=SO:0001583|missense variant"
+assert_in_stdout "RS=80358507"
 
 # Check integration of NCBI clinsig conversion
 run ncbi_clnsig_conversion $exe tests/files/109.xml

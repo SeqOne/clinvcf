@@ -41,13 +41,14 @@ type
     so_term : string
 
   ClinVariant* = ref object
-    variant_id: int
-    allele_id: int
-    chrom: string
-    pos: int
+    variant_id: int32
+    allele_id: int32
+    rsid: int32
+    chrom: string # we could use an 8bit/16bit integer ...
+    pos: int32
     ref_allele: string
     alt_allele: string
-    gene_id: int
+    gene_id: int32
     gene_symbol: string
     molecular_consequences: seq[MolecularConsequence]
     submissions: seq[Submission]
@@ -250,7 +251,6 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
     # TODO: Add some kind of loader ever 10K parsed variants
     let clinvarset_string = file.nextClinvarSet()
     if clinvarset_string != "" and clinvarset_string.startsWith("<ClinVarSet"):
-      #echo clinvarset_string
       let 
         doc = q(clinvarset_string)
         reference_clinvar_assertion_nodes = doc.select("referenceclinvarassertion")
@@ -306,16 +306,27 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                       gene_id = xref_node.attr("ID").parseInt()
                       # <XRef ID="672" DB="Gene" />
                       # <XRef Type="MIM" ID="113705" DB="OMIM" />
+                              
+                # Parse dbSNP rsid
+                # FIXME: Use this kind of loop to replace q calls and only explore first line childs in loops !!!
+                # <XRef Type="rs" ID="846664" DB="dbSNP"/>
+                var rsid: int = -1
+                for xref_node in measure_node:
+                  if xref_node.kind == xnElement:
+                    if xref_node.tag == "xref":
+                      if xref_node.attr("Type") == "rs" and xref_node.attr("DB") == "dbSNP":
+                        rsid = xref_node.attr("ID").parseInt()
                 
                 var 
                   variant = ClinVariant(
                     chrom: chrom,
-                    pos: pos,
-                    variant_id: variant_id,
-                    allele_id: allele_id,
+                    pos: cast[int32](pos),
+                    variant_id: cast[int32](variant_id),
+                    allele_id: cast[int32](allele_id),
+                    rsid: cast[int32](rsid),
                     ref_allele: ref_allele,
                     alt_allele: alt_allele,
-                    gene_id: gene_id,
+                    gene_id: cast[int32](gene_id),
                     gene_symbol: gene_symbol
                   )
                 result.variants[variant_id] = variant
@@ -447,7 +458,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
   echo "##INFO=<ID=MC,Number=.,Type=String,Description=\"comma separated list of molecular consequence in the form of Sequence Ontology ID|molecular_consequence\">"
   # ##INFO=<ID=ORIGIN,Number=.,Type=String,Description="Allele origin. One or more of the following values may be added: 0 - unknown; 1 - germline; 2 - somatic; 4 - inherited; 8 - paternal; 16 - maternal; 3
   # 2 - de-novo; 64 - biparental; 128 - uniparental; 256 - not-tested; 512 - tested-inconclusive; 1073741824 - other">
-  # ##INFO=<ID=RS,Number=.,Type=String,Description="dbSNP ID (i.e. rs number)">
+  echo "##INFO=<ID=RS,Number=.,Type=String,Description=\"dbSNP ID (i.e. rs number)\">"
   # ##INFO=<ID=SSR,Number=1,Type=Integer,Description="Variant Suspect Reason Codes. One or more of the following values may be added: 0 - unspecified, 1 - Paralog, 2 - byEST, 4 - oldAlign, 8 - Para_EST, 16 
   # - 1kg_failed, 1024 - other">
   echo "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO"
@@ -465,6 +476,9 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     if v.molecular_consequences.len > 0:
       var formated_consequences = map(v.molecular_consequences, proc (x: MolecularConsequence): string = $x)
       info_fields.add("MC=" & join(formated_consequences, ","))
+    
+    if v.rsid != -1:
+      info_fields.add("RS=" & $v.rsid)
   
     if v.chrom != "" and v.ref_allele != "" and v.alt_allele != "":
       echo [

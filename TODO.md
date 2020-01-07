@@ -6,7 +6,7 @@
 [x] Functional testing
 [x] Gitlab CI
 [ ] Implement new aggregation function + output stats of reclassification
-[ ] Add RS tag (dbSNP rsid)
+[x] Add RS tag (dbSNP rsid)
 [x] Add date header
 [ ] Add gnomad annot (using API calls and cache)
 [ ] Add progressiong bar when loading variants
