@@ -235,12 +235,15 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
   if result.revstat == "":
     result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
 
-proc nextClinvarSet*(file: BGZ): string =
+iterator nextClinvarSet*(file: var BGZ): string =
+  var chunk: string
   for line in file:
     if line == "":
-      break
+      yield chunk
+      chunk = ""
     else:
-      result.add(line & "\n")
+      chunk.add(line & "\n")
+  yield chunk
 
 proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[variants: TableRef[int, ClinVariant], filedate: string] =
   result.variants = newTable[int, ClinVariant]()
@@ -252,10 +255,8 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
 
   file.open(clinvar_xml_file, "r")
   
-  var found_clinvarset = true
-  while found_clinvarset:
+  for clinvarset_string in file.nextClinvarSet():
     # TODO: Add some kind of loader ever 10K parsed variants
-    let clinvarset_string = file.nextClinvarSet()
     if clinvarset_string != "" and clinvarset_string.startsWith("<ClinVarSet"):
       let 
         doc = q(clinvarset_string)
@@ -419,19 +420,14 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     review_status: review_status,
                     submitter_id: submitter_id,
                   ))
-    else:
-      # We did not found a clinvarset entry, it can either mean that we are at the end of the file
-      # Or that we are parsing headers of the xml file
-      if clinvarset_string == "":
-        found_clinvarset = false
-      # TODO: THese are the headers to be parsed to retrieve the date
-      # and we want to avoid the closing </ReleaseSet> at the end of the file
-      elif not clinvarset_string.startsWith("</"):
-        let 
-          doc = q(clinvarset_string)
-          releaseset_nodes = doc.select("releaseset")
-        if releaseset_nodes.len() > 0:
-          result.filedate = releaseset_nodes[0].attr("Dated")
+    # THese are the headers to be parsed to retrieve the date
+    # and we want to avoid the closing </ReleaseSet> at the end of the file
+    elif not clinvarset_string.startsWith("</"):
+      let 
+        doc = q(clinvarset_string)
+        releaseset_nodes = doc.select("releaseset")
+      if releaseset_nodes.len() > 0:
+        result.filedate = releaseset_nodes[0].attr("Dated")
 
 proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')

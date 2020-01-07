@@ -21,7 +21,8 @@
 [x] Sort non-ACMG clnsig lexicographically (see case 5333 : drug_response,_risk_factor,_protective =>  drug_response,_protective,_risk_factor) 
 [x] Bug "criteria_provided,_single_submitter" that should be "criteria_provided,_conflicting_interpretations" when only one submitter with conflict (see case 1166)
 [x] Bug Conflicting only when 1 star or more !
-[ ] Memory leak somewhere in xml parsing (see huge memory footprint for extractClinvarSet !!!!)
+[x] Memory leak somewhere in xml parsing (see huge memory footprint for extractClinvarSet !!!!)
+[ ] Get rid of q() xml lib and do it directly with xmltree package (see extractClinvarSet code)
 
 <ClinicalSignificance>
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
