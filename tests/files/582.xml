@@ -1,0 +1,1102 @@
+<ClinVarSet ID="49272160">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000277.3(PAH):c.782G&gt;A (p.Arg261Gln) AND Phenylketonuria</Title>
+  <ReferenceClinVarAssertion DateCreated="2012-08-13" DateLastUpdated="2019-12-31" ID="58115">
+    <ClinVarAccession Acc="RCV000000612" Version="14" Type="RCV" DateUpdated="2019-12-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2018-08-13">
+      <ReviewStatus>reviewed by expert panel</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="ModeOfInheritance" integerValue="263">Autosomal recessive inheritance</Attribute>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="50061499">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="50061500">
+        <Attribute Type="Description">Abadie et al. (1989) presented evidence that CpG dinucleotides represent mutation hotspots in phenylketonuria (PKU; 261600). Starting with the observation that the PAH gene contains 22 CpG dinucleotides including 5 doublets in exon 7, they carried out sequence analysis of exon 7 in 20 unrelated PAH-deficient kindreds of Mediterranean ancestry. This procedure resulted in the detection of 2 novel missense mutations whose location and nature (CG-to-CA and CG-to-TG) were consistent with the accidental deamination of a 5-methylcytosine in a CpG doublet: codon 261 (arg to gln, or R261Q) and codon 252 (arg to trp, or R252W; 612349.0007).</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">2574153</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="50061500">
+        <Attribute Type="Description">In the Swiss population, Okano et al. (1990) found an arg158-to-gln mutation (R158Q; 612349.0010) as the basis of phenylketonuria. The substitution was in exon 5; an arg261-to-gln mutation in exon 7 was apparently an accompanying silent change. Expression analysis in heterozygous mammalian cells after site-directed mutagenesis demonstrated that indeed the arg158-to-gln mutation was the cause of PKU, and that the other mutation was silent.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">1971144</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="50061500">
+        <Attribute Type="Description">In Zurich, Superti-Furga et al. (1991) observed intrauterine growth retardation, microcephaly, and developmental delay in 2 first cousins whose mothers, 24- and 23-year-old sisters, had blood phenylalanine concentrations of approximately 1.2 mmol/l but had never been treated and had no overt mental retardation. Both mothers were shown to be homozygous for the arg261-to-gln mutation. This experience indicates that the homozygous state of this mutation is accompanied by only mild clinical manifestations but sufficient elevation of blood phenylalanine to cause maternal PKU syndrome in offspring.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">1915502</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="50061500">
+        <Attribute Type="Description">Kleiman et al. (1993) studied a family in which of 2 of 3 sibs had classic PKU and were compound heterozygotes for the R261Q mutation. Both PKU children, as well as their non-PKU brother, had microcephaly with head circumference below the second percentile; the IQ of the non-PKU boy was 89, while that of his parents was 100. The findings suggested maternal PKU, and further study demonstrated that the mother was homozygous for the R261Q mutation. She was found, however, to be well adjusted socially and worked as a school teacher.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">8487271</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="50061500">
+        <Attribute Type="Description">In patients with PKU from the Old Order Amish in Lancaster County, Pennsylvania, Wang et al. (2007) identified compound heterozygosity for 2 PAH mutations: R261Q and a 3-bp deletion at codon 94 (612349.0030). The incidence of PKU in the Lancaster County Amish was 1 in 10,000, similar to that in other populations.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">17630668</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <Method>
+        <MethodType>curation</MethodType>
+      </Method>
+      <ObservedData ID="50061501">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+      <ObservedData ID="50061501">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+      <ObservedData ID="50061501">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <ObservedIn>
+      <Sample>
+        <Origin>unknown</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="50061502">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+      <ObservedData ID="50061502">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="582" Acc="VCV000000582" Version="4">
+      <Measure Type="single nucleotide variant" ID="15621">
+        <Name>
+          <ElementValue Type="Preferred">NM_000277.3(PAH):c.782G&gt;A (p.Arg261Gln)</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">p.R261Q:CGA&gt;CAA</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">NM_000277.1(PAH):c.782G&gt;A</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NM_000277" Version="3" Change="c.782G&gt;A" Type="HGVS, coding, RefSeq">NM_000277.3:c.782G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001354304" Version="2" Change="c.782G&gt;A" Type="HGVS, coding, RefSeq">NM_001354304.2:c.782G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008690" Version="2" Change="g.110536G&gt;A" Type="HGVS, genomic, RefSeqGene">NG_008690.2:g.110536G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="12" Change="g.102852875C&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000012.12:g.102852875C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="11" Change="g.103246653C&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000012.11:g.103246653C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000277" Version="1" Change="c.782G&gt;A" Type="HGVS, previous">NM_000277.1:c.782G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="P00439" Change="p.Arg261Gln" Type="HGVS, protein">P00439:p.Arg261Gln</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000268" Version="1" Change="p.Arg261Gln" Type="HGVS, protein, RefSeq">NP_000268.1:p.Arg261Gln</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000268" Version="1" Change="p.Arg261Gln" Type="HGVS, protein, RefSeq">NP_000268.1:p.Arg261Gln</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001341233" Version="1" Change="p.Arg261Gln" Type="HGVS, protein, RefSeq">NP_001341233.1:p.Arg261Gln</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="Location">NM_000277.1:exon 7</Attribute>
+          <XRef ID="CM910287" DB="HGMD"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_000277.3:c.782G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001354304.2:c.782G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">R261Q</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">ARG261GLN</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00020" Source="1000 Genomes Project"/>
+          <AlleleFrequency Value="0.00027" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00016" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00022" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.00045" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <GlobalMinorAlleleFrequency Value="0.00020" Source="1000 Genomes Project" MinorAllele="T"/>
+        <CytogeneticLocation>12q23.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="102852875" stop="102852875" display_start="102852875" display_stop="102852875" variantLength="1" positionVCF="102852875" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="103246653" stop="103246653" display_start="103246653" display_stop="103246653" variantLength="1" positionVCF="103246653" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">phenylalanine hydroxylase</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">PAH</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="102836889" stop="102958441" display_start="102836889" display_stop="102958441" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="103232103" stop="103311380" display_start="103232103" display_stop="103311380" variantLength="79278" Strand="-"/>
+          <XRef ID="5053" DB="Gene"/>
+          <XRef Type="MIM" ID="612349" DB="OMIM"/>
+          <XRef ID="HGNC:8582" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="p.R261Q" DB="DeBelle Laboratory for Biochemical Genetics, MUHC/MCH RESEARCH INSTITUTE"/>
+        <XRef ID="CM910287" DB="HGMD"/>
+        <XRef ID="2479838" DB="Quest Diagnostics Nichols Institute San Juan Capistrano"/>
+        <XRef ID="P00439#VAR_000965" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="612349.0006" DB="OMIM"/>
+        <XRef Type="rs" ID="5030849" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000277.3(PAH):c.782G&gt;A (p.Arg261Gln)</ElementValue>
+      </Name>
+      <XRef ID="CA251528" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="159">
+      <Trait ID="3795" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Phenylketonuria</ElementValue>
+          <XRef ID="Phenylketonuria/5714" DB="Genetic Alliance"/>
+          <XRef ID="154735006" DB="SNOMED CT"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Phenylketonurias</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">Classic phenylketonuria</ElementValue>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Preferred">PKU</ElementValue>
+          <XRef Type="MIM" ID="261600" DB="OMIM"/>
+          <XRef ID="7383" DB="Office of Rare Diseases"/>
+        </Symbol>
+        <AttributeSet>
+          <Attribute Type="public definition">Phenylalanine hydroxylase (PAH) deficiency results in intolerance to the dietary intake of the essential amino acid phenylalanine and produces a spectrum of disorders. The risk of adverse outcome varies based on the degree of PAH deficiency. Without effective therapy, most individuals with severe PAH deficiency, known as classic PKU, develop profound and irreversible intellectual disability. Affected individuals on an unrestricted diet who have phenylalanine levels above normal but below 1,200 μmol/L (20 mg/dL) are at much lower risk for impaired cognitive development in the absence of treatment.</Attribute>
+          <XRef ID="NBK1504" DB="GeneReviews"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="disease mechanism" integerValue="273">loss of function</Attribute>
+          <XRef ID="GTR000260641" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000330994" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000505064" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000505124" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000506557" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000507953" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000522527" DB="Genetic Testing Registry (GTR)"/>
+          <XRef ID="GTR000560957" DB="Genetic Testing Registry (GTR)"/>
+        </AttributeSet>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301677</ID>
+          <ID Source="BookShelf">NBK1504</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="USPSTF, 2008">
+          <ID Source="pmc">2267416</ID>
+        </Citation>
+        <Citation Type="Translational/Evidence-based" Abbrev="EuroGenetest, 2011">
+          <ID Source="PubMed">21915151</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="ACMG, 2014">
+          <ID Source="PubMed">24385074</ID>
+        </Citation>
+        <Citation Type="Recommendation" Abbrev="ACMG, 2014">
+          <ID Source="pmc">3918542</ID>
+        </Citation>
+        <Citation Type="Suggested Reading" Abbrev="Camp et al., 2014">
+          <ID Source="PubMed">24667081</ID>
+        </Citation>
+        <XRef ID="C0751434" DB="MedGen"/>
+        <XRef ID="716" DB="Orphanet"/>
+        <XRef Type="MIM" ID="261600" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="20762">
+    <ClinVarSubmissionID localKey="612349.0006_PHENYLKETONURIA" submitter="OMIM" submitterDate="2016-10-20" title="PAH, ARG261GLN_PHENYLKETONURIA"/>
+    <ClinVarAccession Acc="SCV000020762" Version="3" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-05-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2007-08-15">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="OMIM" ID="612349.0006" Type="Allelic variant"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">Abadie et al. (1989) presented evidence that CpG dinucleotides represent mutation hotspots in phenylketonuria (PKU; 261600). Starting with the observation that the PAH gene contains 22 CpG dinucleotides including 5 doublets in exon 7, they carried out sequence analysis of exon 7 in 20 unrelated PAH-deficient kindreds of Mediterranean ancestry. This procedure resulted in the detection of 2 novel missense mutations whose location and nature (CG-to-CA and CG-to-TG) were consistent with the accidental deamination of a 5-methylcytosine in a CpG doublet: codon 261 (arg to gln, or R261Q) and codon 252 (arg to trp, or R252W; 612349.0007).</Attribute>
+        <Citation>
+          <ID Source="PubMed">2574153</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="261600" Type="MIM"/>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">In the Swiss population, Okano et al. (1990) found an arg158-to-gln mutation (R158Q; 612349.0010) as the basis of phenylketonuria. The substitution was in exon 5; an arg261-to-gln mutation in exon 7 was apparently an accompanying silent change. Expression analysis in heterozygous mammalian cells after site-directed mutagenesis demonstrated that indeed the arg158-to-gln mutation was the cause of PKU, and that the other mutation was silent.</Attribute>
+        <Citation>
+          <ID Source="PubMed">1971144</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">In Zurich, Superti-Furga et al. (1991) observed intrauterine growth retardation, microcephaly, and developmental delay in 2 first cousins whose mothers, 24- and 23-year-old sisters, had blood phenylalanine concentrations of approximately 1.2 mmol/l but had never been treated and had no overt mental retardation. Both mothers were shown to be homozygous for the arg261-to-gln mutation. This experience indicates that the homozygous state of this mutation is accompanied by only mild clinical manifestations but sufficient elevation of blood phenylalanine to cause maternal PKU syndrome in offspring.</Attribute>
+        <Citation>
+          <ID Source="PubMed">1915502</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">Kleiman et al. (1993) studied a family in which of 2 of 3 sibs had classic PKU and were compound heterozygotes for the R261Q mutation. Both PKU children, as well as their non-PKU brother, had microcephaly with head circumference below the second percentile; the IQ of the non-PKU boy was 89, while that of his parents was 100. The findings suggested maternal PKU, and further study demonstrated that the mother was homozygous for the R261Q mutation. She was found, however, to be well adjusted socially and worked as a school teacher.</Attribute>
+        <Citation>
+          <ID Source="PubMed">8487271</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">In patients with PKU from the Old Order Amish in Lancaster County, Pennsylvania, Wang et al. (2007) identified compound heterozygosity for 2 PAH mutations: R261Q and a 3-bp deletion at codon 94 (612349.0030). The incidence of PKU in the Lancaster County Amish was 1 in 10,000, similar to that in other populations.</Attribute>
+        <Citation>
+          <ID Source="PubMed">17630668</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Preferred">PAH, ARG261GLN</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="NonHGVS">ARG261GLN</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">PAH</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="OMIM" ID="612349.0006" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">PHENYLKETONURIA</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+  <ClinVarAssertion ID="623169">
+    <ClinVarSubmissionID localKey="NM_000277.1:c.782G&gt;A|OMIM:261600" submittedAssembly="not applicable" submitter="GeneReviews" submitterDate="2016-10-20"/>
+    <ClinVarAccession Acc="SCV000324888" Version="1" Type="SCV" OrgID="500062" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-07-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-10-20">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+      <Citation>
+        <URL>https://www.ncbi.nlm.nih.gov/books/NBK1504/</URL>
+      </Citation>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Alternate">NP_000268.1:p.Arg261Gln</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000277.1:c.782G&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">PAH</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <XRef DB="OMIM" ID="261600" Type="MIM"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+  <ClinVarAssertion ID="948881" SubmissionName="Counsyl2016">
+    <ClinVarSubmissionID localKey="596|OMIM:261600" submittedAssembly="GRCh37" submitter="Counsyl" submitterDate="2016-11-23"/>
+    <ClinVarAccession Acc="SCV000485131" Version="1" Type="SCV" OrgID="320494" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2015-12-03">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Counsyl" ID="596"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">Counsyl Autosomal and X-linked Recessive Disease Classification criteria (2015)</Attribute>
+      <Citation Type="general">
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/k1i5ewqh/mdi-5618_320494_counsyl_autosomal_and_x-linked_recessive_disease_classification_criteria_(2015).pdf</URL>
+        <CitationText>mdi-5618_320494_Counsyl Autosomal and X-linked Recessive Disease Classification criteria (2015).pdf</CitationText>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>unknown</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000277.1:c.782G&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">PAH</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <XRef DB="OMIM" ID="261600" Type="MIM"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+  <ClinVarAssertion ID="1193553" SubmissionName="SUB2717140">
+    <ClinVarSubmissionID localKey="NM_000277.1:c.782G&gt;A|OMIM:261600" submittedAssembly="GRCh37" submitter="Fulgent Genetics,Fulgent Genetics" submitterDate="2017-05-23"/>
+    <ClinVarAccession Acc="SCV000611234" Version="1" Type="SCV" OrgID="500105" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-03"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2017-05-18">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ACMG Guidelines, 2015</Attribute>
+      <Citation>
+        <ID Source="PubMed">25741868</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>unknown</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000277.1:c.782G&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">PAH</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <XRef DB="OMIM" ID="261600" Type="MIM"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+  <ClinVarAssertion ID="1221433" SubmissionName="SUB5371970">
+    <ClinVarSubmissionID localKey="1440129|MedGen:C0031485" submittedAssembly="GRCh37" submitter="Invitae" submitterDate="2019-03-28"/>
+    <ClinVarAccession Acc="SCV000629215" Version="4" Type="SCV" OrgID="500031" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-14"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2018-12-11">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+      <Citation>
+        <ID Source="PubMed">2574153</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">25596310</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">16765994</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">17935162</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">10479481</ID>
+      </Citation>
+      <Comment>This sequence change replaces arginine with glutamine at codon 261 of the PAH protein (p.Arg261Gln). The arginine residue is highly conserved and there is a small physicochemical difference between arginine and glutamine. This variant is present in population databases (rs5030849, ExAC 0.04%). This variant has been reported as homozygous or in combination with a different PAH variant in multiple individuals affected with PKU (PMID: 16765994, 2574153). ClinVar contains an entry for this variant (Variation ID: 582). Experimental studies have shown that this variant impairs protein function in vitro with the resulting enzyme retaining some residual activity (PMID: 10479481, 25596310, 17935162). For these reasons, this variant has been classified as Pathogenic.</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Invitae" ID="1440129"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">Invitae Variant Classification Sherloc (09022015)</Attribute>
+      <Citation>
+        <ID Source="PubMed">28492532</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000277.1:c.782G&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">PAH</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Phenylketonuria</ElementValue>
+        </Name>
+        <XRef DB="MedGen" ID="C0031485" Type="CUI"/>
+      </Trait>
+    </TraitSet>
+    <Citation Type="general">
+      <ID Source="PubMed">28492532</ID>
+    </Citation>
+  </ClinVarAssertion>
+  <ClinVarAssertion ID="1362818" SubmissionName="2016-2017-variants">
+    <ClinVarSubmissionID localKey="NM_000277.1:c.782G&gt;A|MedGen:C0031485" submittedAssembly="GRCh37" submitter="Integrated Genetics/Laboratory Corporation of America" submitterDate="2018-01-25"/>
+    <ClinVarAccession Acc="SCV000696466" Version="1" Type="SCV" OrgID="500026" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-07-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+      <Citation>
+        <ID Source="PubMed">21871829</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">26666653</ID>
+      </Citation>
+      <Comment Type="public">Variant summary: The PAH c.782G&gt;A (p.Arg261Gln) variant involves the alteration of a conserved nucleotide. 4/5 in silico tools predict a damaging outcome for this variant. Arg261 is highly conserved across species and is located in the Aromatic amino acid hydroxylase, C-terminal of the Phenylalanine-4-hydroxylase protein.This variant was found in 33/121376 control chromosomes at a frequency of 0.0002719, which does not exceed the estimated maximal expected allele frequency of a pathogenic PAH variant (0.0079057). This variant has been reported in many PKU and HPA patients in homozygous or compound heterozygous state, and is considered a commonly known pathogenic PAH variant. In addition, multiple clinical diagnostic laboratories/reputable databases classified this variant as pathogenic. Taken together, this variant is classified as pathogenic.</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">LabCorp Variant Classification Summary - May 2015</Attribute>
+      <Citation Type="general">
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/pttb9itm/labcorp_variant_classification_method_-_may_2015.pdf</URL>
+        <CitationText>LabCorp Variant Classification Summary - May 2015.docx</CitationText>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000277.1:c.782G&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">PAH</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="dbSNP" ID="5030849" Type="rsNumber"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <XRef DB="MedGen" ID="C0031485" Type="CUI"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+  <ClinVarAssertion FDARecognizedDatabase="true" ID="1661811" SubmissionName="SUB5222266">
+    <ClinVarSubmissionID localKey="9e4b6d0e-936a-4cbe-a237-e66213b685d4|Orphanet:ORPHA716" submittedAssembly="GRCh38" submitter="ClinGen PAH Variant Curation Expert Panel," submitterDate="2019-02-25"/>
+    <ClinVarAccession Acc="SCV000852142" Version="3" Type="SCV" OrgID="506558" OrganizationCategory="consortium" OrgType="primary" DateUpdated="2019-05-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2018-08-13">
+      <ReviewStatus>reviewed by expert panel</ReviewStatus>
+      <Description>Pathogenic</Description>
+      <Citation>
+        <ID Source="PubMed">17935162</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">2014036</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">25596310</ID>
+      </Citation>
+      <Citation>
+        <URL>https://erepo.clinicalgenome.org/evrepo/ui/interpretation/9e4b6d0e-936a-4cbe-a237-e66213b685d4</URL>
+      </Citation>
+      <Comment Type="public">PAH-specific ACMG/AMP criteria applied: PP3: tools predict damaging; PS3: 15.5-30% activity (PMID:2014036; PMID:25596310); PM3_VeryStrong: L48S, R408W, S349P, R243X (PMID:25596310; PMID:17935162); PP4_Moderate: (PMID:25596310). In summary this variant meets criteria to be classified as pathogenic for phenylketonuria in an autosomal recessive manner based on the ACMG/AMP criteria applied as specified by the PAH Expert Panel: (PP3, PS3, PM3_VeryStrong, PP4_Moderate).</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="ClinGen PAH Expert Panel" ID="9e4b6d0e-936a-4cbe-a237-e66213b685d4"/>
+    <AttributeSet>
+      <Attribute Type="ModeOfInheritance">Autosomal recessive inheritance</Attribute>
+    </AttributeSet>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ClinGen PAH ACMG Specifications v1</Attribute>
+      <Citation>
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/i2ra5ppm/clingen_pah_acmg_specifications_v1.pdf</URL>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>curation</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Alternate">NM_000277.1(PAH):c.782G&gt;A</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">p.Arg261Gln</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="HGVS">NC_000012.12:g.102852875C&gt;T</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">PAH</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <XRef DB="Orphanet" ID="ORPHA716"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="49276227">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000277.3(PAH):c.782G&gt;A (p.Arg261Gln) AND not provided</Title>
+  <ReferenceClinVarAssertion DateCreated="2014-01-17" DateLastUpdated="2019-12-31" ID="197695">
+    <ClinVarAccession Acc="RCV000078530" Version="9" Type="RCV" DateUpdated="2019-12-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2018-07-06">
+      <ReviewStatus>criteria provided, multiple submitters, no conflicts</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="47969737">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="47969738">
+        <Attribute integerValue="16" Type="VariantAlleles"/>
+      </ObservedData>
+      <ObservedData ID="47969738">
+        <Attribute integerValue="2" Type="Homozygote"/>
+      </ObservedData>
+      <ObservedData ID="47969738">
+        <Attribute integerValue="14" Type="SingleHeterozygote"/>
+      </ObservedData>
+      <ObservedData ID="47969738">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <NamePlatform>Illumina</NamePlatform>
+        <ResultType>variant call</ResultType>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="47975390">
+        <Attribute Type="AlleleFrequency">0.000624</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <ObservedIn>
+      <Sample>
+        <Origin>not provided</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+        <NumberTested>1</NumberTested>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="47975391">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="582" Acc="VCV000000582" Version="4">
+      <Measure Type="single nucleotide variant" ID="15621">
+        <Name>
+          <ElementValue Type="Preferred">NM_000277.3(PAH):c.782G&gt;A (p.Arg261Gln)</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">p.R261Q:CGA&gt;CAA</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">NM_000277.1(PAH):c.782G&gt;A</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NM_000277" Version="3" Change="c.782G&gt;A" Type="HGVS, coding, RefSeq">NM_000277.3:c.782G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001354304" Version="2" Change="c.782G&gt;A" Type="HGVS, coding, RefSeq">NM_001354304.2:c.782G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008690" Version="2" Change="g.110536G&gt;A" Type="HGVS, genomic, RefSeqGene">NG_008690.2:g.110536G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="12" Change="g.102852875C&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000012.12:g.102852875C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000012" Version="11" Change="g.103246653C&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000012.11:g.103246653C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000277" Version="1" Change="c.782G&gt;A" Type="HGVS, previous">NM_000277.1:c.782G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="P00439" Change="p.Arg261Gln" Type="HGVS, protein">P00439:p.Arg261Gln</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000268" Version="1" Change="p.Arg261Gln" Type="HGVS, protein, RefSeq">NP_000268.1:p.Arg261Gln</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000268" Version="1" Change="p.Arg261Gln" Type="HGVS, protein, RefSeq">NP_000268.1:p.Arg261Gln</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001341233" Version="1" Change="p.Arg261Gln" Type="HGVS, protein, RefSeq">NP_001341233.1:p.Arg261Gln</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="Location">NM_000277.1:exon 7</Attribute>
+          <XRef ID="CM910287" DB="HGMD"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_000277.3:c.782G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001354304.2:c.782G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">R261Q</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">ARG261GLN</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00020" Source="1000 Genomes Project"/>
+          <AlleleFrequency Value="0.00027" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00016" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00022" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.00045" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <GlobalMinorAlleleFrequency Value="0.00020" Source="1000 Genomes Project" MinorAllele="T"/>
+        <CytogeneticLocation>12q23.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="102852875" stop="102852875" display_start="102852875" display_stop="102852875" variantLength="1" positionVCF="102852875" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="103246653" stop="103246653" display_start="103246653" display_stop="103246653" variantLength="1" positionVCF="103246653" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">phenylalanine hydroxylase</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">PAH</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="12" Accession="NC_000012.12" start="102836889" stop="102958441" display_start="102836889" display_stop="102958441" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="12" Accession="NC_000012.11" start="103232103" stop="103311380" display_start="103232103" display_stop="103311380" variantLength="79278" Strand="-"/>
+          <XRef ID="5053" DB="Gene"/>
+          <XRef Type="MIM" ID="612349" DB="OMIM"/>
+          <XRef ID="HGNC:8582" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="p.R261Q" DB="DeBelle Laboratory for Biochemical Genetics, MUHC/MCH RESEARCH INSTITUTE"/>
+        <XRef ID="CM910287" DB="HGMD"/>
+        <XRef ID="2479838" DB="Quest Diagnostics Nichols Institute San Juan Capistrano"/>
+        <XRef ID="P00439#VAR_000965" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="612349.0006" DB="OMIM"/>
+        <XRef Type="rs" ID="5030849" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000277.3(PAH):c.782G&gt;A (p.Arg261Gln)</ElementValue>
+      </Name>
+      <XRef ID="CA251528" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="9460">
+      <Trait ID="17556" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+          <XRef ID="13DG0619" DB="Developmental Genetics Unit,King Faisal Specialist Hospital &amp; Research Centre"/>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">The term 'not provided' is registered in MedGen to support identification of submissions to ClinVar for which no condition was named when assessing the variant. 'not provided' differs from 'not specified', which is used when a variant is asserted to be benign, likely benign, or of uncertain significance for conditions that have not been specified.</Attribute>
+        </AttributeSet>
+        <XRef ID="CN517202" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="192478" SubmissionName="SUB4534263">
+    <ClinVarSubmissionID localKey="1692_000000" localKeyIsSubmitted="1" submittedAssembly="GRCh37" submitter="EGL Genetic Diagnostics,Eurofins Clinical Diagnostics" submitterDate="2018-09-19"/>
+    <ClinVarAccession Acc="SCV000110386" Version="8" Type="SCV" OrgID="500060" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-01-25">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="EGL Genetic Diagnostics" ID="1692"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">EGL_Classification_Definitions_2015</Attribute>
+      <Citation>
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/dn5yhybg/egl_classification_definitions_2015.pdf</URL>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+        <Gender>mixed</Gender>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="VariantAlleles" integerValue="16"/>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Homozygote" integerValue="2"/>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="SingleHeterozygote" integerValue="14"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="single nucleotide variant">
+        <AttributeSet>
+          <Attribute Type="Location">NM_000277.1:Ex7</Attribute>
+        </AttributeSet>
+        <SequenceLocation Assembly="GRCh37" Chr="12" alternateAllele="T" referenceAllele="C" start="103246653" stop="103246653" variantLength="1"/>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">PAH</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="HGMD" ID="CM910287"/>
+        <XRef DB="dbSNP" ID="5030849" Type="rsNumber"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+    <Citation>
+      <URL>http://www.egl-eurofins.com/emvclass/emvclass.php?approved_symbol=PAH</URL>
+    </Citation>
+  </ClinVarAssertion>
+  <ClinVarAssertion ID="215158" SubmissionName="PAHDB_MCGILL_2012_1_31">
+    <ClinVarSubmissionID localKey="p.R261Q" submitter="DeBelle Laboratory for Biochemical Genetics, MUHC/MCH RESEARCH INSTITUTE" submitterDate="2012-03-30"/>
+    <ClinVarAccession Acc="SCV000119697" Version="1" Type="SCV" OrgID="504816" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance>
+      <ReviewStatus>no assertion provided</ReviewStatus>
+      <Description>not provided</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="PAHDB_MCGILL" ID="p.R261Q" URL="http://www.pahdb.mcgill.ca/PahdbSearch.php?SearchValue=p.R261Q&amp;SearchField=mut_name&amp;SearchOrderedField=id_mut&amp;SearchAscDesc=ASC&amp;Submit=Submit&amp;MenuSelection=Mutation"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>not provided</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+        <NumberTested>1</NumberTested>
+      </Sample>
+      <Method>
+        <MethodType>not provided</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000277.1:c.782G&gt;A</Attribute>
+        </AttributeSet>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+  <ClinVarAssertion ID="442222" SubmissionName="SUB5098196">
+    <ClinVarSubmissionID localKey="GDX:46178|Not Provided" submittedAssembly="GRCh37" submitter="GeneDx" submitterDate="2019-01-29"/>
+    <ClinVarAccession Acc="SCV000239072" Version="13" Type="SCV" OrgID="26957" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-09"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2018-07-06">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+      <Comment Type="public">The R261Q missense variant in the PAH gene has been reported as a pathogenic variant in the PAH Consortium database. Homozygosity for the R261Q variant has been reported in association with both benign hyperphenylalaninemia (HPA) and atypical PKU requiring dietary treatment. The offspring of mothers homozygous for R261Q have been reported with maternal PKU (Superti-Furga et al., 1991; Kleiman et al., 1993). However, patients compound heterozygous for R261Q and other variants, including severe variants, have been reported with both classic PKU and mild benign HPA indicating that the R261Q variant can be associated with a range of clinical phenotypes (Kleiman et al., 1993), including BH4 responsiveness. However, BH4 responsiveness was inconsistent in patients with R261Q (Zurfluh et al., 2008; Staudigl et al., 2011).</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="GeneDx" ID="GDX:46178"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">GeneDx Variant Classification (06012015)</Attribute>
+      <Citation>
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/7oynscmk/mdi-5616_26957_genedx_interprules_final_061215.pdf</URL>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000277.1:c.782G&gt;A</Attribute>
+        </AttributeSet>
+        <SequenceLocation Assembly="GRCh37" Chr="12" alternateAllele="T" referenceAllele="C" start="103246653" stop="103246653" variantLength="1"/>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">PAH</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Not Provided</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+  <ClinVarAssertion ID="530386">
+    <ClinVarSubmissionID localKey="1806837" submitter="Center for Pediatric Genomic Medicine,Children's Mercy Hospital and Clinics" submitterDate="2017-10-05"/>
+    <ClinVarAccession Acc="SCV000281282" Version="2" Type="SCV" OrgID="505698" OrganizationCategory="clinic" OrgType="primary" DateUpdated="2019-05-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2014-12-04">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ACMG Guidelines, 2015</Attribute>
+      <Citation>
+        <ID Source="PubMed">25741868</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>Homo sapiens</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <NamePlatform>Illumina</NamePlatform>
+        <TypePlatform>Sequencing</TypePlatform>
+        <ResultType>variant call</ResultType>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="AlleleFrequency">0.000624</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="single nucleotide variant">
+        <SequenceLocation Assembly="GRCh37" Chr="12" Strand="+" alternateAllele="T" referenceAllele="C" start="103246653" stop="103246653"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+  <ClinVarAssertion ID="1738241" SubmissionName="SUB4481696">
+    <ClinVarSubmissionID localKey="2479838|not provided" submittedAssembly="GRCh37" submitter="Quest Diagnostics Nichols Institute San Juan Capistrano" submitterDate="2018-08-31"/>
+    <ClinVarAccession Acc="SCV000888353" Version="1" Type="SCV" OrgID="500110" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2015-06-08">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Quest Diagnostics Nichols Institute San Juan Capistrano" ID="2479838"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">Quest pathogenicity assessment criteria</Attribute>
+      <Citation>
+        <ID Source="PubMed">26467025</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000277.1:c.782G&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">PAH</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="dbSNP" ID="5030849" Type="rsNumber"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>

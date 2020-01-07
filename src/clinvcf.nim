@@ -130,12 +130,13 @@ proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], nb_submitters
     result = rsPracticeGuideline
   elif revstat_count.hasKey(rsExpertPanel):
     result = rsExpertPanel
-  elif has_conflict:
-    result = rsConflicting
-  elif nb_submitters > 1 and revstat_count.hasKey(rsSingleSubmitter):
-    result = rsMutlipleSubmitterNoConflict
   elif revstat_count.hasKey(rsSingleSubmitter):
-    result = rsSingleSubmitter
+    if has_conflict: 
+      result = rsConflicting
+    elif nb_submitters > 1 and revstat_count.hasKey(rsSingleSubmitter):
+      result = rsMutlipleSubmitterNoConflict
+    else:
+      result = rsSingleSubmitter
   elif revstat_count.hasKey(rsNoAssertionCriteria):
     result = rsNoAssertionCriteria
   elif revstat_count.hasKey(rsNoAssertionVariant):
@@ -156,11 +157,12 @@ proc aggregateSubmissions*(submissions: seq[Submission]): tuple[clinsig: string,
     has_three_star_sub : bool = false
   for sub in submissions:
     let nb_stars = sub.review_status.nbStars()
-    if nb_stars >= 1:
-      has_one_star_sub = true
-    elif nb_stars >= 3:
+    if nb_stars >= 3:
       has_three_star_sub = true
       break
+    elif nb_stars >= 1:
+      has_one_star_sub = true
+      
   
   # Select eligible submissions depending on the submission with the highest number of stars
   for sub in submissions:

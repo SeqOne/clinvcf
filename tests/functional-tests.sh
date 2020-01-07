@@ -42,3 +42,7 @@ assert_in_stdout "CLNREVSTAT=reviewed_by_expert_panel"
 # Sort non-ACMG clnsig lexicographically
 run sort_non_acmg_cnlsig_tags $exe tests/files/5333.xml
 assert_in_stdout "CLNSIG=Affects,_risk_factor"
+
+# Sort non-ACMG clnsig lexicographically
+run expert_panel $exe tests/files/582.xml
+assert_in_stdout "CLNSIG=Pathogenic;"
