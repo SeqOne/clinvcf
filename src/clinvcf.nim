@@ -68,6 +68,46 @@ proc median*(xs: seq[float]): float =
   sort(ys, system.cmp[float])
   result = 0.5 * (ys[ys.high div 2] + ys[ys.len div 2])
 
+proc quantile*(xs: seq[float], q: float): float =
+  # CODE TAKEN FROM R quantile function
+  # index <- 1 + (n - 1) * probs 1 + (6 - 1) 
+  # lo <- floor(index)
+  # hi <- ceiling(index)
+  # x <- sort(x, partial = unique(c(lo, hi)))
+  # qs <- x[lo]
+  # i <- which(index > lo)
+  # h <- (index - lo)[i] # > 0	by construction
+  # ##	    qs[i] <- qs[i] + .minus(x[hi[i]], x[lo[i]]) * (index[i] - lo[i])
+  # ##	    qs[i] <- ifelse(h == 0, qs[i], (1 - h) * qs[i] + h * x[hi[i]])
+  # qs[i] <- (1 - h) * qs[i] + h * x[hi[i]]
+  var ys = xs
+  sort(ys, system.cmp[float])
+  let 
+    index = 1.0 + float((len(xs) - 1)) * q
+    lo = int(floor(index))
+    hi = int(ceil(index))
+    qs = ys[lo - 1]
+    h = (index - float(lo))
+
+  result = (1.0 - h) * qs + h * ys[hi - 1]
+
+proc IQRoutlierBounds*(xs: seq[float]): tuple[min_val: float, max_val: float] =
+  ## Use InterQuartil Range procedure to remove outlier
+  ## (Same procedure used in boxplot to show outliers)
+  var ys = xs
+  sort(ys, system.cmp[float])
+
+  # Compute quartiles
+  var
+    q1 = quantile(xs, 0.25)
+    q3 = quantile(xs, 0.75)
+    iqr      = q3 - q1
+    min_val  = float(q1) - (float(iqr) * 1.5) # Min acceptable value
+    max_val  = float(q3) + (float(iqr) * 1.5) # Max acceptable value
+
+  result.min_val = min_val
+  result.max_val = max_val
+
 proc `$`*(mc: MolecularConsequence): string =
   return mc.so_term & "|" & mc.description
 
@@ -179,13 +219,7 @@ proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], nb_submitters
   else:
     result = rsNoAssertion
 
-proc aggregateSubmissions*(submissions: seq[Submission], autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string] =
-  var 
-    clinsig_count = newTable[ClinSig, int]()
-    revstat_count = newTable[RevStat, int]()
-    submitter_ids = newSeq[int]()
-    retained_submissions = newSeq[Submission]()
-
+proc selectElligibleSubmissions*(submissions: seq[Submission]): seq[Submission] =
   # Count submissions with one star or more
   var 
     has_one_star_sub : bool = false
@@ -206,33 +240,71 @@ proc aggregateSubmissions*(submissions: seq[Submission], autocorrect_conflicts =
     # If we have submissions(s) with one star or more, we only uses this submissions in the aggregation
     # Otherwise we use all submissions
     if (has_three_star_sub and (sub.review_status == rsExpertPanel or sub.review_status == rsPracticeGuideline)) or (not has_three_star_sub and sub.review_status.nbStars >= 1) or (not has_one_star_sub and not has_three_star_sub):
-      retained_submissions.add(sub)
+      result.add(sub)
 
-      if clinsig_count.hasKey(sub.clinical_significance):
-        inc(clinsig_count[sub.clinical_significance])
-      else:
-        clinsig_count[sub.clinical_significance] = 1
-      
-      if revstat_count.hasKey(sub.review_status):
-        inc(revstat_count[sub.review_status])
-      else:
-        revstat_count[sub.review_status] = 1
+proc isConflicting*(clinsig_count: TableRef[ClinSig, int]): bool =
+  result = ((clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic) or clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)) and clinsig_count.hasKey(csUncertainSignificance)) or ((clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic)) and (clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)))
 
-      if sub.submitter_id notin submitter_ids:
-        submitter_ids.add(sub.submitter_id)
+proc countSubmissions*(submissions: seq[Submission]): tuple[clinsig_count: TableRef[ClinSig, int], revstat_count: TableRef[RevStat, int], submitter_ids: seq[int]] =
+  result.clinsig_count = newTable[ClinSig, int]()
+  result.revstat_count = newTable[RevStat, int]()
+  result.submitter_ids = newSeq[int]()
+  for sub in submissions:
+    if result.clinsig_count.hasKey(sub.clinical_significance):
+      inc(result.clinsig_count[sub.clinical_significance])
+    else:
+      result.clinsig_count[sub.clinical_significance] = 1
+    
+    if result.revstat_count.hasKey(sub.review_status):
+      inc(result.revstat_count[sub.review_status])
+    else:
+      result.revstat_count[sub.review_status] = 1
+
+    if sub.submitter_id notin result.submitter_ids:
+      result.submitter_ids.add(sub.submitter_id)
+
+proc removeOutlyingSubmissions*(acmg_submissions: seq[Submission], submissions: seq[Submission]): seq[Submission] =
+  let 
+    cs_values = map(acmg_submissions, proc (x: Submission): float = x.clinical_significance.clnsigToFloat())
+    (min_val, max_val) = cs_values.IQRoutlierBounds()
+  if min_val != -1 and max_val != -1:
+    #var corrected_retained_submissions = newSeq[Submission]()
+    for sub in submissions:
+      if sub.clinical_significance in acmg_clinsig:
+        let clnsig_float =  sub.clinical_significance.clnsigToFloat() 
+        if clnsig_float >= min_val and clnsig_float <= max_val:
+          result.add(sub)
+      else:
+        result.add(sub)
+
+proc aggregateSubmissions*(submissions: seq[Submission], autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string] =
+  var
+    retained_submissions = submissions.selectElligibleSubmissions()
+    (clinsig_count, revstat_count, submitter_ids) = retained_submissions.countSubmissions()
+  
+  # Correct conflicting submissions
+  let is_conflicting = clinsig_count.isConflicting()
+  #
+  if autocorrect_conflicts and is_conflicting:
+    let acmg_submissions = retained_submissions.selectACMGsubmissions()
+    if acmg_submissions.len() >= 5:
+        retained_submissions = removeOutlyingSubmissions(acmg_submissions, retained_submissions)
+        # Update counts with outlier removed
+        (clinsig_count, revstat_count, submitter_ids) = retained_submissions.countSubmissions()
   
   # Filter acmg_only values:
   var
     nb_acmg_tags = 0
     acmg_tag : ClinSig
-
+  
+  # Need refacto
   for tag in clinsig_count.keys:
     if tag in acmg_clinsig:
       inc(nb_acmg_tags)
       acmg_tag = tag
 
   # Case #1, agreement between all submissions
-  if nb_acmg_tags == 1:
+  if nb_acmg_tags == 1 and (not is_conflicting or (is_conflicting and (acmg_tag == csPathogenic or acmg_tag == csLikelyPathogenic))):
     result.clinsig = $acmg_tag
     result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
   # Case #2 Patho and Likely Patho (only)
@@ -240,36 +312,18 @@ proc aggregateSubmissions*(submissions: seq[Submission], autocorrect_conflicts =
     result.clinsig = "Pathogenic/Likely pathogenic"
     result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
   # Case #3, Only patho entries
-  elif nb_acmg_tags == 2 and clinsig_count.hasKey(csBenign) and clinsig_count.hasKey(csLikelyBenign):
+  elif nb_acmg_tags == 2 and clinsig_count.hasKey(csBenign) and clinsig_count.hasKey(csLikelyBenign) and not is_conflicting:
     result.clinsig = "Benign/Likely benign"
     result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
   # Case #4, Conflict !!!
   # TODO: Do some desambiguiations !!!
-  elif ((clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic) or clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)) and clinsig_count.hasKey(csUncertainSignificance)) or 
-    ((clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic)) and (clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign))):
-    
-    let
-      acmg_submissions = retained_submissions.selectACMGsubmissions()
-      cs_values = map(acmg_submissions, proc (x: Submission): float = x.clinical_significance.clnsigToFloat())
-      median_value = cs_values.median()
-    if cs_values.len() >= 5 and median_value >= 4:
-      var new_clinsig: ClinSig
-      case median_value:
-        of 4:
-          new_clinsig = csLikelyPathogenic
-        of 4.5:
-          new_clinsig = csPathogenicLikelyPathogenic
-        of 5:
-          new_clinsig = csPathogenic
-        else:
-          stderr.writeLine("[Error] Unexpected value of clinsigToFloat")
-          quit(2)
-      result.clinsig = $new_clinsig
-      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
-      result.old_clinsig = "Conflicting interpretations of pathogenicity"
-    else:
+  elif clinsig_count.isConflicting() or is_conflicting:
       result.clinsig = "Conflicting interpretations of pathogenicity"
       result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
+  
+  # Add the info that the variant was in fact reclassified
+  if is_conflicting and result.clinsig != "Conflicting interpretations of pathogenicity":
+    result.old_clinsig = "Conflicting interpretations of pathogenicity"
   
   # Add non-ACMG values to the end of clinsig
   # If ClinVar aggregates submissions from groups that provided a standard term not recommend by ACMG/AMP ( e.g. drug response), then those values are reported after the ACMG/AMP-based interpretation (see the table below).
@@ -506,6 +560,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
   # ##INFO=<ID=CLNHGVS,Number=.,Type=String,Description="Top-level (primary assembly, alt, or patch) HGVS expression.">
   echo "##INFO=<ID=CLNREVSTAT,Number=.,Type=String,Description=\"ClinVar review status for the Variation ID\">"
   echo "##INFO=<ID=CLNSIG,Number=.,Type=String,Description=\"Clinical significance for this single variant\">"
+  echo "##INFO=<ID=OLD_CLNSIG,Number=.,Type=String,Description=\"Clinical significance was deciphered and this value is the original one given by ClinVar aggregation method\">"
   # ##INFO=<ID=CLNSIGCONF,Number=.,Type=String,Description="Conflicting clinical significance for this single variant">
   # ##INFO=<ID=CLNSIGINCL,Number=.,Type=String,Description="Clinical significance for a haplotype or genotype that includes this variant. Reported as pairs of VariationID:clinical significance.">
   # ##INFO=<ID=CLNVC,Number=1,Type=String,Description="Variant type">

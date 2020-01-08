@@ -16,3 +16,18 @@ suite "test utils functions":
   test "test parseNCBIConversionComment":
     check parseNCBIConversionComment("Converted during submission to Likely pathogenic.") == csLikelyPathogenic
     check parseNCBIConversionComment("Converted during submission to Benign.") == csBenign
+
+
+  test "test IQRoutlierBounds":
+    let 
+      d = @[3.0,3.0,4.0,4.0,4.0,4.0]
+      (min_val, max_val) = d.IQRoutlierBounds()
+
+    check quantile(d, 0.25) == 3.25
+    check quantile(d, 0.75) == 4
+
+    var filtered_d : seq[float32]
+    for v in d:
+      if v >= min_val and v <= max_val:
+        filtered_d.add(v)
+    check filtered_d.len() == 6
