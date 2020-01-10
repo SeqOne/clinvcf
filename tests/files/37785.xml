@@ -294,7 +294,9 @@
         </Citation>
         <Citation Type="practice guideline" Abbrev="NCCN, 2013">
           <URL>http://www.nccn.org/professionals/physician_gls/pdf/genetics_screening.pdf</URL>
-          <CitationText>National Comprehensive Cancer Network practice guidelines in oncology. Genetic/Familial High-Risk Assessment: Breast and Ovarian</CitationText>
+          <CitationText>National Comprehensive Cancer Network practice guidelines in oncology. 
+
+          Genetic/Familial High-Risk Assessment: Breast and Ovarian</CitationText>
         </Citation>
         <Citation Type="Suggested Reading" Abbrev="Phillips et al., 2013">
           <ID Source="PubMed">23918944</ID>

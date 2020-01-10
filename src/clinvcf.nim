@@ -1,6 +1,8 @@
 import httpclient, json, algorithm, tables, sequtils, re, math
 import os, times
+import htmlparser
 import q, xmltree # Parse XML
+from streams import newStringStream
 import docopt # Formating the command-line
 import strutils # Split string
 import hts
@@ -59,14 +61,11 @@ var
   acmg_clinsig = @[csBenign, csLikelyBenign, csUncertainSignificance, csLikelyPathogenic, csPathogenic]
   non_acmg_clinsig = @[csDrugResponse, csRiskFactor, csAffects, csAssociation, csProtective, csConflictingDataFromSubmitters, csOther]
 
-proc median*(xs: seq[float]): float =
-  ## Compute median
-  assert xs.len() > 0
-  var ys : seq[float]
-  for v in xs:
-    ys.add(v)
-  sort(ys, system.cmp[float])
-  result = 0.5 * (ys[ys.high div 2] + ys[ys.len div 2])
+proc findNodes(n: XmlNode, tag: string): seq[XmlNode] =
+  for xref_node in n:
+    if xref_node.kind == xnElement:
+      if xref_node.tag == tag:
+        result.add(xref_node)
 
 proc quantile*(xs: seq[float], q: float): float =
   # CODE TAKEN FROM R quantile function
@@ -348,12 +347,16 @@ proc aggregateSubmissions*(submissions: seq[Submission], autocorrect_conflicts =
 iterator nextClinvarSet*(file: var BGZ): string =
   var chunk: string
   for line in file:
-    if line == "":
+    # This is the start of a new record
+    if line == "</ClinVarSet>":
+      chunk.add(line & "\n")
       yield chunk
       chunk = ""
-    else:
+    if line.startsWith("<ClinVarSet"):
+      chunk = ""
       chunk.add(line & "\n")
-  yield chunk
+    elif chunk != "":
+      chunk.add(line & "\n")
 
 proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[variants: TableRef[int, ClinVariant], filedate: string] =
   result.variants = newTable[int, ClinVariant]()
@@ -365,6 +368,23 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
 
   file.open(clinvar_xml_file, "r")
   
+  # Parse headers
+  # <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  # <ReleaseSet Dated="2019-12-31" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Type="full" xsi:noNamespaceSchemaLocation="http://ftp.ncbi.nlm.nih.gov/pub/clinvar/xsd_public/clinvar_public_1.59.xsd">
+  for line in file:
+    if line.startsWith("<ClinVarSet"):
+      break
+    elif line.startsWith("<ReleaseSet"):
+      let 
+        # Add closing ReleaseSet tag as it is at the end of the file
+        new_line = line & "</ReleaseSet>\n"
+        root = parseHtml(newStringStream(new_line))
+      for releaseset_node in root.findNodes("releaseset"):
+        result.filedate = releaseset_node.attr("Dated")
+  
+  file.close()
+  file.open(clinvar_xml_file, "r")
+
   for clinvarset_string in file.nextClinvarSet():
     # TODO: Add some kind of loader ever 10K parsed variants
     if clinvarset_string != "" and clinvarset_string.startsWith("<ClinVarSet"):
@@ -530,14 +550,6 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     review_status: review_status,
                     submitter_id: submitter_id,
                   ))
-    # THese are the headers to be parsed to retrieve the date
-    # and we want to avoid the closing </ReleaseSet> at the end of the file
-    elif not clinvarset_string.startsWith("</"):
-      let 
-        doc = q(clinvarset_string)
-        releaseset_nodes = doc.select("releaseset")
-      if releaseset_nodes.len() > 0:
-        result.filedate = releaseset_nodes[0].attr("Dated")
 
 proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')
