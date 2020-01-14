@@ -43,6 +43,10 @@ type
   MolecularConsequence* = ref object
     description: string
     so_term : string
+  
+  Gene* = ref object
+    gene_id: int
+    gene_symbol: string
 
   ClinVariant* = ref object
     variant_id: int32
@@ -52,8 +56,8 @@ type
     pos: int32
     ref_allele: string
     alt_allele: string
-    gene_id: int32
-    gene_symbol: string
+    gene: Gene
+    other_genes: seq[Gene]
     molecular_consequences: seq[MolecularConsequence]
     submissions: seq[Submission]
 
@@ -198,6 +202,16 @@ proc parseNCBIConversionComment*(comment: string): ClinSig =
     result = parseEnum[ClinSig](arr[0], csUnknown)
   else:
     result = csUnknown
+
+
+let hgvs_gene_regex = re(r"^[A-Z]{2}_\d+\.?\d*\((\S+)\)")
+proc extractGeneFromHGVS*(hgvs: string, default : string = ""): string =
+  #NM_033629.6(TREX1):c.294dup (p.Cys99fs)
+  var arr: array[1, string]
+  if match(hgvs, hgvs_gene_regex, arr, 0):
+    result = arr[0]
+  else:
+    result = default
 
 proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], nb_submitters: int, has_conflict = false): RevStat =
   if revstat_count.hasKey(rsPracticeGuideline):
@@ -427,22 +441,42 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                   alt_allele = sequence_loc.attr("alternateAlleleVCF")
                 
                 var
-                  gene_symbol: string
-                  gene_id : int = -1
+                  # gene_symbol: string
+                  # gene_id : int = -1
+                  main_gene: Gene
+                  other_genes : seq[Gene]
                   pos : int = -1
                 
                 if pos_string != "":
                   pos = pos_string.parseInt()
+
+                # GET MAIN GENE_SYMBOL
+                var main_gene_symbol : string
+                for name_node in measure_node.findNodes("name"):
+                  for element_value_node in name_node.findNodes("elementvalue"):
+                    main_gene_symbol = element_value_node.innerText().extractGeneFromHGVS()
                 
-                if measure_relationship_nodes.len() > 0:
-                  let gene_symbol_nodes = measure_relationship_nodes[0].select("symbol elementvalue")
-                  if gene_symbol_nodes.len() > 0:
-                    gene_symbol = gene_symbol_nodes[0].innerText
-                  for xref_node in measure_relationship_nodes[0].select("xref"):
+                for measure_relationship_node in measure_relationship_nodes:
+                  var 
+                    current_gene_symbol: string
+                    current_gene_id = -1
+
+                  # Get the gene symbol
+                  for symbol_node in measure_relationship_node.select("symbol elementvalue"):
+                    current_gene_symbol = symbol_node.innerText()
+                  
+                  for xref_node in measure_relationship_node.select("xref"):
                     if xref_node.attr("DB") == "Gene":
-                      gene_id = xref_node.attr("ID").parseInt()
+                      current_gene_id = xref_node.attr("ID").parseInt()
                       # <XRef ID="672" DB="Gene" />
                       # <XRef Type="MIM" ID="113705" DB="OMIM" />
+                  
+                  var current_gene = Gene(gene_symbol: current_gene_symbol, gene_id : current_gene_id)
+
+                  if main_gene_symbol != "" and current_gene_symbol == main_gene_symbol:
+                    main_gene = current_gene
+                  else:
+                    other_genes.add(current_gene)
                               
                 # Parse dbSNP rsid
                 # FIXME: Use this kind of loop to replace q calls and only explore first line childs in loops !!!
@@ -463,8 +497,10 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     rsid: cast[int32](rsid),
                     ref_allele: ref_allele,
                     alt_allele: alt_allele,
-                    gene_id: cast[int32](gene_id),
-                    gene_symbol: gene_symbol
+                    gene: main_gene,
+                    other_genes: other_genes
+                    # gene_id: cast[int32](gene_id),
+                    # gene_symbol: gene_symbol
                   )
                 result.variants[variant_id] = variant
 
@@ -596,8 +632,14 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     let (clinsig, revstat, old_clinsig) = v.submissions.aggregateSubmissions(true) # Autocorrect conflicts
     var info_fields : seq[string] = @["ALLELEID=" & $v.allele_id]
     
-    if v.gene_id > 0:
-      info_fields.add("GENEINFO=" & v.gene_symbol & ":" & $v.gene_id)
+    var gene_info: seq[string]
+    if v.gene != nil and v.gene.gene_id > 0:
+      gene_info.add(v.gene.gene_symbol & ":" & $v.gene.gene_id)
+    for gene in v.other_genes:
+      if gene.gene_id > 0:
+        gene_info.add(gene.gene_symbol & ":" & $gene.gene_id)
+    if gene_info.len() > 0:
+      info_fields.add("GENEINFO=" & gene_info.join("|"))
 
     info_fields.add("CLNSIG=" & clinsig.formatVCFString())
     info_fields.add("CLNREVSTAT=" & revstat.formatVCFString())

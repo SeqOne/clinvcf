@@ -59,3 +59,8 @@ run conflict_deciphering $exe tests/files/9.xml
 assert_exit_code 0
 assert_in_stdout "CLNSIG=Pathogenic"
 assert_in_stdout "OLD_CLNSIG=Conflicting_interpretations_of_pathogenicity"
+
+# Handle multiple gene and select the prefered one from HGVS
+run multi_gene_selection $exe tests/files/225499.xml
+assert_exit_code 0
+assert_in_stdout "GENEINFO=TREX1:11277"
