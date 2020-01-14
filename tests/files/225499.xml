@@ -1,0 +1,756 @@
+<ClinVarSet ID="47389305">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_033629.6(TREX1):c.294dup (p.Cys99fs) AND TREX1-Related Disorders</Title>
+  <ReferenceClinVarAssertion DateCreated="2016-12-05" DateLastUpdated="2019-11-02" ID="914467">
+    <ClinVarAccession Acc="RCV000375716" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely benign</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48273532">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="225499" Acc="VCV000225499" Version="2">
+      <Measure Type="Duplication" ID="227261">
+        <Name>
+          <ElementValue Type="Preferred">NM_033629.6(TREX1):c.294dup (p.Cys99fs)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NM_001271023" Version="2" Change="c.*1395dup" Type="HGVS, coding, RefSeq">NM_001271023.2:c.*1395dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_032166" Version="4" Change="c.*1395dup" Type="HGVS, coding, RefSeq">NM_032166.4:c.*1395dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_130384" Version="3" Change="c.*1395dup" Type="HGVS, coding, RefSeq">NM_130384.3:c.*1395dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_007248" Version="5" Change="c.264dup" Type="HGVS, coding, RefSeq">NM_007248.5:c.264dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_033629" Version="6" Change="c.294dup" Type="HGVS, coding, RefSeq">NM_033629.6:c.294dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_041782" Version="1" Change="g.25240dup" Type="HGVS, genomic, RefSeqGene">NG_041782.1:g.25240dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_033100" Version="1" Change="g.38913dup" Type="HGVS, genomic, RefSeqGene">NG_033100.1:g.38913dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_009820" Version="2" Change="g.6120dup" Type="HGVS, genomic, RefSeqGene">NG_009820.2:g.6120dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000003" Version="12" Change="g.48466949dup" Type="HGVS, genomic, top level" integerValue="38">NC_000003.12:g.48466949dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000003" Version="11" Change="g.48508348dup" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000003.11:g.48508348dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NR_153405" Version="1" Change="n.3603dup" Type="HGVS, non-coding">NR_153405.1:n.3603dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_033629" Version="3" Change="c.294dupA" Type="HGVS, previous">NM_033629.3:c.294dupA</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_033629" Version="4" Change="c.294dupA" Type="HGVS, previous">NM_033629.4:c.294dupA</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_009179" Version="2" Change="p.Cys89fs" Type="HGVS, protein, RefSeq">NP_009179.2:p.Cys89fs</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_338599" Version="1" Change="p.Cys99fs" Type="HGVS, protein, RefSeq">NP_338599.1:p.Cys99fs</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">3 prime UTR variant</Attribute>
+          <XRef ID="SO:0001624" DB="Sequence Ontology"/>
+          <XRef ID="NM_001271023.2:c.*1395dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">3 prime UTR variant</Attribute>
+          <XRef ID="SO:0001624" DB="Sequence Ontology"/>
+          <XRef ID="NM_032166.4:c.*1395dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">3 prime UTR variant</Attribute>
+          <XRef ID="SO:0001624" DB="Sequence Ontology"/>
+          <XRef ID="NM_130384.3:c.*1395dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">frameshift variant</Attribute>
+          <XRef ID="SO:0001589" DB="Sequence Ontology"/>
+          <XRef ID="NM_007248.5:c.264dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">frameshift variant</Attribute>
+          <XRef ID="SO:0001589" DB="Sequence Ontology"/>
+          <XRef ID="NM_033629.6:c.294dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">non-coding transcript variant</Attribute>
+          <XRef ID="SO:0001619" DB="Sequence Ontology"/>
+          <XRef ID="NR_153405.1:n.3603dup" DB="RefSeq"/>
+        </AttributeSet>
+        <CytogeneticLocation>3p21.31</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="48466949" stop="48466949" display_start="48466949" display_stop="48466949" variantLength="1" positionVCF="48466947" referenceAlleleVCF="C" alternateAlleleVCF="CA"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="48508348" stop="48508348" display_start="48508348" display_stop="48508348" variantLength="1" positionVCF="48508346" referenceAlleleVCF="C" alternateAlleleVCF="CA"/>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">ATR interacting protein</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">ATRIP</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="48446710" stop="48467645" display_start="48446710" display_stop="48467645" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="48488113" stop="48507053" display_start="48488113" display_stop="48507053" variantLength="18941" Strand="+"/>
+          <XRef ID="84126" DB="Gene"/>
+          <XRef Type="MIM" ID="606605" DB="OMIM"/>
+          <XRef ID="HGNC:33499" DB="HGNC"/>
+        </MeasureRelationship>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">ATRIP-TREX1 readthrough</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">ATRIP-TREX1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="48446779" stop="48467645" display_start="48446779" display_stop="48467645" Strand="+"/>
+          <XRef ID="111822955" DB="Gene"/>
+        </MeasureRelationship>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">three prime repair exonuclease 1</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">TREX1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="48465830" stop="48467645" display_start="48465830" display_stop="48467645" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="48506918" stop="48509043" display_start="48506918" display_stop="48509043" variantLength="2126" Strand="+"/>
+          <XRef ID="11277" DB="Gene"/>
+          <XRef Type="MIM" ID="606609" DB="OMIM"/>
+          <XRef ID="HGNC:12269" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="722459" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="rs" ID="760594164" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_033629.6(TREX1):c.294dup (p.Cys99fs)</ElementValue>
+      </Name>
+      <XRef ID="CA2376621" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="33696">
+      <Trait ID="36611" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">TREX1-Related Disorders</ElementValue>
+          <XRef ID="722459" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        </Name>
+        <XRef ID="CN239414" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="758541" SubmissionName="ICSL_2016Q4">
+    <ClinVarSubmissionID localKey="722459|TREX1-Related Disorders" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
+    <ClinVarAccession Acc="SCV000445020" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely benign</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Illumina Clinical Services Laboratory" ID="722459"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ICSL Variant Classification 20161018</Attribute>
+      <Citation Type="general">
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/4jQgNGYk/ICSL_Variant_Classification_20161018.pdf</URL>
+        <CitationText>ICSL_Variant_Classification_20161018.pdf</CitationText>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_033629.3:c.294dupA</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">TREX1</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">TREX1-Related Disorders</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="47494406">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_033629.6(TREX1):c.294dup (p.Cys99fs) AND Aicardi Goutieres syndrome 1</Title>
+  <ReferenceClinVarAssertion DateCreated="2017-05-24" DateLastUpdated="2019-11-02" ID="1125551">
+    <ClinVarAccession Acc="RCV000490271" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-03-18">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Ethnicity>East Asian</Ethnicity>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>reference population</MethodType>
+      </Method>
+      <ObservedData ID="48395771">
+        <Attribute integerValue="1" Type="VariantAlleles"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="225499" Acc="VCV000225499" Version="2">
+      <Measure Type="Duplication" ID="227261">
+        <Name>
+          <ElementValue Type="Preferred">NM_033629.6(TREX1):c.294dup (p.Cys99fs)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NM_001271023" Version="2" Change="c.*1395dup" Type="HGVS, coding, RefSeq">NM_001271023.2:c.*1395dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_032166" Version="4" Change="c.*1395dup" Type="HGVS, coding, RefSeq">NM_032166.4:c.*1395dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_130384" Version="3" Change="c.*1395dup" Type="HGVS, coding, RefSeq">NM_130384.3:c.*1395dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_007248" Version="5" Change="c.264dup" Type="HGVS, coding, RefSeq">NM_007248.5:c.264dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_033629" Version="6" Change="c.294dup" Type="HGVS, coding, RefSeq">NM_033629.6:c.294dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_041782" Version="1" Change="g.25240dup" Type="HGVS, genomic, RefSeqGene">NG_041782.1:g.25240dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_033100" Version="1" Change="g.38913dup" Type="HGVS, genomic, RefSeqGene">NG_033100.1:g.38913dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_009820" Version="2" Change="g.6120dup" Type="HGVS, genomic, RefSeqGene">NG_009820.2:g.6120dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000003" Version="12" Change="g.48466949dup" Type="HGVS, genomic, top level" integerValue="38">NC_000003.12:g.48466949dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000003" Version="11" Change="g.48508348dup" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000003.11:g.48508348dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NR_153405" Version="1" Change="n.3603dup" Type="HGVS, non-coding">NR_153405.1:n.3603dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_033629" Version="3" Change="c.294dupA" Type="HGVS, previous">NM_033629.3:c.294dupA</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_033629" Version="4" Change="c.294dupA" Type="HGVS, previous">NM_033629.4:c.294dupA</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_009179" Version="2" Change="p.Cys89fs" Type="HGVS, protein, RefSeq">NP_009179.2:p.Cys89fs</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_338599" Version="1" Change="p.Cys99fs" Type="HGVS, protein, RefSeq">NP_338599.1:p.Cys99fs</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">3 prime UTR variant</Attribute>
+          <XRef ID="SO:0001624" DB="Sequence Ontology"/>
+          <XRef ID="NM_001271023.2:c.*1395dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">3 prime UTR variant</Attribute>
+          <XRef ID="SO:0001624" DB="Sequence Ontology"/>
+          <XRef ID="NM_032166.4:c.*1395dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">3 prime UTR variant</Attribute>
+          <XRef ID="SO:0001624" DB="Sequence Ontology"/>
+          <XRef ID="NM_130384.3:c.*1395dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">frameshift variant</Attribute>
+          <XRef ID="SO:0001589" DB="Sequence Ontology"/>
+          <XRef ID="NM_007248.5:c.264dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">frameshift variant</Attribute>
+          <XRef ID="SO:0001589" DB="Sequence Ontology"/>
+          <XRef ID="NM_033629.6:c.294dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">non-coding transcript variant</Attribute>
+          <XRef ID="SO:0001619" DB="Sequence Ontology"/>
+          <XRef ID="NR_153405.1:n.3603dup" DB="RefSeq"/>
+        </AttributeSet>
+        <CytogeneticLocation>3p21.31</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="48466949" stop="48466949" display_start="48466949" display_stop="48466949" variantLength="1" positionVCF="48466947" referenceAlleleVCF="C" alternateAlleleVCF="CA"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="48508348" stop="48508348" display_start="48508348" display_stop="48508348" variantLength="1" positionVCF="48508346" referenceAlleleVCF="C" alternateAlleleVCF="CA"/>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">ATR interacting protein</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">ATRIP</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="48446710" stop="48467645" display_start="48446710" display_stop="48467645" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="48488113" stop="48507053" display_start="48488113" display_stop="48507053" variantLength="18941" Strand="+"/>
+          <XRef ID="84126" DB="Gene"/>
+          <XRef Type="MIM" ID="606605" DB="OMIM"/>
+          <XRef ID="HGNC:33499" DB="HGNC"/>
+        </MeasureRelationship>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">ATRIP-TREX1 readthrough</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">ATRIP-TREX1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="48446779" stop="48467645" display_start="48446779" display_stop="48467645" Strand="+"/>
+          <XRef ID="111822955" DB="Gene"/>
+        </MeasureRelationship>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">three prime repair exonuclease 1</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">TREX1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="48465830" stop="48467645" display_start="48465830" display_stop="48467645" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="48506918" stop="48509043" display_start="48506918" display_stop="48509043" variantLength="2126" Strand="+"/>
+          <XRef ID="11277" DB="Gene"/>
+          <XRef Type="MIM" ID="606609" DB="OMIM"/>
+          <XRef ID="HGNC:12269" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="722459" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="rs" ID="760594164" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_033629.6(TREX1):c.294dup (p.Cys99fs)</ElementValue>
+      </Name>
+      <XRef ID="CA2376621" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="1148">
+      <Trait ID="141" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Aicardi Goutieres syndrome 1</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">CREE ENCEPHALITIS</ElementValue>
+          <XRef Type="MIM" ID="225750" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">ENCEPHALOPATHY, FAMILIAL INFANTILE, WITH INTRACRANIAL CALCIFICATION AND CHRONIC CEREBROSPINAL FLUID LYMPHOCYTOSIS</ElementValue>
+          <XRef Type="MIM" ID="225750" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">PSEUDOTOXOPLASMOSIS SYNDROME</ElementValue>
+          <XRef Type="MIM" ID="225750" DB="OMIM"/>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Preferred">AGS1</ElementValue>
+          <XRef Type="MIM" ID="225750" DB="OMIM"/>
+        </Symbol>
+        <Symbol>
+          <ElementValue Type="Alternate">AGS</ElementValue>
+          <XRef Type="MIM" ID="225750" DB="OMIM"/>
+        </Symbol>
+        <AttributeSet>
+          <Attribute Type="public definition">Most characteristically, Aicardi-Goutières syndrome (AGS) manifests as an early-onset encephalopathy that usually, but not always, results in severe intellectual and physical disability. A subgroup of infants with AGS present at birth with abnormal neurologic findings, hepatosplenomegaly, elevated liver enzymes, and thrombocytopenia, a picture highly suggestive of congenital infection. Otherwise, most affected infants present at variable times after the first few weeks of life, frequently after a period of apparently normal development. Typically, they demonstrate the subacute onset of a severe encephalopathy characterized by extreme irritability, intermittent sterile pyrexias, loss of skills, and slowing of head growth. Over time, as many as 40% develop chilblain skin lesions on the fingers, toes, and ears. It is becoming apparent that atypical, sometimes milder, cases of AGS exist, and thus the true extent of the phenotype associated with pathogenic variants in the AGS-related genes is not yet known.</Attribute>
+          <XRef ID="NBK1475" DB="GeneReviews"/>
+        </AttributeSet>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301648</ID>
+          <ID Source="BookShelf">NBK1475</ID>
+        </Citation>
+        <XRef ID="C0796126" DB="MedGen"/>
+        <XRef ID="51" DB="Orphanet"/>
+        <XRef Type="MIM" ID="225750" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="501099">
+    <ClinVarSubmissionID localKey="NM_033629.4:c.294dupA|OMIM:225750" submittedAssembly="GRCh37" submitter="Soonchunhyang University Bucheon Hospital,Soonchunhyang University Medical Center" submitterDate="2016-04-14"/>
+    <ClinVarAccession Acc="SCV000267538" Version="1" Type="SCV" OrgID="505765" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-03-18">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+      <Citation>
+        <ID Source="PubMed">24183309</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">23602593</ID>
+      </Citation>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ACMG Guidelines, 2015</Attribute>
+      <Citation>
+        <ID Source="PubMed">25741868</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Ethnicity>East Asian</Ethnicity>
+        <GeographicOrigin>South Korean</GeographicOrigin>
+        <Species TaxonomyId="9606">human</Species>
+        <Age Type="minimum" age_unit="years">40</Age>
+        <Age Type="maximum" age_unit="years">69</Age>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>reference population</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="VariantAlleles" integerValue="1"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_033629.4:c.294dupA</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">TREX1</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <XRef DB="OMIM" ID="225750" Type="MIM"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="47786150">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_033629.6(TREX1):c.294dup (p.Cys99fs) AND multiple conditions</Title>
+  <ReferenceClinVarAssertion DateCreated="2019-08-13" DateLastUpdated="2019-11-02" ID="1874892">
+    <ClinVarAccession Acc="RCV000806372" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2018-10-06">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48671818">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="225499" Acc="VCV000225499" Version="2">
+      <Measure Type="Duplication" ID="227261">
+        <Name>
+          <ElementValue Type="Preferred">NM_033629.6(TREX1):c.294dup (p.Cys99fs)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NM_001271023" Version="2" Change="c.*1395dup" Type="HGVS, coding, RefSeq">NM_001271023.2:c.*1395dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_032166" Version="4" Change="c.*1395dup" Type="HGVS, coding, RefSeq">NM_032166.4:c.*1395dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_130384" Version="3" Change="c.*1395dup" Type="HGVS, coding, RefSeq">NM_130384.3:c.*1395dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_007248" Version="5" Change="c.264dup" Type="HGVS, coding, RefSeq">NM_007248.5:c.264dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_033629" Version="6" Change="c.294dup" Type="HGVS, coding, RefSeq">NM_033629.6:c.294dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_041782" Version="1" Change="g.25240dup" Type="HGVS, genomic, RefSeqGene">NG_041782.1:g.25240dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_033100" Version="1" Change="g.38913dup" Type="HGVS, genomic, RefSeqGene">NG_033100.1:g.38913dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_009820" Version="2" Change="g.6120dup" Type="HGVS, genomic, RefSeqGene">NG_009820.2:g.6120dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000003" Version="12" Change="g.48466949dup" Type="HGVS, genomic, top level" integerValue="38">NC_000003.12:g.48466949dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000003" Version="11" Change="g.48508348dup" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000003.11:g.48508348dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NR_153405" Version="1" Change="n.3603dup" Type="HGVS, non-coding">NR_153405.1:n.3603dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_033629" Version="3" Change="c.294dupA" Type="HGVS, previous">NM_033629.3:c.294dupA</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_033629" Version="4" Change="c.294dupA" Type="HGVS, previous">NM_033629.4:c.294dupA</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_009179" Version="2" Change="p.Cys89fs" Type="HGVS, protein, RefSeq">NP_009179.2:p.Cys89fs</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_338599" Version="1" Change="p.Cys99fs" Type="HGVS, protein, RefSeq">NP_338599.1:p.Cys99fs</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">3 prime UTR variant</Attribute>
+          <XRef ID="SO:0001624" DB="Sequence Ontology"/>
+          <XRef ID="NM_001271023.2:c.*1395dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">3 prime UTR variant</Attribute>
+          <XRef ID="SO:0001624" DB="Sequence Ontology"/>
+          <XRef ID="NM_032166.4:c.*1395dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">3 prime UTR variant</Attribute>
+          <XRef ID="SO:0001624" DB="Sequence Ontology"/>
+          <XRef ID="NM_130384.3:c.*1395dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">frameshift variant</Attribute>
+          <XRef ID="SO:0001589" DB="Sequence Ontology"/>
+          <XRef ID="NM_007248.5:c.264dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">frameshift variant</Attribute>
+          <XRef ID="SO:0001589" DB="Sequence Ontology"/>
+          <XRef ID="NM_033629.6:c.294dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">non-coding transcript variant</Attribute>
+          <XRef ID="SO:0001619" DB="Sequence Ontology"/>
+          <XRef ID="NR_153405.1:n.3603dup" DB="RefSeq"/>
+        </AttributeSet>
+        <CytogeneticLocation>3p21.31</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="48466949" stop="48466949" display_start="48466949" display_stop="48466949" variantLength="1" positionVCF="48466947" referenceAlleleVCF="C" alternateAlleleVCF="CA"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="48508348" stop="48508348" display_start="48508348" display_stop="48508348" variantLength="1" positionVCF="48508346" referenceAlleleVCF="C" alternateAlleleVCF="CA"/>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">ATR interacting protein</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">ATRIP</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="48446710" stop="48467645" display_start="48446710" display_stop="48467645" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="48488113" stop="48507053" display_start="48488113" display_stop="48507053" variantLength="18941" Strand="+"/>
+          <XRef ID="84126" DB="Gene"/>
+          <XRef Type="MIM" ID="606605" DB="OMIM"/>
+          <XRef ID="HGNC:33499" DB="HGNC"/>
+        </MeasureRelationship>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">ATRIP-TREX1 readthrough</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">ATRIP-TREX1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="48446779" stop="48467645" display_start="48446779" display_stop="48467645" Strand="+"/>
+          <XRef ID="111822955" DB="Gene"/>
+        </MeasureRelationship>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">three prime repair exonuclease 1</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">TREX1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="3" Accession="NC_000003.12" start="48465830" stop="48467645" display_start="48465830" display_stop="48467645" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="3" Accession="NC_000003.11" start="48506918" stop="48509043" display_start="48506918" display_stop="48509043" variantLength="2126" Strand="+"/>
+          <XRef ID="11277" DB="Gene"/>
+          <XRef Type="MIM" ID="606609" DB="OMIM"/>
+          <XRef ID="HGNC:12269" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="722459" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="rs" ID="760594164" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_033629.6(TREX1):c.294dup (p.Cys99fs)</ElementValue>
+      </Name>
+      <XRef ID="CA2376621" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="48300">
+      <Trait ID="141" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Aicardi Goutieres syndrome 1</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">CREE ENCEPHALITIS</ElementValue>
+          <XRef Type="MIM" ID="225750" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">ENCEPHALOPATHY, FAMILIAL INFANTILE, WITH INTRACRANIAL CALCIFICATION AND CHRONIC CEREBROSPINAL FLUID LYMPHOCYTOSIS</ElementValue>
+          <XRef Type="MIM" ID="225750" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">PSEUDOTOXOPLASMOSIS SYNDROME</ElementValue>
+          <XRef Type="MIM" ID="225750" DB="OMIM"/>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Preferred">AGS1</ElementValue>
+          <XRef Type="MIM" ID="225750" DB="OMIM"/>
+        </Symbol>
+        <Symbol>
+          <ElementValue Type="Alternate">AGS</ElementValue>
+          <XRef Type="MIM" ID="225750" DB="OMIM"/>
+        </Symbol>
+        <AttributeSet>
+          <Attribute Type="public definition">Most characteristically, Aicardi-Goutières syndrome (AGS) manifests as an early-onset encephalopathy that usually, but not always, results in severe intellectual and physical disability. A subgroup of infants with AGS present at birth with abnormal neurologic findings, hepatosplenomegaly, elevated liver enzymes, and thrombocytopenia, a picture highly suggestive of congenital infection. Otherwise, most affected infants present at variable times after the first few weeks of life, frequently after a period of apparently normal development. Typically, they demonstrate the subacute onset of a severe encephalopathy characterized by extreme irritability, intermittent sterile pyrexias, loss of skills, and slowing of head growth. Over time, as many as 40% develop chilblain skin lesions on the fingers, toes, and ears. It is becoming apparent that atypical, sometimes milder, cases of AGS exist, and thus the true extent of the phenotype associated with pathogenic variants in the AGS-related genes is not yet known.</Attribute>
+          <XRef ID="NBK1475" DB="GeneReviews"/>
+        </AttributeSet>
+        <TraitRelationship Type="co-occurring condition" ID="70"/>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301648</ID>
+          <ID Source="BookShelf">NBK1475</ID>
+        </Citation>
+        <XRef ID="C0796126" DB="MedGen"/>
+        <XRef ID="51" DB="Orphanet"/>
+        <XRef Type="MIM" ID="225750" DB="OMIM"/>
+      </Trait>
+      <Trait ID="6104" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Vasculopathy, retinal, with cerebral leukodystrophy</ElementValue>
+          <XRef ID="Vasculopathy%2C+retinal%2C+with+cerebral+leukodystrophy/7360" DB="Genetic Alliance"/>
+          <XRef ID="1217" DB="Office of Rare Diseases"/>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Preferred">RVCL</ElementValue>
+          <XRef Type="MIM" ID="192315" DB="OMIM"/>
+        </Symbol>
+        <Symbol>
+          <ElementValue Type="Alternate">CRV</ElementValue>
+          <XRef Type="MIM" ID="192315" DB="OMIM"/>
+          <XRef ID="1217" DB="Office of Rare Diseases"/>
+        </Symbol>
+        <AttributeSet>
+          <Attribute Type="public definition">Retinal vasculopathy with cerebral leukoencephalopathy and systemic manifestations (RVCL-S) is a small-vessel disease that affects highly vascularized tissues including the retina, brain, liver, and kidneys. Age of onset is often between 35 and 50 years. The most common presenting finding is decreased visual acuity and/or visual field defects. Neurologic manifestations may include hemiparesis, facial weakness, aphasia, and hemianopsia. Migraines and seizures are less frequently described. Renal manifestations may include mild-to-moderate increase in serum creatinine and mild proteinuria; progression to end-stage renal disease (ESRD) is uncommon. Hepatic manifestations frequently include mildly elevated levels of alkaline phosphatase and gamma-glutamyltransferase (GGT). Less common findings include psychiatric disorders, hypertension, mild-to-moderate anemia, and Raynaud phenomenon.</Attribute>
+          <XRef ID="NBK546576" DB="GeneReviews"/>
+        </AttributeSet>
+        <TraitRelationship Type="co-occurring condition" ID="70"/>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">31536185</ID>
+          <ID Source="BookShelf">NBK546576</ID>
+        </Citation>
+        <XRef ID="C1860518" DB="MedGen"/>
+        <XRef ID="3421" DB="Orphanet"/>
+        <XRef ID="63261" DB="Orphanet"/>
+        <XRef ID="71291" DB="Orphanet"/>
+        <XRef Type="MIM" ID="192315" DB="OMIM"/>
+      </Trait>
+      <Trait ID="36533" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Chilblain Lupus</ElementValue>
+          <XRef ID="96824" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        </Name>
+        <TraitRelationship Type="co-occurring condition" ID="70"/>
+        <XRef ID="C0024145" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="1840397" SubmissionName="SUB5371970">
+    <ClinVarSubmissionID localKey="4843283|MedGen:C1860518;C0796126;C0024145" submittedAssembly="GRCh37" submitter="Invitae" submitterDate="2019-03-28"/>
+    <ClinVarAccession Acc="SCV000946366" Version="1" Type="SCV" OrgID="500031" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-13"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2018-10-06">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+      <Comment>This sequence change results in a premature translational stop signal in the TREX1 gene (p.Cys99Metfs*3). While this is not anticipated to result in nonsense mediated decay, it is expected to disrupt the last 216 amino acids of the TREX1 protein. This variant is present in population databases (rs760594164, ExAC 0.1%). This variant has been observed in homozygous and compound heterozygous individuals affected withÂ¬â€ Aicardi GoutiâˆšÂ®res syndromeÂ¬â€ (PMID:Â¬â€ 24183309,Â¬â€ 25582466). It has also been observed in the heterozygous state in a family affected with retinal vasculopathy with cerebral leukodystrophy (RVCL); however, in that family a homozygous variant in theÂ¬â€ NOTCH3 gene was found to segregate with the disease (PMID:Â¬â€ 23602593).Â¬â€ This variant is also known asÂ¬â€ c.294dup andÂ¬â€ c.294_295insAÂ¬â€ in the literature.Â¬â€ ClinVar contains an entry for this variant (Variation ID: 225499). This variant disrupts the C-terminus of the TREX1 protein. Other variant(s) that disrupt this region (p.Val235Glyfs*6) have been determined to be pathogenic (PMID:Â¬â€ 17660820,Â¬â€ 27604306). This suggests that variants that disrupt this region of the protein are likely to be causative of disease. For these reasons, this variant has been classified as Pathogenic.</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Invitae" ID="4843283"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">Invitae Variant Classification Sherloc (09022015)</Attribute>
+      <Citation>
+        <ID Source="PubMed">28492532</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_033629.4:c.294dup</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">TREX1</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Vasculopathy, retinal, with cerebral leukodystrophy</ElementValue>
+        </Name>
+        <XRef DB="MedGen" ID="C1860518" Type="CUI"/>
+      </Trait>
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Aicardi Goutieres syndrome 1</ElementValue>
+        </Name>
+        <XRef DB="MedGen" ID="C0796126" Type="CUI"/>
+      </Trait>
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Chilblain Lupus</ElementValue>
+        </Name>
+        <XRef DB="MedGen" ID="C0024145" Type="CUI"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
