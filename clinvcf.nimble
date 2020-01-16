@@ -12,7 +12,7 @@ requires "hts >= 0.2.20 & <= 0.2.23", "q", "docopt"
 srcDir = "src"
 installExt = @["nim"]
 
-bin = @["clinvcf"]
+bin = @["clinvcf", "extractClinvarSet"]
 
 skipDirs = @["tests"]
 
