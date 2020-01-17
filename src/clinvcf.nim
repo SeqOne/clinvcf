@@ -39,6 +39,7 @@ type
     clinical_significance: ClinSig
     review_status: RevStat
     submitter_id: int
+    gene: string
 
   MolecularConsequence* = ref object
     description: string
@@ -541,10 +542,13 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
               let 
                 clinsig_nodes = clinvar_assertion_node.select("clinicalsignificance")
                 clinvar_submission_id_nodes = clinvar_assertion_node.select("clinvarsubmissionid")
+                measure_relationship_nodes = clinvar_assertion_node.select("measurerelationship")
 
               var 
                 submitter_id = -1
-
+                submission_gene : string
+              
+              # Extract Submitter ID
               if clinvar_submission_id_nodes.len() > 0:
                 let submitter_name = clinvar_submission_id_nodes[0].attr("submitter")
                 if submitters_hash.hasKey(submitter_name):
@@ -553,6 +557,18 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                   # Add the new submitter to the submutter hash
                   submitter_id = submitters_hash.len()
                   submitters_hash[submitter_name] = submitter_id
+              
+              # Extract submitted gene
+              #   <MeasureRelationship Type="variant in gene">
+              #   <Symbol>
+              #     <ElementValue Type="Preferred">CFTR</ElementValue>
+              #   </Symbol>
+              # </MeasureRelationship>
+              for measure_relationship_node in measure_relationship_nodes:
+                if measure_relationship_node.attr("Type") == "variant in gene":
+                  let element_value_nodes = measure_relationship_node.select("symbol elementvalue")
+                  if element_value_nodes.len() > 0:
+                    submission_gene = element_value_nodes[0].innerText
                   
               if clinsig_nodes.len() > 0: # FIXME: Should not be > to 1 ...
                 var
@@ -585,6 +601,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     clinical_significance: clinical_significance,
                     review_status: review_status,
                     submitter_id: submitter_id,
+                    gene: submission_gene
                   ))
 
 proc formatVCFString*(vcf_string: string): string =
@@ -633,8 +650,37 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     var info_fields : seq[string] = @["ALLELEID=" & $v.allele_id]
     
     var gene_info: seq[string]
+    # We have a main gene that have been selected from HGVS notation
     if v.gene != nil and v.gene.gene_id > 0:
       gene_info.add(v.gene.gene_symbol & ":" & $v.gene.gene_id)
+    # We try to use submissions genes to do the gene
+    else:
+      # Count # of submissions per gene
+      var submission_genes = initTable[string, int]()
+      for sub in v.submissions:
+        if sub.gene != "":
+          if submission_genes.hasKey(sub.gene):
+            inc(submission_genes[sub.gene])
+          else:
+            submission_genes[sub.gene] = 0
+      # Select the gene with highest number of subs
+      var
+        main_gene = ""
+        nb_subs = -1
+      for gene in submission_genes.keys():
+        if nb_subs == -1 or submission_genes[gene] > nb_subs:
+          main_gene = gene
+          nb_subs = submission_genes[gene]
+      if main_gene != "":
+        # Try to find the gene_id
+        var gene_id = -1
+        for gene in v.other_genes:
+          if gene.gene_symbol == main_gene:
+            gene_id = gene.gene_id
+            break
+        if gene_id != -1:
+          gene_info.add(main_gene & ":" & $gene_id)
+
     for gene in v.other_genes:
       if gene.gene_id > 0:
         gene_info.add(gene.gene_symbol & ":" & $gene.gene_id)
