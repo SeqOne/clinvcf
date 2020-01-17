@@ -654,6 +654,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     if v.gene != nil and v.gene.gene_id > 0:
       gene_info.add(v.gene.gene_symbol & ":" & $v.gene.gene_id)
     # We try to use submissions genes to do the gene
+    # FIXME: Put that logic into a separate function
     else:
       # Count # of submissions per gene
       var submission_genes = initTable[string, int]()
@@ -673,13 +674,17 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
           nb_subs = submission_genes[gene]
       if main_gene != "":
         # Try to find the gene_id
-        var gene_id = -1
-        for gene in v.other_genes:
+        var 
+          gene_id = -1
+          gene_index = -1
+        for i, gene in v.other_genes:
           if gene.gene_symbol == main_gene:
             gene_id = gene.gene_id
+            gene_index = i
             break
         if gene_id != -1:
           gene_info.add(main_gene & ":" & $gene_id)
+          v.other_genes.del(gene_index) # Avoid to print that gene 2 times
 
     for gene in v.other_genes:
       if gene.gene_id > 0:
