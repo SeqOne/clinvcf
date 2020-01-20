@@ -52,7 +52,7 @@ let
     "NC_000022.10": "22",
     "NC_000023.10": "X",
     "NC_000024.9": "Y",
-    "NC_012920.1": "M"
+    "NC_012920.1": "MT" # CLINVAR USES MT and not M !!
     }.toTable
 
 proc minExonDist*(gene: GFFGene, pos: int): int = 
@@ -183,9 +183,16 @@ proc cmpGenes*(x, y: RequestGene): int =
   else:
     # Otherwise we give priority to the genes having the closest exon
     if x_exon_dist != -1 and y_exon_dist != -1:
-      let exon_dist_cmp = cmp(x_exon_dist, y_exon_dist)
-      if exon_dist_cmp != 0:
-        return exon_dist_cmp
+      # If none are exonic, but one is protein_coding, we give coding the priority
+      if x_exon_dist != 0 and y_exon_dist != 0 and x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding":
+        return -1
+      elif x_exon_dist != 0 and y_exon_dist != 0 and y.gene.biotype == "protein_coding" and x.gene.biotype != "protein_coding":
+        return 1
+      else:
+        # Both are coding or non of them is, we take the one with the closest exon
+        let exon_dist_cmp = cmp(x_exon_dist, y_exon_dist)
+        if exon_dist_cmp != 0:
+          return exon_dist_cmp
 
   # Finally we chose the oldest gene_id
   return cmp(x.gene.gene_id, y.gene.gene_id)
