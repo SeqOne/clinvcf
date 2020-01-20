@@ -6,7 +6,7 @@ test -e ssshtest || wget -q https://raw.githubusercontent.com/ryanlayer/ssshtest
 nim c -d:debug  -d:useSysAssert -d:useGcAssert --lineDir:on --debuginfo --boundChecks:on -x:on src/clinvcf
 exe=./src/clinvcf
 
-run simple_parsing $exe tests/files/37785.xml
+run simple_parsing $exe --gff tests/files/BRCA2.gff tests/files/37785.xml
 assert_exit_code 0
 assert_in_stdout "##fileDate=2019-12-31"
 assert_in_stdout "13	32893387	37785	T	A"
