@@ -52,7 +52,7 @@ let
     "NC_000022.10": "22",
     "NC_000023.10": "X",
     "NC_000024.9": "Y",
-    "NC_012920.1": "M"
+    "NC_012920.1": "MT" # CLINVAR USES MT and not M !!
     }.toTable
 
 proc minExonDist*(gene: GFFGene, pos: int): int = 
