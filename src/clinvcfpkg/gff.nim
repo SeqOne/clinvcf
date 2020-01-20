@@ -12,6 +12,10 @@ type
     biotype: string
     exons: seq[Region]
 
+  RequestGene = ref object
+    gene: GFFGene
+    query: Region
+
 proc start*(region : Region): int {.inline.} = return region.start
 proc stop*(region : Region): int {.inline.} = return region.stop
 proc len*(region : Region): int {.inline.} = return region.stop - region.start + 1
@@ -50,6 +54,21 @@ let
     "NC_000024.9": "Y",
     "NC_012920.1": "M"
     }.toTable
+
+proc minExonDist*(gene: GFFGene, pos: int): int = 
+  var min_dist = -1
+  for exon in gene.exons:
+    if pos >= exon.start and pos <= exon.stop:
+      min_dist = 0
+      break
+    else:
+      let dist = min(abs(exon.start - pos), abs(pos - exon.stop))
+      if min_dist == -1 or dist < min_dist:
+        min_dist = dist
+  result = min_dist
+
+proc minExonDist*(gene: GFFGene, start: int, stop: int): int = 
+  result = min(gene.minExonDist(start),gene.minExonDist(stop))
 
 proc removeChrPrevix*(chrom: string): string =
   if chrom =~ re"""^chr(.*)""":
@@ -124,10 +143,6 @@ proc loadGenesFromGFF*(gff_file: string): TableRef[string, Lapper[GFFGene]] =
 
       if gff_fields.hasKey("gene"):
         gene_symbol = gff_fields["gene"]
-      
-      if dbxref_fields.hasKey("Genbank"):
-        if dbxref_fields["Genbank"].substr(0, 1) != "NM":
-          continue
 
       # This exon belongs to an gene we are annotation, we catch it
       if gene_symbol != "" and genes_name_table.hasKey(gene_symbol):
@@ -148,24 +163,32 @@ proc loadGenesFromGFF*(gff_file: string): TableRef[string, Lapper[GFFGene]] =
         # The exon has not been found / merge, we add it
         if i == genes_name_table[gene_symbol].exons.len():
           genes_name_table[gene_symbol].exons.add(exon)
-      
-  # TODO: Print number of loaded genes !!!
   
   # Load set of genes (per chromosome) to lapper index
   stderr.writeLine("[Log] Create lapper index for file " & gff_file)
   for chrom in genes_chr_table.keys():
     result[chrom] = lapify(genes_chr_table[chrom])
 
-proc cmpGenes*(x, y: GFFGene): int =
-  ## TODO: We should select Exonic over non-exonic regions (even if there is a non-coding gene)
+proc cmpGenes*(x, y: RequestGene): int =
   ## We select protein coding over non-coding gene (always ?)
-  if x.biotype == "protein_coding" and y.biotype != "protein_coding":
+  let
+    x_exon_dist = x.gene.minExonDist(x.query.start, x.query.stop)
+    y_exon_dist = y.gene.minExonDist(y.query.start, y.query.stop)
+  
+  # First we give priority to protein_coding genes if variants is at 20bp of an exon boundary
+  if x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding" and x_exon_dist <= 20:
     return -1
-  elif x.biotype != "protein_coding" and y.biotype == "protein_coding":
+  elif x.gene.biotype != "protein_coding" and y.gene.biotype == "protein_coding" and y_exon_dist <= 20:
     return 1
   else:
-    # We select the oldest gene_id
-    return cmp(x.gene_id, y.gene_id)
+    # Otherwise we give priority to the genes having the closest exon
+    if x_exon_dist != -1 and y_exon_dist != -1:
+      let exon_dist_cmp = cmp(x_exon_dist, y_exon_dist)
+      if exon_dist_cmp != 0:
+        return exon_dist_cmp
+
+  # Finally we chose the oldest gene_id
+  return cmp(x.gene.gene_id, y.gene.gene_id)
 
 proc getInfoString*(genes_index: TableRef[string, Lapper[GFFGene]], chrom: string, start: int, stop: int): string =
   if genes_index.hasKey(chrom):
@@ -174,11 +197,17 @@ proc getInfoString*(genes_index: TableRef[string, Lapper[GFFGene]], chrom: strin
       found_overlapping_genes = genes_index[chrom].find(start, stop, res)
 
     if found_overlapping_genes:
+      # Create object with gene + query interval for sorting (query is necessary for compGenes)
+      var sorted_genes: seq[RequestGene]
+      for g in res:
+        sorted_genes.add(RequestGene(gene: g, query: Region(chrom: chrom, start: start, stop: stop)))
+
       # Sort genes
-      res.sort(cmpGenes)
+      sorted_genes.sort(cmpGenes)
+
       var gene_info: seq[string]
-      for gene in res:
-        gene_info.add(gene.gene_symbol & ":" & $gene.gene_id)
+      for q in sorted_genes:
+        gene_info.add(q.gene.gene_symbol & ":" & $q.gene.gene_id)
       result = gene_info.join("|")
   else:
     stderr.writeLine("[Error] Chrom " & chrom & " not found in GFF annotations")
