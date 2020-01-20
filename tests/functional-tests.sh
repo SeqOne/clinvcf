@@ -6,7 +6,7 @@ test -e ssshtest || wget -q https://raw.githubusercontent.com/ryanlayer/ssshtest
 nim c -d:debug  -d:useSysAssert -d:useGcAssert --lineDir:on --debuginfo --boundChecks:on -x:on src/clinvcf
 exe=./src/clinvcf
 
-run simple_parsing $exe tests/files/37785.xml
+run simple_parsing $exe --gff tests/files/BRCA2.gff tests/files/37785.xml
 assert_exit_code 0
 assert_in_stdout "##fileDate=2019-12-31"
 assert_in_stdout "13	32893387	37785	T	A"
@@ -61,11 +61,11 @@ assert_in_stdout "CLNSIG=Pathogenic"
 assert_in_stdout "OLD_CLNSIG=Conflicting_interpretations_of_pathogenicity"
 
 # Handle multiple gene and select the prefered one from HGVS
-run multi_gene_selection $exe tests/files/225499.xml
+run multi_gene_selection $exe --gff tests/files/TREX1.gff tests/files/225499.xml
 assert_exit_code 0
 assert_in_stdout "GENEINFO=TREX1:11277"
 
 # Handle mutliple gene and select the prefered based on submissions (HGVS has no gene)
-run multi_gene_selection $exe tests/files/618897_2019-05.xml
+run multi_gene_selection $exe --gff tests/files/CFTR.gff tests/files/618897_2019-05.xml
 assert_exit_code 0
 assert_in_stdout "GENEINFO=CFTR:1080|"
