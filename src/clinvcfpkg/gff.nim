@@ -175,24 +175,18 @@ proc cmpGenes*(x, y: RequestGene): int =
     x_exon_dist = x.gene.minExonDist(x.query.start, x.query.stop)
     y_exon_dist = y.gene.minExonDist(y.query.start, y.query.stop)
   
-  # First we give priority to protein_coding genes if variants is at 20bp of an exon boundary
-  if x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding" and x_exon_dist <= 20:
+  # First we give priority to protein_coding genes if variants is at 20bp of an exon boundary or both are intronic
+  if x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding" and (x_exon_dist <= 20 or (x_exon_dist > 0 and y_exon_dist > 0)):
     return -1
-  elif x.gene.biotype != "protein_coding" and y.gene.biotype == "protein_coding" and y_exon_dist <= 20:
+  elif x.gene.biotype != "protein_coding" and y.gene.biotype == "protein_coding" and (y_exon_dist <= 20 or (x_exon_dist > 0 and y_exon_dist > 0)):
     return 1
   else:
     # Otherwise we give priority to the genes having the closest exon
     if x_exon_dist != -1 and y_exon_dist != -1:
-      # If none are exonic, but one is protein_coding, we give coding the priority
-      if x_exon_dist != 0 and y_exon_dist != 0 and x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding":
-        return -1
-      elif x_exon_dist != 0 and y_exon_dist != 0 and y.gene.biotype == "protein_coding" and x.gene.biotype != "protein_coding":
-        return 1
-      else:
-        # Both are coding or non of them is, we take the one with the closest exon
-        let exon_dist_cmp = cmp(x_exon_dist, y_exon_dist)
-        if exon_dist_cmp != 0:
-          return exon_dist_cmp
+      # Both are coding or non of them is, we take the one with the closest exon
+      let exon_dist_cmp = cmp(x_exon_dist, y_exon_dist)
+      if exon_dist_cmp != 0:
+        return exon_dist_cmp
 
   # Finally we chose the oldest gene_id
   return cmp(x.gene.gene_id, y.gene.gene_id)
