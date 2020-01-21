@@ -1,0 +1,531 @@
+<ClinVarSet ID="48729661">
+  <RecordStatus>current</RecordStatus>
+  <Title>m.14674T&gt;C AND Mitochondrial myopathy, infantile, transient</Title>
+  <ReferenceClinVarAssertion DateCreated="2012-08-13" DateLastUpdated="2019-12-17" ID="67746">
+    <ClinVarAccession Acc="RCV000010243" Version="6" Type="RCV" DateUpdated="2019-12-17"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2011-10-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="47910150">
+        <Attribute Type="Description">In 17 affected individuals from 12 families with transient infantile mitochondrial myopathy (500009), Horvath et al. (2009) identified a homoplasmic 14674T-C transition in the MTTE gene. The mutation occurred at a poorly conserved nucleotide in the last base at the 3-prime end of the molecule, affecting the discriminator base where the amino acid is attached to the molecule. The mutation was believed to impair mitochondrial translation, as reflected by the ragged-red fibers and COX-negative fibers in patient skeletal muscle. All patients presented at birth or in early infancy with severe hypotonia and muscle weakness, often requiring mechanical ventilation and tube feeding, and all children showed spontaneous recovery between age 4 and 20 months. Some had residual muscle weakness, but no nervous system abnormalities. Clinical improvement correlated with improvements in skeletal muscle biopsies and COX activity. Several unaffected family members carried the mutation, indicating incomplete penetrance. Horvath et al. (2009) suggested that tissue-specific, developmentally timed processes may play a role both in the age-dependent expression and in the reversibility of this disorder. The mutation was not found in 200 German controls and occurred on different haplotypes, indicating multiple independent mutation events.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">19720722</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="47910150">
+        <Attribute Type="Description">Mimaki et al. (2010) identified a homoplasmic 14674T-C mutation in 6 Japanese patients with infantile mitochondrial myopathy due to reversible COX deficiency. Studies of cybrids with the 14674T-C mutation showed decreased activities of complexes I, III, and IV. Two additional Japanese patients with the same disorder had a mutation affecting the same nucleotide (14674T-G; 590025.0003).</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">21194154</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="47910150">
+        <Attribute Type="Description">Uusimaa et al. (2011) reported 5 patients from 4 families with transient acute infantile mitochondrial myopathy and lactic acidosis who were homoplasmic for the 14674T-C mutation. Age at presentation ranged from birth to 4 months, but all had subtle symptoms of hypotonia and feeding difficulties from birth. Two patients also had transient cardiac impairment, 2 had respiratory impairment, and 2 had eye muscle weakness. Only 1 had hepatomegaly. All recovered over months or years, but all showed delayed walking and had persistent muscle weakness, fatigability, or myalgia. Facial weakness, ptosis, and a myopathic facial appearance became more prominent with age. In 2 families, the mother of the index case had mild to moderate myopathic features without the typical infantile presentation. Two patients and the mother of a patient developed hypothyroidism. Muscle biopsies showed ragged-red fibers, increased glycogen and lipids, decreased COX activity, and deficiency of other mitochondrial respiratory enzymes, which improved with age.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">21931168</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="9618" Acc="VCV000009618" Version="2">
+      <Measure Type="single nucleotide variant" ID="24657">
+        <Name>
+          <ElementValue Type="Preferred">m.14674T&gt;C</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NC_012920" Version="1" Change="m.14674T&gt;C" Type="HGVS, genomic, top level" integerValue="38">NC_012920.1:m.14674T&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="nucleotide change">14674T-C</Attribute>
+        </AttributeSet>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="MT" Accession="NC_012920.1" start="14674" stop="14674" display_start="14674" display_stop="14674" variantLength="1" positionVCF="14674" referenceAlleleVCF="T" alternateAlleleVCF="C"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="MT" Accession="NC_012920.1" start="14674" stop="14674" display_start="14674" display_stop="14674" variantLength="1" positionVCF="14674" referenceAlleleVCF="T" alternateAlleleVCF="C"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">mitochondrially encoded tRNA glutamic acid</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">MT-TE</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="MT" Accession="NC_012920.1" start="14674" stop="14742" display_start="14674" display_stop="14742" variantLength="69" Strand="-"/>
+          <XRef ID="4556" DB="Gene"/>
+          <XRef Type="MIM" ID="590025" DB="OMIM"/>
+          <XRef ID="HGNC:7479" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef Type="Allelic variant" ID="590025.0002" DB="OMIM"/>
+        <XRef Type="rs" ID="387906421" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">m.14674T&gt;C</ElementValue>
+      </Name>
+      <XRef ID="CA120581" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="2680">
+      <Trait ID="6802" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Mitochondrial myopathy, infantile, transient</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">MITOCHONDRIAL MYOPATHY, INFANTILE, TRANSIENT, DUE TO RESPIRATORY CHAIN DEFICIENCY</ElementValue>
+          <XRef Type="MIM" ID="500009" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">COX DEFICIENCY MYOPATHY, INFANTILE, TRANSIENT</ElementValue>
+          <XRef Type="MIM" ID="500009" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">RESPIRATORY CHAIN DEFICIENCY, INFANTILE, TRANSIENT</ElementValue>
+          <XRef Type="MIM" ID="500009" DB="OMIM"/>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Preferred">MMIT</ElementValue>
+          <XRef Type="MIM" ID="500009" DB="OMIM"/>
+        </Symbol>
+        <XRef ID="C3151898" DB="MedGen"/>
+        <XRef ID="254864" DB="Orphanet"/>
+        <XRef Type="MIM" ID="500009" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="30467">
+    <ClinVarSubmissionID localKey="590025.0002_MITOCHONDRIAL MYOPATHY, INFANTILE, TRANSIENT" submitter="OMIM" submitterDate="2016-10-25" title="MTTE, 14674T-C_MITOCHONDRIAL MYOPATHY, INFANTILE, TRANSIENT"/>
+    <ClinVarAccession Acc="SCV000030467" Version="2" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2011-10-01">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="OMIM" ID="590025.0002" Type="Allelic variant"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">In 17 affected individuals from 12 families with transient infantile mitochondrial myopathy (500009), Horvath et al. (2009) identified a homoplasmic 14674T-C transition in the MTTE gene. The mutation occurred at a poorly conserved nucleotide in the last base at the 3-prime end of the molecule, affecting the discriminator base where the amino acid is attached to the molecule. The mutation was believed to impair mitochondrial translation, as reflected by the ragged-red fibers and COX-negative fibers in patient skeletal muscle. All patients presented at birth or in early infancy with severe hypotonia and muscle weakness, often requiring mechanical ventilation and tube feeding, and all children showed spontaneous recovery between age 4 and 20 months. Some had residual muscle weakness, but no nervous system abnormalities. Clinical improvement correlated with improvements in skeletal muscle biopsies and COX activity. Several unaffected family members carried the mutation, indicating incomplete penetrance. Horvath et al. (2009) suggested that tissue-specific, developmentally timed processes may play a role both in the age-dependent expression and in the reversibility of this disorder. The mutation was not found in 200 German controls and occurred on different haplotypes, indicating multiple independent mutation events.</Attribute>
+        <Citation>
+          <ID Source="PubMed">19720722</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="500009" Type="MIM"/>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">Mimaki et al. (2010) identified a homoplasmic 14674T-C mutation in 6 Japanese patients with infantile mitochondrial myopathy due to reversible COX deficiency. Studies of cybrids with the 14674T-C mutation showed decreased activities of complexes I, III, and IV. Two additional Japanese patients with the same disorder had a mutation affecting the same nucleotide (14674T-G; 590025.0003).</Attribute>
+        <Citation>
+          <ID Source="PubMed">21194154</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">Uusimaa et al. (2011) reported 5 patients from 4 families with transient acute infantile mitochondrial myopathy and lactic acidosis who were homoplasmic for the 14674T-C mutation. Age at presentation ranged from birth to 4 months, but all had subtle symptoms of hypotonia and feeding difficulties from birth. Two patients also had transient cardiac impairment, 2 had respiratory impairment, and 2 had eye muscle weakness. Only 1 had hepatomegaly. All recovered over months or years, but all showed delayed walking and had persistent muscle weakness, fatigability, or myalgia. Facial weakness, ptosis, and a myopathic facial appearance became more prominent with age. In 2 families, the mother of the index case had mild to moderate myopathic features without the typical infantile presentation. Two patients and the mother of a patient developed hypothyroidism. Muscle biopsies showed ragged-red fibers, increased glycogen and lipids, decreased COX activity, and deficiency of other mitochondrial respiratory enzymes, which improved with age.</Attribute>
+        <Citation>
+          <ID Source="PubMed">21931168</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Preferred">MTTE, 14674T-C</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="NonHGVS">14674T-C</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">MTTE</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="OMIM" ID="590025.0002" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">MITOCHONDRIAL MYOPATHY, INFANTILE, TRANSIENT</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="48763353">
+  <RecordStatus>current</RecordStatus>
+  <Title>m.14674T&gt;C AND not provided</Title>
+  <ReferenceClinVarAssertion DateCreated="2016-06-08" DateLastUpdated="2019-12-17" ID="531902">
+    <ClinVarAccession Acc="RCV000224954" Version="1" Type="RCV" DateUpdated="2019-12-17"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2014-08-26">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <NamePlatform>Illumina</NamePlatform>
+        <ResultType>variant call</ResultType>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48120557">
+        <Attribute Type="AlleleFrequency">0.001121</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="9618" Acc="VCV000009618" Version="2">
+      <Measure Type="single nucleotide variant" ID="24657">
+        <Name>
+          <ElementValue Type="Preferred">m.14674T&gt;C</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NC_012920" Version="1" Change="m.14674T&gt;C" Type="HGVS, genomic, top level" integerValue="38">NC_012920.1:m.14674T&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="nucleotide change">14674T-C</Attribute>
+        </AttributeSet>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="MT" Accession="NC_012920.1" start="14674" stop="14674" display_start="14674" display_stop="14674" variantLength="1" positionVCF="14674" referenceAlleleVCF="T" alternateAlleleVCF="C"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="MT" Accession="NC_012920.1" start="14674" stop="14674" display_start="14674" display_stop="14674" variantLength="1" positionVCF="14674" referenceAlleleVCF="T" alternateAlleleVCF="C"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">mitochondrially encoded tRNA glutamic acid</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">MT-TE</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="MT" Accession="NC_012920.1" start="14674" stop="14742" display_start="14674" display_stop="14742" variantLength="69" Strand="-"/>
+          <XRef ID="4556" DB="Gene"/>
+          <XRef Type="MIM" ID="590025" DB="OMIM"/>
+          <XRef ID="HGNC:7479" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef Type="Allelic variant" ID="590025.0002" DB="OMIM"/>
+        <XRef Type="rs" ID="387906421" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">m.14674T&gt;C</ElementValue>
+      </Name>
+      <XRef ID="CA120581" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="9460">
+      <Trait ID="17556" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+          <XRef ID="13DG0619" DB="Developmental Genetics Unit,King Faisal Specialist Hospital &amp; Research Centre"/>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">The term 'not provided' is registered in MedGen to support identification of submissions to ClinVar for which no condition was named when assessing the variant. 'not provided' differs from 'not specified', which is used when a variant is asserted to be benign, likely benign, or of uncertain significance for conditions that have not been specified.</Attribute>
+        </AttributeSet>
+        <XRef ID="CN517202" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="530272">
+    <ClinVarSubmissionID localKey="39900733" submitter="Center for Pediatric Genomic Medicine,Children's Mercy Hospital and Clinics" submitterDate="2016-05-19"/>
+    <ClinVarAccession Acc="SCV000281168" Version="1" Type="SCV" OrgID="505698" OrganizationCategory="clinic" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2014-08-26">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ACMG Guidelines, 2015</Attribute>
+      <Citation>
+        <ID Source="PubMed">25741868</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>Homo sapiens</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <NamePlatform>Illumina</NamePlatform>
+        <TypePlatform>Sequencing</TypePlatform>
+        <ResultType>variant call</ResultType>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="AlleleFrequency">0.001121</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="single nucleotide variant">
+        <SequenceLocation Assembly="GRCh37" Chr="MT" Strand="+" alternateAllele="C" referenceAllele="T" start="14674" stop="14674"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="48822352">
+  <RecordStatus>current</RecordStatus>
+  <Title>m.14674T&gt;C AND Mitochondrial diseases</Title>
+  <ReferenceClinVarAssertion DateCreated="2017-07-15" DateLastUpdated="2019-12-17" ID="1138232">
+    <ClinVarAccession Acc="RCV000495655" Version="1" Type="RCV" DateUpdated="2019-12-17"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2017-05-22">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="49751145">
+        <Attribute integerValue="1" Type="VariantAlleles"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="9618" Acc="VCV000009618" Version="2">
+      <Measure Type="single nucleotide variant" ID="24657">
+        <Name>
+          <ElementValue Type="Preferred">m.14674T&gt;C</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NC_012920" Version="1" Change="m.14674T&gt;C" Type="HGVS, genomic, top level" integerValue="38">NC_012920.1:m.14674T&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="nucleotide change">14674T-C</Attribute>
+        </AttributeSet>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="MT" Accession="NC_012920.1" start="14674" stop="14674" display_start="14674" display_stop="14674" variantLength="1" positionVCF="14674" referenceAlleleVCF="T" alternateAlleleVCF="C"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="MT" Accession="NC_012920.1" start="14674" stop="14674" display_start="14674" display_stop="14674" variantLength="1" positionVCF="14674" referenceAlleleVCF="T" alternateAlleleVCF="C"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">mitochondrially encoded tRNA glutamic acid</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">MT-TE</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="MT" Accession="NC_012920.1" start="14674" stop="14742" display_start="14674" display_stop="14742" variantLength="69" Strand="-"/>
+          <XRef ID="4556" DB="Gene"/>
+          <XRef Type="MIM" ID="590025" DB="OMIM"/>
+          <XRef ID="HGNC:7479" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef Type="Allelic variant" ID="590025.0002" DB="OMIM"/>
+        <XRef Type="rs" ID="387906421" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">m.14674T&gt;C</ElementValue>
+      </Name>
+      <XRef ID="CA120581" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="7949">
+      <Trait ID="9530" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Mitochondrial diseases</ElementValue>
+          <XRef ID="Mitochondrial+Disorders/4830" DB="Genetic Alliance"/>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">Mitochondrial diseases are a clinically heterogeneous group of disorders that arise as a result of dysfunction of the mitochondrial respiratory chain. They can be caused by mutation of genes encoded by either nuclear DNA or mitochondrial DNA (mtDNA). While some mitochondrial disorders only affect a single organ (e.g., the eye in Leber hereditary optic neuropathy [LHON]), many involve multiple organ systems and often present with prominent neurologic and myopathic features. Mitochondrial disorders may present at any age. Many individuals with a mutation of mtDNA display a cluster of clinical features that fall into a discrete clinical syndrome, such as the Kearns-Sayre syndrome (KSS), chronic progressive external ophthalmoplegia (CPEO), mitochondrial encephalomyopathy with lactic acidosis and stroke-like episodes (MELAS), myoclonic epilepsy with ragged-red fibers (MERRF), neurogenic weakness with ataxia and retinitis pigmentosa (NARP), or Leigh syndrome (LS). However, considerable clinical variability exists and many individuals do not fit neatly into one particular category, which is well-illustrated by the overlapping spectrum of disease phenotypes (including mitochondrial recessive ataxia syndrome (MIRAS) resulting from mutation of the nuclear gene POLG, which has emerged as a major cause of mitochondrial disease. Common clinical features of mitochondrial disease – whether involving a mitochondrial or nuclear gene – include ptosis, external ophthalmoplegia, proximal myopathy and exercise intolerance, cardiomyopathy, sensorineural deafness, optic atrophy, pigmentary retinopathy, and diabetes mellitus. Common central nervous system findings are fluctuating encephalopathy, seizures, dementia, migraine, stroke-like episodes, ataxia, and spasticity. A high incidence of mid- and late pregnancy loss is a common occurrence that often goes unrecognized.</Attribute>
+          <XRef ID="NBK1224" DB="GeneReviews"/>
+        </AttributeSet>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301403</ID>
+          <ID Source="BookShelf">NBK1224</ID>
+        </Citation>
+        <Citation Type="Position Statement" Abbrev="MMS, 2014">
+          <ID Source="PubMed">25503498</ID>
+        </Citation>
+        <XRef ID="C0751651" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="1137295" SubmissionName="SUB2708173">
+    <ClinVarSubmissionID localKey="NC_012920.1:m.14674T&gt;C|MedGen:C0751651" submittedAssembly="GRCh38" submitter="Wellcome Centre for Mitochondrial Research,Newcastle University" submitterDate="2017-05-22"/>
+    <ClinVarAccession Acc="SCV000577888" Version="1" Type="SCV" OrgID="504862" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2017-05-22">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+        <Gender>male</Gender>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="VariantAlleles" integerValue="1"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NC_012920.1:m.14674T&gt;C</Attribute>
+        </AttributeSet>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <XRef DB="MedGen" ID="C0751651" Type="CUI"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="48898313">
+  <RecordStatus>current</RecordStatus>
+  <Title>m.14674T&gt;C AND Juvenile myopathy, encephalopathy, lactic acidosis AND stroke</Title>
+  <ReferenceClinVarAssertion DateCreated="2019-09-19" DateLastUpdated="2019-12-17" ID="1947666">
+    <ClinVarAccession Acc="RCV000851087" Version="1" Type="RCV" DateUpdated="2019-12-17"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2019-07-12">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48713086">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="9618" Acc="VCV000009618" Version="2">
+      <Measure Type="single nucleotide variant" ID="24657">
+        <Name>
+          <ElementValue Type="Preferred">m.14674T&gt;C</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NC_012920" Version="1" Change="m.14674T&gt;C" Type="HGVS, genomic, top level" integerValue="38">NC_012920.1:m.14674T&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="nucleotide change">14674T-C</Attribute>
+        </AttributeSet>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="MT" Accession="NC_012920.1" start="14674" stop="14674" display_start="14674" display_stop="14674" variantLength="1" positionVCF="14674" referenceAlleleVCF="T" alternateAlleleVCF="C"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="MT" Accession="NC_012920.1" start="14674" stop="14674" display_start="14674" display_stop="14674" variantLength="1" positionVCF="14674" referenceAlleleVCF="T" alternateAlleleVCF="C"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">mitochondrially encoded tRNA glutamic acid</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">MT-TE</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="MT" Accession="NC_012920.1" start="14674" stop="14742" display_start="14674" display_stop="14742" variantLength="69" Strand="-"/>
+          <XRef ID="4556" DB="Gene"/>
+          <XRef Type="MIM" ID="590025" DB="OMIM"/>
+          <XRef ID="HGNC:7479" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef Type="Allelic variant" ID="590025.0002" DB="OMIM"/>
+        <XRef Type="rs" ID="387906421" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">m.14674T&gt;C</ElementValue>
+      </Name>
+      <XRef ID="CA120581" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="2642">
+      <Trait ID="3031" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Juvenile myopathy, encephalopathy, lactic acidosis AND stroke</ElementValue>
+          <XRef ID="Juvenile+myopathy%2C+encephalopathy%2C+lactic+acidosis+AND+stroke/8697" DB="Genetic Alliance"/>
+          <XRef ID="39925003" DB="SNOMED CT"/>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Preferred">MELAS</ElementValue>
+          <XRef Type="MIM" ID="540000" DB="OMIM"/>
+          <XRef ID="7009" DB="Office of Rare Diseases"/>
+        </Symbol>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301403</ID>
+          <ID Source="BookShelf">NBK1224</ID>
+        </Citation>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301411</ID>
+          <ID Source="BookShelf">NBK1233</ID>
+        </Citation>
+        <Citation Type="practice guideline" Abbrev="ESC, 2014">
+          <ID Source="PubMed">25173338</ID>
+        </Citation>
+        <XRef ID="C0162671" DB="MedGen"/>
+        <XRef ID="550" DB="Orphanet"/>
+        <XRef Type="MIM" ID="540000" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="1946969" SubmissionName="SUB6228613">
+    <ClinVarSubmissionID localKey="NC_012920.1:m.14674T&gt;C|OMIM:540000" submittedAssembly="not applicable" submitter="Wong Mito Lab, Molecular and Human Genetics, Baylor College of Medicine" submitterDate="2019-08-28"/>
+    <ClinVarAccession Acc="SCV000993321" Version="1" Type="SCV" OrgID="506302" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-09-20"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2019-07-12">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely pathogenic</Description>
+      <Citation>
+        <ID Source="PubMed">19720722</ID>
+      </Citation>
+      <Comment>The NC_012920.1:m.14674T&gt;C variant in MT-TE gene is interpreted to be a Likely Pathogenic variant based on the modified ACMG guidelines (unpublished). This variant meets the following evidence codes reported in the guidelines: PS5, PP4, PP6</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">Modified ACMG Guidelines (Unpublishend)</Attribute>
+      <Citation>
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/fqheny2f/modified_acmg_guidelines_for_mt-trna.pdf</URL>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NC_012920.1:m.14674T&gt;C</Attribute>
+        </AttributeSet>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <XRef DB="OMIM" ID="540000" Type="MIM"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
