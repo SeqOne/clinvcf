@@ -76,9 +76,9 @@ assert_exit_code 0
 assert_in_stdout "GENEINFO=TRNE:4556"
 
 # Coding first option for gene anno to force using protein coding annotation
-run coding_first_control $exe --gff ADORA2A.gff tests/files/225974.xml 
+run coding_first_control $exe --gff tests/files/ADORA2A.gff tests/files/225974.xml 
 assert_exit_code 0
 assert_in_stdout "GENEINFO=ADORA2A-AS1:646023"
-run coding_first_option $exe --gff ADORA2A.gff --coding-first tests/files/225974.xml 
+run coding_first_option $exe --gff tests/files/ADORA2A.gff --coding-first tests/files/225974.xml 
 assert_exit_code 0
 assert_in_stdout "GENEINFO=ADORA2A:135"
