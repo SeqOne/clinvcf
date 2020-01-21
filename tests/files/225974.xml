@@ -1,0 +1,194 @@
+<ClinVarSet ID="47660574">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000675.6(ADORA2A):c.-275+1797C&gt;T AND caffeine response - Toxicity/ADR</Title>
+  <ReferenceClinVarAssertion DateCreated="2018-07-07" DateLastUpdated="2019-11-02" ID="1527200">
+    <ClinVarAccession Acc="RCV000660765" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2017-12-20">
+      <ReviewStatus>reviewed by expert panel</ReviewStatus>
+      <Description>drug response</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>curation</MethodType>
+      </Method>
+      <ObservedData ID="48568031">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="225974" Acc="VCV000225974" Version="1">
+      <Measure Type="single nucleotide variant" ID="227811">
+        <Name>
+          <ElementValue Type="Preferred">NM_000675.6(ADORA2A):c.-275+1797C&gt;T</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NM_001278500" Version="1" Change="c.-274-3588C&gt;T" Type="HGVS, coding, RefSeq">NM_001278500.1:c.-274-3588C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000675" Version="6" Change="c.-275+1797C&gt;T" Type="HGVS, coding, RefSeq">NM_000675.6:c.-275+1797C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001278499" Version="2" Change="c.-275+1817C&gt;T" Type="HGVS, coding, RefSeq">NM_001278499.2:c.-275+1817C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_052804" Version="1" Change="g.10947C&gt;T" Type="HGVS, genomic, RefSeqGene">NG_052804.1:g.10947C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000022" Version="11" Change="g.24429543C&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000022.11:g.24429543C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000022" Version="10" Change="g.24825511C&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000022.10:g.24825511C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NR_028484" Version="3" Change="n.2494G&gt;A" Type="HGVS, non-coding">NR_028484.3:n.2494G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">intron variant</Attribute>
+          <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+          <XRef ID="NM_000675.6:c.-275+1797C&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">intron variant</Attribute>
+          <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+          <XRef ID="NM_001278499.2:c.-275+1817C&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">intron variant</Attribute>
+          <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+          <XRef ID="NM_001278500.1:c.-274-3588C&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">non-coding transcript variant</Attribute>
+          <XRef ID="SO:0001619" DB="Sequence Ontology"/>
+          <XRef ID="NR_028484.3:n.2494G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.40056" Source="1000 Genomes Project"/>
+          <AlleleFrequency Value="0.48943" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.47828" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <GlobalMinorAlleleFrequency Value="0.40056" Source="1000 Genomes Project" MinorAllele="T"/>
+        <CytogeneticLocation>22q11.23</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NC_000022.11" start="24429543" stop="24429543" display_start="24429543" display_stop="24429543" variantLength="1" positionVCF="24429543" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="22" Accession="NC_000022.10" start="24825511" stop="24825511" display_start="24825511" display_stop="24825511" variantLength="1" positionVCF="24825511" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">ADORA2A antisense RNA 1</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">ADORA2A-AS1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NC_000022.11" start="24429206" stop="24495074" display_start="24429206" display_stop="24495074" Strand="-"/>
+          <XRef ID="646023" DB="Gene"/>
+          <XRef ID="HGNC:37122" DB="HGNC"/>
+        </MeasureRelationship>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">SPECC1L-ADORA2A readthrough (NMD candidate)</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">SPECC1L-ADORA2A</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NC_000022.11" start="24270817" stop="24442360" display_start="24270817" display_stop="24442360" Strand="+"/>
+          <XRef ID="101730217" DB="Gene"/>
+          <XRef ID="HGNC:49185" DB="HGNC"/>
+        </MeasureRelationship>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">adenosine A2a receptor</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">ADORA2A</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NC_000022.11" start="24423597" stop="24442360" display_start="24423597" display_stop="24442360" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="22" Accession="NC_000022.10" start="24823529" stop="24838324" display_start="24823529" display_stop="24838324" variantLength="14796" Strand="+"/>
+          <XRef ID="135" DB="Gene"/>
+          <XRef Type="MIM" ID="102776" DB="OMIM"/>
+          <XRef ID="HGNC:263" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="981201549PA448710" DB="PharmGKB"/>
+        <XRef ID="981201549" DB="PharmGKB Clinical Annotation"/>
+        <XRef Type="rs" ID="2298383" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000675.6(ADORA2A):c.-275+1797C&gt;T</ElementValue>
+      </Name>
+    </MeasureSet>
+    <TraitSet Type="DrugResponse" ID="26888">
+      <Trait ID="35407" Type="DrugResponse">
+        <Name>
+          <ElementValue Type="Preferred">caffeine response - Toxicity/ADR</ElementValue>
+        </Name>
+        <XRef ID="CN236491" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="1525587" SubmissionName="PharmGKB-ClinVar 2018-05">
+    <ClinVarSubmissionID localKey="981201549PA448710|caffeine response - Toxicity/ADR" submittedAssembly="GRCh38" submitter="PharmGKB" submitterDate="2018-06-18"/>
+    <ClinVarAccession Acc="SCV000783004" Version="1" Type="SCV" OrgID="500295" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2017-12-20">
+      <ReviewStatus>reviewed by expert panel</ReviewStatus>
+      <Description>drug response</Description>
+      <ExplanationOfInterpretation>Drug-variant association: Toxicity/ADR</ExplanationOfInterpretation>
+      <Citation>
+        <ID Source="PubMed">18305461</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">20520601</ID>
+      </Citation>
+      <Comment Type="public">PharmGKB Level of Evidence 2B: Annotation for a variant-drug combination with moderate evidence of an association. The association must be replicated but there may be some studies that do not show statistical significance, and/or the effect size may be small.</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Pharmacogenomics Knowledge Base" ID="981201549PA448710"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">Pharmacogenomics knowledge for personalized medicine</Attribute>
+      <Citation>
+        <ID Source="PubMed">22992668</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>curation</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NC_000022.10:g.24825511C&gt;T</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">ADORA2A</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="dbSNP" ID="2298383" Type="rsNumber"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="DrugResponse">
+      <Trait Type="DrugResponse">
+        <Name>
+          <ElementValue Type="Preferred">caffeine response - Toxicity/ADR</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+    <Citation>
+      <URL>https://www.pharmgkb.org/clinicalAnnotation/981201549</URL>
+    </Citation>
+  </ClinVarAssertion>
+</ClinVarSet>
+
