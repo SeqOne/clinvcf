@@ -69,3 +69,16 @@ assert_in_stdout "GENEINFO=TREX1:11277"
 run multi_gene_selection $exe --gff tests/files/CFTR.gff tests/files/618897_2019-05.xml
 assert_exit_code 0
 assert_in_stdout "GENEINFO=CFTR:1080|"
+
+# Mitochondrial annotations
+run mito_anno $exe --gff tests/files/MT.gff tests/files/9618.xml
+assert_exit_code 0
+assert_in_stdout "GENEINFO=TRNE:4556"
+
+# Coding first option for gene anno to force using protein coding annotation
+run coding_first_control $exe --gff ADORA2A.gff 225974.xml 
+assert_exit_code 0
+assert_in_stdout "GENEINFO=ADORA2A-AS1:646023"
+run coding_first_option $exe --gff ADORA2A.gff --coding-first 225974.xml 
+assert_exit_code 0
+assert_in_stdout "GENEINFO=ADORA2A:135"

@@ -108,8 +108,9 @@ proc loadGenesFromGFF*(gff_file: string): TableRef[string, Lapper[GFFGene]] =
     var v = line.split('\t', 3)
     
     # Only use "BestRefSeq" annotations
-    if v[1] != "BestRefSeq":
-      continue
+    # This was disable as MT annotations are annotated "RefSeq" and not "BestRefSeq"
+    # if v[1] != "BestRefSeq":
+    #   continue
 
     # NC_000001.10    BestRefSeq      gene    367659  368597  .       +       .       ID=gene-OR4F29;Dbxref=GeneID:729759,HGNC:HGNC:31275;Name=OR4F29;description=olfactory receptor family 4 subfamily F member 29;gbkey=Gene;gene=OR4F29;gene_biotype=protein_coding;gene_synonym=OR7-21
     if v[2] == "gene":
@@ -175,6 +176,9 @@ proc cmpGenes*(x, y: RequestGene): int =
     x_exon_dist = x.gene.minExonDist(x.query.start, x.query.stop)
     y_exon_dist = y.gene.minExonDist(y.query.start, y.query.stop)
   
+  # echo "X: " & x.gene.gene_symbol & " DIST: " & $x_exon_dist & " BIOTYPE: " & x.gene.biotype
+  # echo "Y: " & y.gene.gene_symbol & " DIST: " & $y_exon_dist & " BIOTYPE: " & y.gene.biotype
+  
   # First we give priority to protein_coding genes if variants is at 20bp of an exon boundary or both are intronic
   if x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding" and (x_exon_dist <= 20 or (x_exon_dist > 0 and y_exon_dist > 0)):
     return -1
@@ -187,15 +191,45 @@ proc cmpGenes*(x, y: RequestGene): int =
       let exon_dist_cmp = cmp(x_exon_dist, y_exon_dist)
       if exon_dist_cmp != 0:
         return exon_dist_cmp
+    elif x_exon_dist >= 0:
+      return -1
+    else:
+      return 1  
 
   # Finally we chose the oldest gene_id
   return cmp(x.gene.gene_id, y.gene.gene_id)
 
-proc getInfoString*(genes_index: TableRef[string, Lapper[GFFGene]], chrom: string, start: int, stop: int): string =
+proc cmpGenesCodingFirst*(x, y: RequestGene): int =
+  ## We select protein coding over non-coding gene always
+  
+  # First we give priority to protein_coding genes if variants is at 20bp of an exon boundary or both are intronic
+  if x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding":
+    return -1
+  elif x.gene.biotype != "protein_coding" and y.gene.biotype == "protein_coding":
+    return 1
+  else:
+    let
+      x_exon_dist = x.gene.minExonDist(x.query.start, x.query.stop)
+      y_exon_dist = y.gene.minExonDist(y.query.start, y.query.stop)
+    # Otherwise we give priority to the genes having the closest exon
+    if x_exon_dist != -1 and y_exon_dist != -1:
+      # Both are coding or non of them is, we take the one with the closest exon
+      let exon_dist_cmp = cmp(x_exon_dist, y_exon_dist)
+      if exon_dist_cmp != 0:
+        return exon_dist_cmp
+    elif x_exon_dist >= 0:
+      return -1
+    else:
+      return 1  
+
+  # Finally we chose the oldest gene_id
+  return cmp(x.gene.gene_id, y.gene.gene_id)
+
+proc getInfoString*(genes_index: TableRef[string, Lapper[GFFGene]], chrom: string, start: int, stop: int, coding_priority: bool): string =
   if genes_index.hasKey(chrom):
     var 
       res = new_seq[GFFGene]() # Store retrieved genes 
-      found_overlapping_genes = genes_index[chrom].find(start, stop, res)
+      found_overlapping_genes = genes_index[chrom].find(start, stop + 1, res) # Add +1 to simulate semi-open intervals (supported by lapper)
 
     if found_overlapping_genes:
       # Create object with gene + query interval for sorting (query is necessary for compGenes)
@@ -204,7 +238,10 @@ proc getInfoString*(genes_index: TableRef[string, Lapper[GFFGene]], chrom: strin
         sorted_genes.add(RequestGene(gene: g, query: Region(chrom: chrom, start: start, stop: stop)))
 
       # Sort genes
-      sorted_genes.sort(cmpGenes)
+      if coding_priority:
+        sorted_genes.sort(cmpGenesCodingFirst)
+      else:
+        sorted_genes.sort(cmpGenes)
 
       var gene_info: seq[string]
       for q in sorted_genes:

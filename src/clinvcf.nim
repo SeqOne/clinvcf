@@ -544,7 +544,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
 proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')
 
-proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string, genes_index: TableRef[string, Lapper[GFFGene]]) =
+proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string, genes_index: TableRef[string, Lapper[GFFGene]], coding_priority : bool) =
   echo "##fileformat=VCFv4.1"
   if filedate != "":
     echo "##fileDate=" & filedate # TODO: Get date from XML headers
@@ -587,7 +587,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     var info_fields : seq[string] = @["ALLELEID=" & $v.allele_id]
     
     if not genes_index.isNil():
-      let gene_info = genes_index.getInfoString(v.chrom, int(v.pos), int(v.pos) + v.ref_allele.len() - 1)
+      let gene_info = genes_index.getInfoString(v.chrom, int(v.pos), int(v.pos) + v.ref_allele.len() - 1, coding_priority)
       if gene_info != "":
         info_fields.add("GENEINFO=" & gene_info)
 
@@ -629,12 +629,14 @@ Usage: clinvcf [options] <clinvar.xml.gz>
 Options:
   --genome <version>              Genome assembly to use [default: GRCh37]
   --gff <file>                    NCBI GFF to annotate variations with genes
+  --coding-first                  Give priority to coding gene in annotation (even if intronic and exonic for another gene)
   """)
 
   let 
     args = docopt(doc)
     genome_assembly = $args["--genome"]
     clinvar_xml_file = $args["<clinvar.xml.gz>"]
+    coding_priority = args["--coding-first"]
   
   var 
     variants_hash: TableRef[int, ClinVariant]
@@ -658,7 +660,7 @@ Options:
   
   # Print VCF of STDOUT
   stderr.writeLine("[Log] Printing variants")
-  printVCF(variants_seq, genome_assembly, filedate, genes_index)
+  printVCF(variants_seq, genome_assembly, filedate, genes_index, coding_priority)
 
 when isMainModule:
   main(commandLineParams())
