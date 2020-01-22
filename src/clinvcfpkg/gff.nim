@@ -1,4 +1,6 @@
-import lapper, tables, hts, strutils, re, algorithm
+import tables, hts, strutils, re, algorithm
+
+import ./lapper
 
 type
   Region* = ref object of RootObj
@@ -234,9 +236,39 @@ proc getInfoString*(genes_index: TableRef[string, Lapper[GFFGene]], chrom: strin
   if genes_index.hasKey(chrom):
     var 
       res = new_seq[GFFGene]() # Store retrieved genes 
-      found_overlapping_genes = genes_index[chrom].find(start, stop + 1, res) # Add +1 to simulate semi-open intervals (supported by lapper)
+      found_overlapping_genes = genes_index[chrom].find(start, stop, res)
 
-    if found_overlapping_genes:
+    # We have no overlapping genes, we try to find the nearest ones (upstream and downstream)
+    if not found_overlapping_genes:
+      var 
+        res_nearest_up = new_seq[GFFGene]() 
+        res_nearest_down = new_seq[GFFGene]() 
+        found_nearest_up = genes_index[chrom].find_nearest_upstream(start, res_nearest_up)
+        found_nearest_down = genes_index[chrom].find_nearest_upstream(stop, res_nearest_down)
+        dist_nearest_up = -1
+        dist_nearest_down = -1
+
+      if found_nearest_up:
+        dist_nearest_up = stop - res_nearest_up[0].stop
+      if found_nearest_down:
+        dist_nearest_down = res_nearest_down[0].start - start
+
+      if dist_nearest_up != -1 and dist_nearest_down != -1:
+        # Select nearest_up genes
+        if dist_nearest_up < dist_nearest_down:
+          res = res_nearest_up
+        elif dist_nearest_down < dist_nearest_up:
+          res = res_nearest_down
+        # Merge result
+        else:
+          res.add(res_nearest_up)
+          res.add(res_nearest_down)
+      elif dist_nearest_up != -1:
+        res = res_nearest_up
+      elif dist_nearest_down != -1:
+        res = res_nearest_down
+      
+    if res.len() > 0:
       # Create object with gene + query interval for sorting (query is necessary for compGenes)
       var sorted_genes: seq[RequestGene]
       for g in res:

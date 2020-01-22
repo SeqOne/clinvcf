@@ -6,10 +6,10 @@ from streams import newStringStream
 import docopt # Formating the command-line
 import strutils # Split string
 import hts
-import lapper
 
 # Local libs
 import ./clinvcfpkg/gff
+import ./clinvcfpkg/lapper
 
 type
   ClinSig* = enum
