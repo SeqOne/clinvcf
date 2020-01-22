@@ -82,3 +82,10 @@ assert_in_stdout "GENEINFO=ADORA2A-AS1:646023"
 run coding_first_option $exe --gff tests/files/ADORA2A.gff --coding-first tests/files/225974.xml 
 assert_exit_code 0
 assert_in_stdout "GENEINFO=ADORA2A:135"
+
+# Consider close exonic regions (20bp padding) as exonic in gene priorization module
+# In this case variant is in FTCD-AS1 (protein-coding) exon but 9bp away from FTCD.
+# We discriminate these two gene using the gene_id of FTCD that is smaller that FTCD-AS1
+run close_exonic_region $exe --gff tests/files/FTCD.gff tests/files/340430.xml 
+assert_exit_code 0
+assert_in_stdout "GENEINFO=FTCD:10841|FTCD-AS1:100861507"

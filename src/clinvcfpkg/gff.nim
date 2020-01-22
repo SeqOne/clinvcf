@@ -55,20 +55,25 @@ let
     "NC_012920.1": "MT" # CLINVAR USES MT and not M !!
     }.toTable
 
-proc minExonDist*(gene: GFFGene, pos: int): int = 
+proc minExonDist*(gene: GFFGene, pos: int, padding : int): int = 
   var min_dist = -1
   for exon in gene.exons:
-    if pos >= exon.start and pos <= exon.stop:
+    # Add padding to the exons, in order to consider close intronic regions as "exonic"
+    # as these are likely to be linked to this gene
+    let
+      start = exon.start - padding
+      stop = exon.stop + padding
+    if pos >= start and pos <= stop:
       min_dist = 0
       break
     else:
-      let dist = min(abs(exon.start - pos), abs(pos - exon.stop))
+      let dist = min(abs(start - pos), abs(pos - stop))
       if min_dist == -1 or dist < min_dist:
         min_dist = dist
   result = min_dist
 
-proc minExonDist*(gene: GFFGene, start: int, stop: int): int = 
-  result = min(gene.minExonDist(start),gene.minExonDist(stop))
+proc minExonDist*(gene: GFFGene, start: int, stop: int, padding : int): int = 
+  result = min(gene.minExonDist(start, padding),gene.minExonDist(stop, padding))
 
 proc removeChrPrevix*(chrom: string): string =
   if chrom =~ re"""^chr(.*)""":
@@ -173,8 +178,8 @@ proc loadGenesFromGFF*(gff_file: string): TableRef[string, Lapper[GFFGene]] =
 proc cmpGenes*(x, y: RequestGene): int =
   ## We select protein coding over non-coding gene (always ?)
   let
-    x_exon_dist = x.gene.minExonDist(x.query.start, x.query.stop)
-    y_exon_dist = y.gene.minExonDist(y.query.start, y.query.stop)
+    x_exon_dist = x.gene.minExonDist(x.query.start, x.query.stop, 20)
+    y_exon_dist = y.gene.minExonDist(y.query.start, y.query.stop, 20)
   
   # echo "X: " & x.gene.gene_symbol & " DIST: " & $x_exon_dist & " BIOTYPE: " & x.gene.biotype
   # echo "Y: " & y.gene.gene_symbol & " DIST: " & $y_exon_dist & " BIOTYPE: " & y.gene.biotype
@@ -209,8 +214,8 @@ proc cmpGenesCodingFirst*(x, y: RequestGene): int =
     return 1
   else:
     let
-      x_exon_dist = x.gene.minExonDist(x.query.start, x.query.stop)
-      y_exon_dist = y.gene.minExonDist(y.query.start, y.query.stop)
+      x_exon_dist = x.gene.minExonDist(x.query.start, x.query.stop, 20)
+      y_exon_dist = y.gene.minExonDist(y.query.start, y.query.stop, 20)
     # Otherwise we give priority to the genes having the closest exon
     if x_exon_dist != -1 and y_exon_dist != -1:
       # Both are coding or non of them is, we take the one with the closest exon

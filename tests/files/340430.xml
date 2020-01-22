@@ -1,0 +1,377 @@
+<ClinVarSet ID="48788085">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_206965.2(FTCD):c.636+9G&gt;A AND GLUTAMATE FORMIMINOTRANSFERASE DEFICIENCY</Title>
+  <ReferenceClinVarAssertion DateCreated="2016-12-05" DateLastUpdated="2019-12-17" ID="872805">
+    <ClinVarAccession Acc="RCV000334054" Version="1" Type="RCV" DateUpdated="2019-12-17"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="49416197">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="340430" Acc="VCV000340430" Version="2">
+      <Measure Type="single nucleotide variant" ID="351952">
+        <Name>
+          <ElementValue Type="Preferred">NM_206965.2(FTCD):c.636+9G&gt;A</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NM_001350598" Version="1" Change="c.15C&gt;T" Type="HGVS, coding, RefSeq">NM_001350598.1:c.15C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001320412" Version="2" Change="c.636+9G&gt;A" Type="HGVS, coding, RefSeq">NM_001320412.2:c.636+9G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_006657" Version="3" Change="c.636+9G&gt;A" Type="HGVS, coding, RefSeq">NM_006657.3:c.636+9G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_206965" Version="2" Change="c.636+9G&gt;A" Type="HGVS, coding, RefSeq">NM_206965.2:c.636+9G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_016191" Version="1" Change="g.9019G&gt;A" Type="HGVS, genomic, RefSeqGene">NG_016191.1:g.9019G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000021" Version="9" Change="g.46151549C&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000021.9:g.46151549C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000021" Version="8" Change="g.47571463C&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000021.8:g.47571463C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_006657" Version="2" Change="c.636+9G&gt;A" Type="HGVS, previous">NM_006657.2:c.636+9G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001337527" Version="1" Change="p.Asn5=" Type="HGVS, protein, RefSeq">NP_001337527.1:p.Asn5=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">intron variant</Attribute>
+          <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+          <XRef ID="NM_001320412.2:c.636+9G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">intron variant</Attribute>
+          <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+          <XRef ID="NM_006657.3:c.636+9G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">intron variant</Attribute>
+          <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+          <XRef ID="NM_206965.2:c.636+9G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001350598.1:c.15C&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00062" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.00025" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00064" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00037" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>21q22.3</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="21" Accession="NC_000021.9" start="46151549" stop="46151549" display_start="46151549" display_stop="46151549" variantLength="1" positionVCF="46151549" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="21" Accession="NC_000021.8" start="47571463" stop="47571463" display_start="47571463" display_stop="47571463" variantLength="1" positionVCF="47571463" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">FTCD antisense RNA 1</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">FTCD-AS1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="21" Accession="NC_000021.9" start="46151375" stop="46152647" display_start="46151375" display_stop="46152647" Strand="+"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="21" Accession="NT_187626.1" start="10434" stop="11706" display_start="10434" display_stop="11706" Strand="+"/>
+          <XRef ID="100861507" DB="Gene"/>
+          <XRef ID="HGNC:40243" DB="HGNC"/>
+        </MeasureRelationship>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">formimidoyltransferase cyclodeaminase</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">FTCD</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="21" Accession="NC_000021.9" start="46135981" stop="46156482" display_start="46135981" display_stop="46156482" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="21" Accession="NT_187626.1" start="4876" stop="14638" display_start="4876" display_stop="14638" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="21" Accession="NC_000021.8" start="47556175" stop="47575480" display_start="47556175" display_stop="47575480" variantLength="19306" Strand="-"/>
+          <XRef ID="10841" DB="Gene"/>
+          <XRef Type="MIM" ID="606806" DB="OMIM"/>
+          <XRef ID="HGNC:3974" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="750092" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="rs" ID="370596374" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_206965.2(FTCD):c.636+9G&gt;A</ElementValue>
+      </Name>
+      <XRef ID="CA10073801" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="1099">
+      <Trait ID="1296" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">GLUTAMATE FORMIMINOTRANSFERASE DEFICIENCY</ElementValue>
+          <XRef ID="Glutamate+Formiminotransferase+Deficiency/3104" DB="Genetic Alliance"/>
+          <XRef Type="MIM" ID="229100" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="606806.0001" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="606806.0002" DB="OMIM"/>
+          <XRef Type="Allelic variant" ID="606806.0003" DB="OMIM"/>
+          <XRef ID="9279" DB="Office of Rare Diseases"/>
+          <XRef ID="59761008" DB="SNOMED CT"/>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">Glutamate formiminotransferase deficiency is an autosomal recessive disorder and the second most common inborn error of folate metabolism. Features of a severe phenotype include elevated levels of formiminoglutamate (FIGLU) in the urine in response to histidine administration, megaloblastic anemia, and mental retardation. Features of a mild phenotype include high urinary excretion of FIGLU in the absence of histidine administration, mild developmental delay, and no hematologic abnormalities (summary by Hilton et al., 2003).</Attribute>
+          <XRef Type="MIM" ID="229100" DB="OMIM"/>
+        </AttributeSet>
+        <XRef ID="C0268609" DB="MedGen"/>
+        <XRef ID="51208" DB="Orphanet"/>
+        <XRef Type="MIM" ID="229100" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="750422" SubmissionName="ICSL_2016Q4">
+    <ClinVarSubmissionID localKey="750092|Formiminotransferase Deficiency" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
+    <ClinVarAccession Acc="SCV000436901" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Illumina Clinical Services Laboratory" ID="750092"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">ICSL Variant Classification 20161018</Attribute>
+      <Citation Type="general">
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/4jQgNGYk/ICSL_Variant_Classification_20161018.pdf</URL>
+        <CitationText>ICSL_Variant_Classification_20161018.pdf</CitationText>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_006657.2:c.636+9G&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">FTCD</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Formiminotransferase Deficiency</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="48926956">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_206965.2(FTCD):c.636+9G&gt;A AND not provided</Title>
+  <ReferenceClinVarAssertion DateCreated="2019-12-15" DateLastUpdated="2019-12-17" ID="2116811">
+    <ClinVarAccession Acc="RCV000876765" Version="1" Type="RCV" DateUpdated="2019-12-17"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2018-02-12">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely benign</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="49815428">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="340430" Acc="VCV000340430" Version="2">
+      <Measure Type="single nucleotide variant" ID="351952">
+        <Name>
+          <ElementValue Type="Preferred">NM_206965.2(FTCD):c.636+9G&gt;A</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="NM_001350598" Version="1" Change="c.15C&gt;T" Type="HGVS, coding, RefSeq">NM_001350598.1:c.15C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001320412" Version="2" Change="c.636+9G&gt;A" Type="HGVS, coding, RefSeq">NM_001320412.2:c.636+9G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_006657" Version="3" Change="c.636+9G&gt;A" Type="HGVS, coding, RefSeq">NM_006657.3:c.636+9G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_206965" Version="2" Change="c.636+9G&gt;A" Type="HGVS, coding, RefSeq">NM_206965.2:c.636+9G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_016191" Version="1" Change="g.9019G&gt;A" Type="HGVS, genomic, RefSeqGene">NG_016191.1:g.9019G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000021" Version="9" Change="g.46151549C&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000021.9:g.46151549C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000021" Version="8" Change="g.47571463C&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000021.8:g.47571463C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_006657" Version="2" Change="c.636+9G&gt;A" Type="HGVS, previous">NM_006657.2:c.636+9G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001337527" Version="1" Change="p.Asn5=" Type="HGVS, protein, RefSeq">NP_001337527.1:p.Asn5=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">intron variant</Attribute>
+          <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+          <XRef ID="NM_001320412.2:c.636+9G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">intron variant</Attribute>
+          <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+          <XRef ID="NM_006657.3:c.636+9G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">intron variant</Attribute>
+          <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+          <XRef ID="NM_206965.2:c.636+9G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">synonymous variant</Attribute>
+          <XRef ID="SO:0001819" DB="Sequence Ontology"/>
+          <XRef ID="NM_001350598.1:c.15C&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00062" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.00025" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00064" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00037" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>21q22.3</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="21" Accession="NC_000021.9" start="46151549" stop="46151549" display_start="46151549" display_stop="46151549" variantLength="1" positionVCF="46151549" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="21" Accession="NC_000021.8" start="47571463" stop="47571463" display_start="47571463" display_stop="47571463" variantLength="1" positionVCF="47571463" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">FTCD antisense RNA 1</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">FTCD-AS1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="21" Accession="NC_000021.9" start="46151375" stop="46152647" display_start="46151375" display_stop="46152647" Strand="+"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="21" Accession="NT_187626.1" start="10434" stop="11706" display_start="10434" display_stop="11706" Strand="+"/>
+          <XRef ID="100861507" DB="Gene"/>
+          <XRef ID="HGNC:40243" DB="HGNC"/>
+        </MeasureRelationship>
+        <MeasureRelationship Type="within multiple genes by overlap">
+          <Name>
+            <ElementValue Type="Preferred">formimidoyltransferase cyclodeaminase</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">FTCD</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="21" Accession="NC_000021.9" start="46135981" stop="46156482" display_start="46135981" display_stop="46156482" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="21" Accession="NT_187626.1" start="4876" stop="14638" display_start="4876" display_stop="14638" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="21" Accession="NC_000021.8" start="47556175" stop="47575480" display_start="47556175" display_stop="47575480" variantLength="19306" Strand="-"/>
+          <XRef ID="10841" DB="Gene"/>
+          <XRef Type="MIM" ID="606806" DB="OMIM"/>
+          <XRef ID="HGNC:3974" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="750092" DB="Illumina Clinical Services Laboratory,Illumina"/>
+        <XRef Type="rs" ID="370596374" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_206965.2(FTCD):c.636+9G&gt;A</ElementValue>
+      </Name>
+      <XRef ID="CA10073801" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="9460">
+      <Trait ID="17556" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+          <XRef ID="13DG0619" DB="Developmental Genetics Unit,King Faisal Specialist Hospital &amp; Research Centre"/>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">The term 'not provided' is registered in MedGen to support identification of submissions to ClinVar for which no condition was named when assessing the variant. 'not provided' differs from 'not specified', which is used when a variant is asserted to be benign, likely benign, or of uncertain significance for conditions that have not been specified.</Attribute>
+        </AttributeSet>
+        <XRef ID="CN517202" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="1987113" SubmissionName="SUB5321749">
+    <ClinVarSubmissionID localKey="1299127|MedGen:CN517202" submittedAssembly="GRCh37" submitter="Invitae" submitterDate="2019-03-14"/>
+    <ClinVarAccession Acc="SCV001019381" Version="1" Type="SCV" OrgID="500031" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-12-17"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2018-02-12">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely benign</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Invitae" ID="1299127"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">Nykamp K et al. (Genet Med 2017)</Attribute>
+      <Citation>
+        <ID Source="PubMed">28492532</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_006657.2:c.636+9G&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">FTCD</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+        </Name>
+        <XRef DB="MedGen" ID="CN517202" Type="CUI"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
