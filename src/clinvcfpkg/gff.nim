@@ -244,7 +244,7 @@ proc getInfoString*(genes_index: TableRef[string, Lapper[GFFGene]], chrom: strin
         res_nearest_up = new_seq[GFFGene]() 
         res_nearest_down = new_seq[GFFGene]() 
         found_nearest_up = genes_index[chrom].find_nearest_upstream(start, res_nearest_up)
-        found_nearest_down = genes_index[chrom].find_nearest_upstream(stop, res_nearest_down)
+        found_nearest_down = genes_index[chrom].find_nearest_downstream(stop, res_nearest_down)
         dist_nearest_up = -1
         dist_nearest_down = -1
 
