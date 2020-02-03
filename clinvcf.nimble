@@ -8,7 +8,7 @@ license       = "SEQONE"
 
 # Dependencies
 
-requires "hts >= 0.2.20 & <= 0.2.23", "q", "docopt", "lapper"
+requires "hts >= 0.2.20 & <= 0.2.23", "q", "docopt"#, "lapper"
 srcDir = "src"
 installExt = @["nim"]
 

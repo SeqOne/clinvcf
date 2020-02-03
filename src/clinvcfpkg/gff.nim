@@ -1,4 +1,6 @@
-import lapper, tables, hts, strutils, re, algorithm
+import tables, hts, strutils, re, algorithm
+
+import ./lapper
 
 type
   Region* = ref object of RootObj
@@ -98,7 +100,7 @@ proc parseKeyValues*(str: string, global_sep: char, key_value_sep: char): TableR
     else:
       stderr.writeLine("[Error] Value fields " & f & " was not a key/value field using separator " & key_value_sep)
 
-proc loadGenesFromGFF*(gff_file: string): TableRef[string, Lapper[GFFGene]] =
+proc loadGenesFromGFF*(gff_file: string, gene_padding : int): TableRef[string, Lapper[GFFGene]] =
   result = newTable[string, Lapper[GFFGene]]() 
   var
     fh: BGZ
@@ -121,9 +123,19 @@ proc loadGenesFromGFF*(gff_file: string): TableRef[string, Lapper[GFFGene]] =
     if v[2] == "gene":
       var
         v2 = v[3].split('\t')
-        gene = GFFGene(chrom: parseChr(v[0]), start: parseInt(v2[0]), stop: parseInt(v2[1]), exons: @[])
+        chrom = parseChr(v[0])
+        start = parseInt(v2[0])
+        stop = parseInt(v2[1])
         gff_fields = v2[5].parseKeyValues(';','=')
         dbxref_fields = gff_fields["Dbxref"].parseKeyValues(',',':')
+        gene : GFFGene
+      
+      if chrom != "MT":
+        # Add padding of gene to annotate upstream / downstream genes
+        gene = GFFGene(chrom: chrom, start: start - gene_padding, stop: stop + gene_padding, exons: @[])
+      else:
+        # For MT, we only do +/-2bp padding
+        gene = GFFGene(chrom: chrom, start: start - 2, stop: stop + 2, exons: @[])
       
       gene.gene_symbol = gff_fields["Name"]
       if dbxref_fields.hasKey("GeneID"):
@@ -185,9 +197,10 @@ proc cmpGenes*(x, y: RequestGene): int =
   # echo "Y: " & y.gene.gene_symbol & " DIST: " & $y_exon_dist & " BIOTYPE: " & y.gene.biotype
   
   # First we give priority to protein_coding genes if variants is at 20bp of an exon boundary or both are intronic
-  if x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding" and (x_exon_dist <= 20 or (x_exon_dist > 0 and y_exon_dist > 0)):
+  # This does not apply for MT
+  if x.gene.chrom != "MT" and x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding" and (x_exon_dist <= 20 or (x_exon_dist > 0 and y_exon_dist > 0)):
     return -1
-  elif x.gene.biotype != "protein_coding" and y.gene.biotype == "protein_coding" and (y_exon_dist <= 20 or (x_exon_dist > 0 and y_exon_dist > 0)):
+  elif x.gene.chrom != "MT" and x.gene.biotype != "protein_coding" and y.gene.biotype == "protein_coding" and (y_exon_dist <= 20 or (x_exon_dist > 0 and y_exon_dist > 0)):
     return 1
   else:
     # Otherwise we give priority to the genes having the closest exon
@@ -208,9 +221,10 @@ proc cmpGenesCodingFirst*(x, y: RequestGene): int =
   ## We select protein coding over non-coding gene always
   
   # First we give priority to protein_coding genes if variants is at 20bp of an exon boundary or both are intronic
-  if x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding":
+  # This does not apply for MT
+  if x.gene.chrom != "MT" and x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding":
     return -1
-  elif x.gene.biotype != "protein_coding" and y.gene.biotype == "protein_coding":
+  elif x.gene.chrom != "MT" and x.gene.biotype != "protein_coding" and y.gene.biotype == "protein_coding":
     return 1
   else:
     let
@@ -234,9 +248,39 @@ proc getInfoString*(genes_index: TableRef[string, Lapper[GFFGene]], chrom: strin
   if genes_index.hasKey(chrom):
     var 
       res = new_seq[GFFGene]() # Store retrieved genes 
-      found_overlapping_genes = genes_index[chrom].find(start, stop + 1, res) # Add +1 to simulate semi-open intervals (supported by lapper)
+      found_overlapping_genes = genes_index[chrom].find(start, stop, res)
 
-    if found_overlapping_genes:
+    # We have no overlapping genes, we try to find the nearest ones (upstream and downstream)
+    if not found_overlapping_genes:
+      var 
+        res_nearest_up = new_seq[GFFGene]() 
+        res_nearest_down = new_seq[GFFGene]() 
+        found_nearest_up = genes_index[chrom].find_nearest_upstream(start, res_nearest_up)
+        found_nearest_down = genes_index[chrom].find_nearest_downstream(stop, res_nearest_down)
+        dist_nearest_up = -1
+        dist_nearest_down = -1
+
+      if found_nearest_up:
+        dist_nearest_up = stop - res_nearest_up[0].stop
+      if found_nearest_down:
+        dist_nearest_down = res_nearest_down[0].start - start
+
+      if dist_nearest_up != -1 and dist_nearest_down != -1:
+        # Select nearest_up genes
+        if dist_nearest_up < dist_nearest_down:
+          res = res_nearest_up
+        elif dist_nearest_down < dist_nearest_up:
+          res = res_nearest_down
+        # Merge result
+        else:
+          res.add(res_nearest_up)
+          res.add(res_nearest_down)
+      elif dist_nearest_up != -1:
+        res = res_nearest_up
+      elif dist_nearest_down != -1:
+        res = res_nearest_down
+      
+    if res.len() > 0:
       # Create object with gene + query interval for sorting (query is necessary for compGenes)
       var sorted_genes: seq[RequestGene]
       for g in res:
