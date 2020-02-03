@@ -628,8 +628,12 @@ Usage: clinvcf [options] <clinvar.xml.gz>
 
 Options:
   --genome <version>              Genome assembly to use [default: GRCh37]
+
+Gene annotation:
   --gff <file>                    NCBI GFF to annotate variations with genes
   --coding-first                  Give priority to coding gene in annotation (even if intronic and exonic for another gene)
+  --gene-padding <int>            Padding to annotation upstream/downstream genes (not applied for MT) [default: 5000]
+  
   """)
 
   let 
@@ -637,6 +641,7 @@ Options:
     genome_assembly = $args["--genome"]
     clinvar_xml_file = $args["<clinvar.xml.gz>"]
     coding_priority = args["--coding-first"]
+    gene_padding = parseInt($args["--gene-padding"])
   
   var 
     variants_hash: TableRef[int, ClinVariant]
@@ -651,7 +656,7 @@ Options:
   if args["--gff"]:
     let gff_file = $args["--gff"]
     stderr.writeLine("[Log] Load genes coordinates from " & gff_file)
-    genes_index = loadGenesFromGFF(gff_file)
+    genes_index = loadGenesFromGFF(gff_file, gene_padding)
   
   # Sort variants by genomic order
   stderr.writeLine("[Log] Sorting variants")

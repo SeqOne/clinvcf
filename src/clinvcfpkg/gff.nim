@@ -100,7 +100,7 @@ proc parseKeyValues*(str: string, global_sep: char, key_value_sep: char): TableR
     else:
       stderr.writeLine("[Error] Value fields " & f & " was not a key/value field using separator " & key_value_sep)
 
-proc loadGenesFromGFF*(gff_file: string): TableRef[string, Lapper[GFFGene]] =
+proc loadGenesFromGFF*(gff_file: string, gene_padding : int): TableRef[string, Lapper[GFFGene]] =
   result = newTable[string, Lapper[GFFGene]]() 
   var
     fh: BGZ
@@ -123,9 +123,19 @@ proc loadGenesFromGFF*(gff_file: string): TableRef[string, Lapper[GFFGene]] =
     if v[2] == "gene":
       var
         v2 = v[3].split('\t')
-        gene = GFFGene(chrom: parseChr(v[0]), start: parseInt(v2[0]), stop: parseInt(v2[1]), exons: @[])
+        chrom = parseChr(v[0])
+        start = parseInt(v2[0])
+        stop = parseInt(v2[1])
         gff_fields = v2[5].parseKeyValues(';','=')
         dbxref_fields = gff_fields["Dbxref"].parseKeyValues(',',':')
+        gene : GFFGene
+      
+      if chrom != "MT":
+        # Add padding of gene to annotate upstream / downstream genes
+        gene = GFFGene(chrom: chrom, start: start - gene_padding, stop: stop + gene_padding, exons: @[])
+      else:
+        # For MT, we only do +/-2bp padding
+        gene = GFFGene(chrom: chrom, start: start - 2, stop: stop + 2, exons: @[])
       
       gene.gene_symbol = gff_fields["Name"]
       if dbxref_fields.hasKey("GeneID"):
