@@ -1,3 +1,5 @@
+![ClinVCF-logo](clinvcf.png)
+
 # ClinVCF or Clean Clinvar VCF
 
 ClinVCF is a tool designed to generate a VCF from a Clinvar Full Release (XML format).
