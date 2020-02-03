@@ -197,9 +197,10 @@ proc cmpGenes*(x, y: RequestGene): int =
   # echo "Y: " & y.gene.gene_symbol & " DIST: " & $y_exon_dist & " BIOTYPE: " & y.gene.biotype
   
   # First we give priority to protein_coding genes if variants is at 20bp of an exon boundary or both are intronic
-  if x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding" and (x_exon_dist <= 20 or (x_exon_dist > 0 and y_exon_dist > 0)):
+  # This does not apply for MT
+  if x.gene.chrom != "MT" and x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding" and (x_exon_dist <= 20 or (x_exon_dist > 0 and y_exon_dist > 0)):
     return -1
-  elif x.gene.biotype != "protein_coding" and y.gene.biotype == "protein_coding" and (y_exon_dist <= 20 or (x_exon_dist > 0 and y_exon_dist > 0)):
+  elif x.gene.chrom != "MT" and x.gene.biotype != "protein_coding" and y.gene.biotype == "protein_coding" and (y_exon_dist <= 20 or (x_exon_dist > 0 and y_exon_dist > 0)):
     return 1
   else:
     # Otherwise we give priority to the genes having the closest exon
@@ -220,9 +221,10 @@ proc cmpGenesCodingFirst*(x, y: RequestGene): int =
   ## We select protein coding over non-coding gene always
   
   # First we give priority to protein_coding genes if variants is at 20bp of an exon boundary or both are intronic
-  if x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding":
+  # This does not apply for MT
+  if x.gene.chrom != "MT" and x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding":
     return -1
-  elif x.gene.biotype != "protein_coding" and y.gene.biotype == "protein_coding":
+  elif x.gene.chrom != "MT" and x.gene.biotype != "protein_coding" and y.gene.biotype == "protein_coding":
     return 1
   else:
     let
