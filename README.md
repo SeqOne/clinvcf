@@ -22,9 +22,16 @@ git clone https://gitlab.seq.one/workset/clinvcf.git && cd clinvcf && nimble ins
 # Download (latest) Clinvar XML release
 wget ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/ClinVarFullRelease_00-latest.xml.gz
 
+# Download GFF for gene annotation (GRCh37 or 38)
+wget ftp://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh37_latest/refseq_identifiers/GRCh37_latest_genomic.gff.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq_identifiers/GRCh38_latest_genomic.gff.gz
+
 # Generate clinvar VCF (GRCh37 by default)
 clinvcf ClinVarFullRelease_00-latest.xml.gz | bgzip -c > clinvar_GRCh37.vcf.gz
+
 ```
+
+
 
 ## ClinicalSignificance correction module
 
