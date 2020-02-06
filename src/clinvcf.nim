@@ -18,7 +18,7 @@ type
     csLikelyBenign = "Likely benign",
     csUncertainSignificance = "Uncertain significance",
     csLikelyPathogenic = "Likely pathogenic",
-    csPathogenicLikelyPathogenic = "BPathogenic/Likely pathogenic",
+    csPathogenicLikelyPathogenic = "Pathogenic/Likely pathogenic",
     csPathogenic = "Pathogenic",
     csUnknown = "not provided",
     csDrugResponse = "drug response",
