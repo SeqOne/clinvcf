@@ -22,9 +22,9 @@ proc start*(region : Region): int {.inline.} = return region.start
 proc stop*(region : Region): int {.inline.} = return region.stop
 proc len*(region : Region): int {.inline.} = return region.stop - region.start + 1
 proc `==`*(a, b: Region): bool {.inline.} = return a.chrom == b.chrom and a.start == b.start and a.stop == b.stop
+proc `$`*(a: Region): string {.inline.} = return a.chrom & ":" & $a.start & "-" & $a.stop
+proc isOverlapping*(a: Region, b: Region): bool {.inline.} = return a.stop >= b.start and a.start <= b.stop
 proc merge*(a: var Region, b: Region) {.inline.} = a.start = min(a.start, b.start); a.stop = max(a.stop, b.stop)
-proc globalFractionOverlap*(a: Region, b: Region): float {.inline.} = return (min(a.stop, b.stop) - max(a.start, b.start) + 1) / (max(a.stop, b.stop) - min(a.start, b.start) + 1)
-proc fractionOverlap*(a: Region, b: Region): float {.inline.} = return (min(a.stop, b.stop) - max(a.start, b.start) + 1) / a.len()
 
 # Coversion table from NCBI chromosomes ID's to usual names
 let
@@ -195,10 +195,9 @@ proc loadGenesFromGFF*(gff_file: string, gene_padding : int): TableRef[string, L
         # Only add uniq exons and merge overlapping ones
         var i = 0
         for e in genes_name_table[gene_symbol].exons.mitems():
-          let overlap_fraction = e.fraction_overlap(exon)
-          if overlap_fraction == 1:
+          if e == exon:
             break
-          elif overlap_fraction > 0:
+          elif e.isOverlapping(exon):
             e.merge(exon)
             break
           inc(i)
@@ -244,6 +243,9 @@ proc cmpGenes*(x, y: RequestGene): int =
 
 proc cmpGenesCodingFirst*(x, y: RequestGene): int =
   ## We select protein coding over non-coding gene always
+
+  # stderr.writeLine("gene: " & x.gene.gene_symbol & " biotype: " & x.gene.biotype & " dist: " & $x.gene.minExonDist(x.query.start, x.query.stop, 20))
+  # stderr.writeLine("gene: " & y.gene.gene_symbol & " biotype: " & y.gene.biotype & " dist: " & $y.gene.minExonDist(x.query.start, x.query.stop, 20))
   
   # First we give priority to protein_coding genes if variants is at 20bp of an exon boundary or both are intronic
   # This does not apply for MT
