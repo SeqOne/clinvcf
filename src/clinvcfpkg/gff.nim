@@ -145,7 +145,7 @@ proc loadGenesFromGFF*(gff_file: string, gene_padding : int): TableRef[string, L
     #   continue
 
     # NC_000001.10    BestRefSeq      gene    367659  368597  .       +       .       ID=gene-OR4F29;Dbxref=GeneID:729759,HGNC:HGNC:31275;Name=OR4F29;description=olfactory receptor family 4 subfamily F member 29;gbkey=Gene;gene=OR4F29;gene_biotype=protein_coding;gene_synonym=OR7-21
-    if v[2] == "gene":
+    if v[2] == "gene" or v[2] == "pseudogene":
       var
         v2 = v[3].split('\t')
         chrom = parseChr(v[0])
