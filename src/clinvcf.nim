@@ -604,14 +604,14 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     
     if v.rsid != -1:
       info_fields.add("RS=" & $v.rsid)
-  
+    
     if v.chrom != "" and v.ref_allele != "" and v.alt_allele != "":
       echo [
         v.chrom,
         $v.pos,
         $v.variant_id,
         v.ref_allele,
-        v.alt_allele,
+        if v.ref_allele == v.alt_allele: "." else: v.alt_allele,
         ".",
         ".",
         info_fields.join(";")

@@ -89,3 +89,9 @@ assert_in_stdout "GENEINFO=ADORA2A:135"
 run close_exonic_region $exe --gff tests/files/FTCD.gff tests/files/340430.xml 
 assert_exit_code 0
 assert_in_stdout "GENEINFO=FTCD:10841|FTCD-AS1:100861507"
+
+# For antivariant (same as the reference)
+# We use the "." for the alternate allele representation
+run antivariant $exe tests/files/242771.xml
+assert_exit_code 0
+assert_in_stdout "22	42523943	242771	A	."
