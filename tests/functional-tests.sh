@@ -95,3 +95,7 @@ assert_in_stdout "GENEINFO=FTCD:10841|FTCD-AS1:100861507"
 run antivariant $exe tests/files/242771.xml
 assert_exit_code 0
 assert_in_stdout "22	42523943	242771	A	."
+
+# Haplotypes should not be exported in the VCF
+run haplotype $exe tests/files/16895.xml
+assert_equal "$(grep -v '^#' $STDOUT_FILE)" ""

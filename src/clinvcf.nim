@@ -410,6 +410,10 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
             measureset_node = measureset_nodes[0]
             variant_id = measureset_node.attr("ID").parseInt()
             measure_nodes = measureset_nodes[0].select("measure")
+          
+          # Only parse "variant" and skip "Haplotype"
+          if measureset_node.attr("Type") != "Variant":
+            continue
 
           # Only parse measure node to extract variant position if we do not have seen this variant
           # Already
