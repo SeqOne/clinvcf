@@ -1,0 +1,347 @@
+<ClinVarSet ID="47079688">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000106.5(CYP2D6):c.[886C&gt;T;457G&gt;C] AND Debrisoquine, ultrarapid metabolism of</Title>
+  <ReferenceClinVarAssertion DateCreated="2012-08-13" DateLastUpdated="2019-11-02" ID="75894">
+    <ClinVarAccession Acc="RCV000018391" Version="27" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2015-05-18">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>drug response</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="47916362">
+        <Attribute Type="Description">This allelic variant is also known as CYP2D6*2 or CYP2D6L.</Attribute>
+      </ObservedData>
+      <ObservedData ID="47916362">
+        <Attribute Type="Description">In a family in which 2 sibs and their father had MRs of less that 0.02 (ultrarapid phenotype, see 608902), Johansson et al. (1993) found 12 extra copies of the CYP2D6 gene inherited in an autosomal dominant pattern; in a second family in which 2 sibs had MRs of less than 0.1, the authors found 2 extra copies of the CYP2D6 gene. All affected individuals had a variant CYP2D6 gene, termed CYP2D6L, which contained 2 amino acid substitutions: a 2938C-T transition in exon 6, resulting in an arg296-to-cys (R296C), and a 4268G-to-C transversion in exon 9, resulting in a resulting in a ser486-to-thr (S486T) substitution. The MR of individuals with 1 copy of the CYP2D6L gene did not differ from those with the wildtype gene, but there was a correlation between decreased MR and increased copies of the CYP2D6L gene.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">7903454</ID>
+        </Citation>
+      </ObservedData>
+      <ObservedData ID="47916362">
+        <Attribute Type="Description">Panserat et al. (1994) identified the R296C and S486T changes as 2 major CYP2D6 allozymes in extensive metabolizers (wildtype). Residue 296 falls within a presumed substrate recognition site, and residue 486 lies in the vicinity of the heme binding site.</Attribute>
+        <Citation Type="general">
+          <ID Source="PubMed">7927337</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Haplotype" ID="16895" Acc="VCV000016895" Version="1">
+      <Measure Type="single nucleotide variant" ID="31934">
+        <Name>
+          <ElementValue Type="Preferred">NM_000106.6(CYP2D6):c.886C&gt;T (p.Arg296Cys)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_303t1" Change="c.886C&gt;T" Type="HGVS, coding, LRG">LRG_303t1:c.886C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001025161" Version="3" Change="c.733C&gt;T" Type="HGVS, coding, RefSeq">NM_001025161.3:c.733C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000106" Version="6" Change="c.886C&gt;T" Type="HGVS, coding, RefSeq">NM_000106.6:c.886C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_303" Change="g.7870C&gt;T" Type="HGVS, genomic, LRG">LRG_303:g.7870C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008376" Version="3" Change="g.7051C&gt;T" Type="HGVS, genomic, RefSeqGene">NG_008376.3:g.7051C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008376" Version="4" Change="g.7870C&gt;T" Type="HGVS, genomic, RefSeqGene">NG_008376.4:g.7870C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000022" Version="11" Change="g.42127941G&gt;A" Type="HGVS, genomic, top level" integerValue="38">NC_000022.11:g.42127941G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000022" Version="10" Change="g.42523943=" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000022.10:g.42523943=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000106" Version="5" Change="c.886C&gt;T" Type="HGVS, previous">NM_000106.5:c.886C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008376" Version="2" Change="g.7941C&gt;T" Type="HGVS, previous">NG_008376.2:g.7941C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_303p1" Change="p.Arg296Cys" Type="HGVS, protein">LRG_303p1:p.Arg296Cys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="P10635" Change="p.Arg296Cys" Type="HGVS, protein">P10635:p.Arg296Cys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001020332" Version="2" Change="p.Arg245Cys" Type="HGVS, protein, RefSeq">NP_001020332.2:p.Arg245Cys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000097" Version="3" Change="p.Arg296Cys" Type="HGVS, protein, RefSeq">NP_000097.3:p.Arg296Cys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000097" Version="3" Change="p.Arg296Cys" Type="HGVS, protein, RefSeq">NP_000097.3:p.Arg296Cys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000097" Version="3" Change="p.Arg296Cys" Type="HGVS, protein, RefSeq">NP_000097.3:p.Arg296Cys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_000106.6:c.886C&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001025161.3:c.733C&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">R245C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">R296C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">ARG296CYS</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.40045" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.35923" Source="1000 Genomes Project"/>
+          <AlleleFrequency Value="0.34334" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.38555" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.37647" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <GlobalMinorAlleleFrequency Value="0.35923" Source="1000 Genomes Project" MinorAllele="A"/>
+        <CytogeneticLocation>22q13.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NC_000022.11" start="42127941" stop="42127941" display_start="42127941" display_stop="42127941" variantLength="1" positionVCF="42127941" referenceAlleleVCF="G" alternateAlleleVCF="A"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="22" Accession="NC_000022.10" start="42523943" stop="42523943" display_start="42523943" display_stop="42523943" variantLength="1" positionVCF="42523943" referenceAlleleVCF="A" alternateAlleleVCF="A"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">cytochrome P450 family 2 subfamily D member 6</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">CYP2D6</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NC_000022.11" start="42126499" stop="42130810" display_start="42126499" display_stop="42130810" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NT_187682.1" start="48840" stop="53151" display_start="48840" display_stop="53151" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NW_004504305.1" start="48826" stop="53137" display_start="48826" display_stop="53137" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NW_009646208.1" start="12065" stop="16376" display_start="12065" display_stop="16376" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NW_014040931.1" start="20088" stop="24399" display_start="20088" display_stop="24399" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NW_015148968.1" start="4240" stop="8551" display_start="4240" display_stop="8551" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="22" Accession="NC_000022.10" start="42522500" stop="42526882" display_start="42522500" display_stop="42526882" variantLength="4383" Strand="-"/>
+          <XRef ID="1565" DB="Gene"/>
+          <XRef Type="MIM" ID="124030" DB="OMIM"/>
+          <XRef ID="HGNC:2625" DB="HGNC"/>
+        </MeasureRelationship>
+        <Citation Type="review" Abbrev="Medical Genetics Summaries">
+          <ID Source="BookShelf">NBK100662</ID>
+        </Citation>
+        <Citation Type="review" Abbrev="Medical Genetics Summaries">
+          <ID Source="BookShelf">NBK367795</ID>
+        </Citation>
+        <Citation Type="review" Abbrev="Medical Genetics Summaries">
+          <ID Source="BookShelf">NBK425795</ID>
+        </Citation>
+        <XRef ID="P10635#VAR_008340" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="124030.0007" DB="OMIM"/>
+        <XRef Type="rs" ID="16947" DB="dbSNP"/>
+      </Measure>
+      <Measure Type="single nucleotide variant" ID="38485">
+        <Name>
+          <ElementValue Type="Preferred">NM_000106.6(CYP2D6):c.1457G&gt;C (p.Ser486Thr)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_303t1" Change="c.1457G&gt;C" Type="HGVS, coding, LRG">LRG_303t1:c.1457G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001025161" Version="3" Change="c.1304G&gt;C" Type="HGVS, coding, RefSeq">NM_001025161.3:c.1304G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000106" Version="6" Change="c.1457G&gt;C" Type="HGVS, coding, RefSeq">NM_000106.6:c.1457G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_303" Change="g.9200G&gt;C" Type="HGVS, genomic, LRG">LRG_303:g.9200G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008376" Version="3" Change="g.8381G&gt;C" Type="HGVS, genomic, RefSeqGene">NG_008376.3:g.8381G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008376" Version="4" Change="g.9200G&gt;C" Type="HGVS, genomic, RefSeqGene">NG_008376.4:g.9200G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000022" Version="11" Change="g.42126611C&gt;G" Type="HGVS, genomic, top level" integerValue="38">NC_000022.11:g.42126611C&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000022" Version="10" Change="g.42522613=" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000022.10:g.42522613=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000106" Version="5" Change="c.1457G&gt;C" Type="HGVS, previous">NM_000106.5:c.1457G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008376" Version="2" Change="g.9271G&gt;C" Type="HGVS, previous">NG_008376.2:g.9271G&gt;C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_303p1" Change="p.Ser486Thr" Type="HGVS, protein">LRG_303p1:p.Ser486Thr</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="P10635" Change="p.Ser486Thr" Type="HGVS, protein">P10635:p.Ser486Thr</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001020332" Version="2" Change="p.Ser435Thr" Type="HGVS, protein, RefSeq">NP_001020332.2:p.Ser435Thr</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000097" Version="3" Change="p.Ser486Thr" Type="HGVS, protein, RefSeq">NP_000097.3:p.Ser486Thr</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000097" Version="3" Change="p.Ser486Thr" Type="HGVS, protein, RefSeq">NP_000097.3:p.Ser486Thr</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000097" Version="3" Change="p.Ser486Thr" Type="HGVS, protein, RefSeq">NP_000097.3:p.Ser486Thr</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="Location">NM_000106.5:exon 8</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_000106.6:c.1457G&gt;C" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001025161.3:c.1304G&gt;C" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">S435T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">S486T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">SER486THR</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.59168" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.59884" Source="1000 Genomes Project"/>
+          <AlleleFrequency Value="0.54444" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.58040" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.54901" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+        </AlleleFrequencyList>
+        <GlobalMinorAlleleFrequency Value="0.40116" Source="1000 Genomes Project" MinorAllele="C"/>
+        <CytogeneticLocation>22q13.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NC_000022.11" start="42126611" stop="42126611" display_start="42126611" display_stop="42126611" variantLength="1" positionVCF="42126611" referenceAlleleVCF="C" alternateAlleleVCF="G"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="22" Accession="NC_000022.10" start="42522613" stop="42522613" display_start="42522613" display_stop="42522613" variantLength="1" positionVCF="42522613" referenceAlleleVCF="G" alternateAlleleVCF="G"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">cytochrome P450 family 2 subfamily D member 6</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">CYP2D6</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NC_000022.11" start="42126499" stop="42130810" display_start="42126499" display_stop="42130810" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NT_187682.1" start="48840" stop="53151" display_start="48840" display_stop="53151" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NW_004504305.1" start="48826" stop="53137" display_start="48826" display_stop="53137" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NW_009646208.1" start="12065" stop="16376" display_start="12065" display_stop="16376" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NW_014040931.1" start="20088" stop="24399" display_start="20088" display_stop="24399" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NW_015148968.1" start="4240" stop="8551" display_start="4240" display_stop="8551" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="22" Accession="NC_000022.10" start="42522500" stop="42526882" display_start="42522500" display_stop="42526882" variantLength="4383" Strand="-"/>
+          <XRef ID="1565" DB="Gene"/>
+          <XRef Type="MIM" ID="124030" DB="OMIM"/>
+          <XRef ID="HGNC:2625" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="P10635#VAR_008341" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="124030.0007" DB="OMIM"/>
+        <XRef Type="rs" ID="1135840" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000106.5(CYP2D6):c.[886C&gt;T;457G&gt;C]</ElementValue>
+      </Name>
+      <Name>
+        <ElementValue Type="Alternate">CYP2D6, ARG296CYS AND SER486THR</ElementValue>
+        <XRef Type="Allelic variant" ID="124030.0007" DB="OMIM"/>
+      </Name>
+      <Symbol>
+        <ElementValue Type="Preferred">CYP2D6*2</ElementValue>
+      </Symbol>
+      <AttributeSet>
+        <Attribute Type="HGVS, genomic, RefSeqGene" Change="g.[7941C&gt;T;9271G&gt;C]">NG_008376.2:g.[7941C&gt;T;9271G&gt;C]</Attribute>
+      </AttributeSet>
+      <AttributeSet>
+        <Attribute Type="HGVS, coding, RefSeq" Change="c.[886C&gt;T;457G&gt;C]">NM_000106.5:c.[886C&gt;T;457G&gt;C]</Attribute>
+      </AttributeSet>
+      <XRef ID="CA039192" DB="ClinGen"/>
+      <XRef Type="Allelic variant" ID="124030.0007" DB="OMIM"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="5542">
+      <Trait ID="9095" Type="DrugResponse">
+        <Name>
+          <ElementValue Type="Preferred">Debrisoquine, ultrarapid metabolism of</ElementValue>
+        </Name>
+        <XRef ID="C1837157" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="38673">
+    <ClinVarSubmissionID localKey="124030.0007_DEBRISOQUINE, ULTRARAPID METABOLISM OF" submitter="OMIM" submitterDate="2012-06-07" title="CYP2D6, ARG296CYS AND SER486THR_DEBRISOQUINE, ULTRARAPID METABOLISM OF"/>
+    <ClinVarAccession Acc="SCV000038673" Version="1" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-08-03"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2015-05-18">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>drug response</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="OMIM" ID="124030.0007" Type="Allelic variant"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species>human</Species>
+        <AffectedStatus>not provided</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">This allelic variant is also known as CYP2D6*2 or CYP2D6L.</Attribute>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">In a family in which 2 sibs and their father had MRs of less that 0.02 (ultrarapid phenotype, see 608902), Johansson et al. (1993) found 12 extra copies of the CYP2D6 gene inherited in an autosomal dominant pattern; in a second family in which 2 sibs had MRs of less than 0.1, the authors found 2 extra copies of the CYP2D6 gene. All affected individuals had a variant CYP2D6 gene, termed CYP2D6L, which contained 2 amino acid substitutions: a 2938C-T transition in exon 6, resulting in an arg296-to-cys (R296C), and a 4268G-to-C transversion in exon 9, resulting in a resulting in a ser486-to-thr (S486T) substitution. The MR of individuals with 1 copy of the CYP2D6L gene did not differ from those with the wildtype gene, but there was a correlation between decreased MR and increased copies of the CYP2D6L gene.</Attribute>
+        <Citation>
+          <ID Source="PubMed">7903454</ID>
+        </Citation>
+        <XRef DB="OMIM" ID="608902" Type="MIM"/>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="Description">Panserat et al. (1994) identified the R296C and S486T changes as 2 major CYP2D6 allozymes in extensive metabolizers (wildtype). Residue 296 falls within a presumed substrate recognition site, and residue 486 lies in the vicinity of the heme binding site.</Attribute>
+        <Citation>
+          <ID Source="PubMed">7927337</ID>
+        </Citation>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Preferred">CYP2D6, ARG296CYS AND SER486THR</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="NonHGVS">ARG296CYS AND SER486THR</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">CYP2D6</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="OMIM" ID="124030.0007" Type="Allelic variant"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">DEBRISOQUINE, ULTRARAPID METABOLISM OF</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
