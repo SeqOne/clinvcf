@@ -1,0 +1,211 @@
+<ClinVarSet ID="47617087">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000106.6(CYP2D6):c.886C&gt;T (p.Arg296Cys) AND not specified</Title>
+  <ReferenceClinVarAssertion DateCreated="2018-04-09" DateLastUpdated="2019-11-02" ID="1433287">
+    <ClinVarAccession Acc="RCV000616933" Version="1" Type="RCV" DateUpdated="2019-11-02"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2018-02-27">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Benign</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="48509535">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="242771" Acc="VCV000242771" Version="1">
+      <Measure Type="single nucleotide variant" ID="31934">
+        <Name>
+          <ElementValue Type="Preferred">NM_000106.6(CYP2D6):c.886C&gt;T (p.Arg296Cys)</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Accession="LRG_303t1" Change="c.886C&gt;T" Type="HGVS, coding, LRG">LRG_303t1:c.886C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001025161" Version="3" Change="c.733C&gt;T" Type="HGVS, coding, RefSeq">NM_001025161.3:c.733C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000106" Version="6" Change="c.886C&gt;T" Type="HGVS, coding, RefSeq">NM_000106.6:c.886C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_303" Change="g.7870C&gt;T" Type="HGVS, genomic, LRG">LRG_303:g.7870C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008376" Version="3" Change="g.7051C&gt;T" Type="HGVS, genomic, RefSeqGene">NG_008376.3:g.7051C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008376" Version="4" Change="g.7870C&gt;T" Type="HGVS, genomic, RefSeqGene">NG_008376.4:g.7870C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000022" Version="11" Change="g.42127941G&gt;A" Type="HGVS, genomic, top level" integerValue="38">NC_000022.11:g.42127941G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000022" Version="10" Change="g.42523943=" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000022.10:g.42523943=</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000106" Version="5" Change="c.886C&gt;T" Type="HGVS, previous">NM_000106.5:c.886C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008376" Version="2" Change="g.7941C&gt;T" Type="HGVS, previous">NG_008376.2:g.7941C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_303p1" Change="p.Arg296Cys" Type="HGVS, protein">LRG_303p1:p.Arg296Cys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="P10635" Change="p.Arg296Cys" Type="HGVS, protein">P10635:p.Arg296Cys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001020332" Version="2" Change="p.Arg245Cys" Type="HGVS, protein, RefSeq">NP_001020332.2:p.Arg245Cys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000097" Version="3" Change="p.Arg296Cys" Type="HGVS, protein, RefSeq">NP_000097.3:p.Arg296Cys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000097" Version="3" Change="p.Arg296Cys" Type="HGVS, protein, RefSeq">NP_000097.3:p.Arg296Cys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000097" Version="3" Change="p.Arg296Cys" Type="HGVS, protein, RefSeq">NP_000097.3:p.Arg296Cys</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_000106.6:c.886C&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001025161.3:c.733C&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">R245C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">R296C</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange3LetterCode">ARG296CYS</Attribute>
+        </AttributeSet>
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.40045" Source="NHLBI Exome Sequencing Project (ESP) Exome Variant Server"/>
+          <AlleleFrequency Value="0.35923" Source="1000 Genomes Project"/>
+          <AlleleFrequency Value="0.34334" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.38555" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.37647" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <GlobalMinorAlleleFrequency Value="0.35923" Source="1000 Genomes Project" MinorAllele="A"/>
+        <CytogeneticLocation>22q13.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NC_000022.11" start="42127941" stop="42127941" display_start="42127941" display_stop="42127941" variantLength="1" positionVCF="42127941" referenceAlleleVCF="G" alternateAlleleVCF="A"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="22" Accession="NC_000022.10" start="42523943" stop="42523943" display_start="42523943" display_stop="42523943" variantLength="1" positionVCF="42523943" referenceAlleleVCF="A" alternateAlleleVCF="A"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">cytochrome P450 family 2 subfamily D member 6</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">CYP2D6</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NC_000022.11" start="42126499" stop="42130810" display_start="42126499" display_stop="42130810" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NT_187682.1" start="48840" stop="53151" display_start="48840" display_stop="53151" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NW_004504305.1" start="48826" stop="53137" display_start="48826" display_stop="53137" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NW_009646208.1" start="12065" stop="16376" display_start="12065" display_stop="16376" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NW_014040931.1" start="20088" stop="24399" display_start="20088" display_stop="24399" Strand="-"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="22" Accession="NW_015148968.1" start="4240" stop="8551" display_start="4240" display_stop="8551" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="22" Accession="NC_000022.10" start="42522500" stop="42526882" display_start="42522500" display_stop="42526882" variantLength="4383" Strand="-"/>
+          <XRef ID="1565" DB="Gene"/>
+          <XRef Type="MIM" ID="124030" DB="OMIM"/>
+          <XRef ID="HGNC:2625" DB="HGNC"/>
+        </MeasureRelationship>
+        <Citation Type="review" Abbrev="Medical Genetics Summaries">
+          <ID Source="BookShelf">NBK100662</ID>
+        </Citation>
+        <Citation Type="review" Abbrev="Medical Genetics Summaries">
+          <ID Source="BookShelf">NBK367795</ID>
+        </Citation>
+        <Citation Type="review" Abbrev="Medical Genetics Summaries">
+          <ID Source="BookShelf">NBK425795</ID>
+        </Citation>
+        <XRef ID="P10635#VAR_008340" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="124030.0007" DB="OMIM"/>
+        <XRef Type="rs" ID="16947" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000106.6(CYP2D6):c.886C&gt;T (p.Arg296Cys)</ElementValue>
+      </Name>
+      <XRef ID="CA039022" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="9590">
+      <Trait ID="16789" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not specified</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">AllHighlyPenetrant</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">The term 'not specified' was created for use in ClinVar so that submitters can convey the concept that a variant is benign, likely benign, or of uncertain significance for an unspecified set of disorders.  This usage was introduced in 2014 to replace AllHighlyPenetrant.</Attribute>
+        </AttributeSet>
+        <XRef ID="CN169374" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="1405438" SubmissionName="SUB3839901">
+    <ClinVarSubmissionID localKey="GDX:1826531|Not Provided" submittedAssembly="GRCh37" submitter="GeneDx" submitterDate="2018-03-26"/>
+    <ClinVarAccession Acc="SCV000724283" Version="1" Type="SCV" OrgID="26957" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-03"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2018-02-27">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Benign</Description>
+      <Comment>This variant is considered likely benign or benign based on one or more of the following criteria: it is a conservative change, it occurs at a poorly conserved position in the protein, it is predicted to be benign by multiple in silico algorithms, and/or has population frequency not consistent with disease.</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="GeneDx" ID="GDX:1826531"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">GeneDX Variant Classification (06012015)</Attribute>
+      <Citation>
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/7oynscmk/mdi-5616_26957_genedx_interprules_final_061215.pdf</URL>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000106.5:c.886C&gt;T</Attribute>
+        </AttributeSet>
+        <SequenceLocation Assembly="GRCh37" Chr="22" alternateAllele="A" referenceAllele="A" start="42523943" stop="42523943" variantLength="1"/>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">CYP2D6</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not specified</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
+
