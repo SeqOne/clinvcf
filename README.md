@@ -7,7 +7,7 @@ ClinVCF **generates a VCF file from a Clinvar Full Release** (XML format). It wa
 - **Improving Clinvar classification and aggregation method** by [deciphering "conflicting intepretation" records](#clinicalsignificance-correction-module) where almost all submissions goes into the same direction.
 - **Implementing a more robust [gene annotation module](#gene-annotation)** based NCBI GFF files.
 
-ClinVCF is **developped in NimLang, is higly efficieny*** (~ 5 minutes to generate the VCF from the XML) and supports GRCh37 and GRCh38 genomes builds.
+ClinVCF is **developped in NimLang, is highly efficient*** (~ 5 minutes to generate the VCF from the XML) and supports GRCh37 and GRCh38 genomes builds.
 
 **Table of content**
 - [ClinVCF](#clinvcf)
@@ -64,8 +64,9 @@ VCF Info field | Format | Description | Example
 **CLNREVSTAT** | *String* | [ClinVar review status](https://www.ncbi.nlm.nih.gov/clinvar/docs/review_status/) for the Variation ID | `no_assertion_criteria_provided` 
 **CLNSIG** | String | [Clinical significance](https://www.ncbi.nlm.nih.gov/clinvar/docs/clinsig/) for this single variant | `Pathogenic/Likely_Pathogenic`
 **OLD_CLNSIG**  | String | Orignial Clinical significance if variant reclassified by clinVCF correction module | `Conflicting_interpretations_of_pathogenicity`
-**GENEINFO** | String | Gene(s) for the variant reported as gene symbol:gene id. The gene symbol and id are delimited by a colon (`:`) and each pair is delimited by a vertical bar (`|`) | `FTCD:10841|FTCD-AS1:100861507`
-**MC** | String | comma separated list of molecular consequence in the form of Sequence Ontology `ID|molecular_consequence` | `SO:0001583|missense_variant`
+**CLNRECSTAT** | Integer | [3-levels stars confidence](#clinicalsignificance-correction-module) of Variant Alert! automatic reclassfication. | `3`
+**GENEINFO** | String | Gene(s) for the variant reported as gene symbol:gene id. The gene symbol and id are delimited by a colon (`:`) and each pair is delimited by a vertical bar (`\|`) | `FTCD:10841\|FTCD-AS1:100861507`
+**MC** | String | comma separated list of molecular consequence in the form of Sequence Ontology `ID\|molecular_consequence` | `SO:0001583\|missense_variant`
 **RS** | String | dbSNP ID (i.e. rs number) | `80358507`
 
 ## Methodology
