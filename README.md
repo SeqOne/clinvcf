@@ -58,16 +58,18 @@ ClinVCF generates a VCF with almost identical format as the original NCBI VCF.
 However, not all VCF fields are currently support by ClinVCF (see table bellow), and
 additionnal fields are provided.
 
-VCF Info field | Format | Description | Example
----------------|--------|-------------|---------
-**ALLELEID** | *Integer* | the ClinVar Allele ID | `1234`
-**CLNREVSTAT** | *String* | [ClinVar review status](https://www.ncbi.nlm.nih.gov/clinvar/docs/review_status/) for the Variation ID | `no_assertion_criteria_provided` 
-**CLNSIG** | String | [Clinical significance](https://www.ncbi.nlm.nih.gov/clinvar/docs/clinsig/) for this single variant | `Pathogenic/Likely_Pathogenic`
-**OLD_CLNSIG**  | String | Orignial Clinical significance if variant reclassified by clinVCF correction module | `Conflicting_interpretations_of_pathogenicity`
-**CLNRECSTAT** | Integer | [3-levels stars confidence](#clinicalsignificance-correction-module) of Variant Alert! automatic reclassfication. | `3`
-**GENEINFO** | String | Gene(s) for the variant reported as gene symbol:gene id. The gene symbol and id are delimited by a colon (`:`) and each pair is delimited by a vertical bar (`\|`) | `FTCD:10841\|FTCD-AS1:100861507`
-**MC** | String | comma separated list of molecular consequence in the form of Sequence Ontology `ID\|molecular_consequence` | `SO:0001583\|missense_variant`
-**RS** | String | dbSNP ID (i.e. rs number) | `80358507`
+| VCF Info field | Status*          | Format    | Description                                                                                                                                                        | Example                                        |
+| -------------- | --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
+| **ALLELEID**   | Same | *Integer* | the ClinVar Allele ID                                                                                                                                              | `1234`                                         |
+| **CLNREVSTAT** | Same | *String*  | [ClinVar review status](https://www.ncbi.nlm.nih.gov/clinvar/docs/review_status/) for the Variation ID                                                             | `no_assertion_criteria_provided`               |
+| **CLNSIG**     | Same | String    | [Clinical significance](https://www.ncbi.nlm.nih.gov/clinvar/docs/clinsig/) for this single variant                                                                | `Pathogenic/Likely_Pathogenic`                 |
+| **OLD_CLNSIG** | New             | String    | Orignial Clinical significance if variant reclassified by clinVCF correction module                                                                                | `Conflicting_interpretations_of_pathogenicity` |
+| **CLNRECSTAT** | New             | Integer   | [3-levels stars confidence](#clinicalsignificance-correction-module) of Variant Alert! automatic reclassfication.                                                  | `3`                                            |
+| **GENEINFO**   | Same | String    | Gene(s) for the variant reported as gene symbol:gene id. The gene symbol and id are delimited by a colon (`:`) and each pair is delimited by a vertical bar (`\|`) | `FTCD:10841\|FTCD-AS1:100861507`               |
+| **MC**         | Same | String    | comma separated list of molecular consequence in the form of Sequence Ontology `ID\|molecular_consequence`                                                         | `SO:0001583\|missense_variant`                 |
+| **RS**         | Same | String    | dbSNP ID (i.e. rs number)                                                                                                                                          | `80358507`                                     |
+
+* **Status**: *Same* (identical as in original Clinvar VCF), *new* (New field from clinVCF)
 
 ## Methodology
 
