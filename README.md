@@ -17,6 +17,8 @@ ClinVCF is **developped in NimLang, is highly efficient*** (~ 5 minutes to gener
   - [Methodology](#methodology)
     - [ClinicalSignificance correction module](#clinicalsignificance-correction-module)
     - [Gene annotation](#gene-annotation)
+  - [License](#license)
+  - [Misc](#misc)
 
 ## Quick start
 
@@ -58,16 +60,16 @@ ClinVCF generates a VCF with almost identical format as the original NCBI VCF.
 However, not all VCF fields are currently support by ClinVCF (see table bellow), and
 additionnal fields are provided.
 
-| VCF Info field | Status*          | Format    | Description                                                                                                                                                        | Example                                        |
-| -------------- | --------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
-| **ALLELEID**   | Same | *Integer* | the ClinVar Allele ID                                                                                                                                              | `1234`                                         |
-| **CLNREVSTAT** | Same | *String*  | [ClinVar review status](https://www.ncbi.nlm.nih.gov/clinvar/docs/review_status/) for the Variation ID                                                             | `no_assertion_criteria_provided`               |
-| **CLNSIG**     | Same | String    | [Clinical significance](https://www.ncbi.nlm.nih.gov/clinvar/docs/clinsig/) for this single variant                                                                | `Pathogenic/Likely_Pathogenic`                 |
-| **OLD_CLNSIG** | New             | String    | Orignial Clinical significance if variant reclassified by clinVCF correction module                                                                                | `Conflicting_interpretations_of_pathogenicity` |
-| **CLNRECSTAT** | New             | Integer   | [3-levels stars confidence](#clinicalsignificance-correction-module) of Variant Alert! automatic reclassfication.                                                  | `3`                                            |
-| **GENEINFO**   | Same | String    | Gene(s) for the variant reported as gene symbol:gene id. The gene symbol and id are delimited by a colon (`:`) and each pair is delimited by a vertical bar (`\|`) | `FTCD:10841\|FTCD-AS1:100861507`               |
-| **MC**         | Same | String    | comma separated list of molecular consequence in the form of Sequence Ontology `ID\|molecular_consequence`                                                         | `SO:0001583\|missense_variant`                 |
-| **RS**         | Same | String    | dbSNP ID (i.e. rs number)                                                                                                                                          | `80358507`                                     |
+| VCF Info field | Status* | Format    | Description                                                                                                                                                        | Example                                        |
+| -------------- | ------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
+| **ALLELEID**   | Same    | *Integer* | the ClinVar Allele ID                                                                                                                                              | `1234`                                         |
+| **CLNREVSTAT** | Same    | *String*  | [ClinVar review status](https://www.ncbi.nlm.nih.gov/clinvar/docs/review_status/) for the Variation ID                                                             | `no_assertion_criteria_provided`               |
+| **CLNSIG**     | Same    | String    | [Clinical significance](https://www.ncbi.nlm.nih.gov/clinvar/docs/clinsig/) for this single variant                                                                | `Pathogenic/Likely_Pathogenic`                 |
+| **OLD_CLNSIG** | New     | String    | Orignial Clinical significance if variant reclassified by clinVCF correction module                                                                                | `Conflicting_interpretations_of_pathogenicity` |
+| **CLNRECSTAT** | New     | Integer   | [3-levels stars confidence](#clinicalsignificance-correction-module) of Variant Alert! automatic reclassfication.                                                  | `3`                                            |
+| **GENEINFO**   | Same    | String    | Gene(s) for the variant reported as gene symbol:gene id. The gene symbol and id are delimited by a colon (`:`) and each pair is delimited by a vertical bar (`\|`) | `FTCD:10841\|FTCD-AS1:100861507`               |
+| **MC**         | Same    | String    | comma separated list of molecular consequence in the form of Sequence Ontology `ID\|molecular_consequence`                                                         | `SO:0001583\|missense_variant`                 |
+| **RS**         | Same    | String    | dbSNP ID (i.e. rs number)                                                                                                                                          | `80358507`                                     |
 
 * **Status**: *Same* (identical as in original Clinvar VCF), *new* (New field from clinVCF)
 
@@ -96,3 +98,13 @@ According to the 1.5 * IQR method, we remove outliers submissions and reclassify
       - If we have an equality we take exonic (+/-20bp padding) over intronic/intergenic candidates
       - If none are exonic, we take the gene with closest exon
       - If both are exonic, we take the oldest gene ID in NCBI Entrez database
+
+## License
+
+**clinVCF** is licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE) for the full license text.
+
+## Misc
+
+**clinVCF** is a part of the [**Variant Alert!** framework](https://github.com/SeqOne/variant_alert), a collaboration of :
+
+[![SeqOne](https://github.com/SeqOne/variant_alert/blob/master/img/logo-seqone.png?raw=true)](https://seq.one/)  [![Université Grenoble Alpes](https://github.com/SeqOne/variant_alert/blob/master/img/logo-uga.png?raw=true)](https://iab.univ-grenoble-alpes.fr/) [![CHU de Rouen](https://github.com/SeqOne/variant_alert/blob/master/img/logo-CHU.png?raw=true)](https://www.chu-rouen.fr/service/service-de-genetique/)
