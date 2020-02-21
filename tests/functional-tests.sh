@@ -99,3 +99,18 @@ assert_in_stdout "22	42523943	242771	A	."
 # Haplotypes should not be exported in the VCF
 run haplotype $exe tests/files/16895.xml
 assert_equal "$(grep -v '^#' $STDOUT_FILE)" ""
+
+# 3-stars reclassification system
+run three_star_reclassification $exe tests/files/184976.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=Pathogenic/Likely_pathogenic"
+assert_in_stdout "CLNRECSTAT=3"
+
+run two_star_reclassification $exe tests/files/140866.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=Likely_pathogenic"
+assert_in_stdout "CLNRECSTAT=2"
+
+run one_star_reclassification $exe tests/files/182965.xml
+assert_exit_code 0
+assert_in_stdout "CLNRECSTAT=1"
