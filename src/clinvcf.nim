@@ -13,6 +13,7 @@ import ./clinvcfpkg/lapper
 
 type
   ClinSig* = enum
+    csNA = "",
     csBenign = "Benign",
     csBenignLikelyBenign = "Benign/Likely benign",
     csLikelyBenign = "Likely benign",
@@ -27,9 +28,11 @@ type
     csAssociation = "association",
     csProtective = "protective",
     csConflictingDataFromSubmitters = "conflicting data from submitters",
-    csOther = "other"
+    csOther = "other",
+    csConflictingInterpretation = "Conflicting interpretations of pathogenicity"
 
   RevStat* = enum
+    rsNA = "",
     rsNoAssertion = "no assertion provided",
     rsNoAssertionCriteria = "no assertion criteria provided",
     rsNoAssertionVariant = "no assertion for the individual variant",
@@ -71,6 +74,7 @@ proc findNodes(n: XmlNode, tag: string): seq[XmlNode] =
 
 proc quantile*(xs: seq[float], q: float): float =
   # CODE TAKEN FROM R quantile function
+  # This correspond to the default implemented method for quantile calculation
   # index <- 1 + (n - 1) * probs 1 + (6 - 1) 
   # lo <- floor(index)
   # hi <- ceiling(index)
@@ -114,6 +118,8 @@ proc `$`*(mc: MolecularConsequence): string =
 
 proc nbStars*(rs: RevStat): int =
   case rs:
+    of rsNA:
+      result = 0
     of rsNoAssertion:
       result = 0
     of rsNoAssertionCriteria:
@@ -264,35 +270,28 @@ proc countSubmissions*(submissions: seq[Submission]): tuple[clinsig_count: Table
     if sub.submitter_id notin result.submitter_ids:
       result.submitter_ids.add(sub.submitter_id)
 
-proc removeOutlyingSubmissions*(acmg_submissions: seq[Submission], submissions: seq[Submission]): seq[Submission] =
+proc removeOutlyingSubmissions*(submissions: seq[Submission]): seq[Submission] =
   let 
+    acmg_submissions = submissions.selectACMGsubmissions()
     cs_values = map(acmg_submissions, proc (x: Submission): float = x.clinical_significance.clnsigToFloat())
     (min_val, max_val) = cs_values.IQRoutlierBounds()
   if min_val != -1 and max_val != -1:
     #var corrected_retained_submissions = newSeq[Submission]()
     for sub in submissions:
       if sub.clinical_significance in acmg_clinsig:
-        let clnsig_float =  sub.clinical_significance.clnsigToFloat() 
+        let clnsig_float = sub.clinical_significance.clnsigToFloat() 
         if clnsig_float >= min_val and clnsig_float <= max_val:
           result.add(sub)
       else:
         result.add(sub)
 
-proc aggregateSubmissions*(submissions: seq[Submission], autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string] =
-  var
-    retained_submissions = submissions.selectElligibleSubmissions()
-    (clinsig_count, revstat_count, submitter_ids) = retained_submissions.countSubmissions()
-  
-  # Correct conflicting submissions
-  let is_conflicting = clinsig_count.isConflicting()
-  #
-  if autocorrect_conflicts and is_conflicting:
-    let acmg_submissions = retained_submissions.selectACMGsubmissions()
-    if acmg_submissions.len() >= 5:
-        retained_submissions = removeOutlyingSubmissions(acmg_submissions, retained_submissions)
-        # Update counts with outlier removed
-        (clinsig_count, revstat_count, submitter_ids) = retained_submissions.countSubmissions()
-  
+proc aggregatSubmissionsClinvar*(submissions: seq[Submission]): tuple[clinsig: ClinSig, revstat: RevStat] =
+  result.clinsig = csNA
+  result.revstat = rsNA
+  # Update counts with outlier removed
+  let 
+    (clinsig_count, revstat_count, submitter_ids) = submissions.countSubmissions()
+    is_conflicting = clinsig_count.isConflicting()
   # Filter acmg_only values:
   var
     nb_acmg_tags = 0
@@ -305,26 +304,80 @@ proc aggregateSubmissions*(submissions: seq[Submission], autocorrect_conflicts =
       acmg_tag = tag
 
   # Case #1, agreement between all submissions
-  if nb_acmg_tags == 1 and (not is_conflicting or (is_conflicting and (acmg_tag == csPathogenic or acmg_tag == csLikelyPathogenic))):
-    result.clinsig = $acmg_tag
-    result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
+  if nb_acmg_tags == 1:
+    result.clinsig = acmg_tag
+    result.revstat = revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
   # Case #2 Patho and Likely Patho (only)
   elif nb_acmg_tags == 2 and clinsig_count.hasKey(csPathogenic) and clinsig_count.hasKey(csLikelyPathogenic):
-    result.clinsig = "Pathogenic/Likely pathogenic"
-    result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
+    result.clinsig = csPathogenicLikelyPathogenic
+    result.revstat = revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
   # Case #3, Only patho entries
-  elif nb_acmg_tags == 2 and clinsig_count.hasKey(csBenign) and clinsig_count.hasKey(csLikelyBenign) and not is_conflicting:
-    result.clinsig = "Benign/Likely benign"
-    result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
+  elif nb_acmg_tags == 2 and clinsig_count.hasKey(csBenign) and clinsig_count.hasKey(csLikelyBenign):
+    result.clinsig = csBenignLikelyBenign
+    result.revstat = revstat_count.aggregateReviewStatus(submitter_ids.len(), false)
   # Case #4, Conflict !!!
-  # TODO: Do some desambiguiations !!!
-  elif clinsig_count.isConflicting() or is_conflicting:
-      result.clinsig = "Conflicting interpretations of pathogenicity"
-      result.revstat = $revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
+  elif is_conflicting:
+    result.clinsig = csConflictingInterpretation
+    result.revstat = revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
+
+proc aggregateSubmissions*(submissions: seq[Submission], autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string, nb_reclassification_stars: int] =
+  var
+    retained_submissions = submissions.selectElligibleSubmissions()
+    (clinsig, revstat) = retained_submissions.aggregatSubmissionsClinvar()
+    (clinsig_count, revstat_count, submitter_ids) = retained_submissions.countSubmissions()
   
-  # Add the info that the variant was in fact reclassified
-  if is_conflicting and result.clinsig != "Conflicting interpretations of pathogenicity":
-    result.old_clinsig = "Conflicting interpretations of pathogenicity"
+  if clinsig != csNA:
+    result.clinsig = $clinsig
+  if revstat != rsNA:
+    result.revstat = $revstat
+  
+  result.nb_reclassification_stars = -1
+
+  # Correct conflicting submissions
+  if autocorrect_conflicts and clinsig == csConflictingInterpretation:
+    let acmg_submissions = retained_submissions.selectACMGsubmissions()
+    if acmg_submissions.len() >= 4:
+      let 
+        retained_submissions_without_outliers = removeOutlyingSubmissions(retained_submissions)
+        (clinsig_without_outliers, revstat_without_outliers) = retained_submissions_without_outliers.aggregatSubmissionsClinvar()
+        (clinsig_count_without_outliers, revstat_count_without_outliers, submitter_ids_without_outliers) = retained_submissions_without_outliers.countSubmissions()
+    
+      # We were "conflicting" but re-assigned the clinsig to a pathogenic tag after outlier removal
+      # Now we try to see if we have 1, 2 or 3 stars for reclassification
+      # - 1 star : default
+      # - 2 stars : reclassification remains even if we add a virtual VUS submission
+      # - 3 stars : 2 stars requirements and at least 1 pathogenic classification
+      if clinsig_without_outliers.clnsigToFloat() >= 4:
+        var 
+          submissions_with_one_vus = retained_submissions
+          nb_reclassification_stars = 1
+        submissions_with_one_vus.add(Submission(clinical_significance: csUncertainSignificance, review_status: rsSingleSubmitter))
+        let 
+          #acmg_submissions_with_one_vus = submissions_with_one_vus.selectACMGsubmissions()
+          submissions_with_one_vus_without_outlier = removeOutlyingSubmissions(submissions_with_one_vus)
+          (clinsig_with_one_vus, revstat_with_one_vus) = submissions_with_one_vus_without_outlier.aggregatSubmissionsClinvar()
+        
+        # Debug lines for this scary code section
+        # stderr.writeLine("[Log] submissions: " & $map(submissions, proc (x: Submission): string = $x.clinical_significance.clnsigToFloat()).join(","))
+        # stderr.writeLine("[Log] retained_submissions: " & $map(retained_submissions, proc (x: Submission): string = $x.clinical_significance.clnsigToFloat()).join(","))
+        # stderr.writeLine("[Log] retained_submissions_without_outliers: " & $map(retained_submissions_without_outliers, proc (x: Submission): string = $x.clinical_significance.clnsigToFloat()).join(","))
+        # stderr.writeLine("[Log] submissions_with_one_vus: " & $map(submissions_with_one_vus, proc (x: Submission): string = $x.clinical_significance.clnsigToFloat()).join(","))
+        # stderr.writeLine("[Log] submissions_with_one_vus_without_outlier: " & $map(submissions_with_one_vus_without_outlier, proc (x: Submission): string = $x.clinical_significance.clnsigToFloat()).join(","))
+        
+        if clinsig_with_one_vus.clnsigToFloat() >= 4:
+          if clinsig_count_without_outliers.hasKey(csPathogenic):
+            nb_reclassification_stars = 3
+          else:
+            nb_reclassification_stars = 2
+          # If we have 2/3 stars we use the classification with the virtual "VUS"
+          result.clinsig = $clinsig_with_one_vus
+          result.revstat = $revstat_with_one_vus
+        else:
+          # Otherwise we keep our original classification as the virtual "VUS" got us back to conflicting status
+          result.clinsig = $clinsig_without_outliers
+          result.revstat = $revstat_without_outliers
+        result.old_clinsig = $csConflictingInterpretation
+        result.nb_reclassification_stars = nb_reclassification_stars
   
   # Add non-ACMG values to the end of clinsig
   # If ClinVar aggregates submissions from groups that provided a standard term not recommend by ACMG/AMP ( e.g. drug response), then those values are reported after the ACMG/AMP-based interpretation (see the table below).
@@ -549,6 +602,7 @@ proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')
 
 proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string, genes_index: TableRef[string, Lapper[GFFGene]], coding_priority : bool) =
+  # Commented lines correspond to the NCBI Clinvar original header that are not currently supported by clinVCF
   echo "##fileformat=VCFv4.1"
   if filedate != "":
     echo "##fileDate=" & filedate # TODO: Get date from XML headers
@@ -567,6 +621,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
   echo "##INFO=<ID=CLNREVSTAT,Number=.,Type=String,Description=\"ClinVar review status for the Variation ID\">"
   echo "##INFO=<ID=CLNSIG,Number=.,Type=String,Description=\"Clinical significance for this single variant\">"
   echo "##INFO=<ID=OLD_CLNSIG,Number=.,Type=String,Description=\"Clinical significance was deciphered and this value is the original one given by ClinVar aggregation method\">"
+  echo "##INFO=<ID=CLNRECSTAT,Number=1,Type=Integer,Description=\"3-levels stars confidence for automatic reclassfication of conflicting variants\">"
   # ##INFO=<ID=CLNSIGCONF,Number=.,Type=String,Description="Conflicting clinical significance for this single variant">
   # ##INFO=<ID=CLNSIGINCL,Number=.,Type=String,Description="Clinical significance for a haplotype or genotype that includes this variant. Reported as pairs of VariationID:clinical significance.">
   # ##INFO=<ID=CLNVC,Number=1,Type=String,Description="Variant type">
@@ -587,7 +642,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     nb_variants = 0
   for v in variants:
     inc(nb_variants)
-    let (clinsig, revstat, old_clinsig) = v.submissions.aggregateSubmissions(true) # Autocorrect conflicts
+    let (clinsig, revstat, old_clinsig, nb_reclassification_stars) = v.submissions.aggregateSubmissions(true) # Autocorrect conflicts
     var info_fields : seq[string] = @["ALLELEID=" & $v.allele_id]
     
     if not genes_index.isNil():
@@ -600,6 +655,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
 
     if old_clinsig != "":
       info_fields.add("OLD_CLNSIG=" & old_clinsig.formatVCFString())
+      info_fields.add("CLNRECSTAT=" & $nb_reclassification_stars)
       inc(nb_corrections)
 
     if v.molecular_consequences.len > 0:
