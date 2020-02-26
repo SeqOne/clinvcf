@@ -1,9 +1,27 @@
+variables:
+  IMAGE_NAME: $CI_REGISTRY_IMAGE
+
+include:
+  - project: "devops/gitlab-ci-template"
+    file: "/release.gitlab-ci.yml"
+  - project: "devops/gitlab-ci-template"
+    file: "/ssh-key.gitlab-ci.yml"
+  - project: "devops/gitlab-ci-template"
+    file: "/docker.gitlab-ci.yml"
+
 stages:
   - test
-  - delivery
+  - release
+  - artefact_build
+  - delivery_dev
+  - delivery_staging
+  - delivery_prod
+
+release:
+  extends: .release
 
 test:
-  image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.0.2
+  image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.0.4
   stage: test
   script:
     - nimble build -y
@@ -11,9 +29,9 @@ test:
   tags:
     - docker-executor
 
-delivery:
-  image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.0.2
-  stage: delivery
+artefact_build:
+  image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.0.4
+  stage: artefact_build
   script:
     - nimble install -y
   artifacts:
@@ -23,3 +41,39 @@ delivery:
     - docker-executor
   only:
     - tags
+
+####################
+# DEPLOY
+####################
+delivery_dev:
+  extends: .build and delivery
+  stage: delivery_dev
+  environment:
+    name: "$ENV_TAG"
+  variables:
+    ENV_TAG: dev
+    DOCKER_BUILD_ARGS: --build-arg VERSION=$CI_COMMIT_REF_NAME
+      --build-arg PRIVATE_CI_ACCESS_TOKEN=$PRIVATE_CI_ACCESS_TOKEN
+  when: on_success
+
+####################
+# DEPLOY Staging
+####################
+delivery_staging:
+  extends: .tag and delivery
+  stage: delivery_staging
+  environment:
+    name: "$ENV_TAG"
+  variables:
+    ENV_TAG: staging
+
+####################
+# DEPLOY prod
+####################
+delivery_prod:
+  extends: .tag and delivery
+  stage: delivery_prod
+  environment:
+    name: "$ENV_TAG"
+  variables:
+    ENV_TAG: prod
