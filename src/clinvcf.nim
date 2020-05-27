@@ -6,6 +6,7 @@ from streams import newStringStream
 import docopt # Formating the command-line
 import strutils # Split string
 import hts
+from regex import match, RegexMatch, groupFirstCapture
 
 # Local libs
 import ./clinvcfpkg/gff
@@ -688,12 +689,12 @@ Usage: clinvcf [options] <clinvar.xml.gz>
 
 Options:
   --genome <version>              Genome assembly to use [default: GRCh37]
+  --filename-date                 Use xml filename date instead of inner date which may differ
 
 Gene annotation:
   --gff <file>                    NCBI GFF to annotate variations with genes
   --coding-first                  Give priority to coding gene in annotation (even if intronic and exonic for another gene)
   --gene-padding <int>            Padding to annotation upstream/downstream genes (not applied for MT) [default: 5000]
-  
   """)
 
   let 
@@ -702,6 +703,7 @@ Gene annotation:
     clinvar_xml_file = $args["<clinvar.xml.gz>"]
     coding_priority = args["--coding-first"]
     gene_padding = parseInt($args["--gene-padding"])
+    filename_date = args["--filename-date"]
   
   var 
     variants_hash: TableRef[int, ClinVariant]
@@ -712,6 +714,13 @@ Gene annotation:
   # Load variants from XML
   stderr.writeLine("[Log] Parsing variants from " & clinvar_xml_file)
   (variants_hash, filedate) = loadVariants(clinvar_xml_file, genome_assembly)
+  if filename_date:
+
+    var m: RegexMatch
+    var r = regex.re".*ClinVarFullRelease_(?P<date>[0-9]{4}-[0-9]{2}).xml.gz"
+      
+    if clinvar_xml_file.match(r, m):
+      filedate = m.groupFirstCapture("date", clinvar_xml_file) & "-01"
 
   if args["--gff"]:
     let gff_file = $args["--gff"]
