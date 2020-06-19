@@ -15,7 +15,7 @@ iterator nextClinvarSet*(file: var BGZ): string =
       chunk = ""
     else:
       chunk.add(line & "\n")
-  yield chunk  
+  yield chunk
 
 proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')
@@ -34,7 +34,7 @@ Usage: extractClinvarSet <clinvar.xml.gz> <variant_id>
 
   """)
 
-  let 
+  let
     args = docopt(doc)
     searched_id = $args["<variant_id>"]
     clinvar_xml_file = $args["<clinvar.xml.gz>"]
@@ -44,16 +44,16 @@ Usage: extractClinvarSet <clinvar.xml.gz> <variant_id>
   # TODO: Print VCF headers
   stderr.writeLine("[Log] Parsing variants from " & clinvar_xml_file)
 
-  var 
+  var
     file : BGZ
     parsed_variants = initTable[string, int]()
     i = 0
 
   file.open(clinvar_xml_file, "r")
 
-  for clinvarset_string in file.nextClinvarSet():   
+  for clinvarset_string in file.nextClinvarSet():
     if clinvarset_string != "" and clinvarset_string.startsWith("<ClinVarSet"):
-      let 
+      let
         root = parseHtml(newStringStream(clinvarset_string))
       for clinvarset_node in root.findNodes("clinvarset"):
         for reference_clinvar_assertion_nodes in clinvarset_node.findNodes("referenceclinvarassertion"):

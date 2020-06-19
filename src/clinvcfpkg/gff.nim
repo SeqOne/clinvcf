@@ -82,7 +82,7 @@ let
     "NC_000024.10": "Y",
     }.toTable
 
-proc minExonDist*(gene: GFFGene, pos: int, padding : int): int = 
+proc minExonDist*(gene: GFFGene, pos: int, padding : int): int =
   var min_dist = -1
   for exon in gene.exons:
     # Add padding to the exons, in order to consider close intronic regions as "exonic"
@@ -99,7 +99,7 @@ proc minExonDist*(gene: GFFGene, pos: int, padding : int): int =
         min_dist = dist
   result = min_dist
 
-proc minExonDist*(gene: GFFGene, start: int, stop: int, padding : int): int = 
+proc minExonDist*(gene: GFFGene, start: int, stop: int, padding : int): int =
   result = min(gene.minExonDist(start, padding),gene.minExonDist(stop, padding))
 
 proc removeChrPrevix*(chrom: string): string =
@@ -118,7 +118,7 @@ proc parseKeyValues*(str: string, global_sep: char, key_value_sep: char): TableR
   let fields = str.split(global_sep)
   result = newTable[string, string]()
   for f in fields:
-    let 
+    let
       kv_split = f.split(key_value_sep, 1)
     if kv_split.len() == 2:
       result[kv_split[0]] = kv_split[1]
@@ -126,11 +126,11 @@ proc parseKeyValues*(str: string, global_sep: char, key_value_sep: char): TableR
       stderr.writeLine("[Error] Value fields " & f & " was not a key/value field using separator " & key_value_sep)
 
 proc loadGenesFromGFF*(gff_file: string, gene_padding : int): TableRef[string, Lapper[GFFGene]] =
-  result = newTable[string, Lapper[GFFGene]]() 
+  result = newTable[string, Lapper[GFFGene]]()
   var
     fh: BGZ
     genes_chr_table = newTable[string, seq[GFFGene]]() # Temp table to load genes per-chromosomes
-    genes_name_table = newTable[string, GFFGene]() 
+    genes_name_table = newTable[string, GFFGene]()
 
   open(fh, gff_file, "r")
   for line in fh:
@@ -138,7 +138,7 @@ proc loadGenesFromGFF*(gff_file: string, gene_padding : int): TableRef[string, L
     if line.len() == 0 or line[0] == '#':
       continue
     var v = line.split('\t', 3)
-    
+
     # Only use "BestRefSeq" annotations
     # This was disable as MT annotations are annotated "RefSeq" and not "BestRefSeq"
     # if v[1] != "BestRefSeq":
@@ -154,26 +154,26 @@ proc loadGenesFromGFF*(gff_file: string, gene_padding : int): TableRef[string, L
         gff_fields = v2[5].parseKeyValues(';','=')
         dbxref_fields = gff_fields["Dbxref"].parseKeyValues(',',':')
         gene : GFFGene
-      
+
       if chrom != "MT":
         # Add padding of gene to annotate upstream / downstream genes
         gene = GFFGene(chrom: chrom, start: start - gene_padding, stop: stop + gene_padding, exons: @[])
       else:
         # For MT, we only do +/-2bp padding
         gene = GFFGene(chrom: chrom, start: start - 2, stop: stop + 2, exons: @[])
-      
+
       gene.gene_symbol = gff_fields["Name"]
       if dbxref_fields.hasKey("GeneID"):
         gene.gene_id = parseInt(dbxref_fields["GeneID"])
-      
+
       if gff_fields.hasKey("gene_biotype"):
         gene.biotype = gff_fields["gene_biotype"]
-      
+
       if genes_chr_table.hasKey(gene.chrom):
         genes_chr_table[gene.chrom].add(gene)
       else:
         genes_chr_table[gene.chrom] = @[gene]
-      
+
       genes_name_table[gene.gene_symbol] = gene
 
     # NC_000001.10    Curated Genomic exon    131068  132927  .       +       .       ID=id-CICP27;Parent=gene-CICP27;Dbxref=GeneID:100420257,HGNC:HGNC:48835;gbkey=exon;gene=CICP27
@@ -191,7 +191,7 @@ proc loadGenesFromGFF*(gff_file: string, gene_padding : int): TableRef[string, L
       if gene_symbol != "" and genes_name_table.hasKey(gene_symbol):
         let
           exon = Region(chrom: parseChr(v[0]),start: parseInt(v2[0]), stop: parseInt(v2[1]))
-        
+
         # Only add uniq exons and merge overlapping ones
         var i = 0
         for e in genes_name_table[gene_symbol].exons.mitems():
@@ -201,11 +201,11 @@ proc loadGenesFromGFF*(gff_file: string, gene_padding : int): TableRef[string, L
             e.merge(exon)
             break
           inc(i)
-        
+
         # The exon has not been found / merge, we add it
         if i == genes_name_table[gene_symbol].exons.len():
           genes_name_table[gene_symbol].exons.add(exon)
-  
+
   # Load set of genes (per chromosome) to lapper index
   stderr.writeLine("[Log] Create lapper index for file " & gff_file)
   for chrom in genes_chr_table.keys():
@@ -216,10 +216,10 @@ proc cmpGenes*(x, y: RequestGene): int =
   let
     x_exon_dist = x.gene.minExonDist(x.query.start, x.query.stop, 20)
     y_exon_dist = y.gene.minExonDist(y.query.start, y.query.stop, 20)
-  
+
   # echo "X: " & x.gene.gene_symbol & " DIST: " & $x_exon_dist & " BIOTYPE: " & x.gene.biotype
   # echo "Y: " & y.gene.gene_symbol & " DIST: " & $y_exon_dist & " BIOTYPE: " & y.gene.biotype
-  
+
   # First we give priority to protein_coding genes if variants is at 20bp of an exon boundary or both are intronic
   # This does not apply for MT
   if x.gene.chrom != "MT" and x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding" and (x_exon_dist <= 20 or (x_exon_dist > 0 and y_exon_dist > 0)):
@@ -236,7 +236,7 @@ proc cmpGenes*(x, y: RequestGene): int =
     elif x_exon_dist >= 0:
       return -1
     else:
-      return 1  
+      return 1
 
   # Finally we chose the oldest gene_id
   return cmp(x.gene.gene_id, y.gene.gene_id)
@@ -246,7 +246,7 @@ proc cmpGenesCodingFirst*(x, y: RequestGene): int =
 
   # stderr.writeLine("gene: " & x.gene.gene_symbol & " biotype: " & x.gene.biotype & " dist: " & $x.gene.minExonDist(x.query.start, x.query.stop, 20))
   # stderr.writeLine("gene: " & y.gene.gene_symbol & " biotype: " & y.gene.biotype & " dist: " & $y.gene.minExonDist(x.query.start, x.query.stop, 20))
-  
+
   # First we give priority to protein_coding genes if variants is at 20bp of an exon boundary or both are intronic
   # This does not apply for MT
   if x.gene.chrom != "MT" and x.gene.biotype == "protein_coding" and y.gene.biotype != "protein_coding":
@@ -266,22 +266,22 @@ proc cmpGenesCodingFirst*(x, y: RequestGene): int =
     elif x_exon_dist >= 0:
       return -1
     else:
-      return 1  
+      return 1
 
   # Finally we chose the oldest gene_id
   return cmp(x.gene.gene_id, y.gene.gene_id)
 
 proc getInfoString*(genes_index: TableRef[string, Lapper[GFFGene]], chrom: string, start: int, stop: int, coding_priority: bool): string =
   if genes_index.hasKey(chrom):
-    var 
-      res = new_seq[GFFGene]() # Store retrieved genes 
+    var
+      res = new_seq[GFFGene]() # Store retrieved genes
       found_overlapping_genes = genes_index[chrom].find(start, stop, res)
 
     # We have no overlapping genes, we try to find the nearest ones (upstream and downstream)
     if not found_overlapping_genes:
-      var 
-        res_nearest_up = new_seq[GFFGene]() 
-        res_nearest_down = new_seq[GFFGene]() 
+      var
+        res_nearest_up = new_seq[GFFGene]()
+        res_nearest_down = new_seq[GFFGene]()
         found_nearest_up = genes_index[chrom].find_nearest_upstream(start, res_nearest_up)
         found_nearest_down = genes_index[chrom].find_nearest_downstream(stop, res_nearest_down)
         dist_nearest_up = -1
@@ -306,7 +306,7 @@ proc getInfoString*(genes_index: TableRef[string, Lapper[GFFGene]], chrom: strin
         res = res_nearest_up
       elif dist_nearest_down != -1:
         res = res_nearest_down
-      
+
     if res.len() > 0:
       # Create object with gene + query interval for sorting (query is necessary for compGenes)
       var sorted_genes: seq[RequestGene]
