@@ -662,6 +662,7 @@ proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')
 
 proc formatPathoString(pathoString: string): string =
+  # Format pathology string in info field
   for i, char in pathoString:
     if char == '/' or char == '(' or char == ')' or char == ',':
       # If non-desired character is found at the end of the string, just pass
