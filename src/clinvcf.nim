@@ -62,10 +62,14 @@ type
     alt_allele: string
     molecular_consequences: seq[MolecularConsequence]
     submissions: seq[Submission]
+    pathologies: TableRef[string, seq[string]]
+
+const ignoredPathoTag = @["not specified", "see cases", "not provided", "variant of unknown significance"]
 
 var
   acmg_clinsig = @[csBenign, csLikelyBenign, csUncertainSignificance, csLikelyPathogenic, csPathogenic]
   non_acmg_clinsig = @[csDrugResponse, csRiskFactor, csAffects, csAssociation, csProtective, csConflictingDataFromSubmitters, csOther]
+  clinicalPathoType: seq[string] = @[]
 
 proc findNodes(n: XmlNode, tag: string): seq[XmlNode] =
   for xref_node in n:
@@ -207,6 +211,17 @@ proc parseNCBIConversionComment*(comment: string): ClinSig =
     result = parseEnum[ClinSig](arr[0], csUnknown)
   else:
     result = csUnknown
+
+proc parseClinicalPathologies(pathoType: string, pathoList: seq[string]): string =
+  # Take a patho type (disease, finding etc) and return a formatted INFO field with all pathologies associated to a variant for a specific type
+  #  EXAMPLE FINDING=PATHO1|PATHO2|PATHO3 ...
+  var finalInfo: string = "CLN" & pathoType.toUpperAscii & "="
+  for i, patho in pathoList:
+    if i == pathoList.len - 1:
+      finalInfo = finalInfo & patho
+    else:
+      finalInfo = finalInfo & patho & '|'
+  return finalInfo
 
 proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], nb_submitters: int, has_conflict = false): RevStat =
   if revstat_count.hasKey(rsPracticeGuideline):
@@ -511,6 +526,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     rsid: cast[int32](rsid),
                     ref_allele: ref_allele,
                     alt_allele: alt_allele,
+                    pathologies: newTable[string, seq[string]]()
                   )
                 result.variants[variant_id] = variant
 
@@ -545,13 +561,56 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
 
                 break # We found our "sequenceLocation"
 
-          # Not lets add the submissions
+          # Now lets add the submissions and pathology
           if result.variants.hasKey(variant_id):
             for clinvar_assertion_node in doc.select("clinvarassertion"):
               let
                 clinsig_nodes = clinvar_assertion_node.select("clinicalsignificance")
                 clinvar_submission_id_nodes = clinvar_assertion_node.select("clinvarsubmissionid")
                 measure_relationship_nodes = clinvar_assertion_node.select("measurerelationship")
+                traitSetNodes = clinvar_assertion_node.select("traitset")
+              # Extract pathologies
+              for trait in traitSetNodes[0].select("trait"):
+                # Check if there is informations about pathology
+                if trait.select("elementvalue").len() > 0:
+                  # <traitset Type="Finding">
+                  #   <trait Type="Finding">
+                  #     <name>
+                  #       <elementvalue Type="Preferred">nuclear cataracts</elementvalue>
+                  #     </name>
+                  #   </trait>
+                  #   <trait Type="Finding">
+                  #     <name>
+                  #       <elementvalue Type="Preferred">microcornea</elementvalue>
+                  #     </name>
+                  #   </trait>
+                  # </traitset>
+                  # <traitset Type="Disease">
+                  #   <trait Type="Disease">
+                  #    <name>
+                  #      <elementvalue Type="Preferred">Cataract 1</elementvalue>
+                  #    </name>
+                  #    <xref DB="OMIM" Type="MIM" ID="116200" />
+                  #   </trait>
+                  # </traitset>
+                  let pathoType = trait.attr("Type")
+                  # Patho to skip : See cases OR not specified
+                  if trait.select("elementvalue")[0].innerText.toLowerAscii in ignoredPathoTag:
+                    continue
+                  let pathology = trait.select("elementvalue")[0].innerText
+                  # Add result inside pathology table:
+                  #   key: pathology type : (Disease, Finding...)
+                  #   value: a list contaning pathology's names
+                  if result.variants[variant_id].pathologies.hasKey(pathoType):
+                    if pathology in result.variants[variant_id].pathologies[pathoType]:
+                      continue
+                    result.variants[variant_id].pathologies[pathoType].add(pathology)
+                  else:
+                    result.variants[variant_id].pathologies[pathoType] = @[]
+                    result.variants[variant_id].pathologies[pathoType].add(pathology)
+                  if pathoType in clinicalPathoType:
+                    continue
+                  clinicalPathoType.add(pathoType)
 
               var
                 submitter_id = -1
@@ -602,6 +661,22 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
 proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')
 
+proc formatPathoString(pathoString: string): string =
+  for i, char in pathoString:
+    if char == '/' or char == '(' or char == ')' or char == ',':
+      # If non-desired character is found at the end of the string, just pass
+      if i == pathoString.len - 1:
+        continue
+      # Else, replace the character by "_"
+      result = result & '_'
+    elif char == ' ':
+      # If ", " is found just skip the " " value in order to return "_" and not "__"
+      if pathoString[i-1] == ',':
+        continue
+      result = result & '_'
+    else:
+      result = result & char
+
 proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string, genes_index: TableRef[string, Lapper[GFFGene]], coding_priority : bool) =
   # Commented lines correspond to the NCBI Clinvar original header that are not currently supported by clinVCF
   echo "##fileformat=VCFv4.1"
@@ -623,6 +698,8 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
   echo "##INFO=<ID=CLNSIG,Number=.,Type=String,Description=\"Clinical significance for this single variant\">"
   echo "##INFO=<ID=OLD_CLNSIG,Number=.,Type=String,Description=\"Clinical significance was deciphered and this value is the original one given by ClinVar aggregation method\">"
   echo "##INFO=<ID=CLNRECSTAT,Number=1,Type=Integer,Description=\"3-levels stars confidence for automatic reclassfication of conflicting variants\">"
+  for pathoType in clinicalPathoType:
+    echo "##INFO=<ID=CLN" & pathoType.toUpperAscii & ",Number=.,Type=String,Description=\"Clinical pathology(ies) ranked as " & pathoType & " referenced for a variant\">"
   # ##INFO=<ID=CLNSIGCONF,Number=.,Type=String,Description="Conflicting clinical significance for this single variant">
   # ##INFO=<ID=CLNSIGINCL,Number=.,Type=String,Description="Clinical significance for a haplotype or genotype that includes this variant. Reported as pairs of VariationID:clinical significance.">
   # ##INFO=<ID=CLNVC,Number=1,Type=String,Description="Variant type">
@@ -658,6 +735,14 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
       info_fields.add("OLD_CLNSIG=" & old_clinsig.formatVCFString())
       info_fields.add("CLNRECSTAT=" & $nb_reclassification_stars)
       inc(nb_corrections)
+
+    # Add each pathologies per variants in info_field
+    if v.pathologies.len > 0:
+      for pathoType in v.pathologies.keys:
+        # Edit pathology string to fit with header
+        # Example : given Disease return CLNDISEASE
+        let pathology = pathoType.parseClinicalPathologies(v.pathologies[pathoType])
+        info_fields.add(pathology.formatPathoString)
 
     if v.molecular_consequences.len > 0:
       var formated_consequences = map(v.molecular_consequences, proc (x: MolecularConsequence): string = formatVCFString($x))
