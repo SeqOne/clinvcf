@@ -594,10 +594,10 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                   #   </trait>
                   # </traitset>
                   let pathoType = trait.attr("Type")
-                  # Patho to skip : See cases OR not specified
+                  # Patho to skip : all values in ingnoredPathoTag
                   if trait.select("elementvalue")[0].innerText.toLowerAscii in ignoredPathoTag:
                     continue
-                  let pathology = trait.select("elementvalue")[0].innerText
+                  let pathology = trait.select("elementvalue")[0].innerText.toLowerAscii
                   # Add result inside pathology table:
                   #   key: pathology type : (Disease, Finding...)
                   #   value: a list contaning pathology's names
