@@ -29,11 +29,11 @@
 ##      start: int
 ##      stop: int
 ##      val: int
-##    
+##
 ##    proc start(m: myinterval): int {.inline.} = return m.start
 ##    proc stop(m: myinterval): int {.inline.} = return m.stop
 ##    proc `$`(m:myinterval): string = return "(start:$#, stop:$#, val:$#)" % [$m.start, $m.stop, $m.val]
-##    
+##
 ##  create some fake data
 ## .. code-block:: nim
 ##  var ivs = new_seq[myinterval]()
@@ -45,15 +45,15 @@
 ## .. code-block:: nim
 ##  l = lapify(ivs)
 ##  empty:seq[myinterval]
-    
+
 ## .. code-block:: nim
 ##  l.find(10, 20, empty)
 ##  notfound = not l.find(200, 300, empty)
 ##  assert notfound
-    
+
 ## .. code-block:: nim
 ##  res = new_seq[myinterval]()
- 
+
 ##  find is the more general case, l.seek gives a speed benefit when consecutive queries are in order.
 
 ## .. code-block:: nim
@@ -62,7 +62,7 @@
 ##  # @[(start: 40, stop: 55, val:0), (start: 50, stop: 65, val: 0), (start: 60, stop: 75, val: 0), (start: 70, stop: 85, val: 0)]
 ##  for r in res:
 ##     r.val += 1
- 
+
 ## or we can do a function on each overlapping interval
 
 ## .. code-block:: nim
@@ -72,7 +72,7 @@
 
 ## .. code-block:: nim
 ##   l.each_find(50, 60, proc(a:myinterval) = a.val += 10)
- 
+
 ## .. code-block:: nim
 ##   discard l.seek(50, 70, res)
 ##   echo res
@@ -160,16 +160,16 @@ proc count*[T:Interval](L:var Lapper[T], start:int, stop:int): int =
 proc find_nearest_upstream*[T:Interval](L:var Lapper[T], pos:int, ivs:var seq[T]): bool =
   ## Find nearest upstream interval (left)
   shallow(L.intervals)
-  var 
+  var
     i = lowerBound(L.intervals, pos)
     max_stop = -1
     candidates: seq[T]
-  
+
   # While we have not found an interval or we could find one that will have
   # a higher stop position as our current candidate
   while i >= 0 and (max_stop == -1 or (max_stop - L.intervals[i].start) < L.max_len):
     # We want intervals that are not ovelapping our posion
-    if L.intervals[i].stop < pos: 
+    if L.intervals[i].stop < pos:
       if max_stop == -1 or L.intervals[i].stop > max_stop:
         max_stop = L.intervals[i].stop
         candidates.setLen(0)
@@ -180,16 +180,16 @@ proc find_nearest_upstream*[T:Interval](L:var Lapper[T], pos:int, ivs:var seq[T]
 
   for c in candidates:
     ivs.add(c)
-  
+
   return ivs.len() > 0
 
 proc find_nearest_downstream*[T:Interval](L:var Lapper[T], pos:int, ivs:var seq[T]): bool =
   ## Find nearest upstream interval (left)
   shallow(L.intervals)
-  var 
+  var
     i = lowerBound(L.intervals, pos)
     min_start = -1
-  
+
   # While we have not found an interval or we could find one that will have
   # a higher stop position as our current candidate
   while i <= L.intervals.high and (min_start == -1 or L.intervals[i].start == min_start):
@@ -199,7 +199,7 @@ proc find_nearest_downstream*[T:Interval](L:var Lapper[T], pos:int, ivs:var seq[
       min_start =  L.intervals[i].start
       ivs.add(L.intervals[i])
     inc(i)
-  
+
   return ivs.len() > 0
 
 proc each_find*[T:Interval](L:var Lapper[T], start:int, stop:int, fn: proc (v:T)) =
