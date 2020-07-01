@@ -215,13 +215,13 @@ proc parseNCBIConversionComment*(comment: string): ClinSig =
 proc parseClinicalPathologies(pathoType: string, pathoList: seq[string]): string =
   # Take a patho type (disease, finding etc) and return a formatted INFO field with all pathologies associated to a variant for a specific type
   #  EXAMPLE FINDING=PATHO1|PATHO2|PATHO3 ...
-  var finalInfo: string = "CLN" & pathoType.toUpperAscii & "="
+  result = "CLN" & pathoType.toUpperAscii & "="
   for i, patho in pathoList:
-    if i == pathoList.len - 1:
-      finalInfo = finalInfo & patho
+    # pred() gives the len - 1 value
+    if i == pathoList.len.pred:
+      result = result & patho
     else:
-      finalInfo = finalInfo & patho & '|'
-  return finalInfo
+      result = result & patho & '|'
 
 proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], nb_submitters: int, has_conflict = false): RevStat =
   if revstat_count.hasKey(rsPracticeGuideline):
@@ -663,20 +663,20 @@ proc formatVCFString*(vcf_string: string): string =
 
 proc formatPathoString(pathoString: string): string =
   # Format pathology string in info field
-  for i, char in pathoString:
-    if char == '/' or char == '(' or char == ')' or char == ',':
+  for i, character in pathoString:
+    if character == '/' or character == '(' or character == ')' or character == ',':
       # If non-desired character is found at the end of the string, just pass
-      if i == pathoString.len - 1:
+      if i == pathoString.len.pred:
         continue
       # Else, replace the character by "_"
       result = result & '_'
-    elif char == ' ':
+    elif character == ' ':
       # If ", " is found just skip the " " value in order to return "_" and not "__"
       if pathoString[i-1] == ',':
         continue
       result = result & '_'
     else:
-      result = result & char
+      result = result & character
 
 proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string, genes_index: TableRef[string, Lapper[GFFGene]], coding_priority : bool) =
   # Commented lines correspond to the NCBI Clinvar original header that are not currently supported by clinVCF
