@@ -212,7 +212,7 @@ proc parseNCBIConversionComment*(comment: string): ClinSig =
   else:
     result = csUnknown
 
-proc parseClinicalPathologies(pathoType: string, pathoList: seq[string]): string =
+proc parseClinicalPathologies*(pathoType: string, pathoList: seq[string]): string =
   # Take a patho type (disease, finding etc) and return a formatted INFO field with all pathologies associated to a variant for a specific type
   #  EXAMPLE FINDING=PATHO1|PATHO2|PATHO3 ...
   result = "CLN" & pathoType.toUpperAscii & "="
@@ -661,22 +661,14 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
 proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')
 
-proc formatPathoString(pathoString: string): string =
-  # Format pathology string in info field
-  for i, character in pathoString:
-    if character == '/' or character == '(' or character == ')' or character == ',':
-      # If non-desired character is found at the end of the string, just pass
-      if i == pathoString.len.pred:
-        continue
-      # Else, replace the character by "_"
-      result = result & '_'
-    elif character == ' ':
-      # If ", " is found just skip the " " value in order to return "_" and not "__"
-      if pathoString[i-1] == ',':
-        continue
-      result = result & '_'
-    else:
-      result = result & character
+proc formatPathoString*(pathoString: string): string =
+  # First : remove all non-word char after "="
+  # e.g CLNDISEASE= cancer|
+  result = pathoString.replace(re"=\W+", "=")
+  # Second : remove all non-word chars at the end of the string (or first)
+  result = result.replace(re"^\W+|\W+$")
+  # Thirs replace all non-word characters by '_'
+  result = result.replace(re"[^\w\||=]+", "_")
 
 proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string, genes_index: TableRef[string, Lapper[GFFGene]], coding_priority : bool) =
   # Commented lines correspond to the NCBI Clinvar original header that are not currently supported by clinVCF
