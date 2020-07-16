@@ -29,14 +29,14 @@ suite "test utils functions":
     check parseEnum[ClinSig]("conflicting data from submitters") == csConflictingDataFromSubmitters
     check parseEnum[ClinSig]("other") == csOther
     check parseEnum[ClinSig]("not provided") == csUnknown
-  
+
   test "test parseNCBIConversionComment":
     check parseNCBIConversionComment("Converted during submission to Likely pathogenic.") == csLikelyPathogenic
     check parseNCBIConversionComment("Converted during submission to Benign.") == csBenign
 
 
   test "test IQRoutlierBounds":
-    let 
+    let
       d = @[3.0,3.0,4.0,4.0,4.0,4.0]
       (min_val, max_val) = d.IQRoutlierBounds()
 
@@ -48,3 +48,11 @@ suite "test utils functions":
       if v >= min_val and v <= max_val:
         filtered_d.add(v)
     check filtered_d.len() == 6
+
+
+  test "test pathology string format":
+    check formatPathoString(" Factor X Deficiency ") == "Factor_X_Deficiency"
+    check formatPathoString("Factor (X) Deficiency, pathology") == "Factor_X_Deficiency_pathology"
+
+  test "test clinical pathology parsing":
+    check parseClinicalPathologies("DISEASE", @["coagulation_x_deficiency", "factor_x_deficiency"]) == "CLNDISEASE=coagulation_x_deficiency|factor_x_deficiency"
