@@ -53,6 +53,11 @@ suite "test utils functions":
   test "test pathology string format":
     check formatPathoString(" Factor X Deficiency ") == "Factor_X_Deficiency"
     check formatPathoString("Factor (X) Deficiency, pathology") == "Factor_X_Deficiency_pathology"
+    check formatPathoString("Factor, (X) Deficiency, pathology,|cancer/") == "Factor_X_Deficiency_pathology|cancer"
+    check formatPathoString("Factor, X, Deficiency      ,pathology/| cancer") == "Factor_X_Deficiency_pathology|cancer"
+    check formatPathoString("  , Factor X,,Deficiency/pathology| , ,cancer/") == "Factor_X_Deficiency_pathology|cancer"
+    check formatPathoString("CLNDISEASE=  , Factor X,,Deficiency/pathology| , ,cancer/") == "CLNDISEASE=Factor_X_Deficiency_pathology|cancer"
+
 
   test "test clinical pathology parsing":
     check parseClinicalPathologies("DISEASE", @["coagulation_x_deficiency", "factor_x_deficiency"]) == "CLNDISEASE=coagulation_x_deficiency|factor_x_deficiency"
