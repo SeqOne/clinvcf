@@ -35,17 +35,23 @@ wget ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/ClinVarFullRelease_00-latest.xml
 wget ftp://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh37_latest/refseq_identifiers/GRCh37_latest_genomic.gff.gz
 wget ftp://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq_identifiers/GRCh38_latest_genomic.gff.gz
 
-# Generate clinvar VCF (GRCh37 by default)
-clinvcf ClinVarFullRelease_00-latest.xml.gz | bgzip -c > clinvar_GRCh37.vcf.gz
+# Generate clinvar VCF
+## For GRCh37
+clinvcf --genome GRCh37 ClinVarFullRelease_00-latest.xml.gz | bgzip -c > clinvar_GRCh37.vcf.gz
+## For GRCh38
+clinvcf --genome GRCh38 ClinVarFullRelease_00-latest.xml.gz | bgzip -c > clinvar_GRCh38.vcf.gz
 ```
 
 ## Usage
 
 ```
-Usage: clinvcf [options] <clinvar.xml.gz>
+Usage: clinvcf [options] --genome <version> <clinvar.xml.gz>
+
+Arguments:
+  --genome <version>              Genome assembly to use
 
 Options:
-  --genome <version>              Genome assembly to use [default: GRCh37]
+  --filename-date                 Use xml filename date instead of inner date which may differ
 
 Gene annotation:
   --gff <file>                    NCBI GFF to annotate variations with genes
