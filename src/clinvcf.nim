@@ -666,8 +666,9 @@ proc formatPathoString*(pathoString: string): string =
   # e.g CLNDISEASE= cancer|
   result = pathoString.replace(re"=\W+", "=")
   # Second : remove all non-word chars at the end of the string (or first)
-  result = result.replace(re"^\W+|\W+$")
-  # Thirs replace all non-word characters by '_'
+  # and non-words after before pipe ('|')
+  result = result.replace(re"^\W+|\W+$|\W+?(?=\|)")
+  # Third replace all non-word characters by '_'
   result = result.replace(re"[^\w\||=]+", "_")
 
 proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string, genes_index: TableRef[string, Lapper[GFFGene]], coding_priority : bool) =
@@ -763,10 +764,12 @@ proc main*(argv: seq[string]) =
 
   # TODO: Create a usage and expose api_keys as options
   let doc = format("""
-Usage: clinvcf [options] <clinvar.xml.gz>
+Usage: clinvcf [options] --genome <version> <clinvar.xml.gz>
+
+Arguments:
+  --genome <version>              Genome assembly to use
 
 Options:
-  --genome <version>              Genome assembly to use [default: GRCh37]
   --filename-date                 Use xml filename date instead of inner date which may differ
 
 Gene annotation:
@@ -788,6 +791,8 @@ Gene annotation:
     variants_seq: seq[ClinVariant]
     filedate: string
     genes_index: TableRef[string, Lapper[GFFGene]]
+
+  stderr.writeLine("GENOME = " & genome_assembly)
 
   # Load variants from XML
   stderr.writeLine("[Log] Parsing variants from " & clinvar_xml_file)
