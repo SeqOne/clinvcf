@@ -666,8 +666,8 @@ proc formatPathoString*(pathoString: string): string =
   # e.g CLNDISEASE= cancer|
   result = pathoString.replace(re"=\W+", "=")
   # Second : remove all non-word chars at the end of the string (or first)
-  # and non-words after before pipe ('|')
-  result = result.replace(re"^\W+|\W+$|\W+?(?=\|)")
+  # and non-words after/before pipe ('|')
+  result = result.replace(re"^\W+|\W+$|\W+?(?=\|)|(?<=\|)\W+")
   # Third replace all non-word characters by '_'
   result = result.replace(re"[^\w\||=]+", "_")
 
