@@ -84,7 +84,7 @@ method correctGeneAlias(cv: ClinVariant, hgnc: HgncIndex) =
       submission.variant_in_gene = newGeneName
       cv.submissions[i] = submission
     elif not hgnc.entrez.hasKey(submission.variant_in_gene):
-      logger.log(lvlInfo, fmt"{submission.variant_in_gene}")
+      # logger.log(lvlInfo, fmt"{submission.variant_in_gene}")
       submission.variant_in_gene = ""
       cv.submissions[i] = submission
 
@@ -522,7 +522,12 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
   file.close()
   file.open(clinvar_xml_file, "r")
 
+  var clinvarSetCount = 0
   for clinvarset_string in file.nextClinvarSet():
+    inc(clinvarSetCount)
+    var moduloClinvarSetCount = clinvarSetCount mod 100000
+    if moduloClinvarSetCount == 0:
+      logger.log(lvlInfo, fmt"[main] clinvarSet={clinvarSetCount}")
     # TODO: Add some kind of loader ever 10K parsed variants
     if clinvarset_string != "" and clinvarset_string.startsWith("<ClinVarSet"):
       let
@@ -644,7 +649,9 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                   for symbol in measure_relationship.select("symbol"):
                     for elementvalue in symbol.select("elementvalue"):
                       if elementvalue.attr("Type") == "Preferred":
-                        variant_in_gene = elementvalue[0].innerText
+                        if len(elementvalue) > 0:
+                          # Gene is present in the submission
+                          variant_in_gene = elementvalue[0].innerText
 
               # Extract pathologies
               for trait in traitSetNodes[0].select("trait"):
@@ -848,8 +855,8 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
         info_fields.join(";")
       ].join("\t")
 
-  stderr.writeLine("[Log] " & $nb_variants & " variants have been extracted from the XML")
-  stderr.writeLine("[Log] " & $nb_corrections & " variants had a conflicting interpretation deciphering")
+  logger.log(lvlInfo, fmt"[printVCF] {nb_variants} variants have been extracted from the XML")
+  logger.log(lvlInfo, fmt"[printVCF] {nb_corrections} variants had a conflicting interpretation deciphering")
 
 proc main*(argv: seq[string]) =
 
@@ -888,7 +895,7 @@ Gene annotation:
 
 
   # Load variants from XML
-  stderr.writeLine("[Log] Parsing variants from " & clinvar_xml_file)
+  logger.log(lvlInfo, "[main] Parsing variants from " & clinvar_xml_file)
   (variants_hash, filedate) = loadVariants(clinvar_xml_file, genome_assembly)
   if filename_date:
 
@@ -905,20 +912,19 @@ Gene annotation:
     hgncIndex = initHgncDbfromFile(hgnc_file)
     for id, clinvariant in variants_hash:
       correctGeneAlias(clinvariant, hgncIndex)
-      # variants_hash[id] = newClinvariant
 
   if args["--gff"]:
     let gff_file = $args["--gff"]
-    stderr.writeLine("[Log] Load genes coordinates from " & gff_file)
+    logger.log(lvlInfo, "[main] Load genes coordinates from " & gff_file)
     genes_index = loadGenesFromGFF(gff_file, gene_padding)
 
   # Sort variants by genomic order
-  stderr.writeLine("[Log] Sorting variants")
+  logger.log(lvlInfo, "[main] Sorting variants")
   variants_seq = toSeq(variants_hash.values())
   variants_seq.sort(cmpVariant)
 
   # Print VCF of STDOUT
-  stderr.writeLine("[Log] Printing variants")
+  logger.log(lvlInfo, "[main] Printing variants")
   printVCF(variants_seq, genome_assembly, filedate, genes_index, coding_priority, hgncIndex)
 
 when isMainModule:
