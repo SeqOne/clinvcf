@@ -1,6 +1,10 @@
 import tables, hts, strutils, re, algorithm
 
 import ./lapper
+import logging
+import strformat
+
+from ./utils import logger
 
 type
   Region* = ref object of RootObj
@@ -207,7 +211,7 @@ proc loadGenesFromGFF*(gff_file: string, gene_padding : int): TableRef[string, L
           genes_name_table[gene_symbol].exons.add(exon)
 
   # Load set of genes (per chromosome) to lapper index
-  stderr.writeLine("[Log] Create lapper index for file " & gff_file)
+  logger.log(lvlInfo, fmt"Create lapper index for file {gff_file}")
   for chrom in genes_chr_table.keys():
     result[chrom] = lapify(genes_chr_table[chrom])
 
