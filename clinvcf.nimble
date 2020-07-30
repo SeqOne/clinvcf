@@ -1,7 +1,7 @@
 # Package
 
 version       = "0.0.1"
-author        = "Jérôme Audoux"
+author        = "Jérôme Audoux, Sacha Beaumeunier"
 description   = "Generate a clean Clinvar VCF"
 license       = "SEQONE"
 
@@ -9,6 +9,7 @@ license       = "SEQONE"
 # Dependencies
 
 requires "hts >= 0.2.20 & <= 0.2.23", "q", "docopt"#, "lapper"
+requires "https://github.com/GULPF/tiny_sqlite#head"
 srcDir = "src"
 installExt = @["nim"]
 
