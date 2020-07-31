@@ -73,7 +73,9 @@ const ignoredPathoTag = @["not specified", "see cases", "not provided", "variant
 
 var
   acmg_clinsig = @[csBenign, csLikelyBenign, csUncertainSignificance, csLikelyPathogenic, csPathogenic]
-  non_acmg_clinsig = @[csDrugResponse, csRiskFactor, csAffects, csAssociation, csProtective, csConflictingDataFromSubmitters, csOther]
+  non_acmg_clinsig = @[
+    csDrugResponse, csRiskFactor, csAffects, csAssociation, csProtective, csConflictingDataFromSubmitters, csOther
+  ]
   clinicalPathoType: seq[string] = @[]
 
 method correctGeneAlias(cv: ClinVariant, hgnc: HgncIndex) =
@@ -95,18 +97,18 @@ proc findNodes(n: XmlNode, tag: string): seq[XmlNode] =
         result.add(xref_node)
 
 proc quantile*(xs: seq[float], q: float): float =
-  # CODE TAKEN FROM R quantile function
-  # This correspond to the default implemented method for quantile calculation
-  # index <- 1 + (n - 1) * probs 1 + (6 - 1)
-  # lo <- floor(index)
-  # hi <- ceiling(index)
-  # x <- sort(x, partial = unique(c(lo, hi)))
-  # qs <- x[lo]
-  # i <- which(index > lo)
-  # h <- (index - lo)[i] # > 0	by construction
-  # ##	    qs[i] <- qs[i] + .minus(x[hi[i]], x[lo[i]]) * (index[i] - lo[i])
-  # ##	    qs[i] <- ifelse(h == 0, qs[i], (1 - h) * qs[i] + h * x[hi[i]])
-  # qs[i] <- (1 - h) * qs[i] + h * x[hi[i]]
+  ## CODE TAKEN FROM R quantile function
+  ## This correspond to the default implemented method for quantile calculation
+  ## index <- 1 + (n - 1) * probs 1 + (6 - 1)
+  ## lo <- floor(index)
+  ## hi <- ceiling(index)
+  ## x <- sort(x, partial = unique(c(lo, hi)))
+  ## qs <- x[lo]
+  ## i <- which(index > lo)
+  ## h <- (index - lo)[i] # > 0	by construction
+  ##	    qs[i] <- qs[i] + .minus(x[hi[i]], x[lo[i]]) * (index[i] - lo[i])
+  ##	    qs[i] <- ifelse(h == 0, qs[i], (1 - h) * qs[i] + h * x[hi[i]])
+  ## qs[i] <- (1 - h) * qs[i] + h * x[hi[i]]
   var ys = xs
   sort(ys, system.cmp[float])
   let
@@ -222,7 +224,8 @@ proc cmpVariant*(x, y: ClinVariant): int =
 
 let ncbi_conversion_regex = re(r"^Converted during submission to (.*)\.$")
 proc parseNCBIConversionComment*(comment: string): ClinSig =
-  ## Parse 'Converted during submission to Likely pathogenic.' to ClinSig csLikelyPathogenic, return csUnknown if parsing failed
+  ## Parse 'Converted during submission to Likely pathogenic.' to ClinSig csLikelyPathogenic,
+  ## return csUnknown if parsing failed
   var arr: array[1, string]
   if match(comment, ncbi_conversion_regex, arr, 0):
     result = parseEnum[ClinSig](arr[0], csUnknown)
@@ -230,8 +233,9 @@ proc parseNCBIConversionComment*(comment: string): ClinSig =
     result = csUnknown
 
 proc parseClinicalPathologies*(pathoType: string, pathoList: seq[string]): string =
-  # Take a patho type (disease, finding etc) and return a formatted INFO field with all pathologies associated to a variant for a specific type
-  #  EXAMPLE FINDING=PATHO1|PATHO2|PATHO3 ...
+  ## Take a patho type (disease, finding etc) and return a formatted INFO field with all 
+  ## pathologies associated to a variant for a specific type
+  ## EXAMPLE FINDING=PATHO1|PATHO2|PATHO3 ...
   result = "CLN" & pathoType.toUpperAscii & "="
   for i, patho in pathoList:
     # pred() gives the len - 1 value
@@ -240,7 +244,8 @@ proc parseClinicalPathologies*(pathoType: string, pathoList: seq[string]): strin
     else:
       result = result & patho & '|'
 
-proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], nb_submitters: int, has_conflict = false): RevStat =
+proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], nb_submitters: int,
+  has_conflict = false): RevStat =
   if revstat_count.hasKey(rsPracticeGuideline):
     result = rsPracticeGuideline
   elif revstat_count.hasKey(rsExpertPanel):
@@ -395,8 +400,9 @@ proc aggregateVariantInGene(submissions: seq[Submission], hgnc: HgncIndex): stri
   if len(genesToReturn) > 0:
     result = genesToReturn.join("|")
   
-proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: HgncIndex, autocorrect_conflicts = false): tuple[clinsig: string, 
-  revstat: string, old_clinsig: string, nb_reclassification_stars: int, geneInfo: string] =
+proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: HgncIndex,
+  autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string,
+  nb_reclassification_stars: int, geneInfo: string] =
 
   var
     retained_submissions = submissions.selectElligibleSubmissions()
@@ -419,8 +425,12 @@ proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: HgncIndex, a
     if acmg_submissions.len() >= 4:
       let
         retained_submissions_without_outliers = removeOutlyingSubmissions(retained_submissions)
-        (clinsig_without_outliers, revstat_without_outliers) = retained_submissions_without_outliers.aggregatSubmissionsClinvar()
-        # (clinsig_count_without_outliers, revstat_count_without_outliers, submitter_ids_without_outliers) = retained_submissions_without_outliers.countSubmissions()
+        (
+          clinsig_without_outliers, revstat_without_outliers
+        ) = retained_submissions_without_outliers.aggregatSubmissionsClinvar()
+        # (
+        #   clinsig_count_without_outliers, revstat_count_without_outliers, submitter_ids_without_outliers
+        # ) = retained_submissions_without_outliers.countSubmissions()
         (clinsig_count_without_outliers, _, _) = retained_submissions_without_outliers.countSubmissions()
       # We were "conflicting" but re-assigned the clinsig to a pathogenic tag after outlier removal
       # Now we try to see if we have 1, 2 or 3 stars for reclassification
@@ -431,11 +441,15 @@ proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: HgncIndex, a
         var
           submissions_with_one_vus = retained_submissions
           nb_reclassification_stars = 1
-        submissions_with_one_vus.add(Submission(clinical_significance: csUncertainSignificance, review_status: rsSingleSubmitter))
+        submissions_with_one_vus.add(
+          Submission(clinical_significance: csUncertainSignificance, review_status: rsSingleSubmitter)
+        )
         let
           #acmg_submissions_with_one_vus = submissions_with_one_vus.selectACMGsubmissions()
           submissions_with_one_vus_without_outlier = removeOutlyingSubmissions(submissions_with_one_vus)
-          (clinsig_with_one_vus, revstat_with_one_vus) = submissions_with_one_vus_without_outlier.aggregatSubmissionsClinvar()
+          (
+            clinsig_with_one_vus, revstat_with_one_vus
+          ) = submissions_with_one_vus_without_outlier.aggregatSubmissionsClinvar()
 
         # Debug lines for this scary code section
         # stderr.writeLine("[Log] submissions: " & $map(submissions, proc (x: Submission): string = $x.clinical_significance.clnsigToFloat()).join(","))
@@ -719,12 +733,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     desc_nodes = clinsig_nodes[0].select("description")
                     revstat_nodes = clinsig_nodes[0].select("reviewstatus")
                     comment_nodes = clinsig_nodes[0].select("comment")
-                  # <ClinicalSignificance>
-                  #   <ReviewStatus>no assertion criteria provided</ReviewStatus>
-                  #   <Description>likely pathogenic - adrenal pheochromocytoma</Description>
-                  #   <Comment Type="ConvertedByNCBI">Converted during submission to Likely pathogenic.</Comment>
-                  # </ClinicalSignificance>
-                  # Here we handle the clinsig that were automatically converted by NCBI and has to be
+                    
                   # extracted with a regex from the comment node
                   for comment in comment_nodes:
                     let parse_clnsig = parseNCBIConversionComment(comment.innerText)
@@ -741,13 +750,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     review_status: review_status,
                     submitter_id: submitter_id,
                     variant_in_gene: variant_in_gene
-                  )
-                  # echo "Submission :"
-                  # echo "  " & $submission.clinical_significance
-                  # echo "  " & $submission.review_status
-                  # echo "  " & $submission.submitter_id
-                  # echo "  " & $submission.variant_in_gene
-                  
+                  )                 
                   result.variants[variant_id].submissions.add(submission)
 
 proc formatVCFString*(vcf_string: string): string =
@@ -763,7 +766,8 @@ proc formatPathoString*(pathoString: string): string =
   # Third replace all non-word characters by '_'
   result = result.replace(re"[^\w\||=]+", "_")
 
-proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string, genes_index: TableRef[string, Lapper[GFFGene]], coding_priority : bool, hgncIndex: HgncIndex) =
+proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string,
+  genes_index: TableRef[string, Lapper[GFFGene]], coding_priority : bool, hgncIndex: HgncIndex) =
   # Commented lines correspond to the NCBI Clinvar original header that are not currently supported by clinVCF
   echo "##fileformat=VCFv4.1"
   if filedate != "":
