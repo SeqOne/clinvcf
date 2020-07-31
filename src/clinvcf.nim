@@ -5,12 +5,16 @@ import q, xmltree # Parse XML
 from streams import newStringStream
 import docopt # Formating the command-line
 import strutils # Split string
+import strformat
 import hts
 from regex import match, RegexMatch, groupFirstCapture
+import logging
 
 # Local libs
+from ./clinvcfpkg/utils import logger
 import ./clinvcfpkg/gff
 import ./clinvcfpkg/lapper
+import ./clinvcfpkg/hgnc
 
 type
   ClinSig* = enum
@@ -47,6 +51,7 @@ type
     clinical_significance: ClinSig
     review_status: RevStat
     submitter_id: int
+    variant_in_gene: string
 
   MolecularConsequence* = ref object
     description: string
@@ -68,8 +73,22 @@ const ignoredPathoTag = @["not specified", "see cases", "not provided", "variant
 
 var
   acmg_clinsig = @[csBenign, csLikelyBenign, csUncertainSignificance, csLikelyPathogenic, csPathogenic]
-  non_acmg_clinsig = @[csDrugResponse, csRiskFactor, csAffects, csAssociation, csProtective, csConflictingDataFromSubmitters, csOther]
+  non_acmg_clinsig = @[
+    csDrugResponse, csRiskFactor, csAffects, csAssociation, csProtective, csConflictingDataFromSubmitters, csOther
+  ]
   clinicalPathoType: seq[string] = @[]
+
+method correctGeneAlias(cv: ClinVariant, hgnc: HgncIndex) =
+  ## Loop on submission and switch alias gene to official gene name
+  for i, submission in cv.submissions:
+    if hgnc.alias.hasKey(submission.variant_in_gene):
+      var newGeneName = hgnc.alias[submission.variant_in_gene]
+      submission.variant_in_gene = newGeneName
+      cv.submissions[i] = submission
+    elif not hgnc.entrez.hasKey(submission.variant_in_gene):
+      # logger.log(lvlInfo, fmt"{submission.variant_in_gene}")
+      submission.variant_in_gene = ""
+      cv.submissions[i] = submission
 
 proc findNodes(n: XmlNode, tag: string): seq[XmlNode] =
   for xref_node in n:
@@ -78,18 +97,18 @@ proc findNodes(n: XmlNode, tag: string): seq[XmlNode] =
         result.add(xref_node)
 
 proc quantile*(xs: seq[float], q: float): float =
-  # CODE TAKEN FROM R quantile function
-  # This correspond to the default implemented method for quantile calculation
-  # index <- 1 + (n - 1) * probs 1 + (6 - 1)
-  # lo <- floor(index)
-  # hi <- ceiling(index)
-  # x <- sort(x, partial = unique(c(lo, hi)))
-  # qs <- x[lo]
-  # i <- which(index > lo)
-  # h <- (index - lo)[i] # > 0	by construction
-  # ##	    qs[i] <- qs[i] + .minus(x[hi[i]], x[lo[i]]) * (index[i] - lo[i])
-  # ##	    qs[i] <- ifelse(h == 0, qs[i], (1 - h) * qs[i] + h * x[hi[i]])
-  # qs[i] <- (1 - h) * qs[i] + h * x[hi[i]]
+  ## CODE TAKEN FROM R quantile function
+  ## This correspond to the default implemented method for quantile calculation
+  ## index <- 1 + (n - 1) * probs 1 + (6 - 1)
+  ## lo <- floor(index)
+  ## hi <- ceiling(index)
+  ## x <- sort(x, partial = unique(c(lo, hi)))
+  ## qs <- x[lo]
+  ## i <- which(index > lo)
+  ## h <- (index - lo)[i] # > 0	by construction
+  ##	    qs[i] <- qs[i] + .minus(x[hi[i]], x[lo[i]]) * (index[i] - lo[i])
+  ##	    qs[i] <- ifelse(h == 0, qs[i], (1 - h) * qs[i] + h * x[hi[i]])
+  ## qs[i] <- (1 - h) * qs[i] + h * x[hi[i]]
   var ys = xs
   sort(ys, system.cmp[float])
   let
@@ -205,7 +224,8 @@ proc cmpVariant*(x, y: ClinVariant): int =
 
 let ncbi_conversion_regex = re(r"^Converted during submission to (.*)\.$")
 proc parseNCBIConversionComment*(comment: string): ClinSig =
-  ## Parse 'Converted during submission to Likely pathogenic.' to ClinSig csLikelyPathogenic, return csUnknown if parsing failed
+  ## Parse 'Converted during submission to Likely pathogenic.' to ClinSig csLikelyPathogenic,
+  ## return csUnknown if parsing failed
   var arr: array[1, string]
   if match(comment, ncbi_conversion_regex, arr, 0):
     result = parseEnum[ClinSig](arr[0], csUnknown)
@@ -213,8 +233,9 @@ proc parseNCBIConversionComment*(comment: string): ClinSig =
     result = csUnknown
 
 proc parseClinicalPathologies*(pathoType: string, pathoList: seq[string]): string =
-  # Take a patho type (disease, finding etc) and return a formatted INFO field with all pathologies associated to a variant for a specific type
-  #  EXAMPLE FINDING=PATHO1|PATHO2|PATHO3 ...
+  ## Take a patho type (disease, finding etc) and return a formatted INFO field with all 
+  ## pathologies associated to a variant for a specific type
+  ## EXAMPLE FINDING=PATHO1|PATHO2|PATHO3 ...
   result = "CLN" & pathoType.toUpperAscii & "="
   for i, patho in pathoList:
     # pred() gives the len - 1 value
@@ -223,7 +244,8 @@ proc parseClinicalPathologies*(pathoType: string, pathoList: seq[string]): strin
     else:
       result = result & patho & '|'
 
-proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], nb_submitters: int, has_conflict = false): RevStat =
+proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], nb_submitters: int,
+  has_conflict = false): RevStat =
   if revstat_count.hasKey(rsPracticeGuideline):
     result = rsPracticeGuideline
   elif revstat_count.hasKey(rsExpertPanel):
@@ -262,13 +284,38 @@ proc selectElligibleSubmissions*(submissions: seq[Submission]): seq[Submission] 
     # even if other submissions provide different interpretations.
     # If we have submissions(s) with one star or more, we only uses this submissions in the aggregation
     # Otherwise we use all submissions
-    if (has_three_star_sub and (sub.review_status == rsExpertPanel or sub.review_status == rsPracticeGuideline)) or (not has_three_star_sub and sub.review_status.nbStars >= 1) or (not has_one_star_sub and not has_three_star_sub):
+    var cond = (
+      (
+        has_three_star_sub and (
+          sub.review_status == rsExpertPanel or sub.review_status == rsPracticeGuideline
+        )
+      ) or (
+        not has_three_star_sub and sub.review_status.nbStars >= 1
+      ) or (
+        not has_one_star_sub and not has_three_star_sub
+      )
+    )
+    if cond:
       result.add(sub)
 
 proc isConflicting*(clinsig_count: TableRef[ClinSig, int]): bool =
-  result = ((clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic) or clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)) and clinsig_count.hasKey(csUncertainSignificance)) or ((clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic)) and (clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)))
+  result = (
+    (
+      (
+        clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic) or 
+        clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)
+      ) and clinsig_count.hasKey(csUncertainSignificance)
+    ) or (
+      (
+        clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic)
+      ) and (
+        clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)
+      )
+    )
+  )
 
-proc countSubmissions*(submissions: seq[Submission]): tuple[clinsig_count: TableRef[ClinSig, int], revstat_count: TableRef[RevStat, int], submitter_ids: seq[int]] =
+proc countSubmissions*(submissions: seq[Submission]): tuple[clinsig_count: TableRef[ClinSig, int],
+  revstat_count: TableRef[RevStat, int], submitter_ids: seq[int]] =
   result.clinsig_count = newTable[ClinSig, int]()
   result.revstat_count = newTable[RevStat, int]()
   result.submitter_ids = newSeq[int]()
@@ -336,14 +383,37 @@ proc aggregatSubmissionsClinvar*(submissions: seq[Submission]): tuple[clinsig: C
     result.clinsig = csConflictingInterpretation
     result.revstat = revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
 
-proc aggregateSubmissions*(submissions: seq[Submission], autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string, nb_reclassification_stars: int] =
+proc aggregateVariantInGene(submissions: seq[Submission], hgnc: HgncIndex): string =
+  result = ""
+  var
+    genes: seq[string] = @[]
+    genesToReturn: seq[string] = @[]
+  for submission in submissions:
+    if submission.variant_in_gene != "":
+      if submission.variant_in_gene notin genes:
+        genes.add(submission.variant_in_gene)
+        try:
+          genesToReturn.add(fmt"{submission.variant_in_gene}:{hgnc.entrez[submission.variant_in_gene]}")
+        except KeyError:
+          logger.log(lvlInfo, fmt"{submission.variant_in_gene} is not found in hgnc table.")
+
+  if len(genesToReturn) > 0:
+    result = genesToReturn.join("|")
+  
+proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: HgncIndex,
+  autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string,
+  nb_reclassification_stars: int, geneInfo: string] =
+
   var
     retained_submissions = submissions.selectElligibleSubmissions()
     (clinsig, revstat) = retained_submissions.aggregatSubmissionsClinvar()
     (clinsig_count, revstat_count, submitter_ids) = retained_submissions.countSubmissions()
 
+  result.geneInfo = retained_submissions.aggregateVariantInGene(hgncIndex)
+  
   if clinsig != csNA:
     result.clinsig = $clinsig
+  
   if revstat != rsNA:
     result.revstat = $revstat
 
@@ -355,9 +425,13 @@ proc aggregateSubmissions*(submissions: seq[Submission], autocorrect_conflicts =
     if acmg_submissions.len() >= 4:
       let
         retained_submissions_without_outliers = removeOutlyingSubmissions(retained_submissions)
-        (clinsig_without_outliers, revstat_without_outliers) = retained_submissions_without_outliers.aggregatSubmissionsClinvar()
-        (clinsig_count_without_outliers, revstat_count_without_outliers, submitter_ids_without_outliers) = retained_submissions_without_outliers.countSubmissions()
-
+        (
+          clinsig_without_outliers, revstat_without_outliers
+        ) = retained_submissions_without_outliers.aggregatSubmissionsClinvar()
+        # (
+        #   clinsig_count_without_outliers, revstat_count_without_outliers, submitter_ids_without_outliers
+        # ) = retained_submissions_without_outliers.countSubmissions()
+        (clinsig_count_without_outliers, _, _) = retained_submissions_without_outliers.countSubmissions()
       # We were "conflicting" but re-assigned the clinsig to a pathogenic tag after outlier removal
       # Now we try to see if we have 1, 2 or 3 stars for reclassification
       # - 1 star : default
@@ -367,11 +441,15 @@ proc aggregateSubmissions*(submissions: seq[Submission], autocorrect_conflicts =
         var
           submissions_with_one_vus = retained_submissions
           nb_reclassification_stars = 1
-        submissions_with_one_vus.add(Submission(clinical_significance: csUncertainSignificance, review_status: rsSingleSubmitter))
+        submissions_with_one_vus.add(
+          Submission(clinical_significance: csUncertainSignificance, review_status: rsSingleSubmitter)
+        )
         let
           #acmg_submissions_with_one_vus = submissions_with_one_vus.selectACMGsubmissions()
           submissions_with_one_vus_without_outlier = removeOutlyingSubmissions(submissions_with_one_vus)
-          (clinsig_with_one_vus, revstat_with_one_vus) = submissions_with_one_vus_without_outlier.aggregatSubmissionsClinvar()
+          (
+            clinsig_with_one_vus, revstat_with_one_vus
+          ) = submissions_with_one_vus_without_outlier.aggregatSubmissionsClinvar()
 
         # Debug lines for this scary code section
         # stderr.writeLine("[Log] submissions: " & $map(submissions, proc (x: Submission): string = $x.clinical_significance.clnsigToFloat()).join(","))
@@ -396,7 +474,8 @@ proc aggregateSubmissions*(submissions: seq[Submission], autocorrect_conflicts =
         result.nb_reclassification_stars = nb_reclassification_stars
 
   # Add non-ACMG values to the end of clinsig
-  # If ClinVar aggregates submissions from groups that provided a standard term not recommend by ACMG/AMP ( e.g. drug response), then those values are reported after the ACMG/AMP-based interpretation (see the table below).
+  # If ClinVar aggregates submissions from groups that provided a standard term not recommend by ACMG/AMP ( e.g. drug response), 
+  # then those values are reported after the ACMG/AMP-based interpretation (see the table below).
   var additional_cstags : seq[string]
   for cstag in non_acmg_clinsig:
     if clinsig_count.hasKey(cstag):
@@ -441,7 +520,8 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
 
   # Parse headers
   # <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-  # <ReleaseSet Dated="2019-12-31" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Type="full" xsi:noNamespaceSchemaLocation="http://ftp.ncbi.nlm.nih.gov/pub/clinvar/xsd_public/clinvar_public_1.59.xsd">
+  # <ReleaseSet Dated="2019-12-31" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  # Type="full" xsi:noNamespaceSchemaLocation="http://ftp.ncbi.nlm.nih.gov/pub/clinvar/xsd_public/clinvar_public_1.59.xsd">
   for line in file:
     if line.startsWith("<ClinVarSet"):
       break
@@ -456,7 +536,12 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
   file.close()
   file.open(clinvar_xml_file, "r")
 
+  var clinvarSetCount = 0
   for clinvarset_string in file.nextClinvarSet():
+    inc(clinvarSetCount)
+    var moduloClinvarSetCount = clinvarSetCount mod 100000
+    if moduloClinvarSetCount == 0:
+      logger.log(lvlInfo, fmt"[main] clinvarSet={clinvarSetCount}")
     # TODO: Add some kind of loader ever 10K parsed variants
     if clinvarset_string != "" and clinvarset_string.startsWith("<ClinVarSet"):
       let
@@ -471,8 +556,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
         if reference_clinvar_assertion_nodes[0].select("genotypeset").len() > 0:
           continue
 
-        let
-          measureset_nodes = reference_clinvar_assertion_nodes[0].select("measureset")
+        let measureset_nodes = reference_clinvar_assertion_nodes[0].select("measureset")
 
         if measureset_nodes.len() > 0:
           let
@@ -487,13 +571,15 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
           # Only parse measure node to extract variant position if we do not have seen this variant
           # Already
           if not result.variants.hasKey(variant_id) and measure_nodes.len() > 0:
-            let
-              measure_node = measure_nodes[0]
-              measure_relationship_nodes = measure_node.select("measurerelationship")
-
+            let measure_node = measure_nodes[0]
+              # if measure_relationship_nodes.attr("Type") == "variant in gene":
+                # element_value_node = measure_relationship_nodes.select("symbol").select("ElementValue")
             for sequence_loc in measure_node.select("sequencelocation"):
               if sequence_loc.attr("Assembly") == genome_assembly:
-                # <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="2" Accession="NC_000002.12" start="219469373" stop="219469408" display_start="219469373" display_stop="219469408" variantLength="36" positionVCF="219469370" referenceAlleleVCF="ATGACACAGTGTACGTGTCTGGGAAGTTCCCCGGGAG" alternateAlleleVCF="A"/>
+                # <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current"
+                # Chr="2" Accession="NC_000002.12" start="219469373" stop="219469408" display_start="219469373"
+                # display_stop="219469408" variantLength="36" positionVCF="219469370" referenceAlleleVCF="ATGACACAGTGTACGTGTCTGGGAAGTTCCCCGGGAG"
+                # alternateAlleleVCF="A"/>
                 let
                   allele_id = measure_node.attr("ID").parseInt
                   chrom = sequence_loc.attr("Chr")
@@ -569,6 +655,18 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                 clinvar_submission_id_nodes = clinvar_assertion_node.select("clinvarsubmissionid")
                 measure_relationship_nodes = clinvar_assertion_node.select("measurerelationship")
                 traitSetNodes = clinvar_assertion_node.select("traitset")
+
+              # Extract gene
+              var variant_in_gene = ""
+              for measure_relationship in measure_relationship_nodes:
+                if measure_relationship.attr("Type") == "variant in gene":
+                  for symbol in measure_relationship.select("symbol"):
+                    for elementvalue in symbol.select("elementvalue"):
+                      if elementvalue.attr("Type") == "Preferred":
+                        if len(elementvalue) > 0:
+                          # Gene is present in the submission
+                          variant_in_gene = elementvalue[0].innerText
+
               # Extract pathologies
               for trait in traitSetNodes[0].select("trait"):
                 # Check if there is informations about pathology
@@ -635,12 +733,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     desc_nodes = clinsig_nodes[0].select("description")
                     revstat_nodes = clinsig_nodes[0].select("reviewstatus")
                     comment_nodes = clinsig_nodes[0].select("comment")
-                  # <ClinicalSignificance>
-                  #   <ReviewStatus>no assertion criteria provided</ReviewStatus>
-                  #   <Description>likely pathogenic - adrenal pheochromocytoma</Description>
-                  #   <Comment Type="ConvertedByNCBI">Converted during submission to Likely pathogenic.</Comment>
-                  # </ClinicalSignificance>
-                  # Here we handle the clinsig that were automatically converted by NCBI and has to be
+                    
                   # extracted with a regex from the comment node
                   for comment in comment_nodes:
                     let parse_clnsig = parseNCBIConversionComment(comment.innerText)
@@ -652,11 +745,13 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                    review_status = parseEnum[RevStat](revstat_nodes[0].innerText, rsNoAssertion)
 
                   # Add the submission to the variant record
-                  result.variants[variant_id].submissions.add(Submission(
+                  var submission = Submission(
                     clinical_significance: clinical_significance,
                     review_status: review_status,
-                    submitter_id: submitter_id
-                  ))
+                    submitter_id: submitter_id,
+                    variant_in_gene: variant_in_gene
+                  )                 
+                  result.variants[variant_id].submissions.add(submission)
 
 proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')
@@ -671,7 +766,8 @@ proc formatPathoString*(pathoString: string): string =
   # Third replace all non-word characters by '_'
   result = result.replace(re"[^\w\||=]+", "_")
 
-proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string, genes_index: TableRef[string, Lapper[GFFGene]], coding_priority : bool) =
+proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string,
+  genes_index: TableRef[string, Lapper[GFFGene]], coding_priority : bool, hgncIndex: HgncIndex) =
   # Commented lines correspond to the NCBI Clinvar original header that are not currently supported by clinVCF
   echo "##fileformat=VCFv4.1"
   if filedate != "":
@@ -714,13 +810,19 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     nb_variants = 0
   for v in variants:
     inc(nb_variants)
-    let (clinsig, revstat, old_clinsig, nb_reclassification_stars) = v.submissions.aggregateSubmissions(true) # Autocorrect conflicts
+    let (clinsig, revstat, old_clinsig, nb_reclassification_stars, rawGeneInfo) = v.submissions.aggregateSubmissions(
+      hgncIndex,
+      true
+    ) # Autocorrect conflicts
     var info_fields : seq[string] = @["ALLELEID=" & $v.allele_id]
 
-    if not genes_index.isNil():
+    if not genes_index.isNil() and rawGeneInfo == "":
       let gene_info = genes_index.getInfoString(v.chrom, int(v.pos), int(v.pos) + v.ref_allele.len() - 1, coding_priority)
       if gene_info != "":
         info_fields.add("GENEINFO=" & gene_info)
+    
+    elif rawGeneInfo != "":
+      info_fields.add("GENEINFO=" & rawGeneInfo)
 
     info_fields.add("CLNSIG=" & clinsig.formatVCFString())
     info_fields.add("CLNREVSTAT=" & revstat.formatVCFString())
@@ -757,17 +859,18 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
         info_fields.join(";")
       ].join("\t")
 
-  stderr.writeLine("[Log] " & $nb_variants & " variants have been extracted from the XML")
-  stderr.writeLine("[Log] " & $nb_corrections & " variants had a conflicting interpretation deciphering")
+  logger.log(lvlInfo, fmt"[printVCF] {nb_variants} variants have been extracted from the XML")
+  logger.log(lvlInfo, fmt"[printVCF] {nb_corrections} variants had a conflicting interpretation deciphering")
 
 proc main*(argv: seq[string]) =
 
   # TODO: Create a usage and expose api_keys as options
   let doc = format("""
-Usage: clinvcf [options] --genome <version> <clinvar.xml.gz>
+Usage: clinvcf [options] --hgnc <table> --genome <version> <clinvar.xml.gz>
 
 Arguments:
   --genome <version>              Genome assembly to use
+  --hgnc <table>                  HGNC table used for gene name alias corrections
 
 Options:
   --filename-date                 Use xml filename date instead of inner date which may differ
@@ -794,8 +897,9 @@ Gene annotation:
 
   stderr.writeLine("GENOME = " & genome_assembly)
 
+
   # Load variants from XML
-  stderr.writeLine("[Log] Parsing variants from " & clinvar_xml_file)
+  logger.log(lvlInfo, "[main] Parsing variants from " & clinvar_xml_file)
   (variants_hash, filedate) = loadVariants(clinvar_xml_file, genome_assembly)
   if filename_date:
 
@@ -805,19 +909,27 @@ Gene annotation:
     if clinvar_xml_file.match(r, m):
       filedate = m.groupFirstCapture("date", clinvar_xml_file) & "-01"
 
+  # Gene name submission correction
+  var hgncIndex: HgncIndex
+  if args["--hgnc"]:
+    let hgnc_file = $args["--hgnc"]
+    hgncIndex = initHgncDbfromFile(hgnc_file)
+    for id, clinvariant in variants_hash:
+      correctGeneAlias(clinvariant, hgncIndex)
+
   if args["--gff"]:
     let gff_file = $args["--gff"]
-    stderr.writeLine("[Log] Load genes coordinates from " & gff_file)
+    logger.log(lvlInfo, "[main] Load genes coordinates from " & gff_file)
     genes_index = loadGenesFromGFF(gff_file, gene_padding)
 
   # Sort variants by genomic order
-  stderr.writeLine("[Log] Sorting variants")
+  logger.log(lvlInfo, "[main] Sorting variants")
   variants_seq = toSeq(variants_hash.values())
   variants_seq.sort(cmpVariant)
 
   # Print VCF of STDOUT
-  stderr.writeLine("[Log] Printing variants")
-  printVCF(variants_seq, genome_assembly, filedate, genes_index, coding_priority)
+  logger.log(lvlInfo, "[main] Printing variants")
+  printVCF(variants_seq, genome_assembly, filedate, genes_index, coding_priority, hgncIndex)
 
 when isMainModule:
   main(commandLineParams())
