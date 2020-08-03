@@ -10,6 +10,7 @@ license       = "SEQONE"
 
 requires "hts >= 0.2.20 & <= 0.2.23", "q", "docopt"#, "lapper"
 requires "https://github.com/GULPF/tiny_sqlite#head"
+requires "regex >= 0.13"
 srcDir = "src"
 installExt = @["nim"]
 

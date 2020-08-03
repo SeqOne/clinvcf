@@ -233,7 +233,7 @@ proc parseNCBIConversionComment*(comment: string): ClinSig =
     result = csUnknown
 
 proc parseClinicalPathologies*(pathoType: string, pathoList: seq[string]): string =
-  ## Take a patho type (disease, finding etc) and return a formatted INFO field with all 
+  ## Take a patho type (disease, finding etc) and return a formatted INFO field with all
   ## pathologies associated to a variant for a specific type
   ## EXAMPLE FINDING=PATHO1|PATHO2|PATHO3 ...
   result = "CLN" & pathoType.toUpperAscii & "="
@@ -302,7 +302,7 @@ proc isConflicting*(clinsig_count: TableRef[ClinSig, int]): bool =
   result = (
     (
       (
-        clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic) or 
+        clinsig_count.hasKey(csPathogenic) or clinsig_count.hasKey(csLikelyPathogenic) or
         clinsig_count.hasKey(csBenign) or clinsig_count.hasKey(csLikelyBenign)
       ) and clinsig_count.hasKey(csUncertainSignificance)
     ) or (
@@ -399,7 +399,7 @@ proc aggregateVariantInGene(submissions: seq[Submission], hgnc: HgncIndex): stri
 
   if len(genesToReturn) > 0:
     result = genesToReturn.join("|")
-  
+
 proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: HgncIndex,
   autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string,
   nb_reclassification_stars: int, geneInfo: string] =
@@ -410,10 +410,10 @@ proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: HgncIndex,
     (clinsig_count, revstat_count, submitter_ids) = retained_submissions.countSubmissions()
 
   result.geneInfo = retained_submissions.aggregateVariantInGene(hgncIndex)
-  
+
   if clinsig != csNA:
     result.clinsig = $clinsig
-  
+
   if revstat != rsNA:
     result.revstat = $revstat
 
@@ -474,7 +474,7 @@ proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: HgncIndex,
         result.nb_reclassification_stars = nb_reclassification_stars
 
   # Add non-ACMG values to the end of clinsig
-  # If ClinVar aggregates submissions from groups that provided a standard term not recommend by ACMG/AMP ( e.g. drug response), 
+  # If ClinVar aggregates submissions from groups that provided a standard term not recommend by ACMG/AMP ( e.g. drug response),
   # then those values are reported after the ACMG/AMP-based interpretation (see the table below).
   var additional_cstags : seq[string]
   for cstag in non_acmg_clinsig:
@@ -668,47 +668,48 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                           variant_in_gene = elementvalue[0].innerText
 
               # Extract pathologies
-              for trait in traitSetNodes[0].select("trait"):
-                # Check if there is informations about pathology
-                if trait.select("elementvalue").len() > 0:
-                  # <traitset Type="Finding">
-                  #   <trait Type="Finding">
-                  #     <name>
-                  #       <elementvalue Type="Preferred">nuclear cataracts</elementvalue>
-                  #     </name>
-                  #   </trait>
-                  #   <trait Type="Finding">
-                  #     <name>
-                  #       <elementvalue Type="Preferred">microcornea</elementvalue>
-                  #     </name>
-                  #   </trait>
-                  # </traitset>
-                  # <traitset Type="Disease">
-                  #   <trait Type="Disease">
-                  #    <name>
-                  #      <elementvalue Type="Preferred">Cataract 1</elementvalue>
-                  #    </name>
-                  #    <xref DB="OMIM" Type="MIM" ID="116200" />
-                  #   </trait>
-                  # </traitset>
-                  let pathoType = trait.attr("Type")
-                  # Patho to skip : all values in ingnoredPathoTag
-                  if trait.select("elementvalue")[0].innerText.toLowerAscii in ignoredPathoTag:
-                    continue
-                  let pathology = trait.select("elementvalue")[0].innerText.toLowerAscii
-                  # Add result inside pathology table:
-                  #   key: pathology type : (Disease, Finding...)
-                  #   value: a list contaning pathology's names
-                  if result.variants[variant_id].pathologies.hasKey(pathoType):
-                    if pathology in result.variants[variant_id].pathologies[pathoType]:
+              for traitSetNode in traitSetNodes:
+                for trait in traitSetNode.select("trait"):
+                  # Check if there is informations about pathology
+                  if trait.select("elementvalue").len() > 0:
+                    # <traitset Type="Finding">
+                    #   <trait Type="Finding">
+                    #     <name>
+                    #       <elementvalue Type="Preferred">nuclear cataracts</elementvalue>
+                    #     </name>
+                    #   </trait>
+                    #   <trait Type="Finding">
+                    #     <name>
+                    #       <elementvalue Type="Preferred">microcornea</elementvalue>
+                    #     </name>
+                    #   </trait>
+                    # </traitset>
+                    # <traitset Type="Disease">
+                    #   <trait Type="Disease">
+                    #    <name>
+                    #      <elementvalue Type="Preferred">Cataract 1</elementvalue>
+                    #    </name>
+                    #    <xref DB="OMIM" Type="MIM" ID="116200" />
+                    #   </trait>
+                    # </traitset>
+                    let pathoType = trait.attr("Type")
+                    # Patho to skip : all values in ingnoredPathoTag
+                    if trait.select("elementvalue")[0].innerText.toLowerAscii in ignoredPathoTag:
                       continue
-                    result.variants[variant_id].pathologies[pathoType].add(pathology)
-                  else:
-                    result.variants[variant_id].pathologies[pathoType] = @[]
-                    result.variants[variant_id].pathologies[pathoType].add(pathology)
-                  if pathoType in clinicalPathoType:
-                    continue
-                  clinicalPathoType.add(pathoType)
+                    let pathology = trait.select("elementvalue")[0].innerText.toLowerAscii
+                    # Add result inside pathology table:
+                    #   key: pathology type : (Disease, Finding...)
+                    #   value: a list contaning pathology's names
+                    if result.variants[variant_id].pathologies.hasKey(pathoType):
+                      if pathology in result.variants[variant_id].pathologies[pathoType]:
+                        continue
+                      result.variants[variant_id].pathologies[pathoType].add(pathology)
+                    else:
+                      result.variants[variant_id].pathologies[pathoType] = @[]
+                      result.variants[variant_id].pathologies[pathoType].add(pathology)
+                    if pathoType in clinicalPathoType:
+                      continue
+                    clinicalPathoType.add(pathoType)
 
               var
                 submitter_id = -1
@@ -733,7 +734,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     desc_nodes = clinsig_nodes[0].select("description")
                     revstat_nodes = clinsig_nodes[0].select("reviewstatus")
                     comment_nodes = clinsig_nodes[0].select("comment")
-                    
+
                   # extracted with a regex from the comment node
                   for comment in comment_nodes:
                     let parse_clnsig = parseNCBIConversionComment(comment.innerText)
@@ -750,7 +751,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     review_status: review_status,
                     submitter_id: submitter_id,
                     variant_in_gene: variant_in_gene
-                  )                 
+                  )
                   result.variants[variant_id].submissions.add(submission)
 
 proc formatVCFString*(vcf_string: string): string =
@@ -820,7 +821,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
       let gene_info = genes_index.getInfoString(v.chrom, int(v.pos), int(v.pos) + v.ref_allele.len() - 1, coding_priority)
       if gene_info != "":
         info_fields.add("GENEINFO=" & gene_info)
-    
+
     elif rawGeneInfo != "":
       info_fields.add("GENEINFO=" & rawGeneInfo)
 
