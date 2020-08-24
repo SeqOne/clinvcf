@@ -9,6 +9,7 @@ import strformat
 import hts
 from regex import match, RegexMatch, groupFirstCapture
 import logging
+import options
 
 # Local libs
 from ./clinvcfpkg/utils import logger
@@ -383,7 +384,7 @@ proc aggregatSubmissionsClinvar*(submissions: seq[Submission]): tuple[clinsig: C
     result.clinsig = csConflictingInterpretation
     result.revstat = revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
 
-proc aggregateVariantInGene(submissions: seq[Submission], hgnc: HgncIndex): string =
+proc aggregateVariantInGene(submissions: seq[Submission], hgnc: options.Option[HgncIndex]): string =
   result = ""
   var
     genes: seq[string] = @[]
@@ -392,15 +393,16 @@ proc aggregateVariantInGene(submissions: seq[Submission], hgnc: HgncIndex): stri
     if submission.variant_in_gene != "":
       if submission.variant_in_gene notin genes:
         genes.add(submission.variant_in_gene)
-        try:
-          genesToReturn.add(fmt"{submission.variant_in_gene}:{hgnc.entrez[submission.variant_in_gene]}")
-        except KeyError:
-          logger.log(lvlInfo, fmt"{submission.variant_in_gene} is not found in hgnc table.")
+        if hgnc.isSome:
+          try:
+            genesToReturn.add(fmt"{submission.variant_in_gene}:{hgnc.get.entrez[submission.variant_in_gene]}")
+          except KeyError:
+            logger.log(lvlInfo, fmt"{submission.variant_in_gene} is not found in hgnc table.")
 
   if len(genesToReturn) > 0:
     result = genesToReturn.join("|")
 
-proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: HgncIndex,
+proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: options.Option[HgncIndex],
   autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string,
   nb_reclassification_stars: int, geneInfo: string] =
 
@@ -812,7 +814,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
   for v in variants:
     inc(nb_variants)
     let (clinsig, revstat, old_clinsig, nb_reclassification_stars, rawGeneInfo) = v.submissions.aggregateSubmissions(
-      hgncIndex,
+      option(hgncIndex),
       true
     ) # Autocorrect conflicts
     var info_fields : seq[string] = @["ALLELEID=" & $v.allele_id]
