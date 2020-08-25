@@ -129,8 +129,8 @@ proc parseKeyValues*(str: string, global_sep: char, key_value_sep: char): TableR
     else:
       stderr.writeLine("[Error] Value fields " & f & " was not a key/value field using separator " & key_value_sep)
 
-proc loadGenesFromGFF*(gff_file: string, gene_padding : int): TableRef[string, Lapper[GFFGene]] =
-  result = newTable[string, Lapper[GFFGene]]()
+proc loadGenesFromGFF*(gff_file: string, gene_padding : int): (TableRef[string, int], TableRef[string, Lapper[GFFGene]]) =
+  result = (newTable[string, int](), newTable[string, Lapper[GFFGene]]())
   var
     fh: BGZ
     genes_chr_table = newTable[string, seq[GFFGene]]() # Temp table to load genes per-chromosomes
@@ -169,6 +169,8 @@ proc loadGenesFromGFF*(gff_file: string, gene_padding : int): TableRef[string, L
       gene.gene_symbol = gff_fields["Name"]
       if dbxref_fields.hasKey("GeneID"):
         gene.gene_id = parseInt(dbxref_fields["GeneID"])
+
+      result[0][gene.gene_symbol] = gene.gene_id
 
       if gff_fields.hasKey("gene_biotype"):
         gene.biotype = gff_fields["gene_biotype"]
@@ -213,7 +215,7 @@ proc loadGenesFromGFF*(gff_file: string, gene_padding : int): TableRef[string, L
   # Load set of genes (per chromosome) to lapper index
   logger.log(lvlInfo, fmt"Create lapper index for file {gff_file}")
   for chrom in genes_chr_table.keys():
-    result[chrom] = lapify(genes_chr_table[chrom])
+    result[1][chrom] = lapify(genes_chr_table[chrom])
 
 proc cmpGenes*(x, y: RequestGene): int =
   ## We select protein coding over non-coding gene (always ?)

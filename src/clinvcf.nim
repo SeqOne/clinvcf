@@ -9,6 +9,7 @@ import strformat
 import hts
 from regex import match, RegexMatch, groupFirstCapture
 import logging
+import options
 
 # Local libs
 from ./clinvcfpkg/utils import logger
@@ -383,7 +384,7 @@ proc aggregatSubmissionsClinvar*(submissions: seq[Submission]): tuple[clinsig: C
     result.clinsig = csConflictingInterpretation
     result.revstat = revstat_count.aggregateReviewStatus(submitter_ids.len(), true)
 
-proc aggregateVariantInGene(submissions: seq[Submission], hgnc: HgncIndex): string =
+proc aggregateVariantInGene(submissions: seq[Submission], hgnc: options.Option[HgncIndex], genesEntrez: TableRef[string, int]): string =
   result = ""
   var
     genes: seq[string] = @[]
@@ -392,16 +393,23 @@ proc aggregateVariantInGene(submissions: seq[Submission], hgnc: HgncIndex): stri
     if submission.variant_in_gene != "":
       if submission.variant_in_gene notin genes:
         genes.add(submission.variant_in_gene)
-        try:
-          genesToReturn.add(fmt"{submission.variant_in_gene}:{hgnc.entrez[submission.variant_in_gene]}")
-        except KeyError:
-          logger.log(lvlInfo, fmt"{submission.variant_in_gene} is not found in hgnc table.")
+        if hgnc.isSome:
+          try:
+            genesToReturn.add(fmt"{submission.variant_in_gene}:{hgnc.get.entrez[submission.variant_in_gene]}")
+          except KeyError:
+            logger.log(lvlInfo, fmt"{submission.variant_in_gene} is not found in hgnc table.")
+        else:
+          try:
+            genesToReturn.add(fmt"{submission.variant_in_gene}:{genesEntrez[submission.variant_in_gene]}")
+          except KeyError:
+            # genesWithNoID.add(fmt"{submission.variant_in_gene}:.")
+            logger.log(lvlInfo, fmt"{submission.variant_in_gene} is not found in GFF")
 
   if len(genesToReturn) > 0:
     result = genesToReturn.join("|")
 
-proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: HgncIndex,
-  autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string,
+proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: options.Option[HgncIndex],
+  genesEntrez: TableRef[string, int], autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string,
   nb_reclassification_stars: int, geneInfo: string] =
 
   var
@@ -409,7 +417,7 @@ proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: HgncIndex,
     (clinsig, revstat) = retained_submissions.aggregatSubmissionsClinvar()
     (clinsig_count, revstat_count, submitter_ids) = retained_submissions.countSubmissions()
 
-  result.geneInfo = retained_submissions.aggregateVariantInGene(hgncIndex)
+  result.geneInfo = retained_submissions.aggregateVariantInGene(hgncIndex, genesEntrez)
 
   if clinsig != csNA:
     result.clinsig = $clinsig
@@ -768,7 +776,7 @@ proc formatPathoString*(pathoString: string): string =
   result = result.replace(re"[^\w\||=]+", "_")
 
 proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string,
-  genes_index: TableRef[string, Lapper[GFFGene]], coding_priority : bool, hgncIndex: HgncIndex) =
+  genes_index: TableRef[string, Lapper[GFFGene]], coding_priority : bool, hgncIndex: HgncIndex, genesEntrez: TableRef[string, int]) =
   # Commented lines correspond to the NCBI Clinvar original header that are not currently supported by clinVCF
   echo "##fileformat=VCFv4.1"
   if filedate != "":
@@ -812,7 +820,8 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
   for v in variants:
     inc(nb_variants)
     let (clinsig, revstat, old_clinsig, nb_reclassification_stars, rawGeneInfo) = v.submissions.aggregateSubmissions(
-      hgncIndex,
+      option(hgncIndex),
+      genesEntrez,
       true
     ) # Autocorrect conflicts
     var info_fields : seq[string] = @["ALLELEID=" & $v.allele_id]
@@ -867,14 +876,14 @@ proc main*(argv: seq[string]) =
 
   # TODO: Create a usage and expose api_keys as options
   let doc = format("""
-Usage: clinvcf [options] --hgnc <table> --genome <version> <clinvar.xml.gz>
+Usage: clinvcf [options] --genome <version> <clinvar.xml.gz>
 
 Arguments:
   --genome <version>              Genome assembly to use
-  --hgnc <table>                  HGNC table used for gene name alias corrections
-
+  
 Options:
   --filename-date                 Use xml filename date instead of inner date which may differ
+  --hgnc <table>                  HGNC table used for gene name alias corrections
 
 Gene annotation:
   --gff <file>                    NCBI GFF to annotate variations with genes
@@ -895,6 +904,7 @@ Gene annotation:
     variants_seq: seq[ClinVariant]
     filedate: string
     genes_index: TableRef[string, Lapper[GFFGene]]
+    genesEntrez: TableRef[string, int]
 
   stderr.writeLine("GENOME = " & genome_assembly)
 
@@ -921,7 +931,7 @@ Gene annotation:
   if args["--gff"]:
     let gff_file = $args["--gff"]
     logger.log(lvlInfo, "[main] Load genes coordinates from " & gff_file)
-    genes_index = loadGenesFromGFF(gff_file, gene_padding)
+    (genesEntrez, genes_index) = loadGenesFromGFF(gff_file, gene_padding)
 
   # Sort variants by genomic order
   logger.log(lvlInfo, "[main] Sorting variants")
@@ -930,7 +940,7 @@ Gene annotation:
 
   # Print VCF of STDOUT
   logger.log(lvlInfo, "[main] Printing variants")
-  printVCF(variants_seq, genome_assembly, filedate, genes_index, coding_priority, hgncIndex)
+  printVCF(variants_seq, genome_assembly, filedate, genes_index, coding_priority, hgncIndex, genesEntrez)
 
 when isMainModule:
   main(commandLineParams())
