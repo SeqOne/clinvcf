@@ -389,7 +389,6 @@ proc aggregateVariantInGene(submissions: seq[Submission], hgnc: options.Option[H
   var
     genes: seq[string] = @[]
     genesToReturn: seq[string] = @[]
-    genesWithNoID: seq[string] = @[]
   for submission in submissions:
     if submission.variant_in_gene != "":
       if submission.variant_in_gene notin genes:
@@ -403,12 +402,11 @@ proc aggregateVariantInGene(submissions: seq[Submission], hgnc: options.Option[H
           try:
             genesToReturn.add(fmt"{submission.variant_in_gene}:{genesEntrez[submission.variant_in_gene]}")
           except KeyError:
-            genesWithNoID.add(fmt"{submission.variant_in_gene}:.")
-            logger.log(lvlInfo, fmt"{submission.variant_in_gene} is not found in GFF. Cannot get EntrezID")
-  
-  if len(genesToReturn) > 0 or len(genesWithNoID) > 0:
-    var mergedGenes = genesToReturn & genesWithNoID
-    result = mergedGenes.join("|")
+            # genesWithNoID.add(fmt"{submission.variant_in_gene}:.")
+            logger.log(lvlInfo, fmt"{submission.variant_in_gene} is not found in GFF")
+
+  if len(genesToReturn) > 0:
+    result = genesToReturn.join("|")
 
 proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: options.Option[HgncIndex],
   genesEntrez: TableRef[string, int], autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string,
