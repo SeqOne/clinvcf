@@ -51,14 +51,14 @@ clinvcf --hgnc hgnc.tsv --genome GRCh38 ClinVarFullRelease_00-latest.xml.gz | bg
 ## Usage
 
 ```
-Usage: clinvcf [options] --hgnc <table> --genome <version> <clinvar.xml.gz>
+Usage: clinvcf [options] --genome <version> <clinvar.xml.gz>
 
 Arguments:
   --genome <version>              Genome assembly to use
-  --hgnc <table>                  HGNC table used for gene name alias corrections
-
+  
 Options:
   --filename-date                 Use xml filename date instead of inner date which may differ
+  --hgnc <table>                  HGNC table used for gene name alias corrections
 
 Gene annotation:
   --gff <file>                    NCBI GFF to annotate variations with genes
