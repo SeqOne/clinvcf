@@ -398,6 +398,8 @@ proc aggregateVariantInGene(submissions: seq[Submission], hgnc: options.Option[H
             genesToReturn.add(fmt"{submission.variant_in_gene}:{hgnc.get.entrez[submission.variant_in_gene]}")
           except KeyError:
             logger.log(lvlInfo, fmt"{submission.variant_in_gene} is not found in hgnc table.")
+        else:
+          genesToReturn.add(fmt"{submission.variant_in_gene}:.")
 
   if len(genesToReturn) > 0:
     result = genesToReturn.join("|")
