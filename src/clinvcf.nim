@@ -69,6 +69,8 @@ type
     molecular_consequences: seq[MolecularConsequence]
     submissions: seq[Submission]
     pathologies: TableRef[string, seq[string]]
+    type_v: string
+    length: int
 
 const ignoredPathoTag = @["not specified", "see cases", "not provided", "variant of unknown significance"]
 
@@ -561,6 +563,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
         # TODO: We should have a more pretty way to do it as the MeasureSet in this case is bellow the GenotypeSet:
         # <GenotypeSet Type="CompoundHeterozygote" ID="424779" Acc="VCV000424779" Version="1">
         #   <MeasureSet Type="Variant" ID="928" Acc="VCV000000928" Version="2" NumberOfChromosomes="1">
+        #     <Measure Type="single nucleotide variant" ID="46341">
         if reference_clinvar_assertion_nodes[0].select("genotypeset").len() > 0:
           continue
 
@@ -594,12 +597,19 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                   pos_string = sequence_loc.attr("positionVCF")
                   ref_allele = sequence_loc.attr("referenceAlleleVCF")
                   alt_allele = sequence_loc.attr("alternateAlleleVCF")
-
+                  type_v = measure_node.attr("Type")
+                  start = sequence_loc.attr("start")
+                  stop = sequence_loc.attr("stop")
+                  
                 var
                   pos : int = -1
+                  length = sequence_loc.attr("variantLength")
 
                 if pos_string != "":
                   pos = pos_string.parseInt()
+
+                if length == "":
+                  length = $(parseInt(stop) - parseInt(start))
 
                 # Parse dbSNP rsid
                 # FIXME: Use this kind of loop to replace q calls and only explore first line childs in loops !!!
@@ -620,7 +630,9 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     rsid: cast[int32](rsid),
                     ref_allele: ref_allele,
                     alt_allele: alt_allele,
-                    pathologies: newTable[string, seq[string]]()
+                    pathologies: newTable[string, seq[string]](),
+                    type_v: type_v,
+                    length: cast[int](length)
                   )
                 result.variants[variant_id] = variant
 
@@ -810,6 +822,8 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
   # ##INFO=<ID=ORIGIN,Number=.,Type=String,Description="Allele origin. One or more of the following values may be added: 0 - unknown; 1 - germline; 2 - somatic; 4 - inherited; 8 - paternal; 16 - maternal; 3
   # 2 - de-novo; 64 - biparental; 128 - uniparental; 256 - not-tested; 512 - tested-inconclusive; 1073741824 - other">
   echo "##INFO=<ID=RS,Number=.,Type=String,Description=\"dbSNP ID (i.e. rs number)\">"
+  echo "##INFO=<ID=VARIANTTYPE,Number=.,Type=String,Description=\"Type of variant\">"
+  echo "##INFO=<ID=VARIANTLENGTH,Number=.,Type=Integer,Description=\"Length of variant\">"
   # ##INFO=<ID=SSR,Number=1,Type=Integer,Description="Variant Suspect Reason Codes. One or more of the following values may be added: 0 - unspecified, 1 - Paralog, 2 - byEST, 4 - oldAlign, 8 - Para_EST, 16
   # - 1kg_failed, 1024 - other">
   echo "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO"
@@ -836,6 +850,8 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
 
     info_fields.add("CLNSIG=" & clinsig.formatVCFString())
     info_fields.add("CLNREVSTAT=" & revstat.formatVCFString())
+    info_fields.add("VARIANTTYPE=" & v.type_v.formatVCFString())
+    info_fields.add("VARIANTLENGTH=" & $v.length)
 
     if old_clinsig != "":
       info_fields.add("OLD_CLNSIG=" & old_clinsig.formatVCFString())
