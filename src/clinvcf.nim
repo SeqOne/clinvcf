@@ -823,7 +823,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
   # 2 - de-novo; 64 - biparental; 128 - uniparental; 256 - not-tested; 512 - tested-inconclusive; 1073741824 - other">
   echo "##INFO=<ID=RS,Number=.,Type=String,Description=\"dbSNP ID (i.e. rs number)\">"
   echo "##INFO=<ID=VARIANTTYPE,Number=.,Type=String,Description=\"Type of variant\">"
-  echo "##INFO=<ID=VARIANTLENGTH,Number=.,Type=Integer,Description=\"Lentgh of variant\">"
+  echo "##INFO=<ID=VARIANTLENGTH,Number=.,Type=Integer,Description=\"Length of variant\">"
   # ##INFO=<ID=SSR,Number=1,Type=Integer,Description="Variant Suspect Reason Codes. One or more of the following values may be added: 0 - unspecified, 1 - Paralog, 2 - byEST, 4 - oldAlign, 8 - Para_EST, 16
   # - 1kg_failed, 1024 - other">
   echo "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO"
