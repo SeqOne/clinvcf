@@ -598,18 +598,21 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                   ref_allele = sequence_loc.attr("referenceAlleleVCF")
                   alt_allele = sequence_loc.attr("alternateAlleleVCF")
                   type_v = measure_node.attr("Type")
-                  start = sequence_loc.attr("start")
-                  stop = sequence_loc.attr("stop")
+                  start_string = sequence_loc.attr("start")
+                  stop_string = sequence_loc.attr("stop")
+                  length_string = sequence_loc.attr("variantLength")
                   
                 var
                   pos : int = -1
-                  length = sequence_loc.attr("variantLength")
+                  length: int = -1
 
                 if pos_string != "":
                   pos = pos_string.parseInt()
-
-                if length == "":
-                  length = $(parseInt(stop) - parseInt(start))
+                
+                if length_string != "":
+                  length = length_string.parseInt()
+                elif start_string != "" and stop_string != "":
+                  length = stop_string.parseInt() - start_string.parseInt()
 
                 # Parse dbSNP rsid
                 # FIXME: Use this kind of loop to replace q calls and only explore first line childs in loops !!!
@@ -632,7 +635,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     alt_allele: alt_allele,
                     pathologies: newTable[string, seq[string]](),
                     type_v: type_v,
-                    length: cast[int](length)
+                    length: cast[int32](length)
                   )
                 result.variants[variant_id] = variant
 
@@ -822,8 +825,8 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
   # ##INFO=<ID=ORIGIN,Number=.,Type=String,Description="Allele origin. One or more of the following values may be added: 0 - unknown; 1 - germline; 2 - somatic; 4 - inherited; 8 - paternal; 16 - maternal; 3
   # 2 - de-novo; 64 - biparental; 128 - uniparental; 256 - not-tested; 512 - tested-inconclusive; 1073741824 - other">
   echo "##INFO=<ID=RS,Number=.,Type=String,Description=\"dbSNP ID (i.e. rs number)\">"
-  echo "##INFO=<ID=VARIANTTYPE,Number=.,Type=String,Description=\"Type of variant\">"
-  echo "##INFO=<ID=VARIANTLENGTH,Number=.,Type=Integer,Description=\"Length of variant\">"
+  echo "##INFO=<ID=VARIANTTYPE,Number=1,Type=String,Description=\"Type of variant\">"
+  echo "##INFO=<ID=VARIANTLENGTH,Number=1,Type=Integer,Description=\"Length of variant\">"
   # ##INFO=<ID=SSR,Number=1,Type=Integer,Description="Variant Suspect Reason Codes. One or more of the following values may be added: 0 - unspecified, 1 - Paralog, 2 - byEST, 4 - oldAlign, 8 - Para_EST, 16
   # - 1kg_failed, 1024 - other">
   echo "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO"
