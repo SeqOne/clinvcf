@@ -1,15 +1,18 @@
-![ClinVCF-logo](clinvcf.png)
-
 # ClinVCF
 
-ClinVCF **generates a VCF file from a Clinvar Full Release** (XML format). It was first developped because we observed missing variants in VCF files provided by NCBI. We later extended its capabilities to provived enhanced Clinvar VCF files by :
+![ClinVCF-logo](clinvcf.png)
+
+ClinVCF **generates a VCF file from a ClinVar Full Release** (XML format). It was first developped because we observed missing variants in VCF files provided by NCBI. We later extended its capabilities to provived enhanced Clinvar VCF files by :
 
 - **Improving Clinvar classification and aggregation method** by [deciphering "conflicting intepretation" records](#clinicalsignificance-correction-module) where almost all submissions goes into the same direction.
 - **Implementing a more robust [gene annotation module](#gene-annotation)** based NCBI GFF files.
 
 ClinVCF is **developped in NimLang, is highly efficient*** (~ 5 minutes to generate the VCF from the XML) and supports GRCh37 and GRCh38 genomes builds.
 
-**Table of content**
+**clinVCF** is a part of the [**Genome Alert!** framework](https://github.com/SeqOne/GenomeAlert_app) - [Website https://genomealert.univ-grenoble-alpes.fr/](https://genomealert.univ-grenoble-alpes.fr/).
+
+## Table of content
+
 - [ClinVCF](#clinvcf)
   - [Quick start](#quick-start)
   - [Usage](#usage)
@@ -22,19 +25,16 @@ ClinVCF is **developped in NimLang, is highly efficient*** (~ 5 minutes to gener
 
 ## Quick start
 
-You need to have [nimlang installed](https://nim-lang.org/install_unix.html) to compile and install clinVCF.
+You need to have [nimlang installed](https://nim-lang.org/install_unix.html) and [hts-nim](https://github.com/brentp/hts-nim) to compile and install clinVCF.
 
-```
+A clean install script of nim and hts-nim is proposed by Brent Pedersen [nimlang and hts-nim installed](https://github.com/brentp/hts-nim/blob/master/scripts/install.sh)
+
+```bash
 # Git clone and install
-git clone https://gitlab.seq.one/workset/clinvcf.git && cd clinvcf && nimble install
+git clone https://github.com/SeqOne/clinvcf.git && cd clinvcf && nimble install
 
 # Download (latest) Clinvar XML release
 wget ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/ClinVarFullRelease_00-latest.xml.gz
-
-# HGNC table
-# Go to https://www.genenames.org/download/custom and select column : "Alias symbols", "Approved symbol", "NCBI Gene ID"
-# or run the following command
-curl 'https://www.genenames.org/cgi-bin/download/custom?col=gd_app_sym&col=gd_aliases&col=md_eg_id&status=Approved&status=Entry%20Withdrawn&hgnc_dbtag=on&order_by=gd_app_sym_sort&format=text&submit=submit' > hgnc.tsv 
 
 # Download GFF for gene annotation (GRCh37 or 38)
 wget ftp://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh37_latest/refseq_identifiers/GRCh37_latest_genomic.gff.gz
@@ -42,15 +42,15 @@ wget ftp://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq
 
 # Generate clinvar VCF
 ## For GRCh37
-clinvcf --hgnc hgnc.tsv --genome GRCh37 ClinVarFullRelease_00-latest.xml.gz | bgzip -c > clinvar_GRCh37.vcf.gz
+clinvcf --coding-first --genome GRCh37 ClinVarFullRelease_00-latest.xml.gz | bgzip -c > clinvar_GRCh37.vcf.gz
 ## For GRCh38
-clinvcf --hgnc hgnc.tsv --genome GRCh38 ClinVarFullRelease_00-latest.xml.gz | bgzip -c > clinvar_GRCh38.vcf.gz
+clinvcf --coding-first  --genome GRCh38 ClinVarFullRelease_00-latest.xml.gz | bgzip -c > clinvar_GRCh38.vcf.gz
 
 ```
 
 ## Usage
 
-```
+```bash
 Usage: clinvcf [options] --genome <version> <clinvar.xml.gz>
 
 Arguments:
@@ -84,7 +84,7 @@ additionnal fields are provided.
 | **MC**         | Same    | String    | comma separated list of molecular consequence in the form of Sequence Ontology `ID\|molecular_consequence`                                                         | `SO:0001583\|missense_variant`                 |
 | **RS**         | Same    | String    | dbSNP ID (i.e. rs number)                                                                                                                                          | `80358507`                                     |
 
-* **Status**: *Same* (identical as in original Clinvar VCF), *new* (New field from clinVCF)
+**Status**: *Same* (identical as in original Clinvar VCF), *new* (New field from clinVCF)
 
 ## Methodology
 
@@ -106,11 +106,17 @@ According to the 1.5 * IQR method, we remove outliers submissions and reclassify
        - If we have an equality we take exonic (+/-20bp padding) over intronic/intergenic candidates
        - If none are exonic, we take the gene with closest exon
        - If both are exonic, we take the oldest gene ID in NCBI Entrez database
-    - Default procedure :
-      - We take coding gene over all other genes (except for MT genome) if the variant is exonic (+/- 20bp)
-      - If we have an equality we take exonic (+/-20bp padding) over intronic/intergenic candidates
-      - If none are exonic, we take the gene with closest exon
-      - If both are exonic, we take the oldest gene ID in NCBI Entrez database
+     - Default procedure :
+       - We take coding gene over all other genes (except for MT genome) if the variant is exonic (+/- 20bp)
+       - If we have an equality we take exonic (+/-20bp padding) over intronic/intergenic candidates
+       - If none are exonic, we take the gene with closest exon
+       - If both are exonic, we take the oldest gene ID in NCBI Entrez database
+
+## How to cite
+
+If you use a tool of the Genome Alert! framework, please cite:
+> Yauy et al., Genome Alert!: a standardized procedure for genomic variant reinterpretation and automated genotype-phenotype reassessment in clinical routine. medRxiv (2021). [https://doi.org/10.1101/2021.07.13.21260422
+](https://www.medrxiv.org/content/10.1101/2021.07.13.21260422v1)
 
 ## License
 
@@ -118,6 +124,10 @@ According to the 1.5 * IQR method, we remove outliers submissions and reclassify
 
 ## Misc
 
-**clinVCF** is a part of the [**Variant Alert!** framework](https://github.com/SeqOne/variant_alert), a collaboration of :
+**clinVCF** is a part of the [**Genome Alert!** framework](https://github.com/SeqOne/GenomeAlert_app), a collaboration of :
 
-[![SeqOne](https://github.com/SeqOne/variant_alert/blob/master/img/logo-seqone.png?raw=true)](https://seq.one/)  [![Université Grenoble Alpes](https://github.com/SeqOne/variant_alert/blob/master/img/logo-uga.png?raw=true)](https://iab.univ-grenoble-alpes.fr/) [![CHU de Rouen](https://github.com/SeqOne/variant_alert/blob/master/img/logo-CHU.png?raw=true)](https://www.chu-rouen.fr/service/service-de-genetique/)
+[![SeqOne](img/logo-seqone.png)](https://seq.one/)
+
+[![Université Grenoble Alpes](img/logo-uga.png)](https://iab.univ-grenoble-alpes.fr/)
+
+[![CHU de Rouen](img/logo-CHU.png)](https://www.chu-rouen.fr/service/service-de-genetique/)
