@@ -14,7 +14,7 @@ requires "regex >= 0.13"
 srcDir = "src"
 installExt = @["nim"]
 
-bin = @["clinvcf", "extractClinvarSet"]
+bin = @["clinvcf", "extractClinvarSet", "compvcf"]
 
 skipDirs = @["tests"]
 
