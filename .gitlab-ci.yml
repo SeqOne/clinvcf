@@ -34,6 +34,7 @@ artefact_build:
   image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.0.4
   stage: artefact_build
   script:
+    - apt-get update && apt-get install -y git
     - nimble install -y
   artifacts:
     paths:
