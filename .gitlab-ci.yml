@@ -24,6 +24,7 @@ test:
   image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.0.4
   stage: test
   script:
+    - apt-get update && apt-get install -y git
     - nimble build -y
     - nimble test
   tags:
