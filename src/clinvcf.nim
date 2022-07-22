@@ -442,12 +442,12 @@ proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: options.Opti
         #   clinsig_count_without_outliers, revstat_count_without_outliers, submitter_ids_without_outliers
         # ) = retained_submissions_without_outliers.countSubmissions()
         (clinsig_count_without_outliers, _, _) = retained_submissions_without_outliers.countSubmissions()
-      # We were "conflicting" but re-assigned the clinsig to a pathogenic tag after outlier removal
+      # We were "conflicting" but re-assigned the clinsig to a pathogenic or benign tag after outlier removal
       # Now we try to see if we have 1, 2 or 3 stars for reclassification
       # - 1 star : default
       # - 2 stars : reclassification remains even if we add a virtual VUS submission
       # - 3 stars : 2 stars requirements and at least 1 pathogenic classification
-      if clinsig_without_outliers.clnsigToFloat() >= 4:
+      if clinsig_without_outliers.clnsigToFloat() > 0 and clinsig_without_outliers != csUncertainSignificance:
         var
           submissions_with_one_vus = retained_submissions
           nb_reclassification_stars = 1
@@ -468,8 +468,9 @@ proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: options.Opti
         # stderr.writeLine("[Log] submissions_with_one_vus: " & $map(submissions_with_one_vus, proc (x: Submission): string = $x.clinical_significance.clnsigToFloat()).join(","))
         # stderr.writeLine("[Log] submissions_with_one_vus_without_outlier: " & $map(submissions_with_one_vus_without_outlier, proc (x: Submission): string = $x.clinical_significance.clnsigToFloat()).join(","))
 
-        if clinsig_with_one_vus.clnsigToFloat() >= 4:
-          if clinsig_count_without_outliers.hasKey(csPathogenic):
+        if clinsig_with_one_vus.clnsigToFloat() > 0 and clinsig_with_one_vus != csUncertainSignificance:
+          # We have at least on Patho or one Benign
+          if clinsig_count_without_outliers.hasKey(csPathogenic) or clinsig_count_without_outliers.hasKey(csBenign):
             nb_reclassification_stars = 3
           else:
             nb_reclassification_stars = 2
@@ -898,7 +899,7 @@ proc main*(argv: seq[string]) =
 Usage: clinvcf [options] --genome <version> <clinvar.xml.gz>
 
 Arguments:
-  --genome <version>              Genome assembly to use
+  --genome <version>              Genome assembly to use (GRCh37 or GRCh38)
   
 Options:
   --filename-date                 Use xml filename date instead of inner date which may differ
@@ -925,8 +926,7 @@ Gene annotation:
     genes_index: TableRef[string, Lapper[GFFGene]]
     genesEntrez: TableRef[string, int]
 
-  stderr.writeLine("GENOME = " & genome_assembly)
-
+  logger.log(lvlInfo, "[main] Genome assembly " & genome_assembly)
 
   # Load variants from XML
   logger.log(lvlInfo, "[main] Parsing variants from " & clinvar_xml_file)

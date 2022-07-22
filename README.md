@@ -14,12 +14,14 @@ ClinVCF is **developped in NimLang, is highly efficient*** (~ 5 minutes to gener
 ## Table of content
 
 - [ClinVCF](#clinvcf)
+  - [Table of content](#table-of-content)
   - [Quick start](#quick-start)
   - [Usage](#usage)
     - [Output format](#output-format)
   - [Methodology](#methodology)
     - [ClinicalSignificance correction module](#clinicalsignificance-correction-module)
     - [Gene annotation](#gene-annotation)
+  - [How to cite](#how-to-cite)
   - [License](#license)
   - [Misc](#misc)
 
@@ -90,11 +92,11 @@ additionnal fields are provided.
 
 ### ClinicalSignificance correction module
 
-According to the 1.5 * IQR method, we remove outliers submissions and reclassify conflicting status variants according to ClinVar policies. We apply a 3-level star metrics according to our reclassification confidence. 4 or more submission is needed. We only reclassify variants from `conflicting` status to `likely pathogenic` or `pathogenic` status. 
+According to the 1.5 * IQR method, we remove outliers submissions and reclassify conflicting status variants according to ClinVar policies. We apply a 3-level star metrics according to our reclassification confidence. 4 or more submission is needed. We only reclassify variants from `conflicting` status to `benign`, `likely benign`, `likely pathogenic` and `pathogenic` status. 
 
 - ⭐ **(1 star)** : default
 - ⭐⭐ **(2 stars)** : reclassification remains even if we add a virtual VUS submission
-- ⭐⭐⭐ **(3 stars)** : 2 stars requirements and at least 1 pathogenic classification
+- ⭐⭐⭐ **(3 stars)** : 2 stars requirements and at least 1 pathogenic (or benign) classification
 
 ### Gene annotation
 
