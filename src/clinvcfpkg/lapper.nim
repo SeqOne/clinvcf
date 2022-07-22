@@ -78,6 +78,9 @@
 ##   echo res
 ##   # @[(start:40, stop:55, val:12), (start:50, stop:65, val:12), (start:60, stop:75, val:1)]
 import algorithm
+import logging
+from ./utils import logger
+import strformat
 
 type
 
@@ -164,6 +167,12 @@ proc find_nearest_upstream*[T:Interval](L:var Lapper[T], pos:int, ivs:var seq[T]
     i = lowerBound(L.intervals, pos)
     max_stop = -1
     candidates: seq[T]
+  if len(L.intervals) == i:
+    let ii:int = i
+    i = i - 1
+    logger.log(lvlInfo, fmt"-----> Resetting index [i] value from {ii} to {i} due to an out of bounds index error.")
+    assert ii - 1 == i
+
 
   # While we have not found an interval or we could find one that will have
   # a higher stop position as our current candidate
