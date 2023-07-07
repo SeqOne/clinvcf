@@ -836,8 +836,8 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     nb_corrections = 0
     nb_variants = 0
   for v in variants:
-    if toUpperAscii(v.chrom) == "UN" and genome_assembly == "GRCh37":
-      logger.log(lvlInfo, fmt"=====> Skipping [chromosome]=[{v.chrom}] for reference [GRCh37] !")
+    if toUpperAscii(v.chrom) == "UN" and genome_assembly in ["GRCh37", "GRCh38"]:
+      logger.log(lvlInfo, fmt"=====> Skipping [chromosome]=[{v.chrom}] for genome [{genome_assembly}] !")
       continue
     inc(nb_variants)
     let (clinsig, revstat, old_clinsig, nb_reclassification_stars, rawGeneInfo) = v.submissions.aggregateSubmissions(

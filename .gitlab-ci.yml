@@ -21,7 +21,7 @@ release:
   extends: .release
 
 test:
-  image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.0.4
+  image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.6.14
   stage: test
   script:
     - apt-get update && apt-get install -y git
@@ -31,7 +31,7 @@ test:
     - docker-executor
 
 artefact_build:
-  image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.0.4
+  image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.6.14
   stage: artefact_build
   script:
     - apt-get update && apt-get install -y git
