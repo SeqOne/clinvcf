@@ -2,6 +2,7 @@ FROM debian:stable-slim as builder
 ARG HTSLIB_VERSION=1.10
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
+    libpcre3 libpcre3-dev \
     make \
     wget \
     libbz2-dev \
