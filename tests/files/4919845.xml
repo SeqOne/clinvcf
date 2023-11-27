@@ -1,0 +1,180 @@
+<ClinVarSet ID="163877486">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_006883.2(SHOX):c.-432-3C&gt;A AND not specified</Title>
+  <ReferenceClinVarAssertion ID="4919821" DateLastUpdated="2023-10-28" DateCreated="2022-05-16">
+    <ClinVarAccession Acc="RCV002238571" Version="10" Type="RCV" DateUpdated="2023-10-28" DateCreated="2022-05-16"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2022-04-26">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="139656257">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="1683250" Acc="VCV001683250" Version="4">
+      <Measure Type="single nucleotide variant" ID="1675149">
+        <Name>
+          <ElementValue Type="Preferred">NM_006883.2(SHOX):c.-432-3C&gt;A</ElementValue>
+        </Name>
+        <CanonicalSPDI>NC_000024.10:630462:C:A</CanonicalSPDI>
+        <AttributeSet>
+          <Attribute Accession="LRG_710t2" Type="HGVS, coding, LRG">LRG_710t2:c.-432-3C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_006883" Version="2" Change="c.-432-3C&gt;A" Type="HGVS, coding, RefSeq">NM_006883.2:c.-432-3C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_710" Type="HGVS, genomic, LRG">LRG_710:g.11120C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_009385" Version="2" Change="g.11120C&gt;A" Type="HGVS, genomic, RefSeqGene">NG_009385.2:g.11120C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000023" Version="11" Change="g.630463C&gt;A" Type="HGVS, genomic, top level" integerValue="38">NC_000023.11:g.630463C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000024" Version="10" Change="g.630463C&gt;A" Type="HGVS, genomic, top level" integerValue="38">NC_000024.10:g.630463C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000024" Version="9" Change="g.541198C&gt;A" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000024.9:g.541198C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000023" Version="10" Change="g.591198C&gt;A" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000023.10:g.591198C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000451" Version="3" Change="c.-432-3C&gt;A" Type="HGVS, previous">NM_000451.3:c.-432-3C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="HGVS, protein"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="HGVS, protein"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">intron variant</Attribute>
+          <XRef ID="SO:0001627" DB="Sequence Ontology"/>
+          <XRef ID="NM_006883.2:c.-432-3C&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <CytogeneticLocation>Xp22.33</CytogeneticLocation>
+        <CytogeneticLocation>Yp11.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="X" Accession="NC_000023.11" start="630463" stop="630463" display_start="630463" display_stop="630463" variantLength="1" positionVCF="630463" referenceAlleleVCF="C" alternateAlleleVCF="A"/>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="Y" Accession="NC_000024.10" start="630463" stop="630463" display_start="630463" display_stop="630463" variantLength="1" positionVCF="630463" referenceAlleleVCF="C" alternateAlleleVCF="A"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="X" Accession="NC_000023.10" start="591198" stop="591198" display_start="591198" display_stop="591198" variantLength="1" positionVCF="591198" referenceAlleleVCF="C" alternateAlleleVCF="A"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="Y" Accession="NC_000024.9" start="541198" stop="541198" display_start="541198" display_stop="541198" variantLength="1" positionVCF="541198" referenceAlleleVCF="C" alternateAlleleVCF="A"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">SHOX homeobox</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">SHOX</ElementValue>
+          </Symbol>
+          <AttributeSet>
+            <Attribute dateValue="2015-10-15" Type="Haploinsufficiency">Sufficient evidence for dosage pathogenicity</Attribute>
+            <Citation>
+              <URL>https://www.ncbi.nlm.nih.gov/projects/dbvar/ISCA/isca_gene.cgi?sym=SHOX</URL>
+            </Citation>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute dateValue="2015-10-15" Type="Triplosensitivity">No evidence available</Attribute>
+            <Citation>
+              <URL>https://www.ncbi.nlm.nih.gov/projects/dbvar/ISCA/isca_gene.cgi?sym=SHOX</URL>
+            </Citation>
+          </AttributeSet>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="X" Accession="NC_000023.11" start="624344" stop="659411" display_start="624344" display_stop="659411" Strand="+"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="Y" Accession="NC_000024.10" start="624344" stop="659411" display_start="624344" display_stop="659411" Strand="+"/>
+          <XRef ID="6473" DB="Gene"/>
+          <XRef Type="MIM" ID="312865" DB="OMIM"/>
+          <XRef Type="MIM" ID="400020" DB="OMIM"/>
+          <XRef ID="HGNC:10853" DB="HGNC"/>
+        </MeasureRelationship>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_006883.2(SHOX):c.-432-3C&gt;A</ElementValue>
+      </Name>
+      <Name>
+        <ElementValue Type="Preferred">NM_006883.2(SHOX):c.-432-3C&gt;A</ElementValue>
+      </Name>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="9590">
+      <Trait ID="16789" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not specified</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">AllHighlyPenetrant</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">The term 'not specified' was created for use in ClinVar so that submitters can convey the concept that a variant is benign, likely benign, or of uncertain significance for an unspecified set of disorders.  This usage was introduced in 2014 to replace AllHighlyPenetrant.</Attribute>
+        </AttributeSet>
+        <XRef ID="CN169374" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="4908110" SubmissionName="SUB11463985">
+    <ClinVarSubmissionID localKey="NM_000451.3:c.-432-3C&gt;A|MedGen:CN169374" submittedAssembly="GRCh37" submitter="Women's Health and Genetics/Laboratory Corporation of America, LabCorp" submitterDate="2022-05-12"/>
+    <ClinVarAccession Acc="SCV002511506" Version="1" Type="SCV" OrgID="500026" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2022-05-16" DateCreated="2022-05-16"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2022-04-26">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Uncertain significance</Description>
+      <Citation>
+        <ID Source="PubMed">23426818</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">34627339</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">25659810</ID>
+      </Citation>
+      <Comment>Variant summary: SHOX c.-432-3C&gt;A alters a non-conserved nucleotide located close to a canonical splice site at the intron 1 and exon 2 boundary, and therefore could affect mRNA splicing, leading to a significantly altered protein sequence. Several computational tools predict a significant impact on normal splicing: four predict the variant weakens the 3' acceptor site. At least one publication reported experimental evidence, demonstrating in a minigene assay that the variant abolished normal splicing (Danzig_2012); however, authors of the study also noted that the SHOX gene might have an alternative promoter within exon 2, which should be unaffected by this splice acceptor site mutation in intron 1, which could generate a transcript and a fully functional Shox protein. The SHOX gene is located in the pseudoautosomal region of the X and Y chromosomes, and the variant allele was found at a frequency of 0.00017 in 150962 control chromosomes (gnomAD v3.1, genomes dataset), predominantly within the Ashkenazi Jewish subpopulation at a frequency of 0.0063 (i.e. 22/3468 alleles, all heterozygotes). The variant, c.-432-3C&gt;A, has been reported in the literature in multiple heterozygous carriers who were affected with Short Stature (Danzig_2012, Shapiro_2015), and in one homozygous individual, who was affected with a more extreme short stature than his heterozygous children, but lacked features of Langer mesomelic dysplasia, suggesting that even if the variant affects splicing in vivo, some functional Shox protein was still produced (Danzig_2012). Since the expressivity of SHOX deficiency is highly variable (PMID: 21325865), these data indicate that the variant in heterozygous- or in homozygous state maybe associated with Short Stature, but it is unclear if it could contribute to more severe phenotypes. No clinical diagnostic laboratories have submitted clinical-significance assessments for this variant to ClinVar after 2014. Based on the evidence outlined above, the variant was classified as VUS-possibly pathogenic for Short Stature phenotype.</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">LabCorp Variant Classification Summary - May 2015</Attribute>
+      <Citation>
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/rtxspsnt/labcorp_variant_classification_method_-_may_2015.pdf</URL>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_000451.3:c.-432-3C&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">SHOX</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <XRef DB="MedGen" ID="CN169374" Type="CUI"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
