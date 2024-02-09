@@ -549,7 +549,6 @@ iterator nextClinvarSet*(file: var BGZ): string =
 
 proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[variants: TableRef[string, ClinVariant], filedate: string] =
   result.variants = newTable[string, ClinVariant]()
-  echo "load"
   var
     file : BGZ
     submitters_hash = initTable[string, int]()
