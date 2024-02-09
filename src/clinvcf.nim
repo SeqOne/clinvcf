@@ -549,7 +549,7 @@ iterator nextClinvarSet*(file: var BGZ): string =
 
 proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[variants: TableRef[string, ClinVariant], filedate: string] =
   result.variants = newTable[string, ClinVariant]()
-
+  echo "load"
   var
     file : BGZ
     submitters_hash = initTable[string, int]()
@@ -610,8 +610,9 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
 
           # Only parse measure node to extract variant position if we do not have seen this variant
           # Already
-
+          var cpt: int = 1
           if not result.variants.hasKey(variant_id_chrm) and measure_nodes.len() > 0:
+            cpt = 0
             let measure_node = measure_nodes[0]
               # if measure_relationship_nodes.attr("Type") == "variant in gene":
                 # element_value_node = measure_relationship_nodes.select("symbol").select("ElementValue")
@@ -670,11 +671,17 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                   )
                 var 
                   variant_id_chrm: string = intToStr(variant_id)
-                # Concat for PAR variants -> we want 2 lines for the same clinvar id
-                if chrom == "X" or chrom == "Y":
-                  variant_id_chrm &= chrom
-
-                result.variants[variant_id_chrm] = variant
+                # Concat for PAR variants -> we want 2 lines for the same clinvar id                
+                if cpt == 1:
+                  if chrom != result.variants[variant_id_chrm].chrom:                 
+                    variant_id_chrm &= chrom
+                    result.variants[variant_id_chrm] = variant
+                    cpt.inc()     
+                if cpt == 0:
+                  result.variants[variant_id_chrm] = variant
+                  if chrom == "X" or chrom == "Y":
+                    cpt.inc()
+   
 
                 # Parse Molecular Consequence
                 # <AttributeSet>
@@ -704,113 +711,123 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                           found_mc = true
                       if not found_mc:
                         variant.molecular_consequences.add(mc_new)
+                if cpt == 2 or cpt == 0:
+                  break
 
-          # Now lets add the submissions and pathology
-          if result.variants.hasKey(variant_id_chrm):
-            for clinvar_assertion_node in doc.select("clinvarassertion"):
-              let
-                clinsig_nodes = clinvar_assertion_node.select("clinicalsignificance")
-                clinvar_submission_id_nodes = clinvar_assertion_node.select("clinvarsubmissionid")
-                measure_relationship_nodes = clinvar_assertion_node.select("measurerelationship")
-                traitSetNodes = clinvar_assertion_node.select("traitset")
+          # Add submissions 2 times in case of par variant
+          var l_chrom: seq[string]
+          if cpt == 2:
+            l_chrom = @["", "X", "Y"]
+          else:
+            l_chrom = @[""]
+          for chrom_sex in l_chrom:
+            let variant_id_chrm = variant_id_chrm & chrom_sex
+            # Now lets add the submissions and pathology
+            if result.variants.hasKey(variant_id_chrm):
+              for clinvar_assertion_node in doc.select("clinvarassertion"):
+                let
+                  clinsig_nodes = clinvar_assertion_node.select("clinicalsignificance")
+                  clinvar_submission_id_nodes = clinvar_assertion_node.select("clinvarsubmissionid")
+                  measure_relationship_nodes = clinvar_assertion_node.select("measurerelationship")
+                  traitSetNodes = clinvar_assertion_node.select("traitset")
 
-              # Extract gene
-              var variant_in_gene = ""
-              for measure_relationship in measure_relationship_nodes:
-                if measure_relationship.attr("Type") == "variant in gene":
-                  for symbol in measure_relationship.select("symbol"):
-                    for elementvalue in symbol.select("elementvalue"):
-                      if elementvalue.attr("Type") == "Preferred":
-                        if len(elementvalue) > 0:
-                          # Gene is present in the submission
-                          variant_in_gene = elementvalue[0].innerText
+                # Extract gene
+                var variant_in_gene = ""
+                for measure_relationship in measure_relationship_nodes:
+                  if measure_relationship.attr("Type") == "variant in gene":
+                    for symbol in measure_relationship.select("symbol"):
+                      for elementvalue in symbol.select("elementvalue"):
+                        if elementvalue.attr("Type") == "Preferred":
+                          if len(elementvalue) > 0:
+                            # Gene is present in the submission
+                            variant_in_gene = elementvalue[0].innerText
 
-              # Extract pathologies
-              for traitSetNode in traitSetNodes:
-                for trait in traitSetNode.select("trait"):
-                  # Check if there is informations about pathology
-                  if trait.select("elementvalue").len() > 0:
-                    # <traitset Type="Finding">
-                    #   <trait Type="Finding">
-                    #     <name>
-                    #       <elementvalue Type="Preferred">nuclear cataracts</elementvalue>
-                    #     </name>
-                    #   </trait>
-                    #   <trait Type="Finding">
-                    #     <name>
-                    #       <elementvalue Type="Preferred">microcornea</elementvalue>
-                    #     </name>
-                    #   </trait>
-                    # </traitset>
-                    # <traitset Type="Disease">
-                    #   <trait Type="Disease">
-                    #    <name>
-                    #      <elementvalue Type="Preferred">Cataract 1</elementvalue>
-                    #    </name>
-                    #    <xref DB="OMIM" Type="MIM" ID="116200" />
-                    #   </trait>
-                    # </traitset>
-                    let pathoType = trait.attr("Type")
-                    # Patho to skip : all values in ingnoredPathoTag
-                    if trait.select("elementvalue")[0].innerText.toLowerAscii in ignoredPathoTag:
-                      continue
-                    let pathology = trait.select("elementvalue")[0].innerText.toLowerAscii
-                    # Add result inside pathology table:
-                    #   key: pathology type : (Disease, Finding...)
-                    #   value: a list contaning pathology's names
-                    if result.variants[variant_id_chrm].pathologies.hasKey(pathoType):
-                      if pathology in result.variants[variant_id_chrm].pathologies[pathoType]:
+                # Extract pathologies
+                for traitSetNode in traitSetNodes:
+                  for trait in traitSetNode.select("trait"):
+                    # Check if there is informations about pathology
+                    if trait.select("elementvalue").len() > 0:
+                      # <traitset Type="Finding">
+                      #   <trait Type="Finding">
+                      #     <name>
+                      #       <elementvalue Type="Preferred">nuclear cataracts</elementvalue>
+                      #     </name>
+                      #   </trait>
+                      #   <trait Type="Finding">
+                      #     <name>
+                      #       <elementvalue Type="Preferred">microcornea</elementvalue>
+                      #     </name>
+                      #   </trait>
+                      # </traitset>
+                      # <traitset Type="Disease">
+                      #   <trait Type="Disease">
+                      #    <name>
+                      #      <elementvalue Type="Preferred">Cataract 1</elementvalue>
+                      #    </name>
+                      #    <xref DB="OMIM" Type="MIM" ID="116200" />
+                      #   </trait>
+                      # </traitset>
+                      let pathoType = trait.attr("Type")
+                      # Patho to skip : all values in ingnoredPathoTag
+                      if trait.select("elementvalue")[0].innerText.toLowerAscii in ignoredPathoTag:
                         continue
-                      result.variants[variant_id_chrm].pathologies[pathoType].add(pathology)
-                    else:
-                      result.variants[variant_id_chrm].pathologies[pathoType] = @[]
-                      result.variants[variant_id_chrm].pathologies[pathoType].add(pathology)
-                    if pathoType in clinicalPathoType:
-                      continue
-                    clinicalPathoType.add(pathoType)
+                      let pathology = trait.select("elementvalue")[0].innerText.toLowerAscii
+                      # Add result inside pathology table:
+                      #   key: pathology type : (Disease, Finding...)
+                      #   value: a list contaning pathology's names
+                      if result.variants[variant_id_chrm].pathologies.hasKey(pathoType):
+                        if pathology in result.variants[variant_id_chrm].pathologies[pathoType]:
+                          continue
+                        result.variants[variant_id_chrm].pathologies[pathoType].add(pathology)
+                      else:
+                        result.variants[variant_id_chrm].pathologies[pathoType] = @[]
+                        result.variants[variant_id_chrm].pathologies[pathoType].add(pathology)
+                      if pathoType in clinicalPathoType:
+                        continue
+                      clinicalPathoType.add(pathoType)
 
-              var
-                submitter_id = -1
-
-              # Extract Submitter ID
-              if clinvar_submission_id_nodes.len() > 0:
-                let submitter_name = clinvar_submission_id_nodes[0].attr("submitter")
-                if submitters_hash.hasKey(submitter_name):
-                  submitter_id = submitters_hash[submitter_name]
-                else:
-                  # Add the new submitter to the submutter hash
-                  submitter_id = submitters_hash.len()
-                  submitters_hash[submitter_name] = submitter_id
-
-              if clinsig_nodes.len() > 0: # FIXME: Should not be > to 1 ...
                 var
-                  clinical_significance : ClinSig = csUnknown
-                  review_status : RevStat = rsNoAssertion
+                  submitter_id = -1
 
-                if clinsig_nodes.len() > 0:
+                # Extract Submitter ID
+                if clinvar_submission_id_nodes.len() > 0:
+                  let submitter_name = clinvar_submission_id_nodes[0].attr("submitter")
+                  if submitters_hash.hasKey(submitter_name):
+                    submitter_id = submitters_hash[submitter_name]
+                  else:
+                    # Add the new submitter to the submutter hash
+                    submitter_id = submitters_hash.len()
+                    submitters_hash[submitter_name] = submitter_id
+
+                if clinsig_nodes.len() > 0: # FIXME: Should not be > to 1 ...
                   var
-                    desc_nodes = clinsig_nodes[0].select("description")
-                    revstat_nodes = clinsig_nodes[0].select("reviewstatus")
-                    comment_nodes = clinsig_nodes[0].select("comment")
+                    clinical_significance : ClinSig = csUnknown
+                    review_status : RevStat = rsNoAssertion
 
-                  # extracted with a regex from the comment node
-                  for comment in comment_nodes:
-                    let parse_clnsig = parseNCBIConversionComment(comment.innerText)
-                    if parse_clnsig != csUnknown:
-                      clinical_significance = parse_clnsig
-                  if clinical_significance == csUnknown and desc_nodes.len() > 0:
-                    clinical_significance = parseEnum[ClinSig](desc_nodes[0].innerText)
-                  if revstat_nodes.len() > 0:
-                   review_status = parseEnum[RevStat](revstat_nodes[0].innerText, rsNoAssertion)
+                  if clinsig_nodes.len() > 0:
+                    var
+                      desc_nodes = clinsig_nodes[0].select("description")
+                      revstat_nodes = clinsig_nodes[0].select("reviewstatus")
+                      comment_nodes = clinsig_nodes[0].select("comment")
 
-                  # Add the submission to the variant record
-                  var submission = Submission(
-                    clinical_significance: clinical_significance,
-                    review_status: review_status,
-                    submitter_id: submitter_id,
-                    variant_in_gene: variant_in_gene
-                  )
-                  result.variants[variant_id_chrm].submissions.add(submission) 
+                    # extracted with a regex from the comment node
+                    for comment in comment_nodes:
+                      let parse_clnsig = parseNCBIConversionComment(comment.innerText)
+                      if parse_clnsig != csUnknown:
+                        clinical_significance = parse_clnsig
+                    if clinical_significance == csUnknown and desc_nodes.len() > 0:
+                      clinical_significance = parseEnum[ClinSig](desc_nodes[0].innerText)
+                    if revstat_nodes.len() > 0:
+                      review_status = parseEnum[RevStat](revstat_nodes[0].innerText, rsNoAssertion)
+
+                    # Add the submission to the variant record
+                    var submission = Submission(
+                      clinical_significance: clinical_significance,
+                      review_status: review_status,
+                      submitter_id: submitter_id,
+                      variant_in_gene: variant_in_gene
+                    )
+                    result.variants[variant_id_chrm].submissions.add(submission)
 
 proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')
