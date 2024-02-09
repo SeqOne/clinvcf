@@ -169,7 +169,7 @@ assert_in_stdout "569678"
 # CLNSIG Patho Likely Low penetrance
 run low_penetrance_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/116308252.xml
 assert_exit_code 0
-assert_in_stdout "CLNSIG=CLNSIG=Likely_pathogenic,_low_penetrance"
+assert_in_stdout "CLNSIG=Likely_pathogenic,_low_penetrance"
 assert_in_stdout "VARIANTTYPE=Duplication"
 
 # CLNSIG Patho Low penetrance
