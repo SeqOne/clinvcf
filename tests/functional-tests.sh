@@ -165,3 +165,15 @@ assert_in_stdout "CLNSIG=Benign"
 assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"
 assert_in_stdout "619678"
 assert_in_stdout "569678"
+
+# CLNSIG Patho Likely Low penetrance
+run low_penetrance_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/116308252.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=CLNSIG=Likely_pathogenic,_low_penetrance"
+assert_in_stdout "VARIANTTYPE=Duplication"
+
+# CLNSIG Patho Low penetrance
+run low_penetrance_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/126106420.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=Pathogenic,_low_penetrance"
+assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"

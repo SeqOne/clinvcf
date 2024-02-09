@@ -1,0 +1,298 @@
+<ClinVarSet ID="126106420">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_000311.5(PRNP):c.628G&gt;A (p.Val210Ile) AND Huntington disease-like 1</Title>
+  <ReferenceClinVarAssertion ID="1267715" DateLastUpdated="2023-02-13" DateCreated="2017-12-26">
+    <ClinVarAccession Acc="RCV000532969" Version="7" Type="RCV" DateUpdated="2023-02-13" DateCreated="2017-12-26"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2022-09-20">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic, low penetrance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="121192445">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="13403" Acc="VCV000013403" Version="11">
+      <Measure Type="single nucleotide variant" ID="28442">
+        <Name>
+          <ElementValue Type="Preferred">NM_000311.5(PRNP):c.628G&gt;A (p.Val210Ile)</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">PRNP, VAL210ILE (rs74315407)</ElementValue>
+          <XRef Type="Allelic variant" ID="176640.0014" DB="OMIM"/>
+        </Name>
+        <CanonicalSPDI>NC_000020.11:4699847:G:A</CanonicalSPDI>
+        <AttributeSet>
+          <Attribute Accession="NM_001271561" Version="3" Change="c.*317G&gt;A" Type="HGVS, coding, RefSeq">NM_001271561.3:c.*317G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000311" Version="5" Change="c.628G&gt;A" Type="HGVS, coding, RefSeq" MANESelect="true">NM_000311.5:c.628G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001080121" Version="3" Change="c.628G&gt;A" Type="HGVS, coding, RefSeq">NM_001080121.3:c.628G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001080122" Version="3" Change="c.628G&gt;A" Type="HGVS, coding, RefSeq">NM_001080122.3:c.628G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001080123" Version="3" Change="c.628G&gt;A" Type="HGVS, coding, RefSeq">NM_001080123.3:c.628G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_183079" Version="4" Change="c.628G&gt;A" Type="HGVS, coding, RefSeq">NM_183079.4:c.628G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_009087" Version="1" Change="g.18698G&gt;A" Type="HGVS, genomic, RefSeqGene">NG_009087.1:g.18698G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000020" Version="11" Change="g.4699848G&gt;A" Type="HGVS, genomic, top level" integerValue="38">NC_000020.11:g.4699848G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000020" Version="10" Change="g.4680494G&gt;A" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000020.10:g.4680494G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_000311" Version="3" Change="c.628G&gt;A" Type="HGVS, previous">NM_000311.3:c.628G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="P04156" Change="p.Val210Ile" Type="HGVS, protein">P04156:p.Val210Ile</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_000302" Version="1" Change="p.Val210Ile" Type="HGVS, protein, RefSeq">NP_000302.1:p.Val210Ile</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001073590" Version="1" Change="p.Val210Ile" Type="HGVS, protein, RefSeq">NP_001073590.1:p.Val210Ile</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001073591" Version="1" Change="p.Val210Ile" Type="HGVS, protein, RefSeq">NP_001073591.1:p.Val210Ile</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001073592" Version="1" Change="p.Val210Ile" Type="HGVS, protein, RefSeq">NP_001073592.1:p.Val210Ile</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_898902" Version="1" Change="p.Val210Ile" Type="HGVS, protein, RefSeq">NP_898902.1:p.Val210Ile</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">3 prime UTR variant</Attribute>
+          <XRef ID="SO:0001624" DB="Sequence Ontology"/>
+          <XRef ID="NM_001271561.3:c.*317G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_000311.5:c.628G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001080121.3:c.628G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001080122.3:c.628G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001080123.3:c.628G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+--
+        <AlleleFrequencyList>
+          <AlleleFrequency Value="0.00002" Source="Exome Aggregation Consortium (ExAC)"/>
+          <AlleleFrequency Value="0.00002" Source="The Genome Aggregation Database (gnomAD)"/>
+          <AlleleFrequency Value="0.00001" Source="The Genome Aggregation Database (gnomAD), exomes"/>
+          <AlleleFrequency Value="0.00002" Source="Trans-Omics for Precision Medicine (TOPMed)"/>
+        </AlleleFrequencyList>
+        <CytogeneticLocation>20p13</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="20" Accession="NC_000020.11" start="4699848" stop="4699848" display_start="4699848" display_stop="4699848" variantLength="1" positionVCF="4699848" referenceAlleleVCF="G" alternateAlleleVCF="A"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="20" Accession="NC_000020.10" start="4680494" stop="4680494" display_start="4680494" display_stop="4680494" variantLength="1" positionVCF="4680494" referenceAlleleVCF="G" alternateAlleleVCF="A"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">prion protein</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">PRNP</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="20" Accession="NC_000020.11" start="4686456" stop="4701588" display_start="4686456" display_stop="4701588" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="20" Accession="NC_000020.10" start="4666796" stop="4682233" display_start="4666796" display_stop="4682233" variantLength="15438" Strand="+"/>
+          <XRef ID="5621" DB="Gene"/>
+          <XRef Type="MIM" ID="176640" DB="OMIM"/>
+          <XRef ID="HGNC:9449" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef ID="P04156#VAR_006475" DB="UniProtKB"/>
+        <XRef Type="Allelic variant" ID="176640.0014" DB="OMIM"/>
+        <XRef Type="rs" ID="74315407" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_000311.5(PRNP):c.628G&gt;A (p.Val210Ile)</ElementValue>
+      </Name>
+      <Name>
+        <ElementValue Type="Preferred">NM_000311.5(PRNP):c.628G&gt;A (p.Val210Ile)</ElementValue>
+      </Name>
+      <Name>
+        <ElementValue Type="Preferred">NM_000311.5(PRNP):c.628G&gt;A (p.Val210Ile)</ElementValue>
+      </Name>
+      <Name>
+        <ElementValue Type="Preferred">NM_000311.5(PRNP):c.628G&gt;A (p.Val210Ile)</ElementValue>
+      </Name>
+      <Name>
+        <ElementValue Type="Preferred">NM_000311.5(PRNP):c.628G&gt;A (p.Val210Ile)</ElementValue>
+      </Name>
+      <Name>
+        <ElementValue Type="Preferred">NM_000311.5(PRNP):c.628G&gt;A (p.Val210Ile)</ElementValue>
+      </Name>
+      <Name>
+        <ElementValue Type="Preferred">NM_000311.5(PRNP):c.628G&gt;A (p.Val210Ile)</ElementValue>
+      </Name>
+      <Name>
+        <ElementValue Type="Preferred">NM_000311.5(PRNP):c.628G&gt;A (p.Val210Ile)</ElementValue>
+      </Name>
+      <XRef ID="CA256781" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="3685">
+      <Trait ID="2339" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Huntington disease-like 1</ElementValue>
+          <XRef ID="Huntington+disease-like+1/8567" DB="Genetic Alliance"/>
+          <XRef ID="MONDO:0011299" DB="MONDO"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">HUNTINGTON-LIKE NEURODEGENERATIVE DISORDER 1</ElementValue>
+          <XRef Type="MIM" ID="603218" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">HUNTINGTON-LIKE NEURODEGENERATIVE DISORDER, AUTOSOMAL DOMINANT</ElementValue>
+          <XRef Type="MIM" ID="603218" DB="OMIM"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">PRION DISEASE, EARLY-ONSET, WITH PROMINENT PSYCHIATRIC FEATURES</ElementValue>
+          <XRef Type="MIM" ID="603218" DB="OMIM"/>
+        </Name>
+        <Symbol>
+          <ElementValue Type="Preferred">HDL1</ElementValue>
+          <XRef Type="MIM" ID="603218" DB="OMIM"/>
+        </Symbol>
+        <Symbol>
+          <ElementValue Type="Alternate">HLN1</ElementValue>
+          <XRef Type="MIM" ID="603218" DB="OMIM"/>
+        </Symbol>
+        <AttributeSet>
+          <Attribute Type="public definition">Genetic prion disease generally manifests with cognitive difficulties, ataxia, and myoclonus (abrupt jerking movements of muscle groups and/or entire limbs). The order of appearance and/or predominance of these features and other associated neurologic and psychiatric findings vary. The three major phenotypes of genetic prion disease are genetic Creutzfeldt-Jakob disease (gCJD), fatal familial insomnia (FFI), and Gerstmann-Sträussler-Scheinker (GSS) syndrome. Although these phenotypes display overlapping clinical and pathologic features, recognition of these phenotypes can be useful when providing affected individuals and their families with information about the expected clinical course. The age at onset typically ranges from 50 to 60 years. The disease course ranges from a few months in gCJD and FFI to a few (up to 4, and in rare cases up to 10) years in GSS syndrome.</Attribute>
+          <XRef ID="NBK1229" DB="GeneReviews"/>
+        </AttributeSet>
+        <Citation Type="review" Abbrev="GeneReviews">
+          <ID Source="PubMed">20301407</ID>
+          <ID Source="BookShelf">NBK1229</ID>
+        </Citation>
+        <XRef ID="MONDO:0011299" DB="MONDO"/>
+        <XRef ID="C1864112" DB="MedGen"/>
+        <XRef ID="157941" DB="Orphanet"/>
+        <XRef Type="MIM" ID="603218" DB="OMIM"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="1237470">
+    <ClinVarSubmissionID localKey="1213298|MedGen:C1864112" submittedAssembly="GRCh37" submitter="Invitae" submitterDate="2023-01-11"/>
+    <ClinVarAccession Acc="SCV000644931" Version="5" Type="SCV" OrgID="500031" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2023-02-07" DateCreated="2017-12-26"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2022-09-20">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Pathogenic, low penetrance</Description>
+      <Citation>
+        <ID Source="PubMed">26268049</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">26578040</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">24583440</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">10526198</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">7902693</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">26791950</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">10526198</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">7902693</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">26791950</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">21839748</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">21909425</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">22947063</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">10079068</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">14761942</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">11756597</ID>
+      </Citation>
+      <Comment>This sequence change replaces valine, which is neutral and non-polar, with isoleucine, which is neutral and non-polar, at codon 210 of the PRNP protein (p.Val210Ile). This variant is present in population databases (rs74315407, gnomAD 0.002%). This variant has been reported in many cases of sporadic and familial Creutzfeldt-Jakob disease (CJD) (PMID: 26268049, 26578040, 24583440, 10526198, 7902693). In several cases, this variant has also been identified in unaffected family members, indicating that it is an incompletely penetrant allele (PMID: 26791950, 10526198, 7902693). A large case control study confirmed this finding, and reported that individuals carrying this variant have a life-time risk of developing prion disease of approximately 10% (PMID: 26791950). ClinVar contains an entry for this variant (Variation ID: 13403). Advanced modeling of protein sequence and biophysical properties (such as structural, functional, and spatial information, amino acid conservation, physicochemical variation, residue mobility, and thermodynamic stability) performed at Invitae indicates that this missense variant is not expected to disrupt PRNP protein function. Experimental studies have shown that this missense change leads to functional and structural changes in the PRNP protein (PMID: 21839748, 21909425, 22947063, 10079068, 14761942). In addition, mice with a chimeric human‚Äìmouse PRNP transgene that were inoculated with brain extract from affected individuals carrying this variant developed prion disease (PMID: 11756597). In summary, this variant is reported to cause disease. However, as this variant is associated with a lower penetrance than other pathogenic alleles in the PRNP gene, it has been classified as Pathogenic (low penetrance).</Comment>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Invitae" ID="1213298"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">Invitae Variant Classification Sherloc (09022015)</Attribute>
+      <Citation>
+        <ID Source="PubMed">28492532</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>unknown</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NC_000020.10:g.4680494G&gt;A</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">PRNP</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <XRef DB="MedGen" ID="C1864112" Type="CUI"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
