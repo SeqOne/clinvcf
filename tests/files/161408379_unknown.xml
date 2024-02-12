@@ -128,7 +128,7 @@
     <RecordStatus>current</RecordStatus>
     <ClinicalSignificance DateLastEvaluated="2016-06-01">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
+      <Description>Likely pathogenic unknow</Description>
     </ClinicalSignificance>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="CeGaT Center for Human Genetics Tuebingen" ID="5705"/>
