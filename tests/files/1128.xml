@@ -6,7 +6,7 @@
     <RecordStatus>current</RecordStatus>
     <ClinicalSignificance DateLastEvaluated="2009-08-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <Description>Uncertain risk allele</Description>
     </ClinicalSignificance>
     <Assertion Type="variation to disease"/>
     <ObservedIn>
@@ -106,7 +106,7 @@
     <RecordStatus>current</RecordStatus>
     <ClinicalSignificance DateLastEvaluated="2009-08-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <Description>Uncertain risk allele</Description>
     </ClinicalSignificance>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="OMIM" ID="610804.0006" Type="Allelic variant"/>

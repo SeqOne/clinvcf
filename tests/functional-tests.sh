@@ -178,6 +178,12 @@ assert_exit_code 0
 assert_in_stdout "CLNSIG=Pathogenic,_low_penetrance"
 assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"
 
+# CLNSIG Uncertain_risk_allele
+run uncertain_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/1128.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=Uncertain_risk_allele"
+assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"
+
 # Error in case of unknow unknown in classification
 run unknown_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/161408379_unknown.xml
 assert_exit_code 1
