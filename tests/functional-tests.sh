@@ -157,3 +157,32 @@ assert_exit_code 0
 assert_in_stdout "CLNDISEASE=pheochromocytoma_susceptibility_to|pheochromocytoma"
 assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"
 assert_in_stdout "VARIANTLENGTH=1"
+
+# Par variants -> 2 lines
+run variant_par_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/1239309.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=Benign"
+assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"
+assert_in_stdout "619678"
+assert_in_stdout "569678"
+
+# CLNSIG Patho Likely Low penetrance
+run low_penetrance_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/116308252.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=Likely_pathogenic,_low_penetrance"
+assert_in_stdout "VARIANTTYPE=Duplication"
+
+# CLNSIG Patho Low penetrance
+run low_penetrance_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/126106420.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=Pathogenic,_low_penetrance"
+assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"
+
+# CLNSIG Uncertain_risk_allele
+run uncertain_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/1128.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=Uncertain_risk_allele"
+
+# Error in case of unknow unknown in classification
+run unknown_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/161408379_unknown.xml
+assert_exit_code 1

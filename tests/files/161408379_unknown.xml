@@ -1,0 +1,165 @@
+<ClinVarSet ID="161408379">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_006950.3(SYN1):c.2026del (p.Ala676fs) AND not provided</Title>
+  <ReferenceClinVarAssertion ID="1120876" DateLastUpdated="2023-10-14" DateCreated="2017-05-08">
+    <ClinVarAccession Acc="RCV000487970" Version="13" Type="RCV" DateUpdated="2023-10-14" DateCreated="2017-05-08"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-01">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely pathogenic</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="138709500">
+        <Attribute integerValue="1" Type="VariantAlleles"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="425495" Acc="VCV000425495" Version="19">
+      <Measure Type="Deletion" ID="413829">
+        <Name>
+          <ElementValue Type="Preferred">NM_006950.3(SYN1):c.2026del (p.Ala676fs)</ElementValue>
+        </Name>
+        <CanonicalSPDI>NC_000023.11:47572955:C:</CanonicalSPDI>
+        <AttributeSet>
+          <Attribute Accession="NM_133499" Version="2" Change="c.1988del" Type="HGVS, coding, RefSeq">NM_133499.2:c.1988del</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_006950" Version="3" Change="c.2026del" Type="HGVS, coding, RefSeq" MANESelect="true">NM_006950.3:c.2026del</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_016339" Version="2" Change="g.16840del" Type="HGVS, genomic, RefSeqGene">NG_016339.2:g.16840del</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008437" Version="1" Change="g.51902del" Type="HGVS, genomic, RefSeqGene">NG_008437.1:g.51902del</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000023" Version="11" Change="g.47572956del" Type="HGVS, genomic, top level" integerValue="38">NC_000023.11:g.47572956del</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000023" Version="10" Change="g.47432355del" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000023.10:g.47432355del</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_016339" Version="1" Change="g.16840del" Type="HGVS, previous">NG_016339.1:g.16840del</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_008881" Version="2" Change="p.Ala676fs" Type="HGVS, protein, RefSeq">NP_008881.2:p.Ala676fs</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_598006" Version="1" Change="p.Ser663fs" Type="HGVS, protein, RefSeq">NP_598006.1:p.Ser663fs</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">frameshift variant</Attribute>
+          <XRef ID="SO:0001589" DB="Sequence Ontology"/>
+          <XRef ID="NM_006950.3:c.2026del" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">frameshift variant</Attribute>
+          <XRef ID="SO:0001589" DB="Sequence Ontology"/>
+          <XRef ID="NM_133499.2:c.1988del" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">A676fs</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">S663fs</Attribute>
+        </AttributeSet>
+        <CytogeneticLocation>Xp11.3</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="X" Accession="NC_000023.11" start="47572956" stop="47572956" display_start="47572956" display_stop="47572956" variantLength="1" positionVCF="47572955" referenceAlleleVCF="GC" alternateAlleleVCF="G"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="X" Accession="NC_000023.10" start="47432355" stop="47432355" display_start="47432355" display_stop="47432355" variantLength="1" positionVCF="47432354" referenceAlleleVCF="GC" alternateAlleleVCF="G"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">synapsin I</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">SYN1</ElementValue>
+          </Symbol>
+          <AttributeSet>
+            <Attribute dateValue="2022-07-12" Type="Haploinsufficiency">Sufficient evidence for dosage pathogenicity</Attribute>
+            <Citation>
+              <URL>https://www.ncbi.nlm.nih.gov/projects/dbvar/ISCA/isca_gene.cgi?sym=SYN1</URL>
+            </Citation>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute dateValue="2022-07-12" Type="Triplosensitivity">No evidence available</Attribute>
+            <Citation>
+              <URL>https://www.ncbi.nlm.nih.gov/projects/dbvar/ISCA/isca_gene.cgi?sym=SYN1</URL>
+            </Citation>
+          </AttributeSet>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="X" Accession="NC_000023.11" start="47571901" stop="47619857" display_start="47571901" display_stop="47619857" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="X" Accession="NC_000023.10" start="47431299" stop="47479255" display_start="47431299" display_stop="47479255" variantLength="47957" Strand="-"/>
+          <XRef ID="6853" DB="Gene"/>
+          <XRef Type="MIM" ID="313440" DB="OMIM"/>
+          <XRef ID="HGNC:11494" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef Type="rs" ID="1064797369" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_006950.3(SYN1):c.2026del (p.Ala676fs)</ElementValue>
+      </Name>
+      <XRef ID="CA16621892" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="9460">
+      <Trait ID="17556" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+          <XRef ID="13DG0619" DB="Developmental Genetics Unit, King Faisal Specialist Hospital &amp; Research Centre"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">none provided</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">The term 'not provided' is registered in MedGen to support identification of submissions to ClinVar for which no condition was named when assessing the variant. 'not provided' differs from 'not specified', which is used when a variant is asserted to be benign, likely benign, or of uncertain significance for conditions that have not been specified.</Attribute>
+        </AttributeSet>
+        <XRef ID="CN517202" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="1120269">
+    <ClinVarSubmissionID localKey="5705|MedGen:CN517202" submittedAssembly="GRCh37" submitter="CeGaT Center for Human Genetics Tuebingen" submitterDate="2023-10-07"/>
+    <ClinVarAccession Acc="SCV000575639" Version="22" Type="SCV" OrgID="505870" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2023-10-14" DateCreated="2017-05-08"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2016-06-01">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Likely pathogenic unknow</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="CeGaT Center for Human Genetics Tuebingen" ID="5705"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">Praxis fuer Humangenetik Tuebingen - Variant Classification Criteria</Attribute>
+      <Citation>
+        <URL>https://submit.ncbi.nlm.nih.gov/api/2.0/files/351x3hya/phgtv1.pdf/?format=attachment</URL>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="VariantAlleles" integerValue="1"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <SequenceLocation Assembly="GRCh37" Chr="X" alternateAllele="G" referenceAllele="GC" start="47432354" stop="47432355" variantLength="2"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <XRef DB="MedGen" ID="CN517202" Type="CUI"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>
