@@ -725,7 +725,10 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
             if result.variants.hasKey(variant_id_chrm):
               for clinvar_assertion_node in doc.select("clinvarassertion"):
                 let
-                  clinsig_nodes = clinvar_assertion_node.select("clinicalsignificance")
+                  # ClinicalSignificance nodes no longer exists in the new schema. It is encapsulated in the node Classification.
+                  # Former structure : ClinVarAssertion/ClinicalSignificance 
+                  # New structure : ClinVarAssertion/Classification 
+                  clinsig_nodes = clinvar_assertion_node.select("classification")
                   clinvar_submission_id_nodes = clinvar_assertion_node.select("clinvarsubmissionid")
                   measure_relationship_nodes = clinvar_assertion_node.select("measurerelationship")
                   traitSetNodes = clinvar_assertion_node.select("traitset")
@@ -805,7 +808,10 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
 
                   if clinsig_nodes.len() > 0:
                     var
-                      desc_nodes = clinsig_nodes[0].select("description")
+                      # The ClinicalSignificance description becomes GermlineClassification
+                      # Former structure : ClinVarAssertion/ClinicalSignificance/Description 
+                      # New structure : ClinVarAssertion/Classification/GermlineClassification 
+                      desc_nodes = clinsig_nodes[0].select("germlineclassification")
                       revstat_nodes = clinsig_nodes[0].select("reviewstatus")
                       comment_nodes = clinsig_nodes[0].select("comment")
 
