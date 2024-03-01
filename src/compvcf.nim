@@ -2,13 +2,38 @@ import httpclient, json, tables, os, times
 import docopt
 import strutils # Split string
 import hts
-
+import std/setutils
 type
 
   ClinVariant* = ref object
     variant_id: int
     clinsig: string
     revstat: string
+
+  ClinVariantRecord* = ref object
+    variant_id: int
+    main_fields: string
+    info_fields: string
+
+proc loadClinvarVariantsFromVCF(filename: string): TableRef[int, ClinVariantRecord] =
+  var
+    file : BGZ
+  result = newTable[int, ClinVariantRecord]()
+  file.open(filename, "r")
+  defer: file.close()
+  for line in file:
+    if line.len() == 0 or line[0] == '#':
+      continue
+    else:
+      let
+        v = line.split('\t')
+        info_fields = v[7]
+      var variant = ClinVariantRecord(
+                  variant_id: v[2].parseInt(),
+                  main_fields: v[0..^2].join("\t"),
+                  info_fields: info_fields
+                  )
+      result[variant.variant_id] = variant
 
 proc loadVariantsFromVCF(filename: string): TableRef[int, ClinVariant] =
   var 
