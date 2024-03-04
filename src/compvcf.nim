@@ -11,11 +11,11 @@ type
     revstat: string
 
   ClinVariantRecord* = ref object
-    variant_id: int
-    main_fields: string
-    info_fields: string
+    variant_id*: int
+    main_fields*: string
+    info_fields*: string
 
-proc loadClinvarVariantsFromVCF(filename: string): TableRef[int, ClinVariantRecord] =
+proc loadClinvarVariantsFromVCF*(filename: string): TableRef[int, ClinVariantRecord] =
   var
     file : BGZ
   result = newTable[int, ClinVariantRecord]()
