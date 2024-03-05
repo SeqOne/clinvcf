@@ -6,7 +6,7 @@ import compvcf
 suite "test compare vcf files versions":
   let
     vcf1 = "tests/files/ClinVarFullRelease_5MB_Rand_00-latest.vcf.gz"
-    vcf2 = "tests/files/ClinVarRCVRelease_5MB_Rand_00-latest.vcf"
+    vcf2 = "tests/files/ClinVarRCVRelease_5MB_Rand_00-latest.vcf.gz"
   var vcf1_tab = vcf1.loadClinvarVariantsFromVCF()
   var vcf2_tab = vcf2.loadClinvarVariantsFromVCF()
 
