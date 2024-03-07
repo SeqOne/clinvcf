@@ -24,11 +24,11 @@ suite "test compare vcf files versions":
       check v1.main_fields == v2.main_fields
     else:
       inc(missing_rows_from_vcf2)
-  check missing_rows_from_vcf1 == 0
+  check missing_rows_from_vcf2 == 0
   for id2, v2 in vcf2_tab:
     if not vcf1_tab.hasKey(id2):
       inc(missing_rows_from_vcf1)
-  check missing_rows_from_vcf2 == 0
+  check missing_rows_from_vcf1 == 0
 
 
 suite "test utils functions":
