@@ -2,6 +2,7 @@ import httpclient, json, tables, os, times
 import docopt
 import strutils # Split string
 import hts
+
 type
 
   ClinVariant* = ref object
