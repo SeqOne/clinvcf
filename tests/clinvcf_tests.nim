@@ -7,16 +7,15 @@ suite "test compare vcf files versions":
   let
     vcf1 = "tests/files/ClinVarFullRelease_5MB_Rand_00-latest.vcf.gz"
     vcf2 = "tests/files/ClinVarRCVRelease_5MB_Rand_00-latest.vcf.gz"
-  var vcf1_tab = vcf1.loadClinvarVariantsFromVCF()
-  var vcf2_tab = vcf2.loadClinvarVariantsFromVCF()
+    vcf1_tab = vcf1.loadClinvarVariantsFromVCF()
+    vcf2_tab = vcf2.loadClinvarVariantsFromVCF()
 
   var
     missing_rows_from_vcf1 = 0
     missing_rows_from_vcf2 = 0
   for id1, v1 in vcf1_tab:
     if vcf2_tab.hasKey(id1):
-      var
-         v2 = vcf2_tab[id1]
+      let v2 = vcf2_tab[id1]
       # Target file is supposed to contain more INFO fields than the base file. In other words,
       # base file INFO fields must be a subset of the target file ones.
       check v1.info_fields in v2.info_fields
