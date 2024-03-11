@@ -179,7 +179,7 @@
     <RecordStatus>current</RecordStatus>
     <ClinicalSignificance DateLastEvaluated="1991-08-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <Description>pathogenic</Description>
     </ClinicalSignificance>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="OMIM" ID="611458.0006" Type="Allelic variant"/>
@@ -752,7 +752,7 @@
     <RecordStatus>current</RecordStatus>
     <ClinicalSignificance DateLastEvaluated="2016-04-20">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
+      <Description>likely Pathogenic</Description>
       <Comment>The G123R variant in the GLB1 gene has been previously reported in one individual with mucopolysaccharidosis type IVB disease who also harbored a pathogenic frameshift variant on the other GLB1 allele (Sohn et al., 2012). This variant was also reported in an apparently homozygous state in one individual with GM1-gangliosidosis (Caciotti et al., 2007). The G123R variant was not observed in approximately 6200 individuals of European and African American ancestry in the NHLBI Exome Sequencing Project, indicating it is not a common benign variant in these populations. This variant is a non-conservative amino acid substitution, which is likely to impact secondary protein structure as these residues differ in polarity, charge, size and/or other properties. This substitution occurs at a position that is conserved across species, and in silico analysis predicts this variant is probably damaging to the protein structure/function. Missense variants in nearby residues (R121S, C127Y) have been reported in the Human Gene Mutation Database in association with GM1-gangliosidosis (Stenson et al., 2014), supporting the functional importance of this region of the protein. The G123R variant is a strong candidate for a pathogenic variant, however the possibility it may be a rare benign variant cannot be excluded.</Comment>
     </ClinicalSignificance>
     <Assertion Type="variation to disease"/>
