@@ -39,6 +39,10 @@ run skip_het_compound $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests
 assert_exit_code 0
 assert_in_stdout "CLNSIG=Likely_pathogenic"
 
+# Multiple submission with a new CLNSIG value
+run skip_het_compound $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/928-unknown-clinsig.xml
+assert_exit_code 1
+
 # Conflicting variants should always has a ReviewStatus conflicting
 # Even if all submission are from the same submitter
 run same_submitter_conflict $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/1166.xml
