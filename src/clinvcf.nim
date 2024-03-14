@@ -104,6 +104,15 @@ method correctGeneAlias(cv: ClinVariant, hgnc: HgncIndex) =
       submission.variant_in_gene = ""
       cv.submissions[i] = submission
 
+proc parseEnumSynonym*[T: enum](s: string): T=
+  var lookup_key: string = s
+  for enum_key in T:
+    let enum_value: string = $enum_key
+    if enum_value.toUpper() == s.toUpper():
+      lookup_key=enum_value
+      break
+  parseEnum[T](lookup_key)
+
 proc findNodes(n: XmlNode, tag: string): seq[XmlNode] =
   for xref_node in n:
     if xref_node.kind == xnElement:
@@ -815,7 +824,12 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                       if parse_clnsig != csUnknown:
                         clinical_significance = parse_clnsig
                     if clinical_significance == csUnknown and desc_nodes.len() > 0:
-                      clinical_significance = parseEnum[ClinSig](desc_nodes[0].innerText)
+                      try:
+                        clinical_significance = parseEnum[ClinSig](desc_nodes[0].innerText)
+                      except ValueError:
+                        logger.log(lvlWarn,fmt"======> VARIANT_ID_CHRM [{variant_id_chrm}] HAS UNEXPECTED CLINSIG: {desc_nodes[0].innerText}")
+                        clinical_significance = parseEnumSynonym[ClinSig](desc_nodes[0].innerText)
+                        logger.log(lvlWarn,fmt"[!] VARIANT_ID_CHRM [{variant_id_chrm}] GOT CLINSIG SYNONYM: {clinical_significance}")
                     if revstat_nodes.len() > 0:
                       review_status = parseEnum[RevStat](revstat_nodes[0].innerText, rsNoAssertion)
 
