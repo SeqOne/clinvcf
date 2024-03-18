@@ -6,7 +6,7 @@
     <RecordStatus>current</RecordStatus>
     <ClinicalSignificance DateLastEvaluated="1991-08-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <Description>Almost Pathogenic</Description>
     </ClinicalSignificance>
     <Assertion Type="variation to disease"/>
     <ObservedIn>
@@ -179,7 +179,7 @@
     <RecordStatus>current</RecordStatus>
     <ClinicalSignificance DateLastEvaluated="1991-08-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>pathogenic</Description>
+      <Description>Almost Pathogenic</Description>
     </ClinicalSignificance>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="OMIM" ID="611458.0006" Type="Allelic variant"/>
@@ -234,7 +234,7 @@
     <RecordStatus>current</RecordStatus>
     <ClinicalSignificance DateLastEvaluated="2013-03-12">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <Description>Almost Pathogenic</Description>
     </ClinicalSignificance>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
@@ -531,7 +531,7 @@
     <RecordStatus>current</RecordStatus>
     <ClinicalSignificance DateLastEvaluated="2013-03-12">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <Description>Almost Pathogenic</Description>
     </ClinicalSignificance>
     <Assertion Type="variation to disease"/>
     <AttributeSet>

@@ -32,6 +32,19 @@ suite "test compare vcf files versions":
 
 suite "test utils functions":
 
+  test "test parseEnumSynonym":
+    type
+      MyEnum = enum
+        first = "1st",
+        second,
+        third = "3rd"
+    doAssert parseEnumSynonym[MyEnum]("1_st") == first
+    doAssert parseEnumSynonym[MyEnum]("1_ST") == first
+    doAssert parseEnumSynonym[MyEnum]("second") == second
+    doAssert parseEnumSynonym[MyEnum]("Second") == second
+    doAssertRaises(ValueError):
+      echo parseEnumSynonym[MyEnum]("third")
+
   test "test nbStars":
     check rsNoAssertion.nbStars() == 0
     check rsNoAssertionCriteria.nbStars() == 0
