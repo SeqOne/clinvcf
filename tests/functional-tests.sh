@@ -1,11 +1,11 @@
-# #!/bin/bash
-# test -e ssshtest || wget -q https://raw.githubusercontent.com/ryanlayer/ssshtest/master/ssshtest
+#!/bin/bash
+ test -e ssshtest || wget -q https://raw.githubusercontent.com/ryanlayer/ssshtest/master/ssshtest
 
-# . ssshtest
+ . ssshtest
 
-# nim c -d:debug  -d:useSysAssert -d:useGcAssert --lineDir:on --debuginfo --boundChecks:on -x:on src/clinvcf
-# grch37_version="--genome GRCh37"
-# exe=./src/clinvcf
+ nim c -d:debug  -d:useSysAssert -d:useGcAssert --lineDir:on --debuginfo --boundChecks:on -x:on src/clinvcf
+ grch37_version="--genome GRCh37"
+ exe=./src/clinvcf
 
 # run simple_parsing $exe --hgnc tests/files/hgnc_toy.tsv --gff tests/files/BRCA2.gff $grch37_version tests/files/37785.xml
 # assert_exit_code 0
@@ -190,3 +190,8 @@
 # # Error in case of unknow unknown in classification
 # run unknown_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/161408379_unknown.xml
 # assert_exit_code 1
+
+run new_xml_parsing $exe --hgnc tests/files/hgnc_toy.tsv --gff tests/files/BRCA2.gff $grch37_version tests/files/376363.xml
+assert_exit_code 0
+assert_in_stdout "##fileDate=2024-03-06"
+assert_in_stdout "2	158622516	376363	C	A	.	.	ALLELEID=363242;CLNSIG=Likely_pathogenic;CLNREVSTAT=no_assertion_criteria_provided;VARIANTTYPE=single_nucleotide_variant;VARIANTLENGTH=1;CLNDISEASE=diffuse_midline_glioma_h3_k27m_mutant;MC=SO:0001583|missense_variant;RS=387906589"

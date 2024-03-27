@@ -737,7 +737,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                   # ClinicalSignificance nodes no longer exists in the new schema. It is encapsulated in the node Classification.
                   # Former structure : ClinVarAssertion/ClinicalSignificance 
                   # New structure : ClinVarAssertion/Classification 
-                  clinsig_nodes = clinvar_assertion_node.select("classification")
+                  clinsig_nodes = clinvar_assertion_node.select("classification").filterIt(it.select("germlineclassification").len() > 0 )
                   clinvar_submission_id_nodes = clinvar_assertion_node.select("clinvarsubmissionid")
                   measure_relationship_nodes = clinvar_assertion_node.select("measurerelationship")
                   traitSetNodes = clinvar_assertion_node.select("traitset")

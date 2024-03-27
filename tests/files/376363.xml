@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ReleaseSet Dated="2024-03-06" Type="full" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://ftp.ncbi.nlm.nih.gov/pub/clinvar/xsd_public/RCV/ClinVar_RCV_2.0.xsd">
+<ClinVarSet ID="182441573">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_001111067.4(ACVR1):c.983G&gt;T (p.Gly328Val) AND Brainstem glioma</Title>
+  <ReferenceClinVarAssertion ID="1029781" DateLastUpdated="2024-03-05" DateCreated="2017-03-08">
+    <ClinVarAccession Acc="RCV000445088" Version="1" Type="RCV" DateUpdated="2024-03-05" DateCreated="2017-03-08"/>
+    <RecordStatus>current</RecordStatus>
+    <Classifications>
+      <GermlineClassification>
+        <ReviewStatus>no assertion criteria provided</ReviewStatus>
+        <Description DateLastEvaluated="2016-05-31" SubmissionCount="1">Likely pathogenic</Description>
+      </GermlineClassification>
+    </Classifications>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="ModeOfInheritance" integerValue="265">Somatic mutation</Attribute>
+      <XRef ID="ENST00000263640:c.983G&gt;T" DB="Database of Curated Mutations (DoCM)"/>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>somatic</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData ID="148101096">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="376363" Acc="VCV000376363" Version="4">
+      <Measure Type="single nucleotide variant" ID="363242">
+        <Name>
+          <ElementValue Type="Preferred">NM_001111067.4(ACVR1):c.983G&gt;T (p.Gly328Val)</ElementValue>
+        </Name>
+        <CanonicalSPDI>NC_000002.12:157766003:C:A</CanonicalSPDI>
+        <AttributeSet>
+          <Attribute Accession="NM_001105" Version="5" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq">NM_001105.5:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001111067" Version="4" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq" MANESelect="true">NM_001111067.4:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001347663" Version="1" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq">NM_001347663.1:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001347664" Version="1" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq">NM_001347664.1:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001347665" Version="1" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq">NM_001347665.1:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001347666" Version="1" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq">NM_001347666.1:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001347667" Version="2" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq">NM_001347667.2:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008004" Version="1" Change="g.114108G&gt;T" Type="HGVS, genomic, RefSeqGene">NG_008004.1:g.114108G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000002" Version="12" Change="g.157766004C&gt;A" Type="HGVS, genomic, top level" integerValue="38">NC_000002.12:g.157766004C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000002" Version="11" Change="g.158622516C&gt;A" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000002.11:g.158622516C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001096" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001096.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001104537" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001104537.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001334592" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001334592.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001334593" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001334593.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001334594" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001334594.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001334595" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001334595.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001334596" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001334596.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001105.5:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001111067.4:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001347663.1:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001347664.1:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001347665.1:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001347666.1:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001347667.2:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">G328V</Attribute>
+        </AttributeSet>
+        <CytogeneticLocation>2q24.1</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="2" Accession="NC_000002.12" start="157766004" stop="157766004" display_start="157766004" display_stop="157766004" variantLength="1" positionVCF="157766004" referenceAlleleVCF="C" alternateAlleleVCF="A"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="2" Accession="NC_000002.11" start="158622516" stop="158622516" display_start="158622516" display_stop="158622516" variantLength="1" positionVCF="158622516" referenceAlleleVCF="C" alternateAlleleVCF="A"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">activin A receptor type 1</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">ACVR1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="2" Accession="NC_000002.12" start="157736446" stop="157876330" display_start="157736446" display_stop="157876330" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="2" Accession="NC_000002.11" start="158592957" stop="158732373" display_start="158592957" display_stop="158732373" variantLength="139417" Strand="-"/>
+          <XRef ID="90" DB="Gene"/>
+          <XRef Type="MIM" ID="102576" DB="OMIM"/>
+          <XRef ID="HGNC:171" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef Type="rs" ID="387906589" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_001111067.4(ACVR1):c.983G&gt;T (p.Gly328Val)</ElementValue>
+      </Name>
+      <XRef ID="CA16602802" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Finding" ID="35151">
+      <Trait ID="28715" Type="Finding">
+        <Name>
+          <ElementValue Type="Preferred">Brainstem glioma</ElementValue>
+          <XRef ID="HP:0010796" DB="Human Phenotype Ontology"/>
+        </Name>
+        <Citation Type="practice guideline" Abbrev="NICE, 2021">
+          <URL>https://www.nice.org.uk/guidance/ng99</URL>
+          <CitationText>UK NICE Guideline NG99, Brain tumours (primary) and brain metastases in over 16s, 2021</CitationText>
+        </Citation>
+        <XRef ID="MONDO:0002911" DB="MONDO"/>
+        <XRef ID="C0677865" DB="MedGen"/>
+        <XRef Type="primary" ID="HP:0010796" DB="Human Phenotype Ontology"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="971027" SubmissionName="DoCM_7-13-16">
+    <ClinVarSubmissionID localKey="ENST00000263640:c.983G&gt;T|MedGen:C0677865" submittedAssembly="GRCh37" submitter="Database of Curated Mutations (DoCM)" submitterDate="2016-07-18"/>
+    <ClinVarAccession Acc="SCV000505752" Version="1" Type="SCV" OrgID="505871" OrganizationCategory="resource" OrgType="primary" DateUpdated="2017-03-08" DateCreated="2017-03-08"/>
+    <RecordStatus>current</RecordStatus>
+    <Classification DateLastEvaluated="2016-05-31">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
+      <Citation>
+        <ID Source="PubMed">26619011</ID>
+      </Citation>
+    </Classification>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="Database of Curated Mutations" ID="ENST00000263640:c.983G&gt;T"/>
+    <AttributeSet>
+      <Attribute Type="ModeOfInheritance">Somatic mutation</Attribute>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>somatic</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>literature only</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <SequenceLocation Assembly="GRCh37" Chr="2" alternateAllele="A" referenceAllele="C" start="158622516" stop="158622516" variantLength="1"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Finding">
+      <Trait Type="Finding">
+        <XRef DB="MedGen" ID="C0677865" Type="CUI"/>
+      </Trait>
+    </TraitSet>
+    <Citation>
+      <URL>http://docm.genome.wustl.edu/variants/ENST00000263640:c.983G&gt;T</URL>
+    </Citation>
+    <StudyDescription>This is the initial submission of DoCM to ClinVar. DoCM is the database of curated mutations in cancer and seeks to leverage the community to outline all functionally important somatic cancer variants in the literature.</StudyDescription>
+  </ClinVarAssertion>
+</ClinVarSet>
+
+<ClinVarSet ID="183059280">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_001111067.4(ACVR1):c.983G&gt;T (p.Gly328Val) AND Diffuse Midline Glioma, H3 K27M-mutant</Title>
+  <ReferenceClinVarAssertion ID="8520311" DateLastUpdated="2024-03-05" DateCreated="2024-02-20">
+    <ClinVarAccession Acc="RCV003761969" Version="1" Type="RCV" DateUpdated="2024-03-05" DateCreated="2024-02-20"/>
+    <RecordStatus>current</RecordStatus>
+    <Classifications>
+      <SomaticClinicalImpact>
+        <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+        <Description DateLastEvaluated="2018-10-16" ClinicalImpactAssertionType="diagnostic" ClinicalImpactClinicalSignificance="supports diagnosis" SubmissionCount="1">Tier II - Potential</Description>
+      </SomaticClinicalImpact>
+    </Classifications>
+    <Assertion Type="variation to disease"/>
+    <MeasureSet Type="Variant" ID="376363" Acc="VCV000376363" Version="4">
+      <Measure Type="single nucleotide variant" ID="363242">
+        <Name>
+          <ElementValue Type="Preferred">NM_001111067.4(ACVR1):c.983G&gt;T (p.Gly328Val)</ElementValue>
+        </Name>
+        <CanonicalSPDI>NC_000002.12:157766003:C:A</CanonicalSPDI>
+        <AttributeSet>
+          <Attribute Accession="NM_001105" Version="5" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq">NM_001105.5:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001111067" Version="4" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq" MANESelect="true">NM_001111067.4:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001347663" Version="1" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq">NM_001347663.1:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001347664" Version="1" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq">NM_001347664.1:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001347665" Version="1" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq">NM_001347665.1:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001347666" Version="1" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq">NM_001347666.1:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_001347667" Version="2" Change="c.983G&gt;T" Type="HGVS, coding, RefSeq">NM_001347667.2:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_008004" Version="1" Change="g.114108G&gt;T" Type="HGVS, genomic, RefSeqGene">NG_008004.1:g.114108G&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000002" Version="12" Change="g.157766004C&gt;A" Type="HGVS, genomic, top level" integerValue="38">NC_000002.12:g.157766004C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000002" Version="11" Change="g.158622516C&gt;A" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000002.11:g.158622516C&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001096" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001096.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001104537" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001104537.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001334592" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001334592.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001334593" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001334593.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001334594" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001334594.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001334595" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001334595.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_001334596" Version="1" Change="p.Gly328Val" Type="HGVS, protein, RefSeq">NP_001334596.1:p.Gly328Val</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001105.5:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001111067.4:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001347663.1:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001347664.1:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001347665.1:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001347666.1:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">missense variant</Attribute>
+          <XRef ID="SO:0001583" DB="Sequence Ontology"/>
+          <XRef ID="NM_001347667.2:c.983G&gt;T" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">G328V</Attribute>
+        </AttributeSet>
+        <CytogeneticLocation>2q24.1</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="2" Accession="NC_000002.12" start="157766004" stop="157766004" display_start="157766004" display_stop="157766004" variantLength="1" positionVCF="157766004" referenceAlleleVCF="C" alternateAlleleVCF="A"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="2" Accession="NC_000002.11" start="158622516" stop="158622516" display_start="158622516" display_stop="158622516" variantLength="1" positionVCF="158622516" referenceAlleleVCF="C" alternateAlleleVCF="A"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">activin A receptor type 1</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">ACVR1</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="2" Accession="NC_000002.12" start="157736446" stop="157876330" display_start="157736446" display_stop="157876330" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="2" Accession="NC_000002.11" start="158592957" stop="158732373" display_start="158592957" display_stop="158732373" variantLength="139417" Strand="-"/>
+          <XRef ID="90" DB="Gene"/>
+          <XRef Type="MIM" ID="102576" DB="OMIM"/>
+          <XRef ID="HGNC:171" DB="HGNC"/>
+        </MeasureRelationship>
+        <XRef Type="rs" ID="387906589" DB="dbSNP"/>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_001111067.4(ACVR1):c.983G&gt;T (p.Gly328Val)</ElementValue>
+      </Name>
+      <XRef ID="CA16602802" DB="ClinGen"/>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="93559">
+      <Trait ID="73010" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Diffuse Midline Glioma, H3 K27M-mutant</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="8353728" SubmissionName="SUB14255207">
+    <ClinVarSubmissionID localKey="civic.AID:9" localKeyIsSubmitted="1" submittedAssembly="GRCh37" submitter="CIViC knowledgebase, Washington University School of Medicine" submitterDate="2024-02-16"/>
+    <ClinVarAccession Acc="SCV004565361" Version="1" Type="SCV" OrgID="506594" OrganizationCategory="resource" OrgType="primary" DateUpdated="2024-02-20" DateCreated="2024-02-20"/>
+    <RecordStatus>current</RecordStatus>
+    <Classification DateLastEvaluated="2018-10-16">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <SomaticClinicalImpact ClinicalImpactAssertionType="diagnostic" ClinicalImpactClinicalSignificance="supports diagnosis">Tier II - Potential</SomaticClinicalImpact>
+      <Citation>
+        <ID Source="PubMed">24705250</ID>
+      </Citation>
+      <Citation>
+        <ID Source="PubMed">24705254</ID>
+      </Citation>
+      <Citation>
+        <URL>https://civicdb.org/links/evidence/4846|https://civicdb.org/links/evidence/6955</URL>
+      </Citation>
+      <Comment>Supports diagnosis of diffuse intrinsic pontine glioma. ACVR1 G328V mutations occur within the kinase domain, leading to activation of downstream signaling. Exclusively seen in high-grade pediatric gliomas, supporting diagnosis of diffuse intrinsic pontine glioma.</Comment>
+    </Classification>
+    <Assertion Type="variation to disease"/>
+    <ExternalID DB="CIViC knowledgebase" ID="civic.mpid:1594"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">AMP/ASCO/CAP Guidelines, 2017</Attribute>
+      <Citation>
+        <ID Source="PubMed">27993330</ID>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>somatic</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>curation</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <Name>
+          <ElementValue Type="Alternate">G328V</ElementValue>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">GLY328VAL</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_001105.4:c.983G&gt;T</Attribute>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">ACVR1</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+        <XRef DB="dbSNP" ID="387906589" Type="rsNumber"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Diffuse Midline Glioma, H3 K27M-mutant</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+    <Citation>
+      <URL>https://identifiers.org/civic.mpid:1594</URL>
+    </Citation>
+  </ClinVarAssertion>
+</ClinVarSet>
+</ReleaseSet>
