@@ -24,10 +24,12 @@ ClinVCF is **developped in NimLang, is highly efficient*** (~ 5 minutes to gener
   - [How to cite](#how-to-cite)
   - [License](#license)
   - [Misc](#misc)
+  - [Install ClinVCF on MacOS M1](#install-clinvcf-on-macos-m1)
 
 ## Quick start
 
 You need to have [nimlang installed](https://nim-lang.org/install_unix.html) and [hts-nim](https://github.com/brentp/hts-nim) to compile and install clinVCF.
+If you use Mac M1/M2 processor please read the [M1 Install section](#install-clinvcf-on-macos-M1)
 
 A clean install script of nim and hts-nim is proposed by Brent Pedersen [nimlang and hts-nim installed](https://github.com/brentp/hts-nim/blob/master/scripts/install.sh)
 
@@ -80,6 +82,8 @@ additionnal fields are provided.
 | **ALLELEID**   | Same    | *Integer* | the ClinVar Allele ID                                                                                                                                              | `1234`                                         |
 | **CLNREVSTAT** | Same    | *String*  | [ClinVar review status](https://www.ncbi.nlm.nih.gov/clinvar/docs/review_status/) for the Variation ID                                                             | `no_assertion_criteria_provided`               |
 | **CLNSIG**     | Same    | String    | [Clinical significance](https://www.ncbi.nlm.nih.gov/clinvar/docs/clinsig/) for this single variant                                                                | `Pathogenic/Likely_Pathogenic`                 |
+| **SUBDETAILS** | New     | String    | Equivalent to Clinvar's CLNSIGCONF but for all variant (not just conficting classification) | `SUBDETAILS=Uncertain_significance(5)\|Likely_benign(2)` |
+| **CLNDISEASE** | New     | String    | Clinical pathology(ies) ranked as Disease referenced for a variant. Same as Clinvar's CLNDN but wil all listed disease. First one will be the Clinvar's "preferred" one. | `CLNDISEASE=breast_ovarian_cancer_familial_2\|hereditary_breast_and_ovarian_cancer_syndrome` |hereditary_cancer_predisposing_syndrome` |
 | **OLD_CLNSIG** | New     | String    | Orignial Clinical significance if variant reclassified by clinVCF correction module                                                                                | `Conflicting_interpretations_of_pathogenicity` |
 | **CLNRECSTAT** | New     | Integer   | [3-levels stars confidence](#clinicalsignificance-correction-module) of Variant Alert! automatic reclassfication.                                                  | `3`                                            |
 | **GENEINFO**   | Same    | String    | Gene(s) for the variant reported as gene symbol:gene id. The gene symbol and id are delimited by a colon (`:`) and each pair is delimited by a vertical bar (`\|`) | `FTCD:10841\|FTCD-AS1:100861507`               |
@@ -133,3 +137,31 @@ If you use a tool of the Genome Alert! framework, please cite:
 [![Université Grenoble Alpes](img/logo-uga.png)](https://iab.univ-grenoble-alpes.fr/)
 
 [![CHU de Rouen](img/logo-CHU.png)](https://www.chu-rouen.fr/service/service-de-genetique/)
+
+## Install ClinVCF on MacOS M1 
+
+First install the correct version nim with choosenim :
+```
+curl https://nim-lang.org/choosenim/init.sh -sSf | sh
+choosenim 1.6.14
+```
+
+This version is x86 only, so we need the correct HTSLIB dynamic library
+````
+git clone https://github.com/samtools/htslib.git & cd htslib
+git submodule update --init --recursive
+
+brew install automake # if not already done
+
+arch -x86_64 autoreconf -i  # Build the configure script and install files it uses 
+arch -x86_64 ./configure    # Optional but recommended, for choosing extra functionality
+arch -x86_64 make
+sudo make install
+cd ..
+```
+
+Then everythuing should work fine :
+```
+nimble build
+./clinvcf --help
+```

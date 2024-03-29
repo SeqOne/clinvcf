@@ -162,6 +162,15 @@ assert_in_stdout "CLNDISEASE=pheochromocytoma_susceptibility_to|pheochromocytoma
 assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"
 assert_in_stdout "VARIANTLENGTH=1"
 
+# SUBDETAILS 
+run subdetails_conflicting $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/37785.xml
+assert_exit_code 0
+assert_in_stdout "SUBDETAILS=Uncertain_significance(5),Likely_benign(2);"
+
+run subdetails_no_conflict $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/9-no-VUS.xm
+assert_exit_code 0
+assert_in_stdout "SUBDETAILS=Pathogenic(10)|Likely_pathogenic(1);"
+
 # Par variants -> 2 lines
 run variant_par_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/1239309.xml
 assert_exit_code 0
