@@ -448,13 +448,14 @@ proc aggregateVariantInGene(submissions: seq[Submission], hgnc: options.Option[H
     result = genesToReturn.join("|")
 
 proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: options.Option[HgncIndex],
-  genesEntrez: TableRef[string, int], autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, old_clinsig: string,
+  genesEntrez: TableRef[string, int], autocorrect_conflicts = false): tuple[clinsig: string, revstat: string, subdetails: string, old_clinsig: string,
   nb_reclassification_stars: int, geneInfo: string] =
 
   var
     retained_submissions = submissions.selectElligibleSubmissions()
     (clinsig, revstat) = retained_submissions.aggregatSubmissionsClinvar()
     (clinsig_count, revstat_count, submitter_ids) = retained_submissions.countSubmissions()
+    acmg_submissions = retained_submissions.selectACMGsubmissions()
 
   result.geneInfo = retained_submissions.aggregateVariantInGene(hgncIndex, genesEntrez)
 
@@ -466,9 +467,25 @@ proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: options.Opti
 
   result.nb_reclassification_stars = -1
 
+  #SUBDETAILS=Uncertain_significance(1)|Likely_benign(1);
+  var
+    clinsig_counts = newTable[ClinSig, int]()
+    clinsig_format = newSeq[string]()
+  # FIXME: Should we do it for non ACMG subs?
+  for sub in acmg_submissions:
+    if clinsig_counts.hasKey(sub.clinical_significance):
+      clinsig_counts[sub.clinical_significance].inc()
+    else:
+      clinsig_counts[sub.clinical_significance] = 1
+  
+  for clinsig in clinsig_counts.keys:
+    clinsig_format.add($clinsig & "(" & $clinsig_counts[clinsig] & ")")
+  
+  result.subdetails = clinsig_format.join("|")
+
   # Correct conflicting submissions
   if autocorrect_conflicts and clinsig == csConflictingInterpretation:
-    let acmg_submissions = retained_submissions.selectACMGsubmissions()
+
     if acmg_submissions.len() >= 4:
       let
         retained_submissions_without_outliers = removeOutlyingSubmissions(retained_submissions)
@@ -877,6 +894,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
   echo "##INFO=<ID=CLNSIG,Number=.,Type=String,Description=\"Clinical significance for this single variant\">"
   echo "##INFO=<ID=OLD_CLNSIG,Number=.,Type=String,Description=\"Clinical significance was deciphered and this value is the original one given by ClinVar aggregation method\">"
   echo "##INFO=<ID=CLNRECSTAT,Number=1,Type=Integer,Description=\"3-levels stars confidence for automatic reclassfication of conflicting variants\">"
+  echo "##INFO=<ID=SUBDETAILS,Number=1,Type=Integer,Description=\"Details about retained submissions with the list of clinsig and their number of occurences. Equivalent to Clinvar CLNSIGCONF but for all variants\">"
   for pathoType in clinicalPathoType:
     echo "##INFO=<ID=CLN" & pathoType.toUpperAscii & ",Number=.,Type=String,Description=\"Clinical pathology(ies) ranked as " & pathoType & " referenced for a variant\">"
   # ##INFO=<ID=CLNSIGCONF,Number=.,Type=String,Description="Conflicting clinical significance for this single variant">
@@ -904,7 +922,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
       logger.log(lvlInfo, fmt"=====> Skipping [chromosome]=[{v.chrom}] for genome [{genome_assembly}] !")
       continue
     inc(nb_variants)
-    let (clinsig, revstat, old_clinsig, nb_reclassification_stars, rawGeneInfo) = v.submissions.aggregateSubmissions(
+    let (clinsig, revstat, subdetails, old_clinsig, nb_reclassification_stars, rawGeneInfo) = v.submissions.aggregateSubmissions(
       option(hgncIndex),
       genesEntrez,
       true
@@ -921,6 +939,8 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
 
     info_fields.add("CLNSIG=" & clinsig.formatVCFString())
     info_fields.add("CLNREVSTAT=" & revstat.formatVCFString())
+    if subdetails != "":
+      info_fields.add("SUBDETAILS=" & subdetails.formatVCFString())
     info_fields.add("VARIANTTYPE=" & v.type_v.formatVCFString())
     info_fields.add("VARIANTLENGTH=" & $v.length)
 
