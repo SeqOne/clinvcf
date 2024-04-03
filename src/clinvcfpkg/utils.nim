@@ -3,7 +3,7 @@ import logging, strutils, re
 var logger* = newConsoleLogger(fmtStr="[$datetime] - $appname - $levelname : ", useStderr=true)
 
 proc contains*[T](s: seq[T], value: T): bool =
-    for elem in seq:
+    for elem in s:
         if elem == value:
             return true
     return false
