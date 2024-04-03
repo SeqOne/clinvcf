@@ -12,7 +12,7 @@ import logging
 import options
 
 # Local libs
-from ./clinvcfpkg/utils import logger
+from ./clinvcfpkg/utils import logger,contains,formatVCFString,formatPathoString
 import ./clinvcfpkg/gff
 import ./clinvcfpkg/lapper
 import ./clinvcfpkg/hgnc
@@ -259,17 +259,11 @@ proc parseNCBIConversionComment*(comment: string): ClinSig =
   else:
     result = csUnknown
 
-proc parseClinicalPathologies*(pathoType: string, pathoList: seq[string]): string =
+proc formatClinicalPathologies*(pathoType: string, pathoList: seq[string]): string =
   ## Take a patho type (disease, finding etc) and return a formatted INFO field with all
   ## pathologies associated to a variant for a specific type
   ## EXAMPLE FINDING=PATHO1|PATHO2|PATHO3 ...
-  result = "CLN" & pathoType.toUpperAscii & "="
-  for i, patho in pathoList:
-    # pred() gives the len - 1 value
-    if i == pathoList.len.pred:
-      result = result & patho
-    else:
-      result = result & patho & '|'
+  result = "CLN" & pathoType.toUpperAscii & "=" & pathoList.join("|")
 
 proc aggregateReviewStatus*(revstat_count: TableRef[RevStat, int], nb_submitters: int,
   has_conflict = false): RevStat =
@@ -467,7 +461,7 @@ proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: options.Opti
 
   result.nb_reclassification_stars = -1
 
-  #SUBDETAILS=Uncertain_significance(1)|Likely_benign(1);
+  # Generate SUBDETAILS=Uncertain_significance(1)|Likely_benign(1);
   var
     clinsig_counts = newTable[ClinSig, int]()
     clinsig_format = newSeq[string]()
@@ -796,20 +790,18 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                       # Patho to skip : all values in ingnoredPathoTag
                       if trait.select("elementvalue")[0].innerText.toLowerAscii in ignoredPathoTag:
                         continue
-                      let pathology = trait.select("elementvalue")[0].innerText.toLowerAscii
+                      let pathology = trait.select("elementvalue")[0].innerText.toLowerAscii.formatPathoString()
                       # Add result inside pathology table:
                       #   key: pathology type : (Disease, Finding...)
                       #   value: a list contaning pathology's names
                       if result.variants[variant_id_chrm].pathologies.hasKey(pathoType):
-                        if pathology in result.variants[variant_id_chrm].pathologies[pathoType]:
-                          continue
-                        result.variants[variant_id_chrm].pathologies[pathoType].add(pathology)
+                        if not result.variants[variant_id_chrm].pathologies[pathoType].contains(pathology):
+                          result.variants[variant_id_chrm].pathologies[pathoType].add(pathology)
                       else:
                         result.variants[variant_id_chrm].pathologies[pathoType] = @[]
                         result.variants[variant_id_chrm].pathologies[pathoType].add(pathology)
-                      if pathoType in clinicalPathoType:
-                        continue
-                      clinicalPathoType.add(pathoType)
+                      if not clinicalPathoType.contains(pathoType):
+                        clinicalPathoType.add(pathoType)
 
                 var
                   submitter_id = -1
@@ -859,18 +851,6 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     )
                     result.variants[variant_id_chrm].submissions.add(submission)
 
-proc formatVCFString*(vcf_string: string): string =
-  result = vcf_string.replace(' ', '_')
-
-proc formatPathoString*(pathoString: string): string =
-  # First : remove all non-word char after "="
-  # e.g CLNDISEASE= cancer|
-  result = pathoString.replace(re"=\W+", "=")
-  # Second : remove all non-word chars at the end of the string (or first)
-  # and non-words after/before pipe ('|')
-  result = result.replace(re"^\W+|\W+$|\W+?(?=\|)|(?<=\|)\W+")
-  # Third replace all non-word characters by '_'
-  result = result.replace(re"[^\w\||=]+", "_")
 
 proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string,
   genes_index: TableRef[string, Lapper[GFFGene]], coding_priority : bool, hgncIndex: HgncIndex, genesEntrez: TableRef[string, int]) =
@@ -954,8 +934,8 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
       for pathoType in v.pathologies.keys:
         # Edit pathology string to fit with header
         # Example : given Disease return CLNDISEASE
-        let pathology = pathoType.parseClinicalPathologies(v.pathologies[pathoType])
-        info_fields.add(pathology.formatPathoString)
+        let pathology = formatClinicalPathologies(pathoType, v.pathologies[pathoType])
+        info_fields.add(pathology)
 
     if v.molecular_consequences.len > 0:
       var formated_consequences = map(v.molecular_consequences, proc (x: MolecularConsequence): string = formatVCFString($x))

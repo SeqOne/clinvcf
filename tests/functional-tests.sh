@@ -162,6 +162,11 @@ assert_in_stdout "CLNDISEASE=pheochromocytoma_susceptibility_to|pheochromocytoma
 assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"
 assert_in_stdout "VARIANTLENGTH=1"
 
+# Pathology duplicate entries after formating (remove non word characters)
+run pathology_duplicates $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/9.xml
+assert_exit_code 0
+assert_in_stdout "CLNDISEASE=hemochromatosis_type_1|porphyria_cutanea_tarda_susceptibility_to|porphyria_variegata_susceptibility_to|hemochromatosis_juvenile_digenic|alzheimer_disease_susceptibility_to|transferrin_serum_level_quantitative_trait_locus_2|microvascular_complications_of_diabetes_susceptibility_to_7|hereditary_cancer_predisposing_syndrome|hereditary_hemochromatosis;"
+
 # SUBDETAILS 
 run subdetails_conflicting $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/37785.xml
 assert_exit_code 0
