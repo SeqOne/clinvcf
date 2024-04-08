@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <ClinVarSet ID="150104632">
   <RecordStatus>current</RecordStatus>
   <Title>NM_006883.2(SHOX):c.*114T&gt;G AND not provided</Title>
@@ -123,10 +124,10 @@
     <ClinVarSubmissionID localKey="GDXSV:83379" localKeyIsSubmitted="1" submitter="GeneDx" submitterDate="2021-09-10"/>
     <ClinVarAccession Acc="SCV001851278" Version="1" Type="SCV" OrgID="26957" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2021-09-12" DateCreated="2021-09-12"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2021-06-19">
+    <Classification DateLastEvaluated="2021-06-19">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Benign</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Benign</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">GeneDx Variant Classification Process June 2021</Attribute>

@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <ClinVarSet ID="148773200">
   <RecordStatus>current</RecordStatus>
   <Title>NM_015139.3(SLC35D1):c.533+730_637-1766del AND Schneckenbecken dysplasia</Title>
@@ -104,10 +105,10 @@
     <ClinVarSubmissionID localKey="610804.0006_SCHNECKENBECKEN DYSPLASIA" submitter="OMIM" submitterDate="2017-12-04" title="SLC35D1, 4.9-KB DEL, EX7_SCHNECKENBECKEN DYSPLASIA"/>
     <ClinVarAccession Acc="SCV000021337" Version="3" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2017-12-07" DateCreated="2013-04-04"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2009-08-01">
+    <Classification DateLastEvaluated="2009-08-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Uncertain risk allele</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Uncertain risk allele</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="OMIM" ID="610804.0006" Type="Allelic variant"/>
     <ObservedIn>

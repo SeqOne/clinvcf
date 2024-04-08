@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <ClinVarSet ID="163877486">
   <RecordStatus>current</RecordStatus>
   <Title>NM_006883.2(SHOX):c.-432-3C&gt;A AND not specified</Title>
@@ -125,9 +126,9 @@
     <ClinVarSubmissionID localKey="NM_000451.3:c.-432-3C&gt;A|MedGen:CN169374" submittedAssembly="GRCh37" submitter="Women's Health and Genetics/Laboratory Corporation of America, LabCorp" submitterDate="2022-05-12"/>
     <ClinVarAccession Acc="SCV002511506" Version="1" Type="SCV" OrgID="500026" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2022-05-16" DateCreated="2022-05-16"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2022-04-26">
+    <Classification DateLastEvaluated="2022-04-26">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Uncertain significance</Description>
+      <GermlineClassification>Uncertain significance</GermlineClassification>
       <Citation>
         <ID Source="PubMed">23426818</ID>
       </Citation>
@@ -138,7 +139,7 @@
         <ID Source="PubMed">25659810</ID>
       </Citation>
       <Comment>Variant summary: SHOX c.-432-3C&gt;A alters a non-conserved nucleotide located close to a canonical splice site at the intron 1 and exon 2 boundary, and therefore could affect mRNA splicing, leading to a significantly altered protein sequence. Several computational tools predict a significant impact on normal splicing: four predict the variant weakens the 3' acceptor site. At least one publication reported experimental evidence, demonstrating in a minigene assay that the variant abolished normal splicing (Danzig_2012); however, authors of the study also noted that the SHOX gene might have an alternative promoter within exon 2, which should be unaffected by this splice acceptor site mutation in intron 1, which could generate a transcript and a fully functional Shox protein. The SHOX gene is located in the pseudoautosomal region of the X and Y chromosomes, and the variant allele was found at a frequency of 0.00017 in 150962 control chromosomes (gnomAD v3.1, genomes dataset), predominantly within the Ashkenazi Jewish subpopulation at a frequency of 0.0063 (i.e. 22/3468 alleles, all heterozygotes). The variant, c.-432-3C&gt;A, has been reported in the literature in multiple heterozygous carriers who were affected with Short Stature (Danzig_2012, Shapiro_2015), and in one homozygous individual, who was affected with a more extreme short stature than his heterozygous children, but lacked features of Langer mesomelic dysplasia, suggesting that even if the variant affects splicing in vivo, some functional Shox protein was still produced (Danzig_2012). Since the expressivity of SHOX deficiency is highly variable (PMID: 21325865), these data indicate that the variant in heterozygous- or in homozygous state maybe associated with Short Stature, but it is unclear if it could contribute to more severe phenotypes. No clinical diagnostic laboratories have submitted clinical-significance assessments for this variant to ClinVar after 2014. Based on the evidence outlined above, the variant was classified as VUS-possibly pathogenic for Short Stature phenotype.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">LabCorp Variant Classification Summary - May 2015</Attribute>

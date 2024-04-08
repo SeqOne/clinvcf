@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <ClinVarSet ID="47617087">
   <RecordStatus>current</RecordStatus>
   <Title>NM_000106.6(CYP2D6):c.886C&gt;T (p.Arg296Cys) AND not specified</Title>
@@ -160,11 +161,11 @@
     <ClinVarSubmissionID localKey="GDX:1826531|Not Provided" submittedAssembly="GRCh37" submitter="GeneDx" submitterDate="2018-03-26"/>
     <ClinVarAccession Acc="SCV000724283" Version="1" Type="SCV" OrgID="26957" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-03"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-02-27">
+    <Classification DateLastEvaluated="2018-02-27">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Benign</Description>
+      <GermlineClassification>Benign</GermlineClassification>
       <Comment>This variant is considered likely benign or benign based on one or more of the following criteria: it is a conservative change, it occurs at a poorly conserved position in the protein, it is predicted to be benign by multiple in silico algorithms, and/or has population frequency not consistent with disease.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="GeneDx" ID="GDX:1826531"/>
     <AttributeSet>

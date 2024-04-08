@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <ClinVarSet ID="161408379">
   <RecordStatus>current</RecordStatus>
   <Title>NM_006950.3(SYN1):c.2026del (p.Ala676fs) AND not provided</Title>
@@ -126,10 +127,10 @@
     <ClinVarSubmissionID localKey="5705|MedGen:CN517202" submittedAssembly="GRCh37" submitter="CeGaT Center for Human Genetics Tuebingen" submitterDate="2023-10-07"/>
     <ClinVarAccession Acc="SCV000575639" Version="22" Type="SCV" OrgID="505870" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2023-10-14" DateCreated="2017-05-08"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-06-01">
+    <Classification DateLastEvaluated="2016-06-01">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic unknow</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Likely pathogenic unknow</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="CeGaT Center for Human Genetics Tuebingen" ID="5705"/>
     <AttributeSet>

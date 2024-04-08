@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<ReleaseSet>
 <ClinVarSet ID="48197504">
   <RecordStatus>current</RecordStatus>
   <Replaces>RCV000117222</Replaces>
@@ -594,10 +596,10 @@
     <ClinVarSubmissionID localKey="613609.0001_HEMOCHROMATOSIS, TYPE 1" submitter="OMIM" submitterDate="2018-05-02" title="HFE, CYS282TYR_HEMOCHROMATOSIS, TYPE 1"/>
     <ClinVarAccession Acc="SCV000020162" Version="6" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2009-01-01">
+    <Classification DateLastEvaluated="2009-01-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="OMIM" ID="613609.0001" Type="Allelic variant"/>
     <ObservedIn>
@@ -880,10 +882,10 @@
     <ClinVarSubmissionID localKey="NM_000410.3(HFE):c.845G&gt;A|OMIM:235200" submittedAssembly="GRCh37" submitter="Genetic Services Laboratory, University of Chicago" submitterDate="2018-04-26"/>
     <ClinVarAccession Acc="SCV000151394" Version="2" Type="SCV" OrgID="1238" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-12-06"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2015-09-14">
+    <Classification DateLastEvaluated="2015-09-14">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Genetic Services Laboratory" ID="NM_000410.3(HFE):c.845G&gt;A"/>
     <AttributeSet>
@@ -927,10 +929,10 @@
     <ClinVarSubmissionID localKey="NM_000410.3:c.845G&gt;A|MedGen:C0392514" submittedAssembly="GRCh37" submitter="Blueprint Genetics" submitterDate="2016-01-15"/>
     <ClinVarAccession Acc="SCV000206975" Version="3" Type="SCV" OrgID="500188" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-09-04"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2015-11-26">
+    <Classification DateLastEvaluated="2015-11-26">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">Variant Classification</Attribute>
@@ -973,11 +975,11 @@
     <ClinVarSubmissionID localKey="2016_37|OMIM:235200" submittedAssembly="GRCh37" submitter="Knight Diagnostic Laboratories,Oregon Health and Sciences University" submitterDate="2016-08-10"/>
     <ClinVarAccession Acc="SCV000223934" Version="2" Type="SCV" OrgID="505542" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-03-30">
+    <Classification DateLastEvaluated="2016-03-30">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Comment Type="public">The c.845G&gt;A (p.Cys282Tyr) missense variant is widely recognized as one of the two most common disease-causing variants in the HFE gene. Cys282Tyr homozygotes account for 80-85% of typical patients with Hereditary Hemochromatosis (HH). However, the majority of individuals who are homozygous for this variant do not develop the disease (GeneReviews, Kowdley et al., 2012; Ramrakhiani and Bacon, 1998; and Morrison et al., 2003). In summary, this variant c.845G&gt;A (p.Cys282Tyr) meets our criteria for a Pathogenic classification. We have confirmed this finding in our laboratory using Sanger sequencing.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Knight Diagnostic Laboratories" ID="2016_37"/>
     <AttributeSet>
@@ -1022,9 +1024,9 @@
     <ClinVarSubmissionID localKey="NM_000410.3:c.845G&gt;A|OMIM:235200" submitter="GeneReviews" submitterDate="2015-09-22"/>
     <ClinVarAccession Acc="SCV000245793" Version="1" Type="SCV" OrgID="500062" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-07-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2015-09-17">
+    <Classification DateLastEvaluated="2015-09-17">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">21452290</ID>
       </Citation>
@@ -1046,7 +1048,7 @@
       <Citation>
         <URL>http://www.ncbi.nlm.nih.gov/books/NBK1440/</URL>
       </Citation>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ObservedIn>
       <Sample>
@@ -1089,9 +1091,9 @@
     <ClinVarSubmissionID localKey="57143" localKeyIsSubmitted="1" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2019-04-05"/>
     <ClinVarAccession Acc="SCV000461887" Version="3" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-24"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2019-04-05">
+    <Classification DateLastEvaluated="2019-04-05">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">8696333</ID>
       </Citation>
@@ -1117,7 +1119,7 @@
         <ID Source="PubMed">19554541</ID>
       </Citation>
       <Comment Type="public">The HFE c.845G&gt;A (p.Cys282Tyr) missense variant is one of the two most common and well-studied pathogenic variants associated with hereditary hemochromatosis (HH), with approximately 80-87% of HH type 1 patients of European origin being homozygous or compound heterozygous for this variant (Feder et al. 1996; Gallego et al. 2015; Press et al. 2016). Disease penetrance for the p.Cys282Tyr variant carriers is variable (Beutler et al. 2002; Pedersen et al. 2009; Gurrin et al. 2009), with homozygotes being at a greater risk for iron overload than compound heterozygotes (Seckington et al. 2015; Gallego et al. 2015). The p.Cys282Tyr variant affects HFE protein activity by preventing the formation of a disulfide bridge in the alpha-3 domain, which impairs the beta-2-microglobulin interaction and prevents the protein from reaching the cell surface (Feder et al. 1997). The p.Cys282Tyr variant has a frequency of 5% to 7% in Caucasians (Press et al. 2016) and is reported at a frequency of 0.06407 in the European American population of the Exome Sequencing Project. This allele frequency is high but is consistent with estimates of disease prevalence and reduced penetrance. Based on the collective evidence, the p.Cys282Tyr variant is classified as pathogenic for hereditary hemochromatosis. This variant was observed by ICSL as part of a predisposition screen in an ostensibly healthy population.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Illumina Clinical Services Laboratory" ID="57145"/>
     <AttributeSet>
@@ -1162,9 +1164,9 @@
     <ClinVarSubmissionID localKey="480|OMIM:235200" submittedAssembly="GRCh37" submitter="Counsyl" submitterDate="2017-06-22"/>
     <ClinVarAccession Acc="SCV000677906" Version="1" Type="SCV" OrgID="320494" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-03-08">
+    <Classification DateLastEvaluated="2016-03-08">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">10477778</ID>
       </Citation>
@@ -1222,7 +1224,7 @@
       <Citation>
         <ID Source="PubMed">11380448</ID>
       </Citation>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Counsyl" ID="480"/>
     <AttributeSet>
@@ -1266,11 +1268,11 @@
     <ClinVarSubmissionID localKey="NM_000410.3:c.845G&gt;A|OMIM:235200" submittedAssembly="GRCh37" submitter="Human Genome Sequencing Center Clinical Lab,Baylor College of Medicine" submitterDate="2018-06-14"/>
     <ClinVarAccession Acc="SCV000839959" Version="1" Type="SCV" OrgID="500199" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2017-06-05">
+    <Classification DateLastEvaluated="2017-06-05">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Comment Type="public">The c.845G&gt;A (p.Cys282Tyr) variant in the HFE gene in the homozygous state has been reported as a common cause of hereditary hemochromatosis with high penetrance of biochemically defined iron overload but low penetrance of clinically defined iron overload [OMIM:613609.0001; PMID 8896549, 10381492, 18199861]. This variant has been detected at high frequency in the ExAC population database (up to 5% in Europeans) (http://exac.broadinstitute.org/variant/6-26093141-G-A). Cysteine at amino acid position 282 of the HFE protein is highly conserved in mammals and computer-based algorithms predict this p.Cys282Tyr change to be deleterious. This variant is classified as pathogenic.&lt;BR&gt;Apparent homozygosity of this variant may be caused by the presence of the mutant allele on both alleles of this individual, or the presence of a mutant allele on one allele and an exonic deletion on the opposite allele. Copy number variant (CNV) analysis or segregation analysis is necessary to assess the apparent homozygosity status of this variant.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">ACMG Guidelines, 2015</Attribute>
@@ -1313,10 +1315,10 @@
     <ClinVarSubmissionID localKey="DS_58" localKeyIsSubmitted="1" submittedAssembly="GRCh37" submitter="Equipe Genetique des Anomalies du Developpement,Université de Bourgogne" submitterDate="2018-11-26"/>
     <ClinVarAccession Acc="SCV000883106" Version="1" Type="SCV" OrgID="506039" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-26"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-11-21">
+    <Classification DateLastEvaluated="2018-11-21">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">ACMG Guidelines, 2015</Attribute>
@@ -1824,10 +1826,10 @@
     <ClinVarSubmissionID localKey="613609.0001_PORPHYRIA CUTANEA TARDA, SUSCEPTIBILITY TO" submitter="OMIM" submitterDate="2018-05-02" title="HFE, CYS282TYR_PORPHYRIA CUTANEA TARDA, SUSCEPTIBILITY TO"/>
     <ClinVarAccession Acc="SCV000020163" Version="6" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2009-01-01">
+    <Classification DateLastEvaluated="2009-01-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>risk factor</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>risk factor</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to included disease"/>
     <ExternalID DB="OMIM" ID="613609.0001" Type="Allelic variant"/>
     <ObservedIn>
@@ -2575,10 +2577,10 @@
     <ClinVarSubmissionID localKey="613609.0001_PORPHYRIA VARIEGATA, SUSCEPTIBILITY TO" submitter="OMIM" submitterDate="2018-05-02" title="HFE, CYS282TYR_PORPHYRIA VARIEGATA, SUSCEPTIBILITY TO"/>
     <ClinVarAccession Acc="SCV000020164" Version="6" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2009-01-01">
+    <Classification DateLastEvaluated="2009-01-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>risk factor</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>risk factor</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to included disease"/>
     <ExternalID DB="OMIM" ID="613609.0001" Type="Allelic variant"/>
     <ObservedIn>
@@ -3327,10 +3329,10 @@
     <ClinVarSubmissionID localKey="613609.0001_HEMOCHROMATOSIS, JUVENILE, DIGENIC" submitter="OMIM" submitterDate="2018-05-02" title="HFE, CYS282TYR_HEMOCHROMATOSIS, JUVENILE, DIGENIC"/>
     <ClinVarAccession Acc="SCV000020165" Version="6" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2009-01-01">
+    <Classification DateLastEvaluated="2009-01-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to included disease"/>
     <ExternalID DB="OMIM" ID="613609.0001" Type="Allelic variant"/>
     <ObservedIn>
@@ -4078,10 +4080,10 @@
     <ClinVarSubmissionID localKey="613609.0001_ALZHEIMER DISEASE, SUSCEPTIBILITY TO" submitter="OMIM" submitterDate="2018-05-02" title="HFE, CYS282TYR_ALZHEIMER DISEASE, SUSCEPTIBILITY TO"/>
     <ClinVarAccession Acc="SCV000020166" Version="6" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2009-01-01">
+    <Classification DateLastEvaluated="2009-01-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>risk factor</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>risk factor</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to included disease"/>
     <ExternalID DB="OMIM" ID="613609.0001" Type="Allelic variant"/>
     <ObservedIn>
@@ -4836,10 +4838,10 @@
     <ClinVarSubmissionID localKey="613609.0001_TRANSFERRIN SERUM LEVEL QUANTITATIVE TRAIT LOCUS 2" submitter="OMIM" submitterDate="2018-05-02" title="HFE, CYS282TYR_TRANSFERRIN SERUM LEVEL QUANTITATIVE TRAIT LOCUS 2"/>
     <ClinVarAccession Acc="SCV000020167" Version="6" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2009-01-01">
+    <Classification DateLastEvaluated="2009-01-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>association</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>association</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to included disease"/>
     <ExternalID DB="OMIM" ID="613609.0001" Type="Allelic variant"/>
     <ObservedIn>
@@ -5615,10 +5617,10 @@
     <ClinVarSubmissionID localKey="613609.0001_MICROVASCULAR COMPLICATIONS OF DIABETES, SUSCEPTIBILITY TO, 7" submitter="OMIM" submitterDate="2018-05-02" title="HFE, CYS282TYR_MICROVASCULAR COMPLICATIONS OF DIABETES, SUSCEPTIBILITY TO, 7"/>
     <ClinVarAccession Acc="SCV000020168" Version="6" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2009-01-01">
+    <Classification DateLastEvaluated="2009-01-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>risk factor</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>risk factor</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to included disease"/>
     <ExternalID DB="OMIM" ID="613609.0001" Type="Allelic variant"/>
     <ObservedIn>
@@ -6165,11 +6167,11 @@
     <ClinVarSubmissionID localKey="9817_000000" localKeyIsSubmitted="1" submittedAssembly="GRCh37" submitter="EGL Genetic Diagnostics,Eurofins Clinical Diagnostics" submitterDate="2018-09-19"/>
     <ClinVarAccession Acc="SCV000230091" Version="5" Type="SCV" OrgID="500060" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-05-31">
+    <Classification DateLastEvaluated="2018-05-31">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>other</Description>
+      <GermlineClassification>other</GermlineClassification>
       <ExplanationOfInterpretation>Variant classified as "other reportable" ??? variant is clinically benign (not associated with disease) but is reported when observed (e.g. pseudodeficiency alleles).</ExplanationOfInterpretation>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="EGL Genetic Diagnostics" ID="9817"/>
     <AttributeSet>
@@ -6228,11 +6230,11 @@
     <ClinVarSubmissionID localKey="GDX:26035|Not Provided" submittedAssembly="GRCh37" submitter="GeneDx" submitterDate="2019-01-29"/>
     <ClinVarAccession Acc="SCV000329362" Version="6" Type="SCV" OrgID="26957" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-09"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2019-01-21">
+    <Classification DateLastEvaluated="2019-01-21">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Comment Type="public">The C282Y variant in the HFE gene is the most common pathogenic variant associated with hereditary hemochromatosis (Cezard et al., 2014; Feder et al., 1996). The C282Y variant is observed in 7,275/126,464 (5.7%%) alleles from individuals of non-Finnish European background in large population cohorts (Lek et al., 2016). The C282Y variant is a non-conservative amino acid substitution, which is likely to impact secondary protein structure as these residues differ in polarity, charge, size and/or other properties. Functional studies have shown that the C282Y results in a protein that does not reach the cell surface and is subject to accelerated degradation (Waheed et al., 1997). We interpret C282Y as a pathogenic variant.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="GeneDx" ID="GDX:26035"/>
     <AttributeSet>
@@ -6544,10 +6546,10 @@
     <ClinVarSubmissionID localKey="NM_000410.3:c.845G&gt;A|MedGen:C0027672" submittedAssembly="GRCh37" submitter="Vantari Genetics" submitterDate="2016-03-29"/>
     <ClinVarAccession Acc="SCV000267038" Version="1" Type="SCV" OrgID="505712" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2015-12-01">
+    <Classification DateLastEvaluated="2015-12-01">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">ACMG Guidelines, 2015</Attribute>
@@ -6885,9 +6887,9 @@
     <ClinVarSubmissionID localKey="5230|MedGen:C0392514" submittedAssembly="GRCh37" submitter="Invitae" submitterDate="2019-03-28"/>
     <ClinVarAccession Acc="SCV000219175" Version="6" Type="SCV" OrgID="500031" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-13"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2019-01-07">
+    <Classification DateLastEvaluated="2019-01-07">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">26365338</ID>
       </Citation>
@@ -6904,7 +6906,7 @@
         <ID Source="PubMed">9356458</ID>
       </Citation>
       <Comment>This sequence change replaces cysteine with tyrosine at codon 282 of the HFE protein (p.Cys282Tyr). The cysteine residue is highly conserved and there is a large physicochemical difference between cysteine and tyrosine. This variant is present in population databases (rs1800562, ExAC 5%). This is a common, low penetrance variant that is known to contribute to hemochromatosis when homozygous or present with a second pathogenic allele in HFE. As many as 90% of individuals of European descent who are affected with hemochromatosis are homozygous for this variant (PMID: 16132052, 26153218, 26365338). ClinVar contains an entry for this variant (Variation ID: 9). Experimental studies have shown that this missense change disrupts a disulfide bond in the Å’Â±3 domain of the HFE protein and impairs interaction of HFE with beta2-microglobulin, resulting in a block in intracellular transport and loss of cell surface expression of the Cys282Tyr variant protein (PMID: 9162021, 9356458). For these reasons, this variant has been classified as Pathogenic (low penetrance).</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Invitae" ID="5230"/>
     <AttributeSet>
@@ -6954,11 +6956,11 @@
     <ClinVarSubmissionID localKey="genomeconnect_15046_15373_14801" localKeyIsSubmitted="1" submittedAssembly="GRCh37" submitter="GenomeConnect, ClinGen" submitterDate="2019-01-30"/>
     <ClinVarAccession Acc="SCV000607202" Version="2" Type="SCV" OrgID="506185" OrganizationCategory="other" OrgType="primary" DateUpdated="2019-08-30"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance>
+    <Classification DateLastEvaluated="">
       <ReviewStatus>no assertion provided</ReviewStatus>
-      <Description>not provided</Description>
+      <GermlineClassification>not provided</GermlineClassification>
       <Comment>GenomeConnect assertions are reported exactly as they appear on the patient-provided report from the testing laboratory. GenomeConnect staff make no attempt to reinterpret the clinical significance of the variant.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="GenomeConnect" ID="genomeconnect_15373_622_15488_622"/>
     <ObservedIn>
@@ -7486,10 +7488,10 @@
     <ClinVarSubmissionID localKey="CMGVARID00603|HPO:HP:0000992;HP:0010473" submittedAssembly="GRCh37" submitter="Centre for Mendelian Genomics,University Medical Centre Ljubljana" submitterDate="2016-11-12"/>
     <ClinVarAccession Acc="SCV000493004" Version="1" Type="SCV" OrgID="505952" OrganizationCategory="clinic" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2014-04-12">
+    <Classification DateLastEvaluated="2014-04-12">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Uncertain significance</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Uncertain significance</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Centre for Mendelian Genomics" ID="CMGVARID00603"/>
     <AttributeSet>
@@ -7789,9 +7791,9 @@
     <ClinVarSubmissionID localKey="43301040|Orphanet:ORPHA79230" submittedAssembly="GRCh37" submitter="Laboratory for Molecular Medicine,Partners HealthCare Personalized Medicine" submitterDate="2019-03-21"/>
     <ClinVarAccession Acc="SCV000221190" Version="3" Type="SCV" OrgID="21766" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-30"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2014-03-19">
+    <Classification DateLastEvaluated="2014-03-19">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">11812557</ID>
       </Citation>
@@ -7805,7 +7807,7 @@
         <ID Source="PubMed">19159930</ID>
       </Citation>
       <Comment>The p.Cys282Tyr variant in HFE is a well-established pathogenic variant for here ditary hemochromatosis (HH). Although it is considered pathogenic, the penetranc e is significantly reduced. Biochemically, 82% of p.Cys282Tyr homozygotes and 17 % of p.Cys282Tyr/p.His63Asp compound heterozygotes were shown to have elevated t ransferrin saturation (Pederson 2009); however, less than 5% of individuals with biallelic pathogenic HFE variants exhibit clinical symptoms of HH (Beutler 2002 , Gurrin 2009). In summary, this variant meets criteria to be classified as path ogenic for HH in an autosomal recessive pattern but with significantly reduced p enetrance. ACMG/AMP Criteria applied: PS3; PS4; PM3.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Laboratory for Molecular Medicine" ID="43301040"/>
     <AttributeSet>
@@ -7859,4 +7861,4 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
-
+</ReleaseSet>

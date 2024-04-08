@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<ReleaseSet>
 <ClinVarSet ID="47141799">
   <RecordStatus>current</RecordStatus>
   <Title>NM_000179.2(MSH6):c.3725G&gt;A (p.Arg1242His) AND Hereditary cancer-predisposing syndrome</Title>
@@ -190,9 +192,9 @@
     <ClinVarSubmissionID localKey="a4012" localKeyIsSubmitted="1" submittedAssembly="GRCh37" submitter="Ambry Genetics" submitterDate="2018-07-30"/>
     <ClinVarAccession Acc="SCV000183784" Version="6" Type="SCV" OrgID="61756" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-01-04">
+    <Classification DateLastEvaluated="2018-01-04">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">24763289</ID>
       </Citation>
@@ -206,7 +208,7 @@
         <ID Source="PubMed">17718861</ID>
       </Citation>
       <Comment Type="public">Lines of evidence used in support of classification: Structural Evidence,In silico models in agreement (deleterious) and/or completely conserved position in appropriate species,Detected in individual satisfying established diagnostic critera for classic disease without a clear mutation</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Ambry Genetics" ID="a4012"/>
     <AttributeSet>
@@ -254,10 +256,10 @@
     <ClinVarSubmissionID localKey="Db4KrQBSZeoE7-orUyypkQ69p9Bo7pVCB6CCPa1zn5k|MedGen:C0027672" submittedAssembly="GRCh37" submitter="Color" submitterDate="2018-11-06"/>
     <ClinVarAccession Acc="SCV000903541" Version="1" Type="SCV" OrgID="505849" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-19"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-06-15">
+    <Classification DateLastEvaluated="2018-06-15">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Uncertain significance</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Uncertain significance</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Color" ID="Db4KrQBSZeoE7-orUyypkQ69p9Bo7pVCB6CCPa1zn5k"/>
     <AttributeSet>
@@ -609,11 +611,11 @@
     <ClinVarSubmissionID localKey="NM_000179.2:c.3725G&gt;A|MedGen:C0009405" submittedAssembly="GRCh37" submitter="Invitae" submitterDate="2016-06-10"/>
     <ClinVarAccession Acc="SCV000283817" Version="2" Type="SCV" OrgID="500031" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-01-03">
+    <Classification DateLastEvaluated="2016-01-03">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
       <Comment Type="public">This sequence change replaces arginine with histidine at codon 1242 of the MSH6 protein (p.Arg1242His). The arginine residue is highly conserved and there is a small physicochemical difference between arginine and histidine. This variant is present in population databases at a very low frequency (rs63750119, ExAC 0.01%). This variant was reported in an individual who was referred for hereditary cancer testing (PMID: 24763289) and was reported as a homozygous variant in the Universal Mutation Database in 2 siblings affected with brain glioma and cafe-au-lai spots http://139.124.156.133/4D_molecules/UMD195658.html (PMID: 23729658). ClinVar contains an entry for this variant (Variation ID: 140866). Algorithms developed to predict the effect of missense changes on protein structure and function (SIFT, PolyPhen-2, Align-GVGD) all suggest that this variant is likely to be disruptive, but these predictions have not been confirmed by published functional studies. For these reasons, this variant has been classified as Likely Pathogenic.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">Invitae Variant Classification Sherloc (09022015)</Attribute>
@@ -656,9 +658,9 @@
     <ClinVarSubmissionID localKey="NM_000179.2:c.3725G&gt;A|MedGen:C1333990" submittedAssembly="GRCh37" submitter="Integrated Genetics/Laboratory Corporation of America" submitterDate="2018-11-27"/>
     <ClinVarAccession Acc="SCV000695884" Version="2" Type="SCV" OrgID="500026" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-07-26">
+    <Classification DateLastEvaluated="2018-07-26">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">25111426</ID>
       </Citation>
@@ -672,7 +674,7 @@
         <ID Source="PubMed">28514183</ID>
       </Citation>
       <Comment Type="public">Variant summary: MSH6 c.3725G&gt;A (p.Arg1242His) results in a non-conservative amino acid change located in the MutS, C-terminal domain (IPR000432) of the encoded protein sequence, which is comprised of the ATPase domain and the HTH (helix-turn-helix) domain, the latter being involved in dimer contacts. Five of five in-silico tools predict a damaging effect of the variant on protein function. The variant allele was found at a frequency of 4.1e-06 in 245952 control chromosomes (gnomAD). c.3725G&gt;A has been reported in the literature in individuals affected with Lynch Syndrome (LS) (LaDuca 2014, Espenschied 2017). It was reported in two patients (brothers) in homozygosity who had symptoms characteristic of constitutive mismatch repair deficiency (CMMRD) syndrome (UMD data) and isolated lack of MSH6 staining on IHC, indicating causality. Another individual was also reported with a phenotype suggestive of CMMRD, who also carried a likely pathogenic MSH6 variant (c.3G&gt;T (p.Met1Ile)) in trans, with the lack of MSH6 staining in the tumor as well as in normal tissue (InSiGHT data), consistent with biallelic loss of MSH6. A further patient with clinical features suggestive of CMMRD has been reported by Ambry Genetics (Dalton 2015). These data indicate that the variant is likely to be associated with disease. Of note, the variant was identified along with another co-occurring pathogenic variant in the ATM gene (c. 7271T&gt;G (p.V2424G)) in a 27 year old female tested at our laboratory with personal and family history of Breast Cancer. However, the association of MSH6 c.3725G&gt;A with LS remains unclear as no clinical information on two other carriers of this variant (father, sister) were available at the time of evaluation. Four clinical diagnostic laboratories have submitted clinical-significance assessments for this variant to ClinVar after 2014 without evidence for independent evaluation. All laboratories classified the variant as likely pathogenic. Based on the evidence outlined above, the variant was classified as likely pathogenic.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">LabCorp Variant Classification Summary - May 2015</Attribute>
@@ -909,11 +911,11 @@
     <ClinVarSubmissionID localKey="GDX:734396|Not Provided" submittedAssembly="GRCh37" submitter="GeneDx" submitterDate="2019-01-29"/>
     <ClinVarAccession Acc="SCV000568732" Version="5" Type="SCV" OrgID="26957" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-09"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-10-22">
+    <Classification DateLastEvaluated="2018-10-22">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
       <Comment Type="public">This variant is denoted MSH6 c.3725G&gt;A at the cDNA level, p.Arg1242His (R1242H) at the protein level, and results in the change of an Arginine to a Histidine (CGT&gt;CAT). This variant was identified in at least one individual undergoing hereditary cancer multigene panel testing (Laduca 2014). It has also been observed in the homozygous state in two brothers with gliomas, one of whom also had cafe-au-lait macules (Grandval 2013). MSH6 Arg1242His was not observed at a significant allele frequency in large population cohorts (Lek 2016). MSH6 Arg1242His is located in the ATPase domain (Warren 2007, Kansikas 2011). In-silico analysis, which includes protein predictors and evolutionary conservation, supports a deleterious effect. Based on the currently available evidence, we consider MSH6 Arg1242His to be a likely pathogenic variant.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="GeneDx" ID="GDX:734396"/>
     <AttributeSet>
@@ -960,11 +962,11 @@
     <ClinVarSubmissionID localKey="9955|Not Provided" submittedAssembly="GRCh37" submitter="ARUP Laboratories, Molecular Genetics and Genomics, ARUP Laboratories" submitterDate="2018-10-10"/>
     <ClinVarAccession Acc="SCV000885717" Version="1" Type="SCV" OrgID="25969" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-09-11"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-04-26">
+    <Classification DateLastEvaluated="2018-04-26">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
       <Comment>The c.3725G&gt;A; p.Arg1242His variant (rs63750119) has been described in the homozygous state in two brothers with gliomas, one of whom also had cafe-au-lait macules (see link for UMD database, Grandval 2013). This variant is reported as likely pathogenic by multiple laboratories in ClinVar (Variation ID: 140866) and is observed in only 1 out of 245952 alleles in the Genome Aggregation Database, indicating it is not a common polymorphism. The arginine at codon 1242 is highly conserved within domain V of the MutS domain (Warren 2007) and computational algorithms (PolyPhen-2, SIFT) predict this variant to be deleterious. Additionally, another variant at this codon (p.Arg1242Ser) has been reported in individuals with colorectal cancer (Oâ€™Leary 2014). Based on available information, this variant is considered likely pathogenic. References: Link to UMD database: http://139.124.156.133/4D_molecules/UMD175743.html Grandval P et al. UMD-MLH1/MSH2/MSH6 databases: description and analysis of genetic variations in French Lynch syndrome families. Oâ€™Leary E et al. A multi-disciplinary cancer program enhances hereditary colorectal cancer detection. Am J Digest Dis 2014;1(1):62-66. Warren J et al. Structure of the human MutSalpha DNA lesion recognition complex. Mol Cell. 2007;26:579â€“592.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Molecular Genetics" ID="9955"/>
     <AttributeSet>
@@ -1009,11 +1011,11 @@
     <ClinVarSubmissionID localKey="genomeconnect_18383_622|Not provided" submittedAssembly="GRCh37" submitter="GenomeConnect, ClinGen" submitterDate="2019-01-30"/>
     <ClinVarAccession Acc="SCV000986867" Version="1" Type="SCV" OrgID="506185" OrganizationCategory="other" OrgType="primary" DateUpdated="2019-08-30"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance>
+    <Classification DateLastEvaluated="">
       <ReviewStatus>no assertion provided</ReviewStatus>
-      <Description>not provided</Description>
+      <GermlineClassification>not provided</GermlineClassification>
       <Comment>Variant interpretted as Likely pathogenic and reported on 10/26/2018 by GTR ID 26957. GenomeConnect assertions are reported exactly as they appear on the patient-provided report from the testing laboratory. GenomeConnect staff make no attempt to reinterpret the clinical significance of the variant.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="GenomeConnect" ID="genomeconnect_18383_622"/>
     <ObservedIn>
@@ -1305,13 +1307,13 @@
     <ClinVarSubmissionID localKey="304441|OMIM:614350" submittedAssembly="GRCh37" submitter="Counsyl" submitterDate="2018-06-20"/>
     <ClinVarAccession Acc="SCV000786188" Version="2" Type="SCV" OrgID="320494" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-03-16">
+    <Classification DateLastEvaluated="2018-03-16">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">24763289</ID>
       </Citation>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Counsyl" ID="304441"/>
     <AttributeSet>
@@ -1354,4 +1356,4 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
-
+</ReleaseSet>

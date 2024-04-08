@@ -342,10 +342,10 @@
     <ClinVarSubmissionID localKey="SCRP_var_415" submitter="Sharing Clinical Reports Project (SCRP)" submitterDate="2012-07-24" title="NM_000059.3:c.241T&gt;A AND Breast-ovarian cancer, familial 2"/>
     <ClinVarAccession Acc="SCV000053971" Version="3" Type="SCV" OrgID="500037" OrganizationCategory="consortium" OrgType="primary" DateUpdated="2019-08-03"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2010-06-04">
+    <Classification DateLastEvaluated="2010-06-04">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Benign</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Benign</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ObservedIn>
       <Sample>
@@ -388,10 +388,10 @@
     <ClinVarSubmissionID localKey="U43746.1:n.469T&gt;A|MedGen:C2675520" submitter="Breast Cancer Information Core (BIC) (BRCA2)" submitterDate="2014-03-28"/>
     <ClinVarAccession Acc="SCV000146428" Version="1" Type="SCV" OrgID="504197" OrganizationCategory="locus-specific database (LSDB)" OrgType="primary" DateUpdated="2019-08-03"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2004-02-20">
+    <Classification DateLastEvaluated="2004-02-20">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Uncertain significance</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Uncertain significance</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ObservedIn>
       <Sample>
@@ -447,16 +447,16 @@
     <ClinVarSubmissionID localKey="48583|OMIM:612555" submittedAssembly="GRCh37" submitter="Counsyl" submitterDate="2018-06-20"/>
     <ClinVarAccession Acc="SCV000784869" Version="2" Type="SCV" OrgID="320494" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-03"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2017-01-18">
+    <Classification DateLastEvaluated="2017-01-18">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Uncertain significance</Description>
+      <GermlineClassification>Uncertain significance</GermlineClassification>
       <Citation>
         <ID Source="PubMed">21952622</ID>
       </Citation>
       <Citation>
         <ID Source="PubMed">25348012</ID>
       </Citation>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Counsyl" ID="48583"/>
     <AttributeSet>
@@ -782,10 +782,10 @@
     <ClinVarSubmissionID localKey="NC_000013.10:g.32893387T&gt;A|MedGen:C0677776" submittedAssembly="GRCh37" submitter="Mendelics" submitterDate="2018-08-20"/>
     <ClinVarAccession Acc="SCV000838725" Version="1" Type="SCV" OrgID="500035" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-03"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-07-02">
+    <Classification DateLastEvaluated="2018-07-02">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Uncertain significance</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Uncertain significance</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">Mendelics Assertion Criteria 2017</Attribute>
@@ -990,10 +990,10 @@
     <ClinVarSubmissionID localKey="a07142" localKeyIsSubmitted="1" submittedAssembly="GRCh37" submitter="Ambry Genetics" submitterDate="2016-05-09"/>
     <ClinVarAccession Acc="SCV000272958" Version="2" Type="SCV" OrgID="61756" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-03"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2015-04-13">
+    <Classification DateLastEvaluated="2015-04-13">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely benign</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Likely benign</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Ambry Genetics" ID="a07142"/>
     <AttributeSet>
@@ -1039,10 +1039,10 @@
     <ClinVarSubmissionID localKey="Db4KrQBSZeoE7-orUyypkXWXuXIm-lGUFdWnrnmJ9lA|MedGen:C0027672" submittedAssembly="GRCh37" submitter="Color" submitterDate="2018-11-06"/>
     <ClinVarAccession Acc="SCV000683483" Version="2" Type="SCV" OrgID="505849" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-03"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-05-30">
+    <Classification DateLastEvaluated="2018-05-30">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Uncertain significance</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Uncertain significance</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Color" ID="Db4KrQBSZeoE7-orUyypkXWXuXIm-lGUFdWnrnmJ9lA"/>
     <AttributeSet>
@@ -1239,10 +1239,10 @@
     <ClinVarSubmissionID localKey="738521|MedGen:CN517202" submittedAssembly="GRCh37" submitter="Invitae" submitterDate="2019-03-14"/>
     <ClinVarAccession Acc="SCV000072001" Version="6" Type="SCV" OrgID="500031" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-12-17"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2019-01-20">
+    <Classification DateLastEvaluated="2019-01-20">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely benign</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Likely benign</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Invitae" ID="738521"/>
     <AttributeSet>
@@ -1289,11 +1289,11 @@
     <ClinVarSubmissionID localKey="GDX:7874|Not Provided" submittedAssembly="GRCh37" submitter="GeneDx" submitterDate="2019-01-29"/>
     <ClinVarAccession Acc="SCV000210434" Version="14" Type="SCV" OrgID="26957" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-12-17"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2017-10-25">
+    <Classification DateLastEvaluated="2017-10-25">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Uncertain significance</Description>
+      <GermlineClassification>Uncertain significance</GermlineClassification>
       <Comment>This variant is denoted BRCA2 c.241T&gt;A at the cDNA level, p.Phe81Ile (F81I) at the protein level, and results in the change of a Phenylalanine to an Isoleucine (TTC&gt;ATC). Using alternate nomenclature, this variant would be defined as BRCA2 469T&gt;A. This variant was observed in at least one individual with prostate cancer (Kote-Jarai 2011). BRCA2 Phe81Ile was not observed at a significant allele frequency in large population cohorts (Lek 2016). Since Phenylalanine and Isoleucine share similar properties, this is considered a conservative amino acid substitution. BRCA2 Phe81Ile occurs at a position that is conserved across species and is not located in a known functional domain. In silico analyses are inconsistent regarding the effect this variant may have on protein structure and function. Based on currently available evidence, it is unclear whether BRCA2 Phe81Ile is a pathogenic or benign variant. We consider it to be a variant of uncertain significance.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="GeneDx" ID="GDX:7874"/>
     <AttributeSet>
@@ -1340,14 +1340,14 @@
     <ClinVarSubmissionID localKey="NM_000059.3:c.241T&gt;A|MedGen:CN221809" submittedAssembly="GRCh37" submitter="Integrated Genetics/Laboratory Corporation of America" submitterDate="2018-01-25"/>
     <ClinVarAccession Acc="SCV000694607" Version="1" Type="SCV" OrgID="500026" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-12-17"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-08-08">
+    <Classification DateLastEvaluated="2016-08-08">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Uncertain significance</Description>
+      <GermlineClassification>Uncertain significance</GermlineClassification>
       <Citation>
         <ID Source="PubMed">21952622</ID>
       </Citation>
       <Comment>Variant summary: The BRCA2 c.241T&gt;A (p.Phe81Ile) variant involves the alteration of a conserved nucleotide. 5/5 in silico tools predict a damaging outcome for this variant. This variant is located in the RING domain (InterPro). This variant was found in 2/121152 control chromosomes, predominantly observed in the European (Non-Finnish) subpopulation at a frequency of 0.00003 (2/66608). This frequency is lower than the estimated maximal expected allele frequency of a pathogenic BRCA2 variant (0.0007503). This variant is reported in at least one individual with prostate cancer in literature (Kote-Jarai_2001). It has also been reported in several subjects undergoing BRCA1/2 testing by clinical laboratories/databases. Clinical diagnostic laboratories/reputable databases have provided conflicting classifications ranging from uncertain singnificance to benign, without evidences to independently evaluate. There are no published functional studies for the variant. Taken together, this variant is currently classified as a Variant of Uncertain Significance.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">LabCorp Variant Classification Summary - May 2015</Attribute>

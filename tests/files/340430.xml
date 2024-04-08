@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<ReleaseSet>
 <ClinVarSet ID="48788085">
   <RecordStatus>current</RecordStatus>
   <Title>NM_206965.2(FTCD):c.636+9G&gt;A AND GLUTAMATE FORMIMINOTRANSFERASE DEFICIENCY</Title>
@@ -143,10 +145,10 @@
     <ClinVarSubmissionID localKey="750092|Formiminotransferase Deficiency" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
     <ClinVarAccession Acc="SCV000436901" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+    <Classification DateLastEvaluated="2016-06-14">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Uncertain significance</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Uncertain significance</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Illumina Clinical Services Laboratory" ID="750092"/>
     <AttributeSet>
@@ -327,10 +329,10 @@
     <ClinVarSubmissionID localKey="1299127|MedGen:CN517202" submittedAssembly="GRCh37" submitter="Invitae" submitterDate="2019-03-14"/>
     <ClinVarAccession Acc="SCV001019381" Version="1" Type="SCV" OrgID="500031" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-12-17"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-02-12">
+    <Classification DateLastEvaluated="2018-02-12">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely benign</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Likely benign</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Invitae" ID="1299127"/>
     <AttributeSet>
@@ -374,4 +376,4 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
-
+</ReleaseSet>

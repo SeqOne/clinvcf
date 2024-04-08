@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <ClinVarSet ID="126106420">
   <RecordStatus>current</RecordStatus>
   <Title>NM_000311.5(PRNP):c.628G&gt;A (p.Val210Ile) AND Huntington disease-like 1</Title>
@@ -107,7 +108,7 @@
         </AttributeSet>
         <AttributeSet>
           <Attribute Type="MolecularConsequence">missense variant</Attribute>
---
+--      </AttributeSet>
         <AlleleFrequencyList>
           <AlleleFrequency Value="0.00002" Source="Exome Aggregation Consortium (ExAC)"/>
           <AlleleFrequency Value="0.00002" Source="The Genome Aggregation Database (gnomAD)"/>
@@ -206,9 +207,9 @@
     <ClinVarSubmissionID localKey="1213298|MedGen:C1864112" submittedAssembly="GRCh37" submitter="Invitae" submitterDate="2023-01-11"/>
     <ClinVarAccession Acc="SCV000644931" Version="5" Type="SCV" OrgID="500031" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2023-02-07" DateCreated="2017-12-26"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2022-09-20">
+    <Classification DateLastEvaluated="2022-09-20">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic, low penetrance</Description>
+      <GermlineClassification>Pathogenic, low penetrance</GermlineClassification>
       <Citation>
         <ID Source="PubMed">26268049</ID>
       </Citation>
@@ -255,7 +256,7 @@
         <ID Source="PubMed">11756597</ID>
       </Citation>
       <Comment>This sequence change replaces valine, which is neutral and non-polar, with isoleucine, which is neutral and non-polar, at codon 210 of the PRNP protein (p.Val210Ile). This variant is present in population databases (rs74315407, gnomAD 0.002%). This variant has been reported in many cases of sporadic and familial Creutzfeldt-Jakob disease (CJD) (PMID: 26268049, 26578040, 24583440, 10526198, 7902693). In several cases, this variant has also been identified in unaffected family members, indicating that it is an incompletely penetrant allele (PMID: 26791950, 10526198, 7902693). A large case control study confirmed this finding, and reported that individuals carrying this variant have a life-time risk of developing prion disease of approximately 10% (PMID: 26791950). ClinVar contains an entry for this variant (Variation ID: 13403). Advanced modeling of protein sequence and biophysical properties (such as structural, functional, and spatial information, amino acid conservation, physicochemical variation, residue mobility, and thermodynamic stability) performed at Invitae indicates that this missense variant is not expected to disrupt PRNP protein function. Experimental studies have shown that this missense change leads to functional and structural changes in the PRNP protein (PMID: 21839748, 21909425, 22947063, 10079068, 14761942). In addition, mice with a chimeric human‚Äìmouse PRNP transgene that were inoculated with brain extract from affected individuals carrying this variant developed prion disease (PMID: 11756597). In summary, this variant is reported to cause disease. However, as this variant is associated with a lower penetrance than other pathogenic alleles in the PRNP gene, it has been classified as Pathogenic (low penetrance).</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Invitae" ID="1213298"/>
     <AttributeSet>

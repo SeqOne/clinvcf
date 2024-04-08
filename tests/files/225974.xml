@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <ClinVarSet ID="47660574">
   <RecordStatus>current</RecordStatus>
   <Title>NM_000675.6(ADORA2A):c.-275+1797C&gt;T AND caffeine response - Toxicity/ADR</Title>
@@ -133,9 +134,9 @@
     <ClinVarSubmissionID localKey="981201549PA448710|caffeine response - Toxicity/ADR" submittedAssembly="GRCh38" submitter="PharmGKB" submitterDate="2018-06-18"/>
     <ClinVarAccession Acc="SCV000783004" Version="1" Type="SCV" OrgID="500295" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2017-12-20">
+    <Classification DateLastEvaluated="2017-12-20">
       <ReviewStatus>reviewed by expert panel</ReviewStatus>
-      <Description>drug response</Description>
+      <GermlineClassification>drug response</GermlineClassification>
       <ExplanationOfInterpretation>Drug-variant association: Toxicity/ADR</ExplanationOfInterpretation>
       <Citation>
         <ID Source="PubMed">18305461</ID>
@@ -144,7 +145,7 @@
         <ID Source="PubMed">20520601</ID>
       </Citation>
       <Comment Type="public">PharmGKB Level of Evidence 2B: Annotation for a variant-drug combination with moderate evidence of an association. The association must be replicated but there may be some studies that do not show statistical significance, and/or the effect size may be small.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Pharmacogenomics Knowledge Base" ID="981201549PA448710"/>
     <AttributeSet>
@@ -191,4 +192,3 @@
     </Citation>
   </ClinVarAssertion>
 </ClinVarSet>
-

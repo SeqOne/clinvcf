@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <ClinVarSet ID="116308252">
   <RecordStatus>current</RecordStatus>
   <Title>NM_016270.4(KLF2):c.951dup (p.Glu318fs) AND Inherited Immunodeficiency Diseases</Title>
@@ -101,13 +102,13 @@
     <ClinVarSubmissionID localKey="SUB12245088" submittedAssembly="GRCh37" submitter="Research Unit of Biomedicine, University of Oulu" submitterDate="2022-11-09" title="SUB12245088"/>
     <ClinVarAccession Acc="SCV002588747" Version="1" Type="SCV" OrgID="508808" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2022-11-13" DateCreated="2022-11-13"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2022-11-03">
+    <Classification DateLastEvaluated="2022-11-03">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Likely pathogenic, low penetrance</Description>
+      <GermlineClassification>Likely pathogenic, low penetrance</GermlineClassification>
       <Citation Type="general">
         <ID Source="DOI">10.3389/fimmu.2022.819929</ID>
       </Citation>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="ModeOfInheritance">Autosomal dominant inheritance</Attribute>
