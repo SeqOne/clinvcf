@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<ReleaseSet>
 <ClinVarSet ID="47176203">
   <RecordStatus>current</RecordStatus>
   <Title>NM_001128425.1(MUTYH):c.309G&gt;A (p.Trp103Ter) AND Hereditary cancer-predisposing syndrome</Title>
@@ -296,9 +298,9 @@
     <ClinVarSubmissionID localKey="a90765" localKeyIsSubmitted="1" submittedAssembly="GRCh37" submitter="Ambry Genetics" submitterDate="2018-07-30"/>
     <ClinVarAccession Acc="SCV000214957" Version="5" Type="SCV" OrgID="61756" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-05-09">
+    <Classification DateLastEvaluated="2018-05-09">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">15761860</ID>
       </Citation>
@@ -306,7 +308,7 @@
         <ID Source="PubMed">25525159</ID>
       </Citation>
       <Comment Type="public">Lines of evidence used in support of classification: Alterations resulting in premature truncation (e.g.reading frame shift, nonsense)</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Ambry Genetics" ID="a90765"/>
     <AttributeSet>
@@ -354,10 +356,10 @@
     <ClinVarSubmissionID localKey="Db4KrQBSZeoE7-orUyypkcpX50iMyERP0fxautSOJAQ|MedGen:C0027672" submittedAssembly="GRCh37" submitter="Color" submitterDate="2017-12-21"/>
     <ClinVarAccession Acc="SCV000690556" Version="1" Type="SCV" OrgID="505849" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-03-17">
+    <Classification DateLastEvaluated="2016-03-17">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Color Genomics, Inc." ID="Db4KrQBSZeoE7-orUyypkcpX50iMyERP0fxautSOJAQ"/>
     <AttributeSet>
@@ -772,14 +774,14 @@
     <ClinVarSubmissionID localKey="991286|MedGen:C1837991" submittedAssembly="GRCh37" submitter="Invitae" submitterDate="2019-03-28"/>
     <ClinVarAccession Acc="SCV000253865" Version="5" Type="SCV" OrgID="500031" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-13"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-12-20">
+    <Classification DateLastEvaluated="2018-12-20">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">15761860</ID>
       </Citation>
       <Comment>This sequence change creates a premature translational stop signal (p.Trp103*) in the MUTYH gene. It is expected to result in an absent or disrupted protein product. This variant is present in population databases (rs748170941, ExAC 0.001%). This variant has been reported as co-occurring with a pathogenic variant (p.Gly396Asp, also known as G382D) in MUTYH in an individual with adenomatous polyposis (PMID: 15761860). This variant is also known as G267A (W89X) in the literature. ClinVar contains an entry for this variant (Variation ID: 184976). Loss-of-function variants in MUTYH are known to be pathogenic (PMID: 18534194, 20663686). For these reasons, this variant has been classified as Pathogenic.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Invitae" ID="991286"/>
     <AttributeSet>
@@ -829,13 +831,13 @@
     <ClinVarSubmissionID localKey="NM_001128425.1:c.309G&gt;A|MedGen:C1837991" submittedAssembly="GRCh37" submitter="Department of Pathology and Laboratory Medicine,Sinai Health System" submitterDate="2017-04-19"/>
     <ClinVarAccession Acc="SCV000592677" Version="1" Type="SCV" OrgID="506152" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2014-10-23">
+    <Classification DateLastEvaluated="2014-10-23">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">15761860</ID>
       </Citation>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">ACMG Guidelines, 2015</Attribute>
@@ -885,16 +887,16 @@
     <ClinVarSubmissionID localKey="197274|OMIM:608456" submittedAssembly="GRCh37" submitter="Counsyl" submitterDate="2017-06-22"/>
     <ClinVarAccession Acc="SCV000678197" Version="1" Type="SCV" OrgID="320494" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2017-03-15">
+    <Classification DateLastEvaluated="2017-03-15">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">25525159</ID>
       </Citation>
       <Citation>
         <ID Source="PubMed">15761860</ID>
       </Citation>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Counsyl" ID="197274"/>
     <AttributeSet>
@@ -938,14 +940,14 @@
     <ClinVarSubmissionID localKey="1650901" localKeyIsSubmitted="1" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2019-02-01"/>
     <ClinVarAccession Acc="SCV000915418" Version="1" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-24"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-08-15">
+    <Classification DateLastEvaluated="2018-08-15">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Uncertain significance</Description>
+      <GermlineClassification>Uncertain significance</GermlineClassification>
       <Citation>
         <ID Source="PubMed">15761860</ID>
       </Citation>
       <Comment Type="public">The MUYTH c.267G&gt;A (p.Trp89Ter) variant is a stop-gained variant that is predicted to result in premature termination of the protein. The p.Trp89Ter variant has been reported in at least one study in which it is found in one patient in a compound heterozygous state with a second known pathogenic missense variant (Kairupan et al. 2005). The female proband was reported to have more than 50 polyps at 34 years of age, but no colorectal cancer or other types of cancer at the time of study (Kairupan et al. 2005). Control data are unavailable for this variant which is reported at a frequency of 0.000015 in the European (non-Finnish) population of the Exome Aggregation Consortium, however this is based on a single allele and the variant is presumed to be rare. Based on the available evidence and potential impact of stop-gained variants, the p.Trp89Ter variant is classified as a variant of unknown significance but suspicious for pathogenicity for MYH-associated polyposis.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Illumina Clinical Services Laboratory" ID="1648219"/>
     <AttributeSet>
@@ -990,10 +992,10 @@
     <ClinVarSubmissionID localKey="1:45799124:C" localKeyIsSubmitted="1" submittedAssembly="GRCh37" submitter="HudsonAlpha Institute for Biotechnology, HudsonAlpha Institute for Biotechnology" submitterDate="2019-08-02"/>
     <ClinVarAccession Acc="SCV000993569" Version="1" Type="SCV" OrgID="505530" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-09-23"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-12-10">
+    <Classification DateLastEvaluated="2018-12-10">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="HudsonAlpha Institute for Biotechnology" ID="1:45799124"/>
     <AttributeSet>
@@ -1324,11 +1326,11 @@
     <ClinVarSubmissionID localKey="GDX:704479|Not Provided" submittedAssembly="GRCh37" submitter="GeneDx" submitterDate="2019-01-29"/>
     <ClinVarAccession Acc="SCV000617565" Version="2" Type="SCV" OrgID="26957" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-09"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-02-21">
+    <Classification DateLastEvaluated="2018-02-21">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Comment Type="public">This pathogenic variant is denoted MUTYH c.309G&gt;A at the cDNA level, p.Trp103Ter (W103X) at theprotein level, and results in the change of a Tryptophan to Nonsense (TGG&gt;TGA). This variant, also published asMUTYH c.267G&gt;A (p.W89X) using alternate nomenclature, has been observed in at least one individual with a historyof polyposis who was also found to harbor a known pathogenic MUTYH variant (Kairupan 2005). MUTYH Trp103Terwas not observed at a significant allele frequency in large population cohorts (NHLBI Exome Sequencing Project, The1000 Genomes Consortium 2015, Lek 2016). Based on currently available evidence, we consider this variant to bepathogenic. Of note, MUTYH-Associated Polyposis (MAP) is a recessive condition associated with two pathogenicvariants on opposite chromosomes in MUTYH.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="GeneDx" ID="GDX:704479"/>
     <AttributeSet>
@@ -1375,10 +1377,10 @@
     <ClinVarSubmissionID localKey="2841492|not provided" submittedAssembly="GRCh37" submitter="Quest Diagnostics Nichols Institute San Juan Capistrano" submitterDate="2018-08-31"/>
     <ClinVarAccession Acc="SCV000888311" Version="1" Type="SCV" OrgID="500110" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2017-11-24">
+    <Classification DateLastEvaluated="2017-11-24">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Quest Diagnostics Nichols Institute San Juan Capistrano" ID="2841492"/>
     <AttributeSet>
@@ -1422,4 +1424,4 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
-
+</ReleaseSet>

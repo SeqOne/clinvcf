@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ReleaseSet Dated="2019-12-31" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Type="full" xsi:noNamespaceSchemaLocation="http://ftp.ncbi.nlm.nih.gov/pub/clinvar/xsd_public/clinvar_public_1.59.xsd">
+<?xml version="1.0"?>
+<ReleaseSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Dated="2019-12-31" Type="full" xsi:noNamespaceSchemaLocation="http://ftp.ncbi.nlm.nih.gov/pub/clinvar/xsd_public/clinvar_public_1.59.xsd">
 
 <ClinVarSet ID="48728680">
   <RecordStatus>current</RecordStatus>
@@ -110,10 +110,10 @@
     <ClinVarSubmissionID localKey="613403.0003_PHEOCHROMOCYTOMA, SUSCEPTIBILITY TO" submitter="OMIM" submitterDate="2013-09-06" title="TMEM127, IVS2AS, G-T, -1 _PHEOCHROMOCYTOMA, SUSCEPTIBILITY TO"/>
     <ClinVarAccession Acc="SCV000020272" Version="2" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2010-03-01">
+    <Classification DateLastEvaluated="2010-03-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>risk factor</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>risk factor</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="OMIM" ID="613403.0003" Type="Allelic variant"/>
     <ObservedIn>
@@ -312,11 +312,11 @@
     <ClinVarSubmissionID localKey="NM_017849.3:c.245-1G&gt;T|FCC-IOV" submitter="Familial Cancer Clinic,Veneto Institute of Oncology" submitterDate="2010-12-21"/>
     <ClinVarAccession Acc="SCV000148719" Version="1" Type="SCV" OrgID="500224" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance>
+    <Classification DateLastEvaluated="">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>likely pathogenic - adrenal pheochromocytoma</Description>
+      <GermlineClassification>likely pathogenic - adrenal pheochromocytoma</GermlineClassification>
       <Comment Type="ConvertedByNCBI">Converted during submission to Likely pathogenic.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ObservedIn>
       <Sample>
@@ -356,5 +356,4 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
-
-
+</ReleaseSet>

@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<ReleaseSet>
 <ClinVarSet ID="49272160">
   <RecordStatus>current</RecordStatus>
   <Title>NM_000277.3(PAH):c.782G&gt;A (p.Arg261Gln) AND Phenylketonuria</Title>
@@ -262,10 +264,10 @@
     <ClinVarSubmissionID localKey="612349.0006_PHENYLKETONURIA" submitter="OMIM" submitterDate="2016-10-20" title="PAH, ARG261GLN_PHENYLKETONURIA"/>
     <ClinVarAccession Acc="SCV000020762" Version="3" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2007-08-15">
+    <Classification DateLastEvaluated="2007-08-15">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="OMIM" ID="612349.0006" Type="Allelic variant"/>
     <ObservedIn>
@@ -337,13 +339,13 @@
     <ClinVarSubmissionID localKey="NM_000277.1:c.782G&gt;A|OMIM:261600" submittedAssembly="not applicable" submitter="GeneReviews" submitterDate="2016-10-20"/>
     <ClinVarAccession Acc="SCV000324888" Version="1" Type="SCV" OrgID="500062" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-07-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-10-20">
+    <Classification DateLastEvaluated="2016-10-20">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <URL>https://www.ncbi.nlm.nih.gov/books/NBK1504/</URL>
       </Citation>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ObservedIn>
       <Sample>
@@ -383,10 +385,10 @@
     <ClinVarSubmissionID localKey="596|OMIM:261600" submittedAssembly="GRCh37" submitter="Counsyl" submitterDate="2016-11-23"/>
     <ClinVarAccession Acc="SCV000485131" Version="1" Type="SCV" OrgID="320494" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2015-12-03">
+    <Classification DateLastEvaluated="2015-12-03">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Counsyl" ID="596"/>
     <AttributeSet>
@@ -431,10 +433,10 @@
     <ClinVarSubmissionID localKey="NM_000277.1:c.782G&gt;A|OMIM:261600" submittedAssembly="GRCh37" submitter="Fulgent Genetics,Fulgent Genetics" submitterDate="2017-05-23"/>
     <ClinVarAccession Acc="SCV000611234" Version="1" Type="SCV" OrgID="500105" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-03"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2017-05-18">
+    <Classification DateLastEvaluated="2017-05-18">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">ACMG Guidelines, 2015</Attribute>
@@ -477,9 +479,9 @@
     <ClinVarSubmissionID localKey="1440129|MedGen:C0031485" submittedAssembly="GRCh37" submitter="Invitae" submitterDate="2019-03-28"/>
     <ClinVarAccession Acc="SCV000629215" Version="4" Type="SCV" OrgID="500031" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-14"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-12-11">
+    <Classification DateLastEvaluated="2018-12-11">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">2574153</ID>
       </Citation>
@@ -496,7 +498,7 @@
         <ID Source="PubMed">10479481</ID>
       </Citation>
       <Comment>This sequence change replaces arginine with glutamine at codon 261 of the PAH protein (p.Arg261Gln). The arginine residue is highly conserved and there is a small physicochemical difference between arginine and glutamine. This variant is present in population databases (rs5030849, ExAC 0.04%). This variant has been reported as homozygous or in combination with a different PAH variant in multiple individuals affected with PKU (PMID: 16765994, 2574153). ClinVar contains an entry for this variant (Variation ID: 582). Experimental studies have shown that this variant impairs protein function in vitro with the resulting enzyme retaining some residual activity (PMID: 10479481, 25596310, 17935162). For these reasons, this variant has been classified as Pathogenic.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Invitae" ID="1440129"/>
     <AttributeSet>
@@ -546,9 +548,9 @@
     <ClinVarSubmissionID localKey="NM_000277.1:c.782G&gt;A|MedGen:C0031485" submittedAssembly="GRCh37" submitter="Integrated Genetics/Laboratory Corporation of America" submitterDate="2018-01-25"/>
     <ClinVarAccession Acc="SCV000696466" Version="1" Type="SCV" OrgID="500026" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-07-14">
+    <Classification DateLastEvaluated="2016-07-14">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">21871829</ID>
       </Citation>
@@ -556,7 +558,7 @@
         <ID Source="PubMed">26666653</ID>
       </Citation>
       <Comment Type="public">Variant summary: The PAH c.782G&gt;A (p.Arg261Gln) variant involves the alteration of a conserved nucleotide. 4/5 in silico tools predict a damaging outcome for this variant. Arg261 is highly conserved across species and is located in the Aromatic amino acid hydroxylase, C-terminal of the Phenylalanine-4-hydroxylase protein.This variant was found in 33/121376 control chromosomes at a frequency of 0.0002719, which does not exceed the estimated maximal expected allele frequency of a pathogenic PAH variant (0.0079057). This variant has been reported in many PKU and HPA patients in homozygous or compound heterozygous state, and is considered a commonly known pathogenic PAH variant. In addition, multiple clinical diagnostic laboratories/reputable databases classified this variant as pathogenic. Taken together, this variant is classified as pathogenic.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">LabCorp Variant Classification Summary - May 2015</Attribute>
@@ -601,9 +603,9 @@
     <ClinVarSubmissionID localKey="9e4b6d0e-936a-4cbe-a237-e66213b685d4|Orphanet:ORPHA716" submittedAssembly="GRCh38" submitter="ClinGen PAH Variant Curation Expert Panel," submitterDate="2019-02-25"/>
     <ClinVarAccession Acc="SCV000852142" Version="3" Type="SCV" OrgID="506558" OrganizationCategory="consortium" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-08-13">
+    <Classification DateLastEvaluated="2018-08-13">
       <ReviewStatus>reviewed by expert panel</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">17935162</ID>
       </Citation>
@@ -617,7 +619,7 @@
         <URL>https://erepo.clinicalgenome.org/evrepo/ui/interpretation/9e4b6d0e-936a-4cbe-a237-e66213b685d4</URL>
       </Citation>
       <Comment Type="public">PAH-specific ACMG/AMP criteria applied: PP3: tools predict damaging; PS3: 15.5-30% activity (PMID:2014036; PMID:25596310); PM3_VeryStrong: L48S, R408W, S349P, R243X (PMID:25596310; PMID:17935162); PP4_Moderate: (PMID:25596310). In summary this variant meets criteria to be classified as pathogenic for phenylketonuria in an autosomal recessive manner based on the ACMG/AMP criteria applied as specified by the PAH Expert Panel: (PP3, PS3, PM3_VeryStrong, PP4_Moderate).</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="ClinGen PAH Expert Panel" ID="9e4b6d0e-936a-4cbe-a237-e66213b685d4"/>
     <AttributeSet>
@@ -857,10 +859,10 @@
     <ClinVarSubmissionID localKey="1692_000000" localKeyIsSubmitted="1" submittedAssembly="GRCh37" submitter="EGL Genetic Diagnostics,Eurofins Clinical Diagnostics" submitterDate="2018-09-19"/>
     <ClinVarAccession Acc="SCV000110386" Version="8" Type="SCV" OrgID="500060" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-01-25">
+    <Classification DateLastEvaluated="2016-01-25">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="EGL Genetic Diagnostics" ID="1692"/>
     <AttributeSet>
@@ -919,10 +921,10 @@
     <ClinVarSubmissionID localKey="p.R261Q" submitter="DeBelle Laboratory for Biochemical Genetics, MUHC/MCH RESEARCH INSTITUTE" submitterDate="2012-03-30"/>
     <ClinVarAccession Acc="SCV000119697" Version="1" Type="SCV" OrgID="504816" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance>
+    <Classification DateLastEvaluated="">
       <ReviewStatus>no assertion provided</ReviewStatus>
-      <Description>not provided</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>not provided</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="PAHDB_MCGILL" ID="p.R261Q" URL="http://www.pahdb.mcgill.ca/PahdbSearch.php?SearchValue=p.R261Q&amp;SearchField=mut_name&amp;SearchOrderedField=id_mut&amp;SearchAscDesc=ASC&amp;Submit=Submit&amp;MenuSelection=Mutation"/>
     <ObservedIn>
@@ -958,11 +960,11 @@
     <ClinVarSubmissionID localKey="GDX:46178|Not Provided" submittedAssembly="GRCh37" submitter="GeneDx" submitterDate="2019-01-29"/>
     <ClinVarAccession Acc="SCV000239072" Version="13" Type="SCV" OrgID="26957" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-09"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-07-06">
+    <Classification DateLastEvaluated="2018-07-06">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Comment Type="public">The R261Q missense variant in the PAH gene has been reported as a pathogenic variant in the PAH Consortium database. Homozygosity for the R261Q variant has been reported in association with both benign hyperphenylalaninemia (HPA) and atypical PKU requiring dietary treatment. The offspring of mothers homozygous for R261Q have been reported with maternal PKU (Superti-Furga et al., 1991; Kleiman et al., 1993). However, patients compound heterozygous for R261Q and other variants, including severe variants, have been reported with both classic PKU and mild benign HPA indicating that the R261Q variant can be associated with a range of clinical phenotypes (Kleiman et al., 1993), including BH4 responsiveness. However, BH4 responsiveness was inconsistent in patients with R261Q (Zurfluh et al., 2008; Staudigl et al., 2011).</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="GeneDx" ID="GDX:46178"/>
     <AttributeSet>
@@ -1009,10 +1011,10 @@
     <ClinVarSubmissionID localKey="1806837" submitter="Center for Pediatric Genomic Medicine,Children's Mercy Hospital and Clinics" submitterDate="2017-10-05"/>
     <ClinVarAccession Acc="SCV000281282" Version="2" Type="SCV" OrgID="505698" OrganizationCategory="clinic" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2014-12-04">
+    <Classification DateLastEvaluated="2014-12-04">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">ACMG Guidelines, 2015</Attribute>
@@ -1053,10 +1055,10 @@
     <ClinVarSubmissionID localKey="2479838|not provided" submittedAssembly="GRCh37" submitter="Quest Diagnostics Nichols Institute San Juan Capistrano" submitterDate="2018-08-31"/>
     <ClinVarAccession Acc="SCV000888353" Version="1" Type="SCV" OrgID="500110" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-02"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2015-06-08">
+    <Classification DateLastEvaluated="2015-06-08">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Quest Diagnostics Nichols Institute San Juan Capistrano" ID="2479838"/>
     <AttributeSet>
@@ -1100,3 +1102,4 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
+</ReleaseSet>

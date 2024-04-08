@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<ReleaseSet>
 <ClinVarSet ID="47065072">
   <RecordStatus>current</RecordStatus>
   <Title>NM_000404.2(GLB1):c.367G&gt;A AND Infantile GM1 gangliosidosis</Title>
@@ -177,10 +179,10 @@
     <ClinVarSubmissionID localKey="611458.0006_GM1-GANGLIOSIDOSIS, TYPE I" submitter="OMIM" submitterDate="2011-05-17" title="GLB1, GLY123ARG_GM1-GANGLIOSIDOSIS, TYPE I"/>
     <ClinVarAccession Acc="SCV000021126" Version="1" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-08-03"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="1991-08-01">
+    <Classification DateLastEvaluated="1991-08-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="OMIM" ID="611458.0006" Type="Allelic variant"/>
     <ObservedIn>
@@ -529,10 +531,10 @@
     <ClinVarSubmissionID localKey="70" localKeyIsSubmitted="1" submitter="UCLA Clinical Genomics Center, UCLA" submitterDate="2015-05-14"/>
     <ClinVarAccession Acc="SCV000255379" Version="3" Type="SCV" OrgID="505231" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-03"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2013-03-12">
+    <Classification DateLastEvaluated="2013-03-12">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="ModeOfInheritance">Autosomal recessive inheritance</Attribute>
@@ -750,11 +752,11 @@
     <ClinVarSubmissionID localKey="GDX:680942|Not Provided" submittedAssembly="GRCh37" submitter="GeneDx" submitterDate="2019-01-29"/>
     <ClinVarAccession Acc="SCV000520958" Version="4" Type="SCV" OrgID="26957" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-03"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-04-20">
+    <Classification DateLastEvaluated="2016-04-20">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>likely Pathogenic</Description>
+      <GermlineClassification>likely Pathogenic</GermlineClassification>
       <Comment>The G123R variant in the GLB1 gene has been previously reported in one individual with mucopolysaccharidosis type IVB disease who also harbored a pathogenic frameshift variant on the other GLB1 allele (Sohn et al., 2012). This variant was also reported in an apparently homozygous state in one individual with GM1-gangliosidosis (Caciotti et al., 2007). The G123R variant was not observed in approximately 6200 individuals of European and African American ancestry in the NHLBI Exome Sequencing Project, indicating it is not a common benign variant in these populations. This variant is a non-conservative amino acid substitution, which is likely to impact secondary protein structure as these residues differ in polarity, charge, size and/or other properties. This substitution occurs at a position that is conserved across species, and in silico analysis predicts this variant is probably damaging to the protein structure/function. Missense variants in nearby residues (R121S, C127Y) have been reported in the Human Gene Mutation Database in association with GM1-gangliosidosis (Stenson et al., 2014), supporting the functional importance of this region of the protein. The G123R variant is a strong candidate for a pathogenic variant, however the possibility it may be a rare benign variant cannot be excluded.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="GeneDx" ID="GDX:680942"/>
     <AttributeSet>
@@ -798,3 +800,4 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
+</ReleaseSet>
