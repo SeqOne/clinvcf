@@ -880,7 +880,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
   echo "##INFO=<ID=CLNSIG,Number=.,Type=String,Description=\"Clinical significance for this single variant\">"
   echo "##INFO=<ID=OLD_CLNSIG,Number=.,Type=String,Description=\"Clinical significance was deciphered and this value is the original one given by ClinVar aggregation method\">"
   echo "##INFO=<ID=CLNRECSTAT,Number=1,Type=Integer,Description=\"3-levels stars confidence for automatic reclassfication of conflicting variants\">"
-  echo "##INFO=<ID=SUBDETAILS,Number=1,Type=Integer,Description=\"Details about retained submissions with the list of clinsig and their number of occurences. Equivalent to Clinvar CLNSIGCONF but for all variants\">"
+  echo "##INFO=<ID=SUBDETAILS,Number=.,Type=String,Description=\"Details about retained submissions with the list of clinsig and their number of occurences. Equivalent to Clinvar CLNSIGCONF but for all variants\">"
   for pathoType in clinicalPathoType:
     echo "##INFO=<ID=CLN" & pathoType.toUpperAscii & ",Number=.,Type=String,Description=\"Clinical pathology(ies) ranked as " & pathoType & " referenced for a variant\">"
   # ##INFO=<ID=CLNSIGCONF,Number=.,Type=String,Description="Conflicting clinical significance for this single variant">
