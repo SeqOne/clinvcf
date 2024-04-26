@@ -473,7 +473,8 @@ proc aggregateSubmissions*(submissions: seq[Submission], hgncIndex: options.Opti
       clinsig_counts[sub.clinical_significance] = 1
   
   for clinsig in clinsig_counts.keys:
-    clinsig_format.add($clinsig & "(" & $clinsig_counts[clinsig] & ")")
+    # Remove coma with because variant-transform does not like it : Likely pathogenic,_low penetrance
+    clinsig_format.add(($clinsig).replace(",", "") & "(" & $clinsig_counts[clinsig] & ")")
   
   result.subdetails = clinsig_format.join("|")
 

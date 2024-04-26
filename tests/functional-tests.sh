@@ -189,12 +189,14 @@ run low_penetrance_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version 
 assert_exit_code 0
 assert_in_stdout "CLNSIG=Likely_pathogenic,_low_penetrance"
 assert_in_stdout "VARIANTTYPE=Duplication"
+assert_in_stdout "SUBDETAILS=Likely_pathogenic_low_penetrance(1);"
 
 # CLNSIG Patho Low penetrance
 run low_penetrance_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/126106420.xml
 assert_exit_code 0
 assert_in_stdout "CLNSIG=Pathogenic,_low_penetrance"
 assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"
+assert_in_stdout "SUBDETAILS=Pathogenic_low_penetrance(1);"
 
 # CLNSIG Uncertain_risk_allele
 run uncertain_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/1128.xml
