@@ -1,0 +1,14 @@
+﻿.semantic_release:
+  image: registry.gitlab.com/seqone/internal/dockerfiles/semantic-release:latest
+  script:
+    # avoid a fail when some LFS files have been deleted
+    - git config lfs.allowincompletepush 1
+    - rm -f .git/hook/post-checkout
+    - rm -f .git/hook/post-commit
+    - rm -f .git/hook/post-merge
+    - rm -f .git/hook/pre-push
+    - echo "running semantic release with config" && cat .releaserc.json
+    - semantic-release
+  stage: release
+  tags:
+    - bioinfo
