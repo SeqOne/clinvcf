@@ -1,0 +1,9 @@
+.before_script-gitlab_login:
+  before_script:
+    # Gitlab com login and let's allow it to fail if var are missing
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+
+.before_script-gitlab_and_ECR_login:
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    - cat docker-password.txt | docker login -u AWS --password-stdin $ECR_REGISTRY

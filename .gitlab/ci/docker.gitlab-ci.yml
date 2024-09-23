@@ -1,0 +1,121 @@
+# This template is mainly use in step to build other docker
+# the name is obsolete, but it's still used in some places
+# it should be named something like .use-image-docker
+# the dind part is config for each runner already
+.use_docker_dind:
+  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/docker:stable
+
+# Build docker image
+#
+# CI variables
+# PROJECT_NAME = name of docker image. Optionnal
+# MATURITY = maturity of docker image. Optionnal
+# IMAGE TAG = tag of docker image.
+# DOCKER_BUILD_ARGS = docker argument for build. Optionnal
+# DOCKERFILE_PATH = location of dockerfile.
+.docker_build:
+  extends:
+    - .use_docker_dind
+    - .default_retry
+    - .before_script-gitlab_login
+  stage: push-registry
+  script:
+    - echo "Images to generate :"
+    - echo "gitlab - ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:$IMAGE_TAG"
+    # Try to pull image cache-ci to use docker cache
+    - echo "Try to pull image cache-ci to use docker cache"
+    - >
+      docker pull ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:cache-ci
+      || true
+    # Build
+    - echo "Build image tags with $DOCKERFILE_PATH"
+    - >
+      docker build
+      -f $DOCKERFILE_PATH
+      $DOCKER_BUILD_ARGS
+      --cache-from ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:cache-ci
+      -t ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:cache-ci
+      .
+  tags:
+    - bioinfo
+
+# Build and push docker image on registry
+#
+# CI variables
+# PROJECT_NAME = name of docker image. Optionnal
+# MATURITY = maturity of docker image. Optionnal
+# IMAGE TAG = tag of docker image.
+# DOCKER_BUILD_ARGS = docker argument for build. Optionnal
+# DOCKERFILE_PATH = location of dockerfile.
+.docker_push_registry_test:
+  extends:
+    - .use_docker_dind
+    - .default_retry
+    - .before_script-gitlab_login
+  stage: push-registry
+  script:
+    - !reference [ .docker_build, script ]
+    - >
+      docker tag 
+      ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:cache-ci 
+      ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:$IMAGE_TAG
+
+    # Push to GitLab registry
+    - echo "Push image ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:$IMAGE_TAG"
+    - docker push ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:cache-ci
+    - docker push ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:$IMAGE_TAG
+  tags:
+    - bioinfo
+
+# Build and push docker image on registry
+#
+# CI variables
+# PROJECT_NAME = name of docker image. Optionnal
+# MATURITY = maturity of docker image. Optionnal
+# IMAGE TAG = tag of docker image.
+# DOCKER_BUILD_ARGS = docker argument for build. Optionnal
+# DOCKERFILE_PATH = location of dockerfile.
+.docker_push_registry_ecr:
+  extends:
+    - .use_docker_dind
+    - .default_retry
+    - .before_script-gitlab_and_ECR_login
+  stage: push-registry
+  script:
+    - !reference [ .docker_build, script ]
+    - >
+      docker tag 
+      ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:cache-ci 
+      ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:$IMAGE_TAG
+
+    # ECR image
+    - echo "ECR - ${ECR_REGISTRY}/seqone-registry/${ECR_PROJECT}${PROJECT_NAME:+/$PROJECT_NAME}${MATURITY:+/$MATURITY}:$IMAGE_TAG"
+    - docker tag ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:$IMAGE_TAG ${ECR_REGISTRY}/seqone-registry/${ECR_PROJECT}${PROJECT_NAME:+/$PROJECT_NAME}${MATURITY:+/$MATURITY}:$IMAGE_TAG
+
+    # Push to GitLab registry
+    - echo "Push image ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:$IMAGE_TAG"
+    - docker push ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:$IMAGE_TAG
+
+    # Push to ECR registry
+    - echo "Push image ${ECR_REGISTRY}/seqone-registry/${ECR_PROJECT}${PROJECT_NAME:+/$PROJECT_NAME}${MATURITY:+/$MATURITY}:$IMAGE_TAG"
+    - docker push ${ECR_REGISTRY}/seqone-registry/${ECR_PROJECT}${PROJECT_NAME:+/$PROJECT_NAME}${MATURITY:+/$MATURITY}:$IMAGE_TAG
+  tags:
+    - bioinfo
+
+.trivy_scan:
+  stage: security
+  extends:
+    - .trivy_base
+    - .before_script-gitlab_login
+  script:
+    - !reference [ .trivy_base, script ]
+    # Build image
+    - !reference [ .docker_build, script ]
+    # Build report
+    - ./trivy image --timeout 15m --exit-code 0 --ignore-unfixed --format template --template "@contrib/gitlab.tpl" -o gl-container-scanning-report.json ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:$IMAGE_TAG
+    # Print report
+    - ./trivy image --timeout 15m --exit-code 0 --severity UNKNOWN,LOW,MEDIUM,HIGH --scanners vuln,config,secret --ignore-unfixed ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:$IMAGE_TAG
+    # Fail on severe vulnerabilities
+    - ./trivy image --timeout 15m --exit-code 1 --severity CRITICAL --scanners vuln,config,secret --ignore-unfixed ${CI_REGISTRY_IMAGE}${MATURITY:+/$MATURITY}:$IMAGE_TAG
+  tags:
+    - bioinfo

@@ -1,0 +1,25 @@
+.trivy_version: &trivy_version
+  TRIVY_VERSION: "0.44.0"
+
+.trivy_base:
+  extends:
+    - .use_docker_dind
+  variables:
+    DOCKER_DRIVER: overlay2
+    DOCKER_TLS_CERTDIR: ""
+    TRIVY_NO_PROGRESS: "true"
+    TRIVY_CACHE_DIR: ".trivycache/"
+    <<: *trivy_version
+  script:
+    # Download Trivy
+    - wget --no-verbose https://github.com/aquasecurity/trivy/releases/download/v${TRIVY_VERSION}/trivy_${TRIVY_VERSION}_Linux-64bit.tar.gz -O - | tar -zxvf -
+  cache:
+    paths:
+      - .trivycache/
+  artifacts:
+    expire_in: 1 day
+    reports:
+      container_scanning: gl-container-scanning-report.json
+  allow_failure: false
+  rules:
+    - if: $CI_PIPELINE_SOURCE != "schedule"

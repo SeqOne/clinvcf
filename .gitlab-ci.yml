@@ -1,37 +1,51 @@
 variables:
-  IMAGE_NAME: $CI_REGISTRY_IMAGE
-
-include:
-  - project: "devops/gitlab-ci-template"
-    file: "/release.gitlab-ci.yml"
-  - project: "devops/gitlab-ci-template"
-    file: "/ssh-key.gitlab-ci.yml"
-  - project: "devops/gitlab-ci-template"
-    file: "/docker.gitlab-ci.yml"
+  ECR_PROJECT: "workset"
+  PROJECT_NAME: "clinvcf"
 
 stages:
   - test
   - release
   - artefact_build
-  - delivery_dev
-  - delivery_staging
-  - delivery_prod
+  - login
+  - push-registry
+  - security
 
-release:
-  extends: .release
+.merge_request_rules: &merge_request_rules
+  rules:
+    - if: "$CI_PIPELINE_SOURCE == 'merge_request_event'"
 
+.release_rules: &release_rules
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_PIPELINE_SOURCE != "schedule"
+
+include:
+  - project: "seqone/services/template/push-ecr-registry"
+    file:
+      - "src/ecr-login.gitlab-ci.yml"
+  - local: ".gitlab/ci/docker.gitlab-ci.yml"
+  - local: ".gitlab/ci/login.gitlab-ci.yml"
+  - local: ".gitlab/ci/retry.gitlab-ci.yml"
+  - local: ".gitlab/ci/semantic-release.gitlab-ci.yml"
+  - local: ".gitlab/ci/trivy.gitlab-ci.yml"
+
+#################
+# TEST
+#################
 test:
-  image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.6.14
+  image: registry.gitlab.com/seqone/internal/dockerfiles/nim-builder:1.6.14
   stage: test
+  before_script:
+    - apt-get update && apt-get install -y jq wget
   script:
     - apt-get update && apt-get install -y git
     - nimble build -y
     - nimble test
   tags:
     - bioinfo
+  <<: *merge_request_rules
 
 artefact_build:
-  image: registry.gitlab.seq.one/devops/dockerfiles/nim-builder:1.6.14
+  image: registry.gitlab.com/seqone/internal/dockerfiles/nim-builder:1.6.14
   stage: artefact_build
   script:
     - apt-get update && apt-get install -y git
@@ -41,43 +55,63 @@ artefact_build:
     - clinvcf
   tags:
     - bioinfo
-  only:
-    - tags
+  <<: *merge_request_rules
+
+push_registry_test:
+  extends: .docker_push_registry_test
+  variables:
+    IMAGE_TAG: vtest
+    DOCKERFILE_PATH: Dockerfile
+  <<: *merge_request_rules
+
+security_test:
+  extends: .trivy_scan
+  variables:
+    IMAGE_TAG: vtest
+    DOCKERFILE_PATH: Dockerfile
+  <<: *merge_request_rules
 
 ####################
-# DEPLOY
+# Release
 ####################
-delivery_dev:
-  extends: .build and delivery
-  stage: delivery_dev
-  environment:
-    name: "$ENV_TAG"
-  variables:
-    ENV_TAG: dev
-    DOCKER_BUILD_ARGS: --build-arg VERSION=$CI_COMMIT_REF_NAME
-      --build-arg PRIVATE_CI_ACCESS_TOKEN=$PRIVATE_CI_ACCESS_TOKEN
-  when: on_success
-  tags:
-    - bioinfo
+release:
+  extends: .semantic_release
+  stage: release
+  <<: *release_rules
 
 ####################
-# DEPLOY Staging
+# Delivery
 ####################
-delivery_staging:
-  extends: .tag and delivery
-  stage: delivery_staging
-  environment:
-    name: "$ENV_TAG"
-  variables:
-    ENV_TAG: staging
+ecr_get_password_tag:
+  stage: login
+  extends: .ecr-get-password
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
 
-####################
-# DEPLOY prod
-####################
-delivery_prod:
-  extends: .tag and delivery
-  stage: delivery_prod
-  environment:
-    name: "$ENV_TAG"
+tag_push_registry:
+  extends: .docker_push_registry_ecr
   variables:
-    ENV_TAG: prod
+    IMAGE_TAG: $CI_COMMIT_TAG
+    DOCKERFILE_PATH: Dockerfile
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
+  needs:
+    - job: ecr_get_password_tag
+      artifacts: true
+
+ecr_get_password_latest:
+  stage: login
+  extends: .ecr-get-password
+  <<: *release_rules
+
+# Used in Dev only
+latest_push_registry:
+  extends: .docker_push_registry_ecr
+  variables:
+    IMAGE_TAG: "vlatest"
+    DOCKERFILE_PATH: Dockerfile
+  <<: *release_rules
+  needs:
+    - job: ecr_get_password_latest
+      artifacts: true
+
