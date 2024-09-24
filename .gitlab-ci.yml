@@ -55,7 +55,9 @@ artefact_build:
     - clinvcf
   tags:
     - bioinfo
-  <<: *merge_request_rules
+  rules:
+    - !reference [ .merge_request_rules, rules ]
+    - !reference [ .release_rules, rules ]
 
 push_registry_test:
   extends: .docker_push_registry_test
