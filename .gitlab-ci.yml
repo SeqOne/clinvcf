@@ -64,6 +64,9 @@ push_registry_test:
   variables:
     IMAGE_TAG: vtest
     DOCKERFILE_PATH: Dockerfile
+  needs:
+    - job: artefact_build
+      artifacts: true
   <<: *merge_request_rules
 
 security_test:
@@ -100,6 +103,8 @@ tag_push_registry:
   needs:
     - job: ecr_get_password_tag
       artifacts: true
+    - job: artefact_build
+      artifacts: true
 
 ecr_get_password_latest:
   stage: login
@@ -115,5 +120,7 @@ latest_push_registry:
   <<: *release_rules
   needs:
     - job: ecr_get_password_latest
+      artifacts: true
+    - job: artefact_build
       artifacts: true
 
