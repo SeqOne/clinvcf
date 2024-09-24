@@ -44,6 +44,7 @@ test:
     - bioinfo
   <<: *merge_request_rules
 
+# Artefact build
 artefact_build:
   image: registry.gitlab.com/seqone/internal/dockerfiles/nim-builder:1.6.14
   stage: artefact_build
