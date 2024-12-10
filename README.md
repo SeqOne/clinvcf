@@ -38,7 +38,7 @@ A clean install script of nim and hts-nim is proposed by Brent Pedersen [nimlang
 git clone https://github.com/SeqOne/clinvcf.git && cd clinvcf && nimble install
 
 # Download (latest) Clinvar XML release
-wget ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/ClinVarFullRelease_00-latest.xml.gz
+wget ftp://ftp.ncbi.nlm.nih.gov/pub/clinvar/xml/RCV_release/ClinVarRCVRelease_00-latest.xml.gz
 
 # Download GFF for gene annotation (GRCh37 or 38)
 wget ftp://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh37_latest/refseq_identifiers/GRCh37_latest_genomic.gff.gz
@@ -46,9 +46,9 @@ wget ftp://ftp.ncbi.nlm.nih.gov/refseq/H_sapiens/annotation/GRCh38_latest/refseq
 
 # Generate clinvar VCF
 ## For GRCh37
-clinvcf --coding-first --genome GRCh37 ClinVarFullRelease_00-latest.xml.gz | bgzip -c > clinvar_GRCh37.vcf.gz
+clinvcf --coding-first --genome GRCh37 ClinVarRCVRelease_00-latest.xml.gz | bgzip -c > clinvar_GRCh37.vcf.gz
 ## For GRCh38
-clinvcf --coding-first  --genome GRCh38 ClinVarFullRelease_00-latest.xml.gz | bgzip -c > clinvar_GRCh38.vcf.gz
+clinvcf --coding-first  --genome GRCh38 ClinVarRCVRelease_00-latest.xml.gz | bgzip -c > clinvar_GRCh38.vcf.gz
 
 ```
 
@@ -89,6 +89,8 @@ additionnal fields are provided.
 | **GENEINFO**   | Same    | String    | Gene(s) for the variant reported as gene symbol:gene id. The gene symbol and id are delimited by a colon (`:`) and each pair is delimited by a vertical bar (`\|`) | `FTCD:10841\|FTCD-AS1:100861507`               |
 | **MC**         | Same    | String    | comma separated list of molecular consequence in the form of Sequence Ontology `ID\|molecular_consequence`                                                         | `SO:0001583\|missense_variant`                 |
 | **RS**         | Same    | String    | dbSNP ID (i.e. rs number)                                                                                                                                          | `80358507`                                     |
+| **PUBMED**         | Same    | String    | PubMed ids associated to the variant                                                         | `1612597,2565038`                 |
+
 
 **Status**: *Same* (identical as in original Clinvar VCF), *new* (New field from clinVCF)
 

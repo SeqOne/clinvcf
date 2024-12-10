@@ -81,6 +81,7 @@ type
     pathologies: TableRef[string, seq[string]]
     type_v: string
     length: int
+    pubmed_ids: seq[string]
 
 const ignoredPathoTag = @["not specified", "see cases", "not provided", "variant of unknown significance"]
 
@@ -701,7 +702,26 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                   result.variants[variant_id_chrm] = variant
                   if chrom == "X" or chrom == "Y":
                     cpt.inc()
-   
+
+                # Parse PubMed ids
+                # <ObservedIn>
+                # <Method>
+                #   <MethodType>literature only</MethodType>
+                # </Method>
+                # <ObservedData ID="97480497">
+                #   <Citation Type="general">
+                #     <ID Source="PubMed">1612597</ID>
+                #   </Citation>
+                #   <Citation Type="general">
+                #     <ID Source="PubMed">2565038</ID>
+                #   </Citation>
+                # </ObservedData>
+                for observedin_node in reference_clinvar_assertion_nodes[0].select("observedin"):
+                  for observeddata_node in observedin_node.select("observeddata"):
+                    for citation in observeddata_node.select("citation"):
+                      for citation_id in citation.select("id"):
+                        if citation_id.attr("Source") == "PubMed":
+                          variant.pubmed_ids.add(citation_id.innerText)
 
                 # Parse Molecular Consequence
                 # <AttributeSet>
@@ -833,6 +853,13 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                       desc_nodes = clinsig_nodes[0].select("germlineclassification")
                       revstat_nodes = clinsig_nodes[0].select("reviewstatus")
                       comment_nodes = clinsig_nodes[0].select("comment")
+                      citation_nodes = clinsig_nodes[0].select("citation")
+
+                    # Extract PubMed ids, currently only from germline clinsig nodes
+                    for citation in citation_nodes:
+                      for citation_id in citation.select("id"):
+                        if citation_id.attr("Source") == "PubMed":
+                          result.variants[variant_id_chrm].pubmed_ids.add(citation_id.innerText)
 
                     # extracted with a regex from the comment node
                     for comment in comment_nodes:
@@ -897,6 +924,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
   echo "##INFO=<ID=RS,Number=.,Type=String,Description=\"dbSNP ID (i.e. rs number)\">"
   echo "##INFO=<ID=VARIANTTYPE,Number=1,Type=String,Description=\"Type of variant\">"
   echo "##INFO=<ID=VARIANTLENGTH,Number=1,Type=Integer,Description=\"Length of variant\">"
+  echo "##INFO=<ID=PUBMED,Number=.,Type=String,Description=\"PubMed IDs associated to the variant\">"
   # ##INFO=<ID=SSR,Number=1,Type=Integer,Description="Variant Suspect Reason Codes. One or more of the following values may be added: 0 - unspecified, 1 - Paralog, 2 - byEST, 4 - oldAlign, 8 - Para_EST, 16
   # - 1kg_failed, 1024 - other">
   echo "#CHROM\tPOS\tID\tREF\tALT\tQUAL\tFILTER\tINFO"
@@ -950,6 +978,9 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
 
     if v.rsid != -1:
       info_fields.add("RS=" & $v.rsid)
+
+    if v.pubmed_ids.len > 0:
+      info_fields.add("PUBMED=" & join(v.pubmed_ids.deduplicate(), ","))
 
     if v.chrom != "" and v.ref_allele != "" and v.alt_allele != "":
       echo [
