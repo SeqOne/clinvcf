@@ -213,5 +213,5 @@ assert_exit_code 0
 assert_in_stdout "CLNSIG=Pathogenic/Likely_pathogenic"
 # Not all data for verbose reasons
 assert_in_stdout "CLNDISEASE=colorectal_cancer_somatic|thyroid_carcinoma_papillary_somatic"
-assert_in_stdout "PUBMED=12960123,12068308,12447372,12619120"
+assert_in_stdout "PUBMED=12960123|12068308|12447372|12619120"
 assert_in_stdout "31891627"

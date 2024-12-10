@@ -980,7 +980,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
       info_fields.add("RS=" & $v.rsid)
 
     if v.pubmed_ids.len > 0:
-      info_fields.add("PUBMED=" & join(v.pubmed_ids.deduplicate(), ","))
+      info_fields.add("PUBMED=" & join(v.pubmed_ids.deduplicate(), "|"))
 
     if v.chrom != "" and v.ref_allele != "" and v.alt_allele != "":
       echo [

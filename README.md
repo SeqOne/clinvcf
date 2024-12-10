@@ -87,9 +87,9 @@ additionnal fields are provided.
 | **OLD_CLNSIG** | New     | String    | Orignial Clinical significance if variant reclassified by clinVCF correction module                                                                                | `Conflicting_interpretations_of_pathogenicity` |
 | **CLNRECSTAT** | New     | Integer   | [3-levels stars confidence](#clinicalsignificance-correction-module) of Variant Alert! automatic reclassfication.                                                  | `3`                                            |
 | **GENEINFO**   | Same    | String    | Gene(s) for the variant reported as gene symbol:gene id. The gene symbol and id are delimited by a colon (`:`) and each pair is delimited by a vertical bar (`\|`) | `FTCD:10841\|FTCD-AS1:100861507`               |
-| **MC**         | Same    | String    | comma separated list of molecular consequence in the form of Sequence Ontology `ID\|molecular_consequence`                                                         | `SO:0001583\|missense_variant`                 |
-| **RS**         | Same    | String    | dbSNP ID (i.e. rs number)                                                                                                                                          | `80358507`                                     |
-| **PUBMED**         | Same    | String    | PubMed ids associated to the variant                                                         | `1612597,2565038`                 |
+| **MC**         | Same    | String    | comma separated list of molecular consequence in the form of Sequence Ontology `ID\|molecular_consequence` | `SO:0001583\|missense_variant`                 |
+| **RS**         | Same    | String    | dbSNP ID (i.e. rs number) | `80358507`                                     |
+| **PUBMED**     | Same    | String    | PubMed ids associated to the variant | `1612597|2565038`               |
 
 
 **Status**: *Same* (identical as in original Clinvar VCF), *new* (New field from clinVCF)
