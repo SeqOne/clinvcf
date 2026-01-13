@@ -1,0 +1,172 @@
+<?xml version="1.0"?>
+<ClinVarSet ID="150104632">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_006883.2(SHOX):c.*114T&gt;G AND not provided</Title>
+  <ReferenceClinVarAssertion ID="3653135" DateLastUpdated="2023-07-29" DateCreated="2021-09-12">
+    <ClinVarAccession Acc="RCV001636217" Version="5" Type="RCV" DateUpdated="2023-07-29" DateCreated="2021-09-12"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2021-06-19">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <Description>Benign</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="134266654">
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="1239309" Acc="VCV001239309" Version="5">
+      <Measure Type="single nucleotide variant" ID="1229639">
+        <Name>
+          <ElementValue Type="Preferred">NM_006883.2(SHOX):c.*114T&gt;G</ElementValue>
+        </Name>
+        <CanonicalSPDI>NC_000024.10:658942:T:G</CanonicalSPDI>
+        <AttributeSet>
+          <Attribute Accession="LRG_710t2" Type="HGVS, coding, LRG">LRG_710t2:c.*114T&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_006883" Version="2" Change="c.*114T&gt;G" Type="HGVS, coding, RefSeq">NM_006883.2:c.*114T&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="LRG_710" Type="HGVS, genomic, LRG">LRG_710:g.39600T&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NG_009385" Version="2" Change="g.39600T&gt;G" Type="HGVS, genomic, RefSeqGene">NG_009385.2:g.39600T&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000023" Version="11" Change="g.658943T&gt;G" Type="HGVS, genomic, top level" integerValue="38">NC_000023.11:g.658943T&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000024" Version="10" Change="g.658943T&gt;G" Type="HGVS, genomic, top level" integerValue="38">NC_000024.10:g.658943T&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000024" Version="9" Change="g.569678T&gt;G" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000024.9:g.569678T&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000023" Version="10" Change="g.619678T&gt;G" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000023.10:g.619678T&gt;G</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="HGVS, protein"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="HGVS, protein"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">3 prime UTR variant</Attribute>
+          <XRef ID="SO:0001624" DB="Sequence Ontology"/>
+          <XRef ID="NM_006883.2:c.*114T&gt;G" DB="RefSeq"/>
+        </AttributeSet>
+        <CytogeneticLocation>Xp22.33</CytogeneticLocation>
+        <CytogeneticLocation>Yp11.2</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="X" Accession="NC_000023.11" start="658943" stop="658943" display_start="658943" display_stop="658943" variantLength="1" positionVCF="658943" referenceAlleleVCF="T" alternateAlleleVCF="G"/>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="Y" Accession="NC_000024.10" start="658943" stop="658943" display_start="658943" display_stop="658943" variantLength="1" positionVCF="658943" referenceAlleleVCF="T" alternateAlleleVCF="G"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="X" Accession="NC_000023.10" start="619678" stop="619678" display_start="619678" display_stop="619678" variantLength="1" positionVCF="619678" referenceAlleleVCF="T" alternateAlleleVCF="G"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="Y" Accession="NC_000024.9" start="569678" stop="569678" display_start="569678" display_stop="569678" variantLength="1" positionVCF="569678" referenceAlleleVCF="T" alternateAlleleVCF="G"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">SHOX homeobox</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">SHOX</ElementValue>
+          </Symbol>
+          <AttributeSet>
+            <Attribute dateValue="2015-10-15" Type="Haploinsufficiency">Sufficient evidence for dosage pathogenicity</Attribute>
+            <Citation>
+              <URL>https://www.ncbi.nlm.nih.gov/projects/dbvar/ISCA/isca_gene.cgi?sym=SHOX</URL>
+            </Citation>
+          </AttributeSet>
+          <AttributeSet>
+            <Attribute dateValue="2015-10-15" Type="Triplosensitivity">No evidence available</Attribute>
+            <Citation>
+              <URL>https://www.ncbi.nlm.nih.gov/projects/dbvar/ISCA/isca_gene.cgi?sym=SHOX</URL>
+            </Citation>
+          </AttributeSet>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="X" Accession="NC_000023.11" start="624344" stop="659411" display_start="624344" display_stop="659411" Strand="+"/>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="Y" Accession="NC_000024.10" start="624344" stop="659411" display_start="624344" display_stop="659411" Strand="+"/>
+          <XRef ID="6473" DB="Gene"/>
+          <XRef Type="MIM" ID="312865" DB="OMIM"/>
+          <XRef Type="MIM" ID="400020" DB="OMIM"/>
+          <XRef ID="HGNC:10853" DB="HGNC"/>
+        </MeasureRelationship>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_006883.2(SHOX):c.*114T&gt;G</ElementValue>
+      </Name>
+      <AttributeSet>
+        <Attribute Type="SubmitterVariantId">GDX:4934409</Attribute>
+      </AttributeSet>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="9460">
+      <Trait ID="17556" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">not provided</ElementValue>
+          <XRef ID="13DG0619" DB="Developmental Genetics Unit, King Faisal Specialist Hospital &amp; Research Centre"/>
+        </Name>
+        <Name>
+          <ElementValue Type="Alternate">none provided</ElementValue>
+        </Name>
+        <AttributeSet>
+          <Attribute Type="public definition">The term 'not provided' is registered in MedGen to support identification of submissions to ClinVar for which no condition was named when assessing the variant. 'not provided' differs from 'not specified', which is used when a variant is asserted to be benign, likely benign, or of uncertain significance for conditions that have not been specified.</Attribute>
+        </AttributeSet>
+        <XRef ID="CN517202" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="3635312" SubmissionName="GeneDX_Clinvar_Submission_35_20210909105143">
+    <ClinVarSubmissionID localKey="GDXSV:83379" localKeyIsSubmitted="1" submitter="GeneDx" submitterDate="2021-09-10"/>
+    <ClinVarAccession Acc="SCV001851278" Version="1" Type="SCV" OrgID="26957" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2021-09-12" DateCreated="2021-09-12"/>
+    <RecordStatus>current</RecordStatus>
+    <Classification DateLastEvaluated="2021-06-19">
+      <ReviewStatus>criteria provided, single submitter</ReviewStatus>
+      <GermlineClassification>Benign</GermlineClassification>
+    </Classification>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="AssertionMethod">GeneDx Variant Classification Process June 2021</Attribute>
+      <Citation>
+        <URL>https://submit.ncbi.nlm.nih.gov/ft/byid/fc81e176/genedx_variant_classification_process_june_2021.pdf</URL>
+      </Citation>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Description">not provided</Attribute>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="single nucleotide variant">
+        <SequenceLocation Assembly="hg19" Chr="X" alternateAllele="G" referenceAllele="T" start="619678" stop="619678"/>
+        <MeasureRelationship Type="variant in gene">
+          <Symbol>
+            <ElementValue Type="Preferred">SHOX</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+      <AttributeSet>
+        <Attribute Type="SubmitterVariantId">GDX:4934409</Attribute>
+      </AttributeSet>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Not Provided</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>

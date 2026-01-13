@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <ClinVarSet ID="47079688">
   <RecordStatus>current</RecordStatus>
   <Title>NM_000106.5(CYP2D6):c.[886C&gt;T;457G&gt;C] AND Debrisoquine, ultrarapid metabolism of</Title>
@@ -287,10 +288,10 @@
     <ClinVarSubmissionID localKey="124030.0007_DEBRISOQUINE, ULTRARAPID METABOLISM OF" submitter="OMIM" submitterDate="2012-06-07" title="CYP2D6, ARG296CYS AND SER486THR_DEBRISOQUINE, ULTRARAPID METABOLISM OF"/>
     <ClinVarAccession Acc="SCV000038673" Version="1" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-08-03"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2015-05-18">
+    <Classification DateLastEvaluated="2015-05-18">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>drug response</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>drug response</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="OMIM" ID="124030.0007" Type="Allelic variant"/>
     <ObservedIn>
@@ -344,4 +345,3 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
-

@@ -39,6 +39,10 @@ run skip_het_compound $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests
 assert_exit_code 0
 assert_in_stdout "CLNSIG=Likely_pathogenic"
 
+# Multiple submission with a new CLNSIG value
+run skip_het_compound $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/928-unknown-clinsig.xml
+assert_exit_code 1
+
 # Conflicting variants should always has a ReviewStatus conflicting
 # Even if all submission are from the same submitter
 run same_submitter_conflict $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/1166.xml
@@ -157,3 +161,57 @@ assert_exit_code 0
 assert_in_stdout "CLNDISEASE=pheochromocytoma_susceptibility_to|pheochromocytoma"
 assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"
 assert_in_stdout "VARIANTLENGTH=1"
+
+# Pathology duplicate entries after formating (remove non word characters)
+run pathology_duplicates $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/9.xml
+assert_exit_code 0
+assert_in_stdout "CLNDISEASE=hemochromatosis_type_1|porphyria_cutanea_tarda_susceptibility_to|porphyria_variegata_susceptibility_to|hemochromatosis_juvenile_digenic|alzheimer_disease_susceptibility_to|transferrin_serum_level_quantitative_trait_locus_2|microvascular_complications_of_diabetes_susceptibility_to_7|hereditary_cancer_predisposing_syndrome|hereditary_hemochromatosis;"
+
+# SUBDETAILS 
+run subdetails_conflicting $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/37785.xml
+assert_exit_code 0
+assert_in_stdout "SUBDETAILS=Uncertain_significance(5)|Likely_benign(2);"
+
+run subdetails_no_conflict $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/9-no-VUS.xml
+assert_exit_code 0
+assert_in_stdout "SUBDETAILS=Pathogenic(10)|Likely_pathogenic(1);"
+
+# Par variants -> 2 lines
+run variant_par_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/1239309.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=Benign"
+assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"
+assert_in_stdout "619678"
+assert_in_stdout "569678"
+
+# CLNSIG Patho Likely Low penetrance
+run low_penetrance_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/116308252.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=Likely_pathogenic,_low_penetrance"
+assert_in_stdout "VARIANTTYPE=Duplication"
+assert_in_stdout "SUBDETAILS=Likely_pathogenic_low_penetrance(1);"
+
+# CLNSIG Patho Low penetrance
+run low_penetrance_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/126106420.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=Pathogenic,_low_penetrance"
+assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"
+assert_in_stdout "SUBDETAILS=Pathogenic_low_penetrance(1);"
+
+# CLNSIG Uncertain_risk_allele
+run uncertain_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/1128.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=Uncertain_risk_allele"
+
+# Error in case of unknow unknown in classification
+run unknown_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/161408379_unknown.xml
+assert_exit_code 1
+
+# PubMed ids
+run pumed_ids $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/13961.xml
+assert_exit_code 0
+assert_in_stdout "CLNSIG=Pathogenic/Likely_pathogenic"
+# Not all data for verbose reasons
+assert_in_stdout "CLNDISEASE=colorectal_cancer_somatic|thyroid_carcinoma_papillary_somatic"
+assert_in_stdout "PUBMED=12960123|12068308|12447372|12619120"
+assert_in_stdout "31891627"

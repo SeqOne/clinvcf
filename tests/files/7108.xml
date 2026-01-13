@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<ReleaseSet>
 <ClinVarSet ID="49272588">
   <RecordStatus>current</RecordStatus>
   <Title>NM_000492.3(CFTR):c.328G&gt;C (p.Asp110His) AND Cystic fibrosis</Title>
@@ -281,10 +283,10 @@
     <ClinVarSubmissionID localKey="602421.0004_CYSTIC FIBROSIS" submitter="OMIM" submitterDate="2018-04-09" title="CFTR, ASP110HIS_CYSTIC FIBROSIS"/>
     <ClinVarAccession Acc="SCV000027728" Version="3" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="1991-01-01">
+    <Classification DateLastEvaluated="1991-01-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="OMIM" ID="602421.0004" Type="Allelic variant"/>
     <ObservedIn>
@@ -335,13 +337,13 @@
     <ClinVarSubmissionID localKey="D110H|Cystic fibrosis" submittedAssembly="GRCh37" submitter="CFTR2" submitterDate="2017-06-29"/>
     <ClinVarAccession Acc="SCV000071497" Version="4" Type="SCV" OrgID="500092" OrganizationCategory="locus-specific database (LSDB)" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2017-03-17">
+    <Classification DateLastEvaluated="2017-03-17">
       <ReviewStatus>reviewed by expert panel</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <URL>https://cftr2.org</URL>
       </Citation>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="CFTR2" ID="D110H"/>
     <AttributeSet>
@@ -395,9 +397,9 @@
     <ClinVarSubmissionID localKey="NM_000492.3(CFTR):c.328G&gt;C" localKeyIsSubmitted="1" submitter="Counsyl" submitterDate="2015-03-11"/>
     <ClinVarAccession Acc="SCV000220934" Version="1" Type="SCV" OrgID="320494" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2014-12-05">
+    <Classification DateLastEvaluated="2014-12-05">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">23974870</ID>
       </Citation>
@@ -461,7 +463,7 @@
       <Citation>
         <ID Source="PubMed">2344617</ID>
       </Citation>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Counsyl" ID="7080"/>
     <AttributeSet>
@@ -628,10 +630,10 @@
     <ClinVarSubmissionID localKey="NG_016465.1:g.55991G&gt;C|SNPEDIA" submitter="SNPedia" submitterDate="2011-04-26"/>
     <ClinVarAccession Acc="SCV000090451" Version="1" Type="SCV" OrgID="500165" OrganizationCategory="other" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance>
+    <Classification DateLastEvaluated="">
       <ReviewStatus>no assertion provided</ReviewStatus>
-      <Description>not provided</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>not provided</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ObservedIn>
       <Sample>
@@ -778,15 +780,15 @@
     <ClinVarSubmissionID localKey="1449191407PA165950341|ivacaftor response - Efficacy" submittedAssembly="GRCh38" submitter="PharmGKB" submitterDate="2018-06-18"/>
     <ClinVarAccession Acc="SCV000783008" Version="1" Type="SCV" OrgID="500295" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-03-22">
+    <Classification DateLastEvaluated="2018-03-22">
       <ReviewStatus>reviewed by expert panel</ReviewStatus>
-      <Description>drug response</Description>
+      <GermlineClassification>drug response</GermlineClassification>
       <ExplanationOfInterpretation>Drug-variant association: Efficacy</ExplanationOfInterpretation>
       <Citation>
         <ID Source="PubMed">23891399</ID>
       </Citation>
       <Comment Type="public">PharmGKB Level of Evidence 1A: Annotation for a variant-drug combination in a CPIC or medical society-endorsed PGx guideline, or implemented at a PGRN site or in another major health system.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Pharmacogenomics Knowledge Base" ID="1449191407PA165950341"/>
     <AttributeSet>
@@ -960,9 +962,9 @@
     <ClinVarSubmissionID localKey="NM_000492.3:c.328G&gt;C|MedGen:CN169374" submittedAssembly="GRCh37" submitter="Integrated Genetics/Laboratory Corporation of America" submitterDate="2019-04-24"/>
     <ClinVarAccession Acc="SCV000917200" Version="1" Type="SCV" OrgID="500026" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-05-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2017-11-20">
+    <Classification DateLastEvaluated="2017-11-20">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">16436643</ID>
       </Citation>
@@ -994,7 +996,7 @@
         <ID Source="PubMed">23891399</ID>
       </Citation>
       <Comment Type="public">Variant summary: The CFTR c.328G&gt;C (p.Asp110His) variant involves the alteration of a conserved nucleotide that is located in the ABC transporter type 1, transmembrane domain (InterPro). 5/5 in silico tools predict a damaging outcome for this variant. This variant was found in 5/245956 control chromosomes at a frequency of 0.0000203, which does not exceed the estimated maximal expected allele frequency of a pathogenic CFTR variant (0.0129603). Compound heterozygotes and homozygotes for this variant have been found in numerous patients with CBAVD, CF, and in pt with clinical findings suggestive of CF. A functional study showed that baseline chloride transport in CFTR-D110H transfected FRT cells was 9.1% of that in WT-CFTR transfected FRT cells (Van Goor_2013), indicating that D110H significantly affects normal function of CFTR. In addition, multiple clinical diagnostic laboratories/reputable databases classified this variant as pathogenic. Taken together, this variant is classified as pathogenic.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">LabCorp Variant Classification Summary - May 2015</Attribute>
@@ -1037,3 +1039,4 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
+</ReleaseSet>

@@ -1,7 +1,21 @@
-import unittest, tables, hts, strutils
+import unittest, strutils
+import clinvcfpkg/utils
 import clinvcf
 
 suite "test utils functions":
+
+  test "test parseEnumSynonym":
+    type
+      MyEnum = enum
+        first = "1st",
+        second,
+        third = "3rd"
+    doAssert parseEnumSynonym[MyEnum]("1_st") == first
+    doAssert parseEnumSynonym[MyEnum]("1_ST") == first
+    doAssert parseEnumSynonym[MyEnum]("second") == second
+    doAssert parseEnumSynonym[MyEnum]("Second") == second
+    doAssertRaises(ValueError):
+      echo parseEnumSynonym[MyEnum]("third")
 
   test "test nbStars":
     check rsNoAssertion.nbStars() == 0
@@ -53,11 +67,8 @@ suite "test utils functions":
   test "test pathology string format":
     check formatPathoString(" Factor X Deficiency ") == "Factor_X_Deficiency"
     check formatPathoString("Factor (X) Deficiency, pathology") == "Factor_X_Deficiency_pathology"
-    check formatPathoString("Factor, (X) Deficiency, pathology,|cancer/") == "Factor_X_Deficiency_pathology|cancer"
-    check formatPathoString("Factor, X, Deficiency      ,pathology/| cancer") == "Factor_X_Deficiency_pathology|cancer"
-    check formatPathoString("  , Factor X,,Deficiency/pathology| , ,cancer/") == "Factor_X_Deficiency_pathology|cancer"
-    check formatPathoString("CLNDISEASE=  , Factor X,,Deficiency/pathology| , ,cancer/") == "CLNDISEASE=Factor_X_Deficiency_pathology|cancer"
+    check formatPathoString("Factor, X, Deficiency      ,pathology") == "Factor_X_Deficiency_pathology"
+    check formatPathoString(" , ,cancer/") == "cancer"
 
-
-  test "test clinical pathology parsing":
-    check parseClinicalPathologies("DISEASE", @["coagulation_x_deficiency", "factor_x_deficiency"]) == "CLNDISEASE=coagulation_x_deficiency|factor_x_deficiency"
+  test "test clinical pathology formating":
+    check formatClinicalPathologies("DISEASE", @["coagulation_x_deficiency", "factor_x_deficiency"]) == "CLNDISEASE=coagulation_x_deficiency|factor_x_deficiency"

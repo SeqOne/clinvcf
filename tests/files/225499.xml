@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<ReleaseSet>
 <ClinVarSet ID="47389305">
   <RecordStatus>current</RecordStatus>
   <Title>NM_033629.6(TREX1):c.294dup (p.Cys99fs) AND TREX1-Related Disorders</Title>
@@ -163,10 +165,10 @@
     <ClinVarSubmissionID localKey="722459|TREX1-Related Disorders" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
     <ClinVarAccession Acc="SCV000445020" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+    <Classification DateLastEvaluated="2016-06-14">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely benign</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Likely benign</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Illumina Clinical Services Laboratory" ID="722459"/>
     <AttributeSet>
@@ -406,16 +408,16 @@
     <ClinVarSubmissionID localKey="NM_033629.4:c.294dupA|OMIM:225750" submittedAssembly="GRCh37" submitter="Soonchunhyang University Bucheon Hospital,Soonchunhyang University Medical Center" submitterDate="2016-04-14"/>
     <ClinVarAccession Acc="SCV000267538" Version="1" Type="SCV" OrgID="505765" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-03-18">
+    <Classification DateLastEvaluated="2016-03-18">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">24183309</ID>
       </Citation>
       <Citation>
         <ID Source="PubMed">23602593</ID>
       </Citation>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">ACMG Guidelines, 2015</Attribute>
@@ -693,11 +695,11 @@
     <ClinVarSubmissionID localKey="4843283|MedGen:C1860518;C0796126;C0024145" submittedAssembly="GRCh37" submitter="Invitae" submitterDate="2019-03-28"/>
     <ClinVarAccession Acc="SCV000946366" Version="1" Type="SCV" OrgID="500031" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-08-13"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-10-06">
+    <Classification DateLastEvaluated="2018-10-06">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
+      <GermlineClassification>Pathogenic</GermlineClassification>
       <Comment>This sequence change results in a premature translational stop signal in the TREX1 gene (p.Cys99Metfs*3). While this is not anticipated to result in nonsense mediated decay, it is expected to disrupt the last 216 amino acids of the TREX1 protein. This variant is present in population databases (rs760594164, ExAC 0.1%). This variant has been observed in homozygous and compound heterozygous individuals affected withÂ¬â€ Aicardi GoutiâˆšÂ®res syndromeÂ¬â€ (PMID:Â¬â€ 24183309,Â¬â€ 25582466). It has also been observed in the heterozygous state in a family affected with retinal vasculopathy with cerebral leukodystrophy (RVCL); however, in that family a homozygous variant in theÂ¬â€ NOTCH3 gene was found to segregate with the disease (PMID:Â¬â€ 23602593).Â¬â€ This variant is also known asÂ¬â€ c.294dup andÂ¬â€ c.294_295insAÂ¬â€ in the literature.Â¬â€ ClinVar contains an entry for this variant (Variation ID: 225499). This variant disrupts the C-terminus of the TREX1 protein. Other variant(s) that disrupt this region (p.Val235Glyfs*6) have been determined to be pathogenic (PMID:Â¬â€ 17660820,Â¬â€ 27604306). This suggests that variants that disrupt this region of the protein are likely to be causative of disease. For these reasons, this variant has been classified as Pathogenic.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Invitae" ID="4843283"/>
     <AttributeSet>
@@ -753,4 +755,4 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
-
+</ReleaseSet>

@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<ClinVarSet ID="116308252">
+  <RecordStatus>current</RecordStatus>
+  <Title>NM_016270.4(KLF2):c.951dup (p.Glu318fs) AND Inherited Immunodeficiency Diseases</Title>
+  <ReferenceClinVarAssertion ID="5081589" DateLastUpdated="2022-11-19" DateCreated="2022-11-13">
+    <ClinVarAccession Acc="RCV002306237" Version="1" Type="RCV" DateUpdated="2022-11-19" DateCreated="2022-11-13"/>
+    <RecordStatus>current</RecordStatus>
+    <ClinicalSignificance DateLastEvaluated="2022-11-03">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <Description>Likely pathogenic, low penetrance</Description>
+    </ClinicalSignificance>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="ModeOfInheritance" integerValue="262">Autosomal dominant inheritance</Attribute>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Ethnicity>Caucasian</Ethnicity>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <NamePlatform>Illumina</NamePlatform>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="114363735">
+        <Attribute integerValue="6" Type="VariantAlleles"/>
+      </ObservedData>
+      <ObservedData ID="114363735">
+        <Attribute integerValue="1" Type="NumFamiliesWithVariant"/>
+      </ObservedData>
+      <ObservedData ID="114363735">
+        <Attribute integerValue="6" Type="SingleHeterozygote"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="1723130" Acc="VCV001723130" Version="1">
+      <Measure Type="Duplication" ID="1780632">
+        <Name>
+          <ElementValue Type="Preferred">NM_016270.4(KLF2):c.951dup (p.Glu318fs)</ElementValue>
+        </Name>
+        <CanonicalSPDI>NC_000019.10:16326913:C:CC</CanonicalSPDI>
+        <AttributeSet>
+          <Attribute Type="FunctionalConsequence">effect on protein interaction</Attribute>
+          <XRef ID="0058" DB="Variation Ontology"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_016270" Version="4" Change="c.951dup" Type="HGVS, coding, RefSeq" MANESelect="true">NM_016270.4:c.951dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000019" Version="10" Change="g.16326914dup" Type="HGVS, genomic, top level" integerValue="38">NC_000019.10:g.16326914dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000019" Version="9" Change="g.16437725dup" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000019.9:g.16437725dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NM_016270" Version="3" Change="c.951dup" Type="HGVS, previous">NM_016270.3:c.951dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NP_057354" Version="1" Change="p.Glu318fs" Type="HGVS, protein, RefSeq">NP_057354.1:p.Glu318fs</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">frameshift variant</Attribute>
+          <XRef ID="SO:0001589" DB="Sequence Ontology"/>
+          <XRef ID="NM_016270.4:c.951dup" DB="RefSeq"/>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="ProteinChange1LetterCode">E318fs</Attribute>
+        </AttributeSet>
+        <CytogeneticLocation>19p13.11</CytogeneticLocation>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="19" Accession="NC_000019.10" start="16326913" stop="16326914" display_start="16326913" display_stop="16326914" variantLength="1" positionVCF="16326913" referenceAlleleVCF="A" alternateAlleleVCF="AC"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="19" Accession="NC_000019.9" start="16437724" stop="16437725" display_start="16437724" display_stop="16437725" variantLength="1" positionVCF="16437724" referenceAlleleVCF="A" alternateAlleleVCF="AC"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">KLF transcription factor 2</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">KLF2</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="19" Accession="NC_000019.10" start="16324826" stop="16328685" display_start="16324826" display_stop="16328685" Strand="+"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="19" Accession="NC_000019.9" start="16435650" stop="16438344" display_start="16435650" display_stop="16438344" variantLength="2695" Strand="+"/>
+          <XRef ID="10365" DB="Gene"/>
+          <XRef Type="MIM" ID="602016" DB="OMIM"/>
+          <XRef ID="HGNC:6347" DB="HGNC"/>
+        </MeasureRelationship>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NM_016270.4(KLF2):c.951dup (p.Glu318fs)</ElementValue>
+      </Name>
+    </MeasureSet>
+    <TraitSet Type="Disease" ID="52886">
+      <Trait ID="43773" Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">Inherited Immunodeficiency Diseases</ElementValue>
+        </Name>
+        <XRef ID="D000081207" DB="MeSH"/>
+        <XRef ID="C5197805" DB="MedGen"/>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="5080732" SubmissionName="SUB12245088">
+    <ClinVarSubmissionID localKey="SUB12245088" submittedAssembly="GRCh37" submitter="Research Unit of Biomedicine, University of Oulu" submitterDate="2022-11-09" title="SUB12245088"/>
+    <ClinVarAccession Acc="SCV002588747" Version="1" Type="SCV" OrgID="508808" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2022-11-13" DateCreated="2022-11-13"/>
+    <RecordStatus>current</RecordStatus>
+    <Classification DateLastEvaluated="2022-11-03">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <GermlineClassification>Likely pathogenic, low penetrance</GermlineClassification>
+      <Citation Type="general">
+        <ID Source="DOI">10.3389/fimmu.2022.819929</ID>
+      </Citation>
+    </Classification>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="ModeOfInheritance">Autosomal dominant inheritance</Attribute>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>germline</Origin>
+        <Ethnicity>Caucasian</Ethnicity>
+        <GeographicOrigin>Finland</GeographicOrigin>
+        <Species TaxonomyId="9606">human</Species>
+        <Age Type="minimum" age_unit="years">8</Age>
+        <Age Type="maximum" age_unit="years">70</Age>
+        <AffectedStatus>yes</AffectedStatus>
+        <FamilyData NumFamiliesWithVariant="1"/>
+      </Sample>
+      <Method>
+        <NamePlatform>Illumina</NamePlatform>
+        <TypePlatform>Next-generation exome sequencing</TypePlatform>
+        <XRef DB="GTR" ID="GTR000597612.1"/>
+        <MethodType>clinical testing</MethodType>
+        <ObsMethodAttribute>
+          <Attribute Type="TestingLaboratory">Centogene</Attribute>
+          <Comment>Uncertain significance</Comment>
+        </ObsMethodAttribute>
+      </Method>
+      <ObservedData>
+        <Attribute Type="VariantAlleles" integerValue="6"/>
+      </ObservedData>
+      <ObservedData>
+        <Attribute Type="SingleHeterozygote" integerValue="6"/>
+      </ObservedData>
+      <TraitSet DateLastEvaluated="2022-11-03" Type="Finding">
+        <Trait ClinicalFeaturesAffectedStatus="present" Type="Finding">
+          <XRef DB="HP" ID="HP:0001888"/>
+        </Trait>
+        <Trait ClinicalFeaturesAffectedStatus="present" Type="Finding">
+          <XRef DB="HP" ID="HP:0005681"/>
+        </Trait>
+        <Trait ClinicalFeaturesAffectedStatus="present" Type="Finding">
+          <XRef DB="HP" ID="HP:0002721"/>
+        </Trait>
+      </TraitSet>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="Variation">
+        <AttributeSet>
+          <Attribute Type="HGVS">NM_016270.3:c.951dup</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="FunctionalConsequence">effect on protein interaction</Attribute>
+          <XRef DB="Variation Ontology" ID="0058" URL="http://purl.obolibrary.org/obo/VariO_0058"/>
+        </AttributeSet>
+        <MeasureRelationship Type="variant in gene">
+          <Name>
+            <ElementValue Type="Preferred">KLF transcription factor 2</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">KLF2</ElementValue>
+          </Symbol>
+        </MeasureRelationship>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <XRef DB="MeSH" ID="D000081207"/>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>

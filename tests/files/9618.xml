@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<ReleaseSet>
 <ClinVarSet ID="48729661">
   <RecordStatus>current</RecordStatus>
   <Title>m.14674T&gt;C AND Mitochondrial myopathy, infantile, transient</Title>
@@ -101,10 +103,10 @@
     <ClinVarSubmissionID localKey="590025.0002_MITOCHONDRIAL MYOPATHY, INFANTILE, TRANSIENT" submitter="OMIM" submitterDate="2016-10-25" title="MTTE, 14674T-C_MITOCHONDRIAL MYOPATHY, INFANTILE, TRANSIENT"/>
     <ClinVarAccession Acc="SCV000030467" Version="2" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2011-10-01">
+    <Classification DateLastEvaluated="2011-10-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="OMIM" ID="590025.0002" Type="Allelic variant"/>
     <ObservedIn>
@@ -238,10 +240,10 @@
     <ClinVarSubmissionID localKey="39900733" submitter="Center for Pediatric Genomic Medicine,Children's Mercy Hospital and Clinics" submitterDate="2016-05-19"/>
     <ClinVarAccession Acc="SCV000281168" Version="1" Type="SCV" OrgID="505698" OrganizationCategory="clinic" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2014-08-26">
+    <Classification DateLastEvaluated="2014-08-26">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">ACMG Guidelines, 2015</Attribute>
@@ -362,10 +364,10 @@
     <ClinVarSubmissionID localKey="NC_012920.1:m.14674T&gt;C|MedGen:C0751651" submittedAssembly="GRCh38" submitter="Wellcome Centre for Mitochondrial Research,Newcastle University" submitterDate="2017-05-22"/>
     <ClinVarAccession Acc="SCV000577888" Version="1" Type="SCV" OrgID="504862" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2017-05-22">
+    <Classification DateLastEvaluated="2017-05-22">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ObservedIn>
       <Sample>
@@ -486,14 +488,14 @@
     <ClinVarSubmissionID localKey="NC_012920.1:m.14674T&gt;C|OMIM:540000" submittedAssembly="not applicable" submitter="Wong Mito Lab, Molecular and Human Genetics, Baylor College of Medicine" submitterDate="2019-08-28"/>
     <ClinVarAccession Acc="SCV000993321" Version="1" Type="SCV" OrgID="506302" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-09-20"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2019-07-12">
+    <Classification DateLastEvaluated="2019-07-12">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">19720722</ID>
       </Citation>
       <Comment>The NC_012920.1:m.14674T&gt;C variant in MT-TE gene is interpreted to be a Likely Pathogenic variant based on the modified ACMG guidelines (unpublished). This variant meets the following evidence codes reported in the guidelines: PS5, PP4, PP6</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">Modified ACMG Guidelines (Unpublishend)</Attribute>
@@ -528,4 +530,4 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
-
+</ReleaseSet>

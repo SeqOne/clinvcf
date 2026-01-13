@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<ReleaseSet>
 <ClinVarSet ID="48729137">
   <RecordStatus>current</RecordStatus>
   <Title>NM_016945.3(TAS2R16):c.516T&gt;G (p.Asn172Lys) AND BETA-GLUCOPYRANOSIDE TASTING</Title>
@@ -148,10 +150,10 @@
     <ClinVarSubmissionID localKey="604867.0001_BETA-GLUCOPYRANOSIDE TASTING" submitter="OMIM" submitterDate="2019-12-11" title="TAS2R16, LYS172ASN (rs846664)_BETA-GLUCOPYRANOSIDE TASTING"/>
     <ClinVarAccession Acc="SCV000025841" Version="4" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-12-17"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2007-02-01">
+    <Classification DateLastEvaluated="2007-02-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Affects</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Affects</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="OMIM" ID="604867.0001" Type="Allelic variant"/>
     <ObservedIn>
@@ -374,10 +376,10 @@
     <ClinVarSubmissionID localKey="604867.0001_ALCOHOL DEPENDENCE, SUSCEPTIBILITY TO" submitter="OMIM" submitterDate="2019-12-11" title="TAS2R16, LYS172ASN (rs846664)_ALCOHOL DEPENDENCE, SUSCEPTIBILITY TO"/>
     <ClinVarAccession Acc="SCV000025842" Version="4" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-12-16"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2007-02-01">
+    <Classification DateLastEvaluated="2007-02-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>risk factor</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>risk factor</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to included disease"/>
     <ExternalID DB="OMIM" ID="604867.0001" Type="Allelic variant"/>
     <ObservedIn>
@@ -457,3 +459,4 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
+</ReleaseSet>

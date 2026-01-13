@@ -1,3 +1,5 @@
+<?xml version="1.0"?>
+<ReleaseSet>
 <ClinVarSet ID="47065297">
   <RecordStatus>current</RecordStatus>
   <Title>NM_000505.3(F12):c.1681-1G&gt;A AND Factor XII deficiency disease</Title>
@@ -136,10 +138,10 @@
     <ClinVarSubmissionID localKey="610619.0003_FACTOR XII DEFICIENCY" submitter="OMIM" submitterDate="2013-11-21" title="F12, IVS13AS, G-A, -1_FACTOR XII DEFICIENCY"/>
     <ClinVarAccession Acc="SCV000021375" Version="2" Type="SCV" OrgID="3" OrganizationCategory="resource" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="1995-07-01">
+    <Classification DateLastEvaluated="1995-07-01">
       <ReviewStatus>no assertion criteria provided</ReviewStatus>
-      <Description>Pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="OMIM" ID="610619.0003" Type="Allelic variant"/>
     <ObservedIn>
@@ -301,10 +303,10 @@
     <ClinVarSubmissionID localKey="889909|Hypophosphatemic Nephrolithiasis/Osteoporosis" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
     <ClinVarAccession Acc="SCV000484117" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+    <Classification DateLastEvaluated="2016-06-14">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely benign</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Likely benign</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Illumina Clinical Services Laboratory" ID="889909"/>
     <AttributeSet>
@@ -463,9 +465,9 @@
     <ClinVarSubmissionID localKey="226114|F12-Related Disorders" submittedAssembly="GRCh37" submitter="Illumina Clinical Services Laboratory,Illumina" submitterDate="2016-10-18"/>
     <ClinVarAccession Acc="SCV000456696" Version="2" Type="SCV" OrgID="504895" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2016-06-14">
+    <Classification DateLastEvaluated="2016-06-14">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
       <Citation>
         <ID Source="PubMed">8528215</ID>
       </Citation>
@@ -485,7 +487,7 @@
         <ID Source="PubMed">25524745</ID>
       </Citation>
       <Comment Type="public">The c.1681-1G&gt;A variant has been reported in at least three studies and is found in a total of one patient in a homozygous state, four patients in a compound heterozygous state and four patients in a heterozygous state (Schloesser et al. 1995; Schloesser et al. 1997; Xu-Cai et al. 2011). The c.1681-1G&gt;A variant was also observed in a heterozygous state in four offspring of one of the compound heterozygote patients. These individuals also exhibited reduced factor XII activity and antigen levels. Gelincik et al. (2015) identified the c.1681-1G&gt;A variant in a heterozygous state in one patient with HAE with normal C1-INH (type 3 HAE). Factor XII levels were within normal limits in this patient. The c.1681-1G&gt;A variant was absent from 74 control individuals and is reported at a frequency of 0.00077 in the European (non-Finnish) population of the Exome Aggregation Consortium. Transcript analysis in two compound heterozygous patients and one homozygous patient with factor XII deficiency demonstrated aberrant splicing, suggesting that the c.1681-1G&gt;A splice acceptor variant results in detectable transcript but unstable protein (Schloesser et al. 1995). Based on the collective evidence, the c.1681-1G&gt;A variant is classified as likely pathogenic for F12-related disorders.</Comment>
-    </ClinicalSignificance>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <ExternalID DB="Illumina Clinical Services Laboratory" ID="226114"/>
     <AttributeSet>
@@ -529,3 +531,4 @@
     </TraitSet>
   </ClinVarAssertion>
 </ClinVarSet>
+</ReleaseSet>

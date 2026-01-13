@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <ClinVarSet ID="40235997">
   <RecordStatus>current</RecordStatus>
   <Title>NC_000007.14:g.117559618_117559619delGA AND Cystic fibrosis</Title>
@@ -215,10 +216,10 @@
     <ClinVarSubmissionID localKey="NC_000007.13:g.117199671_117199672delAG|OMIM:219700" submittedAssembly="GRCh37" submitter="Mendelics" submitterDate="2018-11-11"/>
     <ClinVarAccession Acc="SCV000886168" Version="1" Type="SCV" OrgID="500035" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2019-03-31"/>
     <RecordStatus>current</RecordStatus>
-    <ClinicalSignificance DateLastEvaluated="2018-11-05">
+    <Classification DateLastEvaluated="2018-11-05">
       <ReviewStatus>criteria provided, single submitter</ReviewStatus>
-      <Description>Likely pathogenic</Description>
-    </ClinicalSignificance>
+      <GermlineClassification>Likely pathogenic</GermlineClassification>
+    </Classification>
     <Assertion Type="variation to disease"/>
     <AttributeSet>
       <Attribute Type="AssertionMethod">Mendelics Assertion Criteria 2017</Attribute>
