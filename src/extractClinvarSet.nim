@@ -1,7 +1,7 @@
 import httpclient, json, tables
 import os, times
 import xmltree # Parse XML
-import htmlparser
+import xmlparser
 import docopt # Formating the command-line
 import strutils # Split string
 from streams import newStringStream
@@ -53,11 +53,14 @@ Usage: extractClinvarSet <clinvar.xml.gz> <variant_id>
 
   for clinvarset_string in file.nextClinvarSet():
     if clinvarset_string != "" and clinvarset_string.startsWith("<ClinVarSet"):
+      var errors: seq[string] = @[]
       let
-        root = parseHtml(newStringStream(clinvarset_string))
-      for clinvarset_node in root.findNodes("clinvarset"):
-        for reference_clinvar_assertion_nodes in clinvarset_node.findNodes("referenceclinvarassertion"):
-          for measureset_node in reference_clinvar_assertion_nodes.findNodes("measureset"):
+        root = parseXml(newStringStream(clinvarset_string), "clinvarset", errors)
+      if root == nil:
+        continue
+      # root is now <ClinVarSet> directly
+      for reference_clinvar_assertion_nodes in root.findNodes("ReferenceClinVarAssertion"):
+        for measureset_node in reference_clinvar_assertion_nodes.findNodes("MeasureSet"):
             let variant_id = measureset_node.attr("ID")
             if variant_id == searched_id:
               echo clinvarset_string

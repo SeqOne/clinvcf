@@ -3,7 +3,7 @@
 # it should be named something like .use-image-docker
 # the dind part is config for each runner already
 .use_docker_dind:
-  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/docker:stable
+  image: ${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}/docker:27
 
 # Build docker image
 #

@@ -1,5 +1,5 @@
 .trivy_version: &trivy_version
-  TRIVY_VERSION: "0.44.0"
+  TRIVY_VERSION: "0.63.0"
 
 .trivy_base:
   extends:
