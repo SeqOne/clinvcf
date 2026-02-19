@@ -215,3 +215,15 @@ assert_in_stdout "CLNSIG=Pathogenic/Likely_pathogenic"
 assert_in_stdout "CLNDISEASE=colorectal_cancer_somatic|thyroid_carcinoma_papillary_somatic"
 assert_in_stdout "PUBMED=12960123|12068308|12447372|12619120"
 assert_in_stdout "31891627"
+
+# VUS-mid (and VUS-low, VUS-high) should be mapped to Uncertain significance
+run vus_mid_parsing $exe --hgnc tests/files/hgnc_toy.tsv $grch37_version tests/files/4688033.xml
+assert_exit_code 0
+assert_in_stdout "9	137029644	4688033	C	T"
+assert_in_stdout "CLNSIG=Uncertain_significance"
+assert_in_stdout "CLNREVSTAT=no_assertion_criteria_provided"
+assert_in_stdout "SUBDETAILS=Uncertain_significance(1)"
+assert_in_stdout "PUBMED=38484052"
+assert_in_stdout "MC=SO:0001619|non-coding_transcript_variant"
+assert_in_stdout "VARIANTTYPE=single_nucleotide_variant"
+assert_in_stdout "VARIANTLENGTH=1"

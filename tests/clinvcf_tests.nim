@@ -4,19 +4,6 @@ import clinvcf
 
 suite "test utils functions":
 
-  test "test parseEnumSynonym":
-    type
-      MyEnum = enum
-        first = "1st",
-        second,
-        third = "3rd"
-    doAssert parseEnumSynonym[MyEnum]("1_st") == first
-    doAssert parseEnumSynonym[MyEnum]("1_ST") == first
-    doAssert parseEnumSynonym[MyEnum]("second") == second
-    doAssert parseEnumSynonym[MyEnum]("Second") == second
-    doAssertRaises(ValueError):
-      echo parseEnumSynonym[MyEnum]("third")
-
   test "test nbStars":
     check rsNoAssertion.nbStars() == 0
     check rsNoAssertionCriteria.nbStars() == 0
@@ -43,6 +30,22 @@ suite "test utils functions":
     check parseEnum[ClinSig]("conflicting data from submitters") == csConflictingDataFromSubmitters
     check parseEnum[ClinSig]("other") == csOther
     check parseEnum[ClinSig]("not provided") == csUnknown
+
+  test "test parseClinSig":
+    # Standard values, case-insensitive
+    check parseClinSig("Uncertain significance") == csUncertainSignificance
+    check parseClinSig("uncertain significance") == csUncertainSignificance
+    check parseClinSig("Benign") == csBenign
+    check parseClinSig("BENIGN") == csBenign
+    # VUS sub-classifications map to Uncertain significance
+    check parseClinSig("VUS-low") == csUncertainSignificance
+    check parseClinSig("VUS-mid") == csUncertainSignificance
+    check parseClinSig("VUS-high") == csUncertainSignificance
+    check parseClinSig("VUS-LOW") == csUncertainSignificance
+    check parseClinSig("VUS-MID") == csUncertainSignificance
+    check parseClinSig("VUS-HIGH") == csUncertainSignificance
+    doAssertRaises(ValueError):
+      discard parseClinSig("not a real classification")
 
   test "test parseNCBIConversionComment":
     check parseNCBIConversionComment("Converted during submission to Likely pathogenic.") == csLikelyPathogenic
