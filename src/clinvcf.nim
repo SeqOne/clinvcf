@@ -1,7 +1,6 @@
 import algorithm, tables, sequtils, re, math
 import os
-import htmlparser
-import q, xmltree # Parse XML
+import xmlparser, xmltree # Parse XML
 from streams import newStringStream
 import docopt # Formating the command-line
 import strutils # Split string
@@ -58,13 +57,13 @@ type
     rsExpertPanel = "reviewed by expert panel",
     rsPracticeGuideline = "practice guideline"
 
-  Submission* = ref object
+  Submission* = object
     clinical_significance: ClinSig
     review_status: RevStat
     submitter_id: int
     variant_in_gene: string
 
-  MolecularConsequence* = ref object
+  MolecularConsequence* = object
     description: string
     so_term : string
 
@@ -95,15 +94,12 @@ var
 
 method correctGeneAlias(cv: ClinVariant, hgnc: HgncIndex) =
   ## Loop on submission and switch alias gene to official gene name
-  for i, submission in cv.submissions:
-    if hgnc.alias.hasKey(submission.variant_in_gene):
-      var newGeneName = hgnc.alias[submission.variant_in_gene]
-      submission.variant_in_gene = newGeneName
-      cv.submissions[i] = submission
-    elif not hgnc.entrez.hasKey(submission.variant_in_gene):
-      # logger.log(lvlInfo, fmt"{submission.variant_in_gene}")
-      submission.variant_in_gene = ""
-      cv.submissions[i] = submission
+  for i in 0..<cv.submissions.len:
+    if hgnc.alias.hasKey(cv.submissions[i].variant_in_gene):
+      cv.submissions[i].variant_in_gene = hgnc.alias[cv.submissions[i].variant_in_gene]
+    elif not hgnc.entrez.hasKey(cv.submissions[i].variant_in_gene):
+      # logger.log(lvlInfo, fmt"{cv.submissions[i].variant_in_gene}")
+      cv.submissions[i].variant_in_gene = ""
 
 proc parseEnumSynonym*[T: enum](s: string): T=
   var lookup_key: string = s
@@ -589,9 +585,8 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
       let
         # Add closing ReleaseSet tag as it is at the end of the file
         new_line = line & "</ReleaseSet>\n"
-        root = parseHtml(newStringStream(new_line))
-      for releaseset_node in root.findNodes("releaseset"):
-        result.filedate = releaseset_node.attr("Dated")
+        root = parseXml(newStringStream(new_line))
+      result.filedate = root.attr("Dated")
 
   file.close()
   file.open(clinvar_xml_file, "r")
@@ -604,9 +599,16 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
       logger.log(lvlInfo, fmt"[main] clinvarSet={clinvarSetCount}")
     # TODO: Add some kind of loader ever 10K parsed variants
     if clinvarset_string != "" and clinvarset_string.startsWith("<ClinVarSet"):
+      var xmlErrors: seq[string] = @[]
       let
-        doc = q(clinvarset_string)
-        reference_clinvar_assertion_nodes = doc.select("referenceclinvarassertion")
+        doc = parseXml(newStringStream(clinvarset_string), "clinvarset", xmlErrors)
+      if doc == nil:
+        logger.log(lvlWarn, fmt"[main] Skipping malformed ClinVarSet at record {clinvarSetCount}")
+        continue
+      if xmlErrors.len > 0:
+        logger.log(lvlInfo, fmt"[main] XML parsing warnings at record {clinvarSetCount}: {xmlErrors[0]}")
+      let
+        reference_clinvar_assertion_nodes = doc.findAll("ReferenceClinVarAssertion")
 
       if reference_clinvar_assertion_nodes.len() > 0:
         # Skipping Het-compond variants
@@ -614,16 +616,16 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
         # <GenotypeSet Type="CompoundHeterozygote" ID="424779" Acc="VCV000424779" Version="1">
         #   <MeasureSet Type="Variant" ID="928" Acc="VCV000000928" Version="2" NumberOfChromosomes="1">
         #     <Measure Type="single nucleotide variant" ID="46341">
-        if reference_clinvar_assertion_nodes[0].select("genotypeset").len() > 0:
+        if reference_clinvar_assertion_nodes[0].findAll("GenotypeSet").len() > 0:
           continue
 
-        let measureset_nodes = reference_clinvar_assertion_nodes[0].select("measureset")
+        let measureset_nodes = reference_clinvar_assertion_nodes[0].findAll("MeasureSet")
 
         if measureset_nodes.len() > 0:
           let
             measureset_node = measureset_nodes[0]
             variant_id_chrm = measureset_node.attr("ID")
-            measure_nodes = measureset_nodes[0].select("measure")
+            measure_nodes = measureset_nodes[0].findAll("Measure")
 
           # Only parse "variant" and skip "Haplotype"
           if measureset_node.attr("Type") != "Variant":
@@ -636,8 +638,8 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
             cpt = 0
             let measure_node = measure_nodes[0]
               # if measure_relationship_nodes.attr("Type") == "variant in gene":
-                # element_value_node = measure_relationship_nodes.select("symbol").select("ElementValue")
-            for sequence_loc in measure_node.select("sequencelocation"):
+                # element_value_node = measure_relationship_nodes.findAll("Symbol").select("ElementValue")
+            for sequence_loc in measure_node.findAll("SequenceLocation"):
               if sequence_loc.attr("Assembly") == genome_assembly and sequence_loc.attr("referenceAlleleVCF") != "" and sequence_loc.attr("alternateAlleleVCF") != "":
                 # <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current"
                 # Chr="2" Accession="NC_000002.12" start="219469373" stop="219469408" display_start="219469373"
@@ -673,7 +675,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                 var rsid: int = -1
                 for xref_node in measure_node:
                   if xref_node.kind == xnElement:
-                    if xref_node.tag == "xref":
+                    if xref_node.tag == "XRef":
                       if xref_node.attr("Type") == "rs" and xref_node.attr("DB") == "dbSNP":
                         rsid = xref_node.attr("ID").parseInt()
 
@@ -716,10 +718,10 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                 #     <ID Source="PubMed">2565038</ID>
                 #   </Citation>
                 # </ObservedData>
-                for observedin_node in reference_clinvar_assertion_nodes[0].select("observedin"):
-                  for observeddata_node in observedin_node.select("observeddata"):
-                    for citation in observeddata_node.select("citation"):
-                      for citation_id in citation.select("id"):
+                for observedin_node in reference_clinvar_assertion_nodes[0].findAll("ObservedIn"):
+                  for observeddata_node in observedin_node.findAll("ObservedData"):
+                    for citation in observeddata_node.findAll("Citation"):
+                      for citation_id in citation.findAll("ID"):
                         if citation_id.attr("Source") == "PubMed":
                           variant.pubmed_ids.add(citation_id.innerText)
 
@@ -729,9 +731,9 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                 #   <XRef ID="SO:0001583" DB="Sequence Ontology"/>
                 #   <XRef ID="NM_000059.3:c.241T&gt;A" DB="RefSeq"/>
                 # </AttributeSet>
-                for attribute_set_node in measure_node.select("attributeset"):
+                for attribute_set_node in measure_node.findAll("AttributeSet"):
                   let
-                    attribute_nodes = attribute_set_node.select("attribute")
+                    attribute_nodes = attribute_set_node.findAll("Attribute")
                   if attribute_nodes.len > 0:
                     let attribute_node = attribute_nodes[0]
                     var
@@ -739,7 +741,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                       so_term: string
                     if attribute_node.attr("Type") == "MolecularConsequence":
                       description = attribute_node.innerText
-                      for xref_node in attribute_set_node.select("xref"):
+                      for xref_node in attribute_set_node.findAll("XRef"):
                         if xref_node.attr("DB") == "Sequence Ontology":
                           so_term = xref_node.attr("ID")
                       var
@@ -764,22 +766,22 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
             let variant_id_chrm = variant_id_chrm & chrom_sex
             # Now lets add the submissions and pathology
             if result.variants.hasKey(variant_id_chrm):
-              for clinvar_assertion_node in doc.select("clinvarassertion"):
+              for clinvar_assertion_node in doc.findAll("ClinVarAssertion"):
                 let
                   # ClinicalSignificance nodes no longer exists in the new schema. It is encapsulated in the node Classification.
                   # Former structure : ClinVarAssertion/ClinicalSignificance 
                   # New structure : ClinVarAssertion/Classification 
-                  clinsig_nodes = clinvar_assertion_node.select("classification").filterIt(it.select("germlineclassification").len() > 0 )
-                  clinvar_submission_id_nodes = clinvar_assertion_node.select("clinvarsubmissionid")
-                  measure_relationship_nodes = clinvar_assertion_node.select("measurerelationship")
-                  traitSetNodes = clinvar_assertion_node.select("traitset")
+                  clinsig_nodes = clinvar_assertion_node.findAll("Classification").filterIt(it.findAll("GermlineClassification").len() > 0 )
+                  clinvar_submission_id_nodes = clinvar_assertion_node.findAll("ClinVarSubmissionID")
+                  measure_relationship_nodes = clinvar_assertion_node.findAll("MeasureRelationship")
+                  traitSetNodes = clinvar_assertion_node.findAll("TraitSet")
 
                 # Extract gene
                 var variant_in_gene = ""
                 for measure_relationship in measure_relationship_nodes:
                   if measure_relationship.attr("Type") == "variant in gene":
-                    for symbol in measure_relationship.select("symbol"):
-                      for elementvalue in symbol.select("elementvalue"):
+                    for symbol in measure_relationship.findAll("Symbol"):
+                      for elementvalue in symbol.findAll("ElementValue"):
                         if elementvalue.attr("Type") == "Preferred":
                           if len(elementvalue) > 0:
                             # Gene is present in the submission
@@ -787,9 +789,9 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
 
                 # Extract pathologies
                 for traitSetNode in traitSetNodes:
-                  for trait in traitSetNode.select("trait"):
+                  for trait in traitSetNode.findAll("Trait"):
                     # Check if there is informations about pathology
-                    if trait.select("elementvalue").len() > 0:
+                    if trait.findAll("ElementValue").len() > 0:
                       # <traitset Type="Finding">
                       #   <trait Type="Finding">
                       #     <name>
@@ -812,9 +814,9 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                       # </traitset>
                       let pathoType = trait.attr("Type")
                       # Patho to skip : all values in ingnoredPathoTag
-                      if trait.select("elementvalue")[0].innerText.toLowerAscii in ignoredPathoTag:
+                      if trait.findAll("ElementValue")[0].innerText.toLowerAscii in ignoredPathoTag:
                         continue
-                      let pathology = trait.select("elementvalue")[0].innerText.toLowerAscii.formatPathoString()
+                      let pathology = trait.findAll("ElementValue")[0].innerText.toLowerAscii.formatPathoString()
                       # Add result inside pathology table:
                       #   key: pathology type : (Disease, Finding...)
                       #   value: a list contaning pathology's names
@@ -850,14 +852,14 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                       # The ClinicalSignificance description becomes GermlineClassification
                       # Former structure : ClinVarAssertion/ClinicalSignificance/Description 
                       # New structure : ClinVarAssertion/Classification/GermlineClassification 
-                      desc_nodes = clinsig_nodes[0].select("germlineclassification")
-                      revstat_nodes = clinsig_nodes[0].select("reviewstatus")
-                      comment_nodes = clinsig_nodes[0].select("comment")
-                      citation_nodes = clinsig_nodes[0].select("citation")
+                      desc_nodes = clinsig_nodes[0].findAll("GermlineClassification")
+                      revstat_nodes = clinsig_nodes[0].findAll("ReviewStatus")
+                      comment_nodes = clinsig_nodes[0].findAll("Comment")
+                      citation_nodes = clinsig_nodes[0].findAll("Citation")
 
                     # Extract PubMed ids, currently only from germline clinsig nodes
                     for citation in citation_nodes:
-                      for citation_id in citation.select("id"):
+                      for citation_id in citation.findAll("ID"):
                         if citation_id.attr("Source") == "PubMed":
                           result.variants[variant_id_chrm].pubmed_ids.add(citation_id.innerText)
 

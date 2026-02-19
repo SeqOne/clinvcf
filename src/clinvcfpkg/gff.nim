@@ -1,4 +1,4 @@
-import tables, hts, strutils, re, algorithm
+import tables, hts, strutils, algorithm
 
 import ./lapper
 import logging
@@ -107,8 +107,8 @@ proc minExonDist*(gene: GFFGene, start: int, stop: int, padding : int): int =
   result = min(gene.minExonDist(start, padding),gene.minExonDist(stop, padding))
 
 proc removeChrPrevix*(chrom: string): string =
-  if chrom =~ re"""^chr(.*)""":
-    return matches[0]
+  if chrom.startsWith("chr"):
+    return chrom[3..^1]
   else:
     return chrom
 

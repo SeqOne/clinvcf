@@ -11,8 +11,12 @@ proc contains*[T](s: seq[T], value: T): bool =
 proc formatVCFString*(vcf_string: string): string =
   result = vcf_string.replace(' ', '_')
 
+let
+  rePathoTrim = re"^\W+|\W+$"
+  rePathoReplace = re"\W+"
+
 proc formatPathoString*(pathoString: string): string =
   # First : remove all non-word chars at the end of the string (or first)
-  result = pathoString.replace(re"^\W+|\W+$")
+  result = pathoString.replace(rePathoTrim)
   # Second replace all non-word characters by '_'
-  result = result.replace(re"\W+", "_")
+  result = result.replace(rePathoReplace, "_")

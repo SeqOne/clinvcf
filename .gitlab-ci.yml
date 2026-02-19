@@ -35,9 +35,8 @@ test:
   image: registry.gitlab.com/seqone/internal/dockerfiles/nim-builder:1.6.14
   stage: test
   before_script:
-    - apt-get update && apt-get install -y jq wget
+    - apt-get update && apt-get install -y jq libpcre3-dev
   script:
-    - apt-get update && apt-get install -y git
     - nimble build -y
     - nimble test
   tags:
@@ -49,7 +48,7 @@ artefact_build:
   image: registry.gitlab.com/seqone/internal/dockerfiles/nim-builder:1.6.14
   stage: artefact_build
   script:
-    - apt-get update && apt-get install -y git
+    - apt-get update && apt-get install -y libpcre3-dev
     - nimble install -y
   artifacts:
     paths:
