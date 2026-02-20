@@ -1,0 +1,162 @@
+<ClinVarSet ID="289624862">
+  <RecordStatus>current</RecordStatus>
+  <Title>NR_023344.2(RNU6ATAC):n.43G&gt;A AND See cases</Title>
+  <ReferenceClinVarAssertion ID="14002217" DateLastUpdated="2026-02-01" DateCreated="2026-02-01">
+    <ClinVarAccession Acc="RCV006455027" Version="1" Type="RCV" DateUpdated="2026-02-01" DateCreated="2026-02-01"/>
+    <RecordStatus>current</RecordStatus>
+    <Classifications>
+      <GermlineClassification>
+        <ReviewStatus>no assertion criteria provided</ReviewStatus>
+        <Description DateLastEvaluated="2026-01-22" SubmissionCount="1">VUS-mid</Description>
+      </GermlineClassification>
+    </Classifications>
+    <Assertion Type="variation to disease"/>
+    <ObservedIn>
+      <Sample>
+        <Origin>biparental</Origin>
+        <Ethnicity>Arab</Ethnicity>
+        <Species TaxonomyId="9606">human</Species>
+        <AffectedStatus>yes</AffectedStatus>
+      </Sample>
+      <Method>
+        <NamePlatform>Illumina</NamePlatform>
+        <MethodType>clinical testing</MethodType>
+      </Method>
+      <ObservedData ID="213317509">
+        <Attribute integerValue="1" Type="VariantAlleles"/>
+      </ObservedData>
+    </ObservedIn>
+    <MeasureSet Type="Variant" ID="4688033" Acc="VCV004688033" Version="1">
+      <Measure Type="single nucleotide variant" ID="4799506">
+        <Name>
+          <ElementValue Type="Preferred">NR_023344.2(RNU6ATAC):n.43G&gt;A</ElementValue>
+        </Name>
+        <CanonicalSPDI>NC_000009.12:134164521:C:T</CanonicalSPDI>
+        <AttributeSet>
+          <Attribute Accession="NG_118084" Version="1" Change="g.1042C&gt;T" Type="HGVS, genomic, RefSeqGene">NG_118084.1:g.1042C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000009" Version="12" Change="g.134164522C&gt;T" Type="HGVS, genomic, top level" integerValue="38">NC_000009.12:g.134164522C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NC_000009" Version="11" Change="g.137029644C&gt;T" Type="HGVS, genomic, top level, previous" integerValue="37">NC_000009.11:g.137029644C&gt;T</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Accession="NR_023344" Version="2" Change="n.43G&gt;A" Type="HGVS, non-coding" MANESelect="true">NR_023344.2:n.43G&gt;A</Attribute>
+        </AttributeSet>
+        <AttributeSet>
+          <Attribute Type="MolecularConsequence">non-coding transcript variant</Attribute>
+          <XRef ID="SO:0001619" DB="Sequence Ontology"/>
+          <XRef ID="NR_023344.2:n.43G&gt;A" DB="RefSeq"/>
+        </AttributeSet>
+        <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="9" Accession="NC_000009.12" start="134164522" stop="134164522" display_start="134164522" display_stop="134164522" variantLength="1" positionVCF="134164522" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="9" Accession="NC_000009.11" start="137029644" stop="137029644" display_start="137029644" display_stop="137029644" variantLength="1" positionVCF="137029644" referenceAlleleVCF="C" alternateAlleleVCF="T"/>
+        <MeasureRelationship Type="within single gene">
+          <Name>
+            <ElementValue Type="Preferred">RNA, U6atac small nuclear</ElementValue>
+          </Name>
+          <Symbol>
+            <ElementValue Type="Preferred">RNU6ATAC</ElementValue>
+          </Symbol>
+          <SequenceLocation Assembly="GRCh38" AssemblyAccessionVersion="GCF_000001405.38" AssemblyStatus="current" Chr="9" Accession="NC_000009.12" start="134164439" stop="134164564" display_start="134164439" display_stop="134164564" Strand="-"/>
+          <SequenceLocation Assembly="GRCh37" AssemblyAccessionVersion="GCF_000001405.25" AssemblyStatus="previous" Chr="9" Accession="NC_000009.11" start="137029561" stop="137029685" display_start="137029561" display_stop="137029685" variantLength="125" Strand="-"/>
+          <XRef ID="100151684" DB="Gene"/>
+          <XRef Type="MIM" ID="601429" DB="OMIM"/>
+          <XRef ID="HGNC:34017" DB="HGNC"/>
+        </MeasureRelationship>
+      </Measure>
+      <Name>
+        <ElementValue Type="Preferred">NR_023344.2(RNU6ATAC):n.43G&gt;A</ElementValue>
+      </Name>
+    </MeasureSet>
+    <TraitSet Type="PhenotypeInstruction" ID="16994">
+      <Trait ID="18728" Type="PhenotypeInstruction">
+        <Name>
+          <ElementValue Type="Preferred">See cases</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ReferenceClinVarAssertion>
+  <ClinVarAssertion ID="14001818" SubmissionName="SUB15956979">
+    <ClinVarSubmissionID localKey="SUB15956979" submittedAssembly="GRCh38" submitter="Lifera, Lifera Omics" submitterDate="2026-01-28" title="SUB15956979"/>
+    <ClinVarAccession Acc="SCV007334818" Version="1" Type="SCV" OrgID="510380" OrganizationCategory="laboratory" OrgType="primary" DateUpdated="2026-02-01" DateCreated="2026-02-01"/>
+    <RecordStatus>current</RecordStatus>
+    <Classification DateLastEvaluated="2026-01-22">
+      <ReviewStatus>no assertion criteria provided</ReviewStatus>
+      <GermlineClassification>VUS-mid</GermlineClassification>
+      <Citation Type="general">
+        <ID Source="PubMed">38484052</ID>
+      </Citation>
+      <Comment Type="public">The homozygous n.43G&gt;A variant in RNU6ATAC is very rare and absent in the Genome Aggregation Database (gnomAD, http://gnomad.broadinstitute.org) in homozygous state.</Comment>
+    </Classification>
+    <Assertion Type="variation to disease"/>
+    <AttributeSet>
+      <Attribute Type="ModeOfInheritance">Autosomal recessive inheritance</Attribute>
+    </AttributeSet>
+    <ObservedIn>
+      <Sample>
+        <Origin>biparental</Origin>
+        <Ethnicity>Arab</Ethnicity>
+        <GeographicOrigin>Saudi Arabia</GeographicOrigin>
+        <Species TaxonomyId="9606">human</Species>
+        <Age Type="minimum" age_unit="years">10</Age>
+        <Age Type="maximum" age_unit="years">19</Age>
+        <AffectedStatus>yes</AffectedStatus>
+        <Sex>male</Sex>
+      </Sample>
+      <Method>
+        <NamePlatform>Illumina</NamePlatform>
+        <TypePlatform>Next-generation exome sequencing</TypePlatform>
+        <MethodType>clinical testing</MethodType>
+        <ObsMethodAttribute>
+          <Attribute Type="TestingLaboratory">CentoGene</Attribute>
+          <Comment Type="public">not provided</Comment>
+        </ObsMethodAttribute>
+      </Method>
+      <ObservedData>
+        <Attribute Type="Homozygote" integerValue="1"/>
+      </ObservedData>
+      <TraitSet Type="Finding">
+        <Trait ClinicalFeaturesAffectedStatus="present" Type="Finding">
+          <XRef DB="HP" ID="HP:0004322"/>
+        </Trait>
+        <Trait ClinicalFeaturesAffectedStatus="present" Type="Finding">
+          <XRef DB="HP" ID="HP:0012758"/>
+        </Trait>
+        <Trait ClinicalFeaturesAffectedStatus="present" Type="Finding">
+          <XRef DB="HP" ID="HP:0001249"/>
+        </Trait>
+        <Trait ClinicalFeaturesAffectedStatus="present" Type="Finding">
+          <XRef DB="HP" ID="HP:0002652"/>
+        </Trait>
+        <Trait ClinicalFeaturesAffectedStatus="present" Type="Finding">
+          <XRef DB="HP" ID="HP:0002721"/>
+        </Trait>
+        <Trait ClinicalFeaturesAffectedStatus="present" Type="Finding">
+          <XRef DB="HP" ID="HP:0000821"/>
+        </Trait>
+        <Trait ClinicalFeaturesAffectedStatus="present" Type="Finding">
+          <XRef DB="HP" ID="HP:0000819"/>
+        </Trait>
+        <Trait ClinicalFeaturesAffectedStatus="present" Type="Finding">
+          <XRef DB="HP" ID="HP:0000135"/>
+        </Trait>
+        <Trait ClinicalFeaturesAffectedStatus="present" Type="Finding">
+          <XRef DB="HP" ID="HP:0000479"/>
+        </Trait>
+      </TraitSet>
+    </ObservedIn>
+    <MeasureSet Type="Variant">
+      <Measure Type="single nucleotide variant">
+        <SequenceLocation Assembly="GRCh38" Chr="9" alternateAllele="T" referenceAllele="C" start="134164522" stop="134164522"/>
+      </Measure>
+    </MeasureSet>
+    <TraitSet Type="Disease">
+      <Trait Type="Disease">
+        <Name>
+          <ElementValue Type="Preferred">see cases</ElementValue>
+        </Name>
+      </Trait>
+    </TraitSet>
+  </ClinVarAssertion>
+</ClinVarSet>

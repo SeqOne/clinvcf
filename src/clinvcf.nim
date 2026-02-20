@@ -101,14 +101,15 @@ method correctGeneAlias(cv: ClinVariant, hgnc: HgncIndex) =
       # logger.log(lvlInfo, fmt"{cv.submissions[i].variant_in_gene}")
       cv.submissions[i].variant_in_gene = ""
 
-proc parseEnumSynonym*[T: enum](s: string): T=
-  var lookup_key: string = s
-  for enum_key in T:
-    let enum_value: string = $enum_key
-    if enum_value.toUpper() == s.toUpper():
-      lookup_key=enum_value
-      break
-  parseEnum[T](lookup_key)
+proc parseClinSig*(s: string): ClinSig =
+  ## Case-insensitive ClinSig parser. Maps VUS-Low/Mid/High to csUncertainSignificance.
+  let s_upper = s.toUpper()
+  if s_upper in ["VUS-LOW", "VUS-MID", "VUS-HIGH"]:
+    return csUncertainSignificance
+  for key in ClinSig:
+    if ($key).toUpper() == s_upper:
+      return key
+  parseEnum[ClinSig](s)
 
 proc findNodes(n: XmlNode, tag: string): seq[XmlNode] =
   for xref_node in n:
@@ -870,11 +871,10 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                         clinical_significance = parse_clnsig
                     if clinical_significance == csUnknown and desc_nodes.len() > 0:
                       try:
-                        clinical_significance = parseEnum[ClinSig](desc_nodes[0].innerText)
+                        clinical_significance = parseClinSig(desc_nodes[0].innerText)
                       except ValueError:
-                        logger.log(lvlWarn,fmt"======> VARIANT_ID_CHRM [{variant_id_chrm}] HAS UNEXPECTED CLINSIG: {desc_nodes[0].innerText}")
-                        clinical_significance = parseEnumSynonym[ClinSig](desc_nodes[0].innerText)
-                        logger.log(lvlWarn,fmt"[!] VARIANT_ID_CHRM [{variant_id_chrm}] GOT CLINSIG SYNONYM: {clinical_significance}")
+                        logger.log(lvlWarn, fmt"======> VARIANT_ID_CHRM [{variant_id_chrm}] HAS UNEXPECTED CLINSIG: {desc_nodes[0].innerText}")
+                        raise
                     if revstat_nodes.len() > 0:
                       review_status = parseEnum[RevStat](revstat_nodes[0].innerText, rsNoAssertion)
 
