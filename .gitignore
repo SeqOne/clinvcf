@@ -6,3 +6,4 @@ tests/all
 extractClinvarSet
 src/clinvcf.dSYM/
 tests/all.dSYM/
+/.idea/

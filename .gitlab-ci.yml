@@ -1,11 +1,12 @@
 variables:
   ECR_PROJECT: "workset"
   PROJECT_NAME: "clinvcf"
+  # Pull base images through the GitLab dependency proxy in docker builds
+  DOCKER_BUILD_ARGS: "--build-arg CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX=${CI_DEPENDENCY_PROXY_GROUP_IMAGE_PREFIX}"
 
 stages:
   - test
   - release
-  - artefact_build
   - login
   - push-registry
   - security
@@ -43,31 +44,11 @@ test:
     - bioinfo
   <<: *merge_request_rules
 
-# Artefact build
-artefact_build:
-  image: registry.gitlab.com/seqone/internal/dockerfiles/nim-builder:1.6.14
-  stage: artefact_build
-  script:
-    - apt-get update && apt-get install -y libpcre3-dev
-    - nimble install -y
-  artifacts:
-    paths:
-    - clinvcf
-  tags:
-    - bioinfo
-  rules:
-    - !reference [ .merge_request_rules, rules ]
-    - !reference [ .release_rules, rules ]
-    - if: '$CI_COMMIT_TAG != null'
-
 push_registry_test:
   extends: .docker_push_registry_test
   variables:
     IMAGE_TAG: vtest
     DOCKERFILE_PATH: Dockerfile
-  needs:
-    - job: artefact_build
-      artifacts: true
   <<: *merge_request_rules
 
 security_test:
@@ -104,8 +85,6 @@ tag_push_registry:
   needs:
     - job: ecr_get_password_tag
       artifacts: true
-    - job: artefact_build
-      artifacts: true
 
 ecr_get_password_latest:
   stage: login
@@ -121,7 +100,5 @@ latest_push_registry:
   <<: *release_rules
   needs:
     - job: ecr_get_password_latest
-      artifacts: true
-    - job: artefact_build
       artifacts: true
 

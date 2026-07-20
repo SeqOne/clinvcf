@@ -2,8 +2,12 @@
   before_script:
     # Gitlab com login and let's allow it to fail if var are missing
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    # Dependency proxy login so base images can be pulled through it
+    - docker login -u "$CI_DEPENDENCY_PROXY_USER" -p "$CI_DEPENDENCY_PROXY_PASSWORD" "$CI_DEPENDENCY_PROXY_SERVER"
 
 .before_script-gitlab_and_ECR_login:
   before_script:
     - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" "$CI_REGISTRY"
+    # Dependency proxy login so base images can be pulled through it
+    - docker login -u "$CI_DEPENDENCY_PROXY_USER" -p "$CI_DEPENDENCY_PROXY_PASSWORD" "$CI_DEPENDENCY_PROXY_SERVER"
     - cat docker-password.txt | docker login -u AWS --password-stdin $ECR_REGISTRY

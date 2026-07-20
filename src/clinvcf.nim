@@ -15,6 +15,7 @@ from ./clinvcfpkg/utils import logger,contains,formatVCFString,formatPathoString
 import ./clinvcfpkg/gff
 import ./clinvcfpkg/lapper
 import ./clinvcfpkg/hgnc
+import ./clinvcfpkg/intern
 
 type
   ClinSig* = enum
@@ -61,7 +62,7 @@ type
     clinical_significance: ClinSig
     review_status: RevStat
     submitter_id: int
-    variant_in_gene: string
+    variant_in_gene: int32 # interned gene symbol id (geneInterner), NoGene when absent
 
   MolecularConsequence* = object
     description: string
@@ -71,16 +72,24 @@ type
     variant_id: int32
     allele_id: int32
     rsid: int32
-    chrom: string # we could use an 8bit/16bit integer ...
+    chrom: int32 # interned chromosome id (chromInterner)
     pos: int32
     ref_allele: string
     alt_allele: string
     molecular_consequences: seq[MolecularConsequence]
     submissions: seq[Submission]
     pathologies: TableRef[string, seq[string]]
-    type_v: string
-    length: int
+    type_v: int32 # interned variant type id (typeInterner)
+    length: int32
     pubmed_ids: seq[string]
+
+var
+  geneInterner = initStringInterner()
+  chromInterner = initStringInterner()
+  typeInterner = initStringInterner()
+
+const NoGene = 0'i32
+discard geneInterner.intern("") # reserve id 0 for "no gene"
 
 const ignoredPathoTag = @["not specified", "see cases", "not provided", "variant of unknown significance"]
 
@@ -95,11 +104,12 @@ var
 method correctGeneAlias(cv: ClinVariant, hgnc: HgncIndex) =
   ## Loop on submission and switch alias gene to official gene name
   for i in 0..<cv.submissions.len:
-    if hgnc.alias.hasKey(cv.submissions[i].variant_in_gene):
-      cv.submissions[i].variant_in_gene = hgnc.alias[cv.submissions[i].variant_in_gene]
-    elif not hgnc.entrez.hasKey(cv.submissions[i].variant_in_gene):
-      # logger.log(lvlInfo, fmt"{cv.submissions[i].variant_in_gene}")
-      cv.submissions[i].variant_in_gene = ""
+    let gene = geneInterner[cv.submissions[i].variant_in_gene]
+    if hgnc.alias.hasKey(gene):
+      cv.submissions[i].variant_in_gene = geneInterner.intern(hgnc.alias[gene])
+    elif not hgnc.entrez.hasKey(gene):
+      # logger.log(lvlInfo, fmt"{gene}")
+      cv.submissions[i].variant_in_gene = NoGene
 
 proc parseClinSig*(s: string): ClinSig =
   ## Case-insensitive ClinSig parser. Maps VUS-Low/Mid/High to csUncertainSignificance.
@@ -219,7 +229,10 @@ proc chromToInt*(chrom: string): int =
 
 proc cmpVariant*(x, y: ClinVariant): int =
   ## Cmp based on genomic order
-  let cmp_chrom = cmp(x.chrom, y.chrom)
+  let
+    x_chrom = chromInterner[x.chrom]
+    y_chrom = chromInterner[y.chrom]
+    cmp_chrom = cmp(x_chrom, y_chrom)
   if cmp_chrom == 0:
     let cmp_pos = cmp(x.pos,y.pos)
     if cmp_pos == 0:
@@ -232,8 +245,8 @@ proc cmpVariant*(x, y: ClinVariant): int =
       return cmp_pos
   else:
     let
-      x_chrom_int = x.chrom.chromToInt()
-      y_chrom_int = y.chrom.chromToInt()
+      x_chrom_int = x_chrom.chromToInt()
+      y_chrom_int = y_chrom.chromToInt()
     # Both chromosomes are integer, we return the smallest one
     if x_chrom_int != -1 and y_chrom_int != -1:
       return cmp(x_chrom_int,y_chrom_int)
@@ -421,20 +434,21 @@ proc aggregateVariantInGene(submissions: seq[Submission], hgnc: options.Option[H
     genes: seq[string] = @[]
     genesToReturn: seq[string] = @[]
   for submission in submissions:
-    if submission.variant_in_gene != "":
-      if submission.variant_in_gene notin genes:
-        genes.add(submission.variant_in_gene)
+    if submission.variant_in_gene != NoGene:
+      let gene = geneInterner[submission.variant_in_gene]
+      if gene notin genes:
+        genes.add(gene)
         if hgnc.isSome:
           try:
-            genesToReturn.add(fmt"{submission.variant_in_gene}:{hgnc.get.entrez[submission.variant_in_gene]}")
+            genesToReturn.add(fmt"{gene}:{hgnc.get.entrez[gene]}")
           except KeyError:
-            logger.log(lvlInfo, fmt"{submission.variant_in_gene} is not found in hgnc table.")
+            logger.log(lvlInfo, fmt"{gene} is not found in hgnc table.")
         else:
           try:
-            genesToReturn.add(fmt"{submission.variant_in_gene}:{genesEntrez[submission.variant_in_gene]}")
+            genesToReturn.add(fmt"{gene}:{genesEntrez[gene]}")
           except KeyError:
-            # genesWithNoID.add(fmt"{submission.variant_in_gene}:.")
-            logger.log(lvlInfo, fmt"{submission.variant_in_gene} is not found in GFF")
+            # genesWithNoID.add(fmt"{gene}:.")
+            logger.log(lvlInfo, fmt"{gene} is not found in GFF")
 
   if len(genesToReturn) > 0:
     result = genesToReturn.join("|")
@@ -680,27 +694,28 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                       if xref_node.attr("Type") == "rs" and xref_node.attr("DB") == "dbSNP":
                         rsid = xref_node.attr("ID").parseInt()
 
+                let chrom_id = chromInterner.intern(chrom)
                 var
                   variant = ClinVariant(
-                    chrom: chrom,
+                    chrom: chrom_id,
                     pos: cast[int32](pos),
                     variant_id: cast[int32](variant_id),
                     allele_id: cast[int32](allele_id),
                     rsid: cast[int32](rsid),
                     ref_allele: ref_allele,
                     alt_allele: alt_allele,
-                    pathologies: newTable[string, seq[string]](),
-                    type_v: type_v,
+                    pathologies: nil,
+                    type_v: typeInterner.intern(type_v),
                     length: cast[int32](length)
                   )
-                var 
+                var
                   variant_id_chrm: string = intToStr(variant_id)
-                # Concat for PAR variants -> we want 2 lines for the same clinvar id                
+                # Concat for PAR variants -> we want 2 lines for the same clinvar id
                 if cpt == 1:
-                  if chrom != result.variants[variant_id_chrm].chrom:                 
+                  if chrom_id != result.variants[variant_id_chrm].chrom:
                     variant_id_chrm &= chrom
                     result.variants[variant_id_chrm] = variant
-                    cpt.inc()     
+                    cpt.inc()
                 if cpt == 0:
                   result.variants[variant_id_chrm] = variant
                   if chrom == "X" or chrom == "Y":
@@ -767,6 +782,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
             let variant_id_chrm = variant_id_chrm & chrom_sex
             # Now lets add the submissions and pathology
             if result.variants.hasKey(variant_id_chrm):
+              let curVariant = result.variants[variant_id_chrm]
               for clinvar_assertion_node in doc.findAll("ClinVarAssertion"):
                 let
                   # ClinicalSignificance nodes no longer exists in the new schema. It is encapsulated in the node Classification.
@@ -791,8 +807,9 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                 # Extract pathologies
                 for traitSetNode in traitSetNodes:
                   for trait in traitSetNode.findAll("Trait"):
+                    let elementValues = trait.findAll("ElementValue")
                     # Check if there is informations about pathology
-                    if trait.findAll("ElementValue").len() > 0:
+                    if elementValues.len() > 0:
                       # <traitset Type="Finding">
                       #   <trait Type="Finding">
                       #     <name>
@@ -815,18 +832,20 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                       # </traitset>
                       let pathoType = trait.attr("Type")
                       # Patho to skip : all values in ingnoredPathoTag
-                      if trait.findAll("ElementValue")[0].innerText.toLowerAscii in ignoredPathoTag:
+                      let pathoName = elementValues[0].innerText.toLowerAscii
+                      if pathoName in ignoredPathoTag:
                         continue
-                      let pathology = trait.findAll("ElementValue")[0].innerText.toLowerAscii.formatPathoString()
+                      let pathology = pathoName.formatPathoString()
                       # Add result inside pathology table:
                       #   key: pathology type : (Disease, Finding...)
                       #   value: a list contaning pathology's names
-                      if result.variants[variant_id_chrm].pathologies.hasKey(pathoType):
-                        if not result.variants[variant_id_chrm].pathologies[pathoType].contains(pathology):
-                          result.variants[variant_id_chrm].pathologies[pathoType].add(pathology)
+                      if curVariant.pathologies.isNil:
+                        curVariant.pathologies = newTable[string, seq[string]]()
+                      if curVariant.pathologies.hasKey(pathoType):
+                        if not curVariant.pathologies[pathoType].contains(pathology):
+                          curVariant.pathologies[pathoType].add(pathology)
                       else:
-                        result.variants[variant_id_chrm].pathologies[pathoType] = @[]
-                        result.variants[variant_id_chrm].pathologies[pathoType].add(pathology)
+                        curVariant.pathologies[pathoType] = @[pathology]
                       if not clinicalPathoType.contains(pathoType):
                         clinicalPathoType.add(pathoType)
 
@@ -862,7 +881,7 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                     for citation in citation_nodes:
                       for citation_id in citation.findAll("ID"):
                         if citation_id.attr("Source") == "PubMed":
-                          result.variants[variant_id_chrm].pubmed_ids.add(citation_id.innerText)
+                          curVariant.pubmed_ids.add(citation_id.innerText)
 
                     # extracted with a regex from the comment node
                     for comment in comment_nodes:
@@ -883,9 +902,9 @@ proc loadVariants*(clinvar_xml_file: string, genome_assembly: string): tuple[var
                       clinical_significance: clinical_significance,
                       review_status: review_status,
                       submitter_id: submitter_id,
-                      variant_in_gene: variant_in_gene
+                      variant_in_gene: geneInterner.intern(variant_in_gene)
                     )
-                    result.variants[variant_id_chrm].submissions.add(submission)
+                    curVariant.submissions.add(submission)
 
 
 proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: string,
@@ -935,8 +954,9 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     nb_corrections = 0
     nb_variants = 0
   for v in variants:
-    if toUpperAscii(v.chrom) == "UN" and genome_assembly in ["GRCh37", "GRCh38"]:
-      logger.log(lvlInfo, fmt"=====> Skipping [chromosome]=[{v.chrom}] for genome [{genome_assembly}] !")
+    let vchrom = chromInterner[v.chrom]
+    if toUpperAscii(vchrom) == "UN" and genome_assembly in ["GRCh37", "GRCh38"]:
+      logger.log(lvlInfo, fmt"=====> Skipping [chromosome]=[{vchrom}] for genome [{genome_assembly}] !")
       continue
     inc(nb_variants)
     let (clinsig, revstat, subdetails, old_clinsig, nb_reclassification_stars, rawGeneInfo) = v.submissions.aggregateSubmissions(
@@ -947,7 +967,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     var info_fields : seq[string] = @["ALLELEID=" & $v.allele_id]
 
     if not genes_index.isNil() and rawGeneInfo == "":
-      let gene_info = genes_index.getInfoString(v.chrom, int(v.pos), int(v.pos) + v.ref_allele.len() - 1, coding_priority)
+      let gene_info = genes_index.getInfoString(vchrom, int(v.pos), int(v.pos) + v.ref_allele.len() - 1, coding_priority)
       if gene_info != "":
         info_fields.add("GENEINFO=" & gene_info)
 
@@ -958,7 +978,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     info_fields.add("CLNREVSTAT=" & revstat.formatVCFString())
     if subdetails != "":
       info_fields.add("SUBDETAILS=" & subdetails.formatVCFString())
-    info_fields.add("VARIANTTYPE=" & v.type_v.formatVCFString())
+    info_fields.add("VARIANTTYPE=" & typeInterner[v.type_v].formatVCFString())
     info_fields.add("VARIANTLENGTH=" & $v.length)
 
     if old_clinsig != "":
@@ -967,7 +987,7 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
       inc(nb_corrections)
 
     # Add each pathologies per variants in info_field
-    if v.pathologies.len > 0:
+    if not v.pathologies.isNil and v.pathologies.len > 0:
       for pathoType in v.pathologies.keys:
         # Edit pathology string to fit with header
         # Example : given Disease return CLNDISEASE
@@ -984,9 +1004,9 @@ proc printVCF*(variants: seq[ClinVariant], genome_assembly: string, filedate: st
     if v.pubmed_ids.len > 0:
       info_fields.add("PUBMED=" & join(v.pubmed_ids.deduplicate(), "|"))
 
-    if v.chrom != "" and v.ref_allele != "" and v.alt_allele != "":
+    if vchrom != "" and v.ref_allele != "" and v.alt_allele != "":
       echo [
-        v.chrom,
+        vchrom,
         $v.pos,
         $v.variant_id,
         v.ref_allele,
@@ -1062,6 +1082,9 @@ Gene annotation:
   # Sort variants by genomic order
   logger.log(lvlInfo, "[main] Sorting variants")
   variants_seq = toSeq(variants_hash.values())
+  # Release the hash (string keys + bucket array) before the sort/print phase;
+  # the variants themselves stay alive through the seq's references.
+  variants_hash = nil
   variants_seq.sort(cmpVariant)
 
   # Print VCF of STDOUT
