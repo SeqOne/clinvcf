@@ -1,0 +1,16 @@
+.git
+.gitlab
+.idea
+old/
+*.vcf
+*.xml
+*.xml.gz
+*.png
+*.dSYM/
+# compiled binaries (rebuilt inside the image)
+clinvcf
+extractClinvarSet
+compvcf
+src/clinvcf
+tests/all
+ssshtest
